@@ -68,5 +68,14 @@ namespace WoodnoteMobileUI.Properties {
                 return ResourceManager.GetString("About", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search.
+        /// </summary>
+        internal static string Search {
+            get {
+                return ResourceManager.GetString("Search", resourceCulture);
+            }
+        }
     }
 }

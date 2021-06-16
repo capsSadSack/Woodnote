@@ -82,6 +82,7 @@
     -->
     <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
         <ShellContent Title="Browse" Icon="tab_feed.png" ContentTemplate="{DataTemplate local:ItemsPage}" />
+        <ShellContent Title="{x:Static resx:strings.Search}" Icon="tab_feed.png" Route="BirdSearchPage" ContentTemplate="{DataTemplate local:BirdSearchPage}" />
         <ShellContent Title="{x:Static resx:strings.About}" Icon="tab_about.png" Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
     </FlyoutItem>
 
