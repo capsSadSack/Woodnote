@@ -12,20 +12,20 @@ namespace BirdClassification.AuxModels
 
         // Уникальное имя
         public string Name { get; }
-        public string Text { get; }
+        public object Obj { get; }
         public List<Tree> Nodes { get; } = new List<Tree>();
 
 
-        public Tree(string text)
+        public Tree(object obj)
         {
             Name = GetNextUniqueName();
-            Text = text;
+            Obj = obj;
         }
 
 
-        public void AddChild(string nodeText)
+        public void AddChild(object obj)
         {
-            Nodes.Add(new Tree(nodeText));
+            Nodes.Add(new Tree(obj));
         }
 
         //public bool TryGetAction(string nodeName, out Action action)
@@ -53,11 +53,6 @@ namespace BirdClassification.AuxModels
         //    action = () => { };
         //    return false;
         //}
-
-        public override string ToString()
-        {
-            return this.Text;
-        }
 
         private string GetNextUniqueName()
         {
