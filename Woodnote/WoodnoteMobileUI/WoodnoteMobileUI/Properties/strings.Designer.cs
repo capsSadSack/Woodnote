@@ -70,6 +70,15 @@ namespace WoodnoteMobileUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Aves.
+        /// </summary>
+        internal static string BirdClass {
+            get {
+                return ResourceManager.GetString("BirdClass", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Search.
         /// </summary>
         internal static string Search {

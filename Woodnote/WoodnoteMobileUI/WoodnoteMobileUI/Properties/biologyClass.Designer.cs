@@ -86,5 +86,77 @@ namespace WoodnoteMobileUI.Properties {
                 return ResourceManager.GetString("Clade_Palaeognathae", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Aepyornithiformes.
+        /// </summary>
+        internal static string Order_Aepyornithiformes {
+            get {
+                return ResourceManager.GetString("Order_Aepyornithiformes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Apterygiformes.
+        /// </summary>
+        internal static string Order_Apterygiformes {
+            get {
+                return ResourceManager.GetString("Order_Apterygiformes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Casuariiformes.
+        /// </summary>
+        internal static string Order_Casuariiformes {
+            get {
+                return ResourceManager.GetString("Order_Casuariiformes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dinornithiformes.
+        /// </summary>
+        internal static string Order_Dinornithiformes {
+            get {
+                return ResourceManager.GetString("Order_Dinornithiformes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lithornithiformes.
+        /// </summary>
+        internal static string Order_Lithornithiformes {
+            get {
+                return ResourceManager.GetString("Order_Lithornithiformes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rheiformes.
+        /// </summary>
+        internal static string Order_Rheiformes {
+            get {
+                return ResourceManager.GetString("Order_Rheiformes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Struthioniformes.
+        /// </summary>
+        internal static string Order_Struthioniformes {
+            get {
+                return ResourceManager.GetString("Order_Struthioniformes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tinamiformes.
+        /// </summary>
+        internal static string Order_Tinamiformes {
+            get {
+                return ResourceManager.GetString("Order_Tinamiformes", resourceCulture);
+            }
+        }
     }
 }

@@ -126,4 +126,28 @@
   <data name="Clade_Palaeognathae" xml:space="preserve">
     <value>Бескилевые</value>
   </data>
+  <data name="Order_Aepyornithiformes" xml:space="preserve">
+    <value>Эпиорнисообразные</value>
+  </data>
+  <data name="Order_Apterygiformes" xml:space="preserve">
+    <value>Кивиобразные</value>
+  </data>
+  <data name="Order_Casuariiformes" xml:space="preserve">
+    <value>Казуарообразные</value>
+  </data>
+  <data name="Order_Dinornithiformes" xml:space="preserve">
+    <value>Моаобразные</value>
+  </data>
+  <data name="Order_Lithornithiformes" xml:space="preserve">
+    <value>Литорнитообразные</value>
+  </data>
+  <data name="Order_Rheiformes" xml:space="preserve">
+    <value>Нандуобразные</value>
+  </data>
+  <data name="Order_Struthioniformes" xml:space="preserve">
+    <value>Страусообразные</value>
+  </data>
+  <data name="Order_Tinamiformes" xml:space="preserve">
+    <value>Тинамуобразные</value>
+  </data>
 </root>

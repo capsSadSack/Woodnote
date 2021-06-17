@@ -120,6 +120,9 @@
   <data name="About" xml:space="preserve">
     <value>About</value>
   </data>
+  <data name="BirdClass" xml:space="preserve">
+    <value>Aves</value>
+  </data>
   <data name="Search" xml:space="preserve">
     <value>Search</value>
   </data>
