@@ -1,6 +1,7 @@
 ﻿namespace BirdClassification
 {
-    public class Classificator
+    public enum BiologyClass
     {
+        Birds
     }
 }
