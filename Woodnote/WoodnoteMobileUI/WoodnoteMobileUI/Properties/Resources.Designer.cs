@@ -63,9 +63,29 @@ namespace WoodnoteMobileUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] Aepyornithiformes_Silhouette_150х200 {
+            get {
+                object obj = ResourceManager.GetObject("Aepyornithiformes_Silhouette_150х200", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] Anseriformes_Silhouette_150х200 {
             get {
                 object obj = ResourceManager.GetObject("Anseriformes_Silhouette_150х200", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Galliformes_Silhouette_150х200 {
+            get {
+                object obj = ResourceManager.GetObject("Galliformes_Silhouette_150х200", resourceCulture);
                 return ((byte[])(obj));
             }
         }
