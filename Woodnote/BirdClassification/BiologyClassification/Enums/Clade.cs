@@ -1,4 +1,4 @@
-﻿namespace BirdClassification
+﻿namespace BirdClassification.BiologyClassification
 {
     public enum Clade
     {

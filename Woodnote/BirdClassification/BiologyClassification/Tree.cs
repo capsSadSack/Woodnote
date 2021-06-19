@@ -5,7 +5,7 @@ using System.Text;
 
 [assembly: InternalsVisibleTo("BirdClassification.Tests")]
 
-namespace BirdClassification
+namespace BirdClassification.BiologyClassification
 {
     internal class Tree
     {

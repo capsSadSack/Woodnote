@@ -29,10 +29,6 @@ namespace BirdClassification.Tests
         [Test]
         public void SecondNode_GetAllParentNodes_CorrectNodes()
         {
-            string orderNameEn = Enum.GetName(typeof(Order), 9);
-
-
-
             var nodes = _tree.GetAllParentNodes(TestEnum.Two);
             Assert.AreEqual(1, nodes.Count());
             Assert.AreEqual(TestEnum.One, nodes.ElementAt(0));

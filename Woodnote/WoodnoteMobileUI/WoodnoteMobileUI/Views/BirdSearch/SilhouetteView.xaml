@@ -5,12 +5,12 @@
   <ContentView.Content>
         <Frame OutlineColor="Black">
             <StackLayout Orientation="Vertical">
-                <Image x:Name="image" HeightRequest="150"
+                <Image x:Name="image" HeightRequest="100"
                    Aspect="AspectFit"/>
 
-                <Label x:Name="label" 
-                   VerticalOptions="CenterAndExpand" 
-                   HorizontalOptions="CenterAndExpand"/>
+                <Label x:Name="label" FontSize="Micro"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"/>
             </StackLayout>
         </Frame>
     </ContentView.Content>

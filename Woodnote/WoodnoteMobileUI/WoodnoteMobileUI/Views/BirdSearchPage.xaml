@@ -5,42 +5,15 @@
              xmlns:CustomControls="clr-namespace:WoodnoteMobileUI.Views.CustomControls"
              x:Class="WoodnoteMobileUI.Views.BirdSearchPage">
     <ContentPage.Content>
-        <ScrollView Orientation="Vertical">
+        <ScrollView Orientation="Vertical" Margin="10">
             <StackLayout Orientation="Vertical">
+                
                 <Frame OutlineColor="Gray">
-                    <CustomControls:ExpandableView>
-                        <CustomControls:ExpandableView.Summary>
-                            <StackLayout>
-                                <Label Text="Search By Silhouette"
+                    <Label Text="Search By Silhouette"
                                     VerticalOptions="CenterAndExpand" 
                                     HorizontalOptions="CenterAndExpand"/>
-                            </StackLayout>
-                        </CustomControls:ExpandableView.Summary>
-                        <CustomControls:ExpandableView.Details>
-                            <StackLayout>
-                                <Grid x:Name="birdSilhouetteGrid">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="10"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="10"/>
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="10"/>
-                                        <RowDefinition Height="50"/>
 
-                                        <RowDefinition Height="10"/>
-                                    </Grid.RowDefinitions>
-
-                                    <Label Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"
-                                        Text="Bird Search"
-                                        VerticalOptions="CenterAndExpand" 
-                                        HorizontalOptions="CenterAndExpand"/>
-                                </Grid>
-                            </StackLayout>
-                        </CustomControls:ExpandableView.Details>
-                    </CustomControls:ExpandableView>
-                    
+                    <views:SilhouetteSelectionView />
                 </Frame>
 
                 <Frame OutlineColor="Gray">
@@ -48,9 +21,12 @@
                            VerticalOptions="CenterAndExpand" 
                            HorizontalOptions="CenterAndExpand"/>
 
-
                     <views:ColorSelectionView />
                 </Frame>
+
+                <Button x:Name="searchBirdButton" Text="Search!" BackgroundColor="DeepSkyBlue"
+                        Clicked="SearchBirdButton_Clicked"/>
+
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
