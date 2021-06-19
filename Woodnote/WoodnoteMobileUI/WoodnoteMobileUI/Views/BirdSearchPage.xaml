@@ -1,31 +1,46 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             xmlns:views="clr-namespace:WoodnoteMobileUI.Views.BirdSearch"
+             xmlns:views="clr-namespace:WoodnoteMobileUI.Views.BirdSearch" 
+             xmlns:CustomControls="clr-namespace:WoodnoteMobileUI.Views.CustomControls"
              x:Class="WoodnoteMobileUI.Views.BirdSearchPage">
     <ContentPage.Content>
         <ScrollView Orientation="Vertical">
             <StackLayout Orientation="Vertical">
                 <Frame OutlineColor="Gray">
-                    <Grid x:Name="birdSilhouetteGrid">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="10"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="10"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="10"/>
-                            <RowDefinition Height="50"/>
+                    <CustomControls:ExpandableView>
+                        <CustomControls:ExpandableView.Summary>
+                            <StackLayout>
+                                <Label Text="Search By Silhouette"
+                                    VerticalOptions="CenterAndExpand" 
+                                    HorizontalOptions="CenterAndExpand"/>
+                            </StackLayout>
+                        </CustomControls:ExpandableView.Summary>
+                        <CustomControls:ExpandableView.Details>
+                            <StackLayout>
+                                <Grid x:Name="birdSilhouetteGrid">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="10"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="10"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="10"/>
+                                        <RowDefinition Height="50"/>
 
-                            <RowDefinition Height="10"/>
-                        </Grid.RowDefinitions>
+                                        <RowDefinition Height="10"/>
+                                    </Grid.RowDefinitions>
 
-                        <Label Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"
+                                    <Label Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"
                             Text="Bird Search"
                             VerticalOptions="CenterAndExpand" 
                             HorizontalOptions="CenterAndExpand"/>
-                    </Grid>
+                                </Grid>
+                            </StackLayout>
+                        </CustomControls:ExpandableView.Details>
+                    </CustomControls:ExpandableView>
+                    
                 </Frame>
 
                 <Frame OutlineColor="Gray">
