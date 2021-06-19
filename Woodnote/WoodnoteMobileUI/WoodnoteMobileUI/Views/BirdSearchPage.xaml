@@ -33,9 +33,9 @@
                                     </Grid.RowDefinitions>
 
                                     <Label Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"
-                            Text="Bird Search"
-                            VerticalOptions="CenterAndExpand" 
-                            HorizontalOptions="CenterAndExpand"/>
+                                        Text="Bird Search"
+                                        VerticalOptions="CenterAndExpand" 
+                                        HorizontalOptions="CenterAndExpand"/>
                                 </Grid>
                             </StackLayout>
                         </CustomControls:ExpandableView.Details>
