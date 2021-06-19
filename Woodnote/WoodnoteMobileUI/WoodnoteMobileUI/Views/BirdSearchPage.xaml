@@ -1,13 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:views="clr-namespace:WoodnoteMobileUI.Views.BirdSearch"
              x:Class="WoodnoteMobileUI.Views.BirdSearchPage">
     <ContentPage.Content>
-        <!--<StackLayout x:Name="BirdSilhouetteLayout" Orientation="Vertical">
-            <Label Text="Bird Search"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>-->
         <ScrollView Orientation="Vertical">
             <StackLayout Orientation="Vertical">
                 <Frame OutlineColor="Gray">
@@ -31,12 +27,14 @@
                             HorizontalOptions="CenterAndExpand"/>
                     </Grid>
                 </Frame>
-                
+
                 <Frame OutlineColor="Gray">
-                    <Label x:Name="stopButton" 
-                           Text="Search By Color"
+                    <Label Text="Search By Color"
                            VerticalOptions="CenterAndExpand" 
                            HorizontalOptions="CenterAndExpand"/>
+
+
+                    <views:ColorSelectionView />
                 </Frame>
             </StackLayout>
         </ScrollView>

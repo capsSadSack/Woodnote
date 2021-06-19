@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WoodnoteMobileUI.Views.BirdSearch.ColorSelectionView">
+  <ContentView.Content>
+      <StackLayout Orientation="Vertical">
+          <Label Text="Select color" 
+                 VerticalOptions="CenterAndExpand" 
+                 HorizontalOptions="CenterAndExpand"/>
+            <StackLayout Orientation="Horizontal">
+                <Button BackgroundColor="White" HeightRequest="20" WidthRequest="20"/>
+                <Button BackgroundColor="White" HeightRequest="20" WidthRequest="20"/>
+                <Button BackgroundColor="Gray" HeightRequest="20" WidthRequest="20"/>
+                <Button BackgroundColor="Black" HeightRequest="20" WidthRequest="20"/>
+                <Button BackgroundColor="SaddleBrown" HeightRequest="20" WidthRequest="20"/>
+                <Button BackgroundColor="Red" HeightRequest="20" WidthRequest="20"/>
+                <Button BackgroundColor="Orange" HeightRequest="20" WidthRequest="20"/>
+                <Button BackgroundColor="#FFE6B4" HeightRequest="20" WidthRequest="20"/>
+                <Button BackgroundColor="Yellow" HeightRequest="20" WidthRequest="20"/>
+                <Button BackgroundColor="Green" HeightRequest="20" WidthRequest="20"/>
+                <Button BackgroundColor="SkyBlue" HeightRequest="20" WidthRequest="20"/>
+                <Button BackgroundColor="Blue" HeightRequest="20" WidthRequest="20"/>
+                <Button BackgroundColor="Violet" HeightRequest="20" WidthRequest="20"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>
