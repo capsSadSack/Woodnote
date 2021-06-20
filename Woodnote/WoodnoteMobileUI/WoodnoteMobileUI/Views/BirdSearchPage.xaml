@@ -24,6 +24,15 @@
                     <views:ColorSelectionView />
                 </Frame>
 
+                <Frame OutlineColor="Gray">
+                    <Label Text="Search By Region"
+                           VerticalOptions="CenterAndExpand" 
+                           HorizontalOptions="CenterAndExpand"/>
+
+                    <views:MapSelectionView />
+                </Frame>
+
+
                 <Button x:Name="searchBirdButton" Text="Search!" BackgroundColor="DeepSkyBlue"
                         Clicked="SearchBirdButton_Clicked"/>
 

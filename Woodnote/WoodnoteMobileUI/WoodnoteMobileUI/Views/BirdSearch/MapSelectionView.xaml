@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             x:Class="WoodnoteMobileUI.Views.BirdSearch.MapSelectionView">
+    <ContentView.Content>
+        <maps:Map>
+            <maps:Map.MapElements>
+                <maps:Polygon StrokeColor="#FF9900"
+                        StrokeWidth="8"
+                        FillColor="#88FF9900">
+                    <maps:Polygon.Geopath>
+                        <maps:Position>
+                            <x:Arguments>
+                                <x:Double>47.6368678</x:Double>
+                                <x:Double>-122.137305</x:Double>
+                            </x:Arguments>
+                        </maps:Position>
+                        
+                    </maps:Polygon.Geopath>
+                </maps:Polygon>
+            </maps:Map.MapElements>
+        </maps:Map>
+    </ContentView.Content>
+</ContentView>
