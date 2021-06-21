@@ -4,7 +4,7 @@
              xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
              x:Class="WoodnoteMobileUI.Views.BirdSearch.MapSelectionView">
     <ContentView.Content>
-        <maps:Map>
+        <maps:Map HeightRequest="300">
             <maps:Map.MapElements>
                 <maps:Polygon StrokeColor="#FF9900"
                         StrokeWidth="8"

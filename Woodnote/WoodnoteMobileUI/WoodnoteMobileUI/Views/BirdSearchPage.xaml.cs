@@ -1,4 +1,5 @@
 ﻿using BirdClassification;
+using Controllers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,13 +16,25 @@ namespace WoodnoteMobileUI.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class BirdSearchPage : ContentPage
     {
+        private BirdSearchController _birdSearchController = new BirdSearchController();
+
+
         public BirdSearchPage()
         {
             InitializeComponent();
         }
 
+
         private void SearchBirdButton_Clicked(object sender, EventArgs e)
         {
+            // Collect data form forms
+
+
+            // Search
+            _birdSearchController.Search();
+
+            // View Result
+
 
         }
     }
