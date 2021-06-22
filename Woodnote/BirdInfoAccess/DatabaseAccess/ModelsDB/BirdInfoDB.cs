@@ -1,9 +1,7 @@
-﻿using System;
-using SQLite;
+﻿using SQLite;
 
-namespace BirdInfoAccess.Models
+namespace BirdInfoAccess.DatabaseAccess.ModelsDB
 {
-
     public class BirdInfoDB
     {
         [PrimaryKey, AutoIncrement]

@@ -8,6 +8,7 @@ namespace BirdClassification
     {
         public string Name { get; set; }
 
+        public Enum Classification { get; set; }
         public IEnumerable<object> Habitat { get; set; }
         public IEnumerable<BirdColor> Colors { get; set; }
         public string Comment { get; set; }

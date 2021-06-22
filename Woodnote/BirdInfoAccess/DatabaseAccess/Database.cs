@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using BirdInfoAccess.Models;
+using BirdInfoAccess.DatabaseAccess.ModelsDB;
 using SQLite;
 
 namespace BirdInfoAccess.DatabaseAccess
