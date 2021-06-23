@@ -1,9 +1,11 @@
 ﻿using BirdInfoAccess.DatabaseAccess;
 using BirdInfoAccess.DatabaseAccess.ModelsDB;
+using BirdInfoAccess.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace BirdInfoAccess.DatabaseAccess
 {
@@ -23,14 +25,27 @@ namespace BirdInfoAccess.DatabaseAccess
 
         public static DBBirdAccess GetInstance()
         {
-            Console.WriteLine($"GetInstance {DateTime.Now.TimeOfDay}");
             return _instance;
         }
 
-        public IEnumerable<object> GetBirds(BiologyClassificationDB classification,
+
+        public async Task<IEnumerable<ColorDB>> GetAllBirdsColorsAsync()
+        {
+            return await _database.GetAllColorsAsync();
+        }
+
+        public IEnumerable<BirdDA> GetBirds(BiologyClassificationDB classification,
             IEnumerable<ColorDB> colors, IEnumerable<object> habitat)
         {
-            throw new NotImplementedException();
+            return new List<BirdDA>()
+            {
+                new BirdDA()
+                {
+                    BiologyClasificationID = 1,
+                    Colors = new List<ColorDB>(),
+                    Name = "Sparrow"
+                }
+            };
         }
     }
 }

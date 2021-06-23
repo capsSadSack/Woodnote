@@ -17,7 +17,7 @@
                 <Button BackgroundColor="Orange" HeightRequest="20" WidthRequest="20"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                <Button BackgroundColor="Pink" HeightRequest="20" WidthRequest="20"/>
+                <Button BackgroundColor="HotPink" HeightRequest="20" WidthRequest="20"/>
                 <Button BackgroundColor="DarkViolet" HeightRequest="20" WidthRequest="20"/>
                 <Button BackgroundColor="Blue" HeightRequest="20" WidthRequest="20"/>
                 <Button BackgroundColor="SkyBlue" HeightRequest="20" WidthRequest="20"/>

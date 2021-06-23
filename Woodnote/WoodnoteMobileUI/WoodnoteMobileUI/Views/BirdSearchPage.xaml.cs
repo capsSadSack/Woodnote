@@ -2,6 +2,7 @@
 using Controllers;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Resources;
@@ -25,16 +26,24 @@ namespace WoodnoteMobileUI.Views
         }
 
 
-        private void SearchBirdButton_Clicked(object sender, EventArgs e)
+        private async void SearchBirdButton_Clicked(object sender, EventArgs e)
         {
             // Collect data form forms
+            BirdColorController ctrl = new BirdColorController();
+            var colors = await ctrl.GetBirdsColors();
 
+            foreach (var color in colors)
+            {
+                Debug.WriteLine($"Color: { color.ColorHex }");
+            }
 
             // Search
-            _birdSearchController.Search();
+            var result = _birdSearchController.Search();
+            Debug.WriteLine("Birds count: " + result.Count());
 
             // View Result
-
+            bool answer = await DisplayAlert("Question?", "Would you like to play a game", "Yes", "No");
+            Debug.WriteLine("Answer: " + answer);
 
         }
     }
