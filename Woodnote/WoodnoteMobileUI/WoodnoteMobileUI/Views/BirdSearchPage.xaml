@@ -7,29 +7,35 @@
     <ContentPage.Content>
         <ScrollView Orientation="Vertical" Margin="10">
             <StackLayout Orientation="Vertical">
-                
+
                 <Frame OutlineColor="Gray">
-                    <Label Text="Search By Silhouette"
+                    <StackLayout Orientation="Vertical">
+                        <Label Text="Search By Silhouette"
                                     VerticalOptions="CenterAndExpand" 
                                     HorizontalOptions="CenterAndExpand"/>
 
-                    <views:SilhouetteSelectionView />
+                        <views:SilhouetteSelectionView />
+                    </StackLayout>
                 </Frame>
 
                 <Frame OutlineColor="Gray">
-                    <Label Text="Search By Color"
-                           VerticalOptions="CenterAndExpand" 
-                           HorizontalOptions="CenterAndExpand"/>
+                    <StackLayout Orientation="Vertical">
+                        <Label Text="Search By Color"
+                               VerticalOptions="CenterAndExpand" 
+                               HorizontalOptions="CenterAndExpand"/>
 
-                    <views:ColorSelectionView />
+                        <views:ColorSelectionView />
+                    </StackLayout>
                 </Frame>
 
                 <Frame OutlineColor="Gray">
-                    <Label Text="Search By Region"
-                           VerticalOptions="CenterAndExpand" 
-                           HorizontalOptions="CenterAndExpand"/>
+                    <StackLayout Orientation="Vertical">
+                        <Label Text="Search By Region"
+                               VerticalOptions="CenterAndExpand" 
+                               HorizontalOptions="CenterAndExpand"/>
 
-                    <views:MapSelectionView />
+                        <views:MapSelectionView />
+                    </StackLayout>
                 </Frame>
 
 
