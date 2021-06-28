@@ -124,10 +124,22 @@
   <data name="Anseriformes_Silhouette_150х200" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Anseriformes_Silhouette_150х200.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="Apterygiformes_Silhouette_150х200" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Apterygiformes_Silhouette_150х200.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Casuariiformes_Silhouette_150х200" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Casuariiformes_Silhouette_150х200.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="Eurypygiformes_Silhouette_150х200" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Eurypygiformes_Silhouette_150х200.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Galliformes_Silhouette_150х200" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Galliformes_Silhouette_150х200.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Rheiformes_Silhouette_150х200" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Rheiformes_Silhouette_150х200.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Struthioniformes_Silhouette_150х200" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Struthioniformes_Silhouette_150х200.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

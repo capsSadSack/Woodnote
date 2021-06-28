@@ -83,6 +83,26 @@ namespace WoodnoteMobileUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] Apterygiformes_Silhouette_150х200 {
+            get {
+                object obj = ResourceManager.GetObject("Apterygiformes_Silhouette_150х200", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Casuariiformes_Silhouette_150х200 {
+            get {
+                object obj = ResourceManager.GetObject("Casuariiformes_Silhouette_150х200", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] Eurypygiformes_Silhouette_150х200 {
             get {
                 object obj = ResourceManager.GetObject("Eurypygiformes_Silhouette_150х200", resourceCulture);
@@ -96,6 +116,26 @@ namespace WoodnoteMobileUI.Properties {
         internal static byte[] Galliformes_Silhouette_150х200 {
             get {
                 object obj = ResourceManager.GetObject("Galliformes_Silhouette_150х200", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Rheiformes_Silhouette_150х200 {
+            get {
+                object obj = ResourceManager.GetObject("Rheiformes_Silhouette_150х200", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Struthioniformes_Silhouette_150х200 {
+            get {
+                object obj = ResourceManager.GetObject("Struthioniformes_Silhouette_150х200", resourceCulture);
                 return ((byte[])(obj));
             }
         }
