@@ -7,25 +7,27 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Resources\Aepyornithiformes_Silhouette_150х200.png" />
-    <None Remove="Resources\Anseriformes_Silhouette_150х200.png" />
-    <None Remove="Resources\Apterygiformes_Silhouette_150х200.png" />
-    <None Remove="Resources\Casuariiformes_Silhouette_150х200.png" />
-    <None Remove="Resources\Eurypygiformes_Silhouette_150х200.png" />
-    <None Remove="Resources\Galliformes_Silhouette_150х200.png" />
-    <None Remove="Resources\Rheiformes_Silhouette_150х200.png" />
-    <None Remove="Resources\Struthioniformes_Silhouette_150х200.png" />
+    <None Remove="Resources\Aepyornithiformes_Silhouette_150x200.png" />
+    <None Remove="Resources\Anseriformes_Silhouette_150x200.png" />
+    <None Remove="Resources\Apterygiformes_Silhouette_150x200.png" />
+    <None Remove="Resources\Casuariiformes_Silhouette_150x200.png" />
+    <None Remove="Resources\Eurypygiformes_Silhouette_150x200.png" />
+    <None Remove="Resources\Galliformes_Silhouette_150x200.png" />
+    <None Remove="Resources\Rheiformes_Silhouette_150x200.png" />
+    <None Remove="Resources\Struthioniformes_Silhouette_150x200.png" />
+    <None Remove="Resources\Tinamiformes_Silhouette_150x200.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Aepyornithiformes_Silhouette_150х200.png" />
-    <EmbeddedResource Include="Resources\Anseriformes_Silhouette_150х200.png" />
-    <EmbeddedResource Include="Resources\Apterygiformes_Silhouette_150х200.png" />
-    <EmbeddedResource Include="Resources\Casuariiformes_Silhouette_150х200.png" />
-    <EmbeddedResource Include="Resources\Eurypygiformes_Silhouette_150х200.png" />
-    <EmbeddedResource Include="Resources\Galliformes_Silhouette_150х200.png" />
-    <EmbeddedResource Include="Resources\Rheiformes_Silhouette_150х200.png" />
-    <EmbeddedResource Include="Resources\Struthioniformes_Silhouette_150х200.png" />
+    <EmbeddedResource Include="Resources\Aepyornithiformes_Silhouette_150x200.png" />
+    <EmbeddedResource Include="Resources\Anseriformes_Silhouette_150x200.png" />
+    <EmbeddedResource Include="Resources\Apterygiformes_Silhouette_150x200.png" />
+    <EmbeddedResource Include="Resources\Casuariiformes_Silhouette_150x200.png" />
+    <EmbeddedResource Include="Resources\Eurypygiformes_Silhouette_150x200.png" />
+    <EmbeddedResource Include="Resources\Galliformes_Silhouette_150x200.png" />
+    <EmbeddedResource Include="Resources\Rheiformes_Silhouette_150x200.png" />
+    <EmbeddedResource Include="Resources\Struthioniformes_Silhouette_150x200.png" />
+    <EmbeddedResource Include="Resources\Tinamiformes_Silhouette_150x200.png" />
   </ItemGroup>
 
   <ItemGroup>

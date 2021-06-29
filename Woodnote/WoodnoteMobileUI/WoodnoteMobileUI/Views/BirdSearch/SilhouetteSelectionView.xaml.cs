@@ -61,7 +61,7 @@ namespace WoodnoteMobileUI.Views.BirdSearch
                     {
                         string orderNameEn = Enum.GetName(typeof(Order), birdsOrders.ElementAt(currentNumber));
                         string orderName = Properties.biologyClass.ResourceManager.GetString("Order_" + orderNameEn);
-                        string imageFileName = @"WoodnoteMobileUI.Resources." + orderNameEn + @"_Silhouette_150х200.png";
+                        string imageFileName = @"WoodnoteMobileUI.Resources." + orderNameEn + @"_Silhouette_150x200.png";
 
                         SilhouetteView view = new SilhouetteView(imageFileName, orderName);
                         AddChild(grid, view, 1 + row, 0 + col, 1, 1);
