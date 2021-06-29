@@ -3,29 +3,29 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:CustomControls="clr-namespace:WoodnoteMobileUI.Views.CustomControls"
              x:Class="WoodnoteMobileUI.Views.BirdSearch.SilhouetteSelectionView">
-  <ContentView.Content>
-        <StackLayout Orientation="Vertical">
-            
-            <CustomControls:ExpandableView>
-                <CustomControls:ExpandableView.Summary>
-                    <StackLayout>
-                        <Grid x:Name="mainBirdSilhouetteGrid">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="auto"/>
-                            </Grid.RowDefinitions>
+    <ContentView.Content>
+        <StackLayout>
 
-                            <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3"
+        <!--<CustomControls:ExpandableView>
+                <CustomControls:ExpandableView.Summary>-->
+
+            <Grid x:Name="mainBirdSilhouetteGrid">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3"
                                         Text="Select Silhouette"
                                         VerticalOptions="CenterAndExpand" 
                                         HorizontalOptions="CenterAndExpand"/>
-                        </Grid>
-                    </StackLayout>
-                </CustomControls:ExpandableView.Summary>
+            </Grid>
+        </StackLayout>
+        <!--</CustomControls:ExpandableView.Summary>
                 
                 <CustomControls:ExpandableView.Details>
                     <StackLayout>
@@ -41,7 +41,7 @@
                         </Grid>
                     </StackLayout>
                 </CustomControls:ExpandableView.Details>
-            </CustomControls:ExpandableView>
-        </StackLayout>
+            </CustomControls:ExpandableView>-->
+        <!--</StackLayout>-->
     </ContentView.Content>
 </ContentView>

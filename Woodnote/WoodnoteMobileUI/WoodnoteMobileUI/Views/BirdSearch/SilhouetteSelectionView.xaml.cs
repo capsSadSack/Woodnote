@@ -36,8 +36,8 @@ namespace WoodnoteMobileUI.Views.BirdSearch
 
             IEnumerable<Order> extraBirdsOrders = allBirdsOrders.Where(x => !mainBirdsOrder.Contains(x));
 
-            FillGrid(mainBirdsOrder, mainBirdSilhouetteGrid);
-            FillGrid(extraBirdsOrders, extraBirdSilhouetteGrid);
+            FillGrid(/*mainBirdsOrder*/ allBirdsOrders, mainBirdSilhouetteGrid);
+            //FillGrid(extraBirdsOrders, extraBirdSilhouetteGrid);
         }
 
         private void FillGrid(IEnumerable<Order> birdsOrders, Grid grid)

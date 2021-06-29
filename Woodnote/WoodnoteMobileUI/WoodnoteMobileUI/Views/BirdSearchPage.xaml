@@ -28,7 +28,7 @@
                     </StackLayout>
                 </Frame>
 
-                <Frame OutlineColor="Gray">
+                <!--<Frame OutlineColor="Gray">
                     <StackLayout Orientation="Vertical">
                         <Label Text="Search By Region"
                                VerticalOptions="CenterAndExpand" 
@@ -36,7 +36,7 @@
 
                         <views:MapSelectionView />
                     </StackLayout>
-                </Frame>
+                </Frame>-->
 
 
                 <Button x:Name="searchBirdButton" Text="Search!" BackgroundColor="DeepSkyBlue"
