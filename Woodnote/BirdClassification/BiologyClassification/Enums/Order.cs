@@ -19,14 +19,14 @@
         // Тинамуобразные
         Tinamiformes,
 
-        // Эпиорнисообразные (вымершие)
-        Aepyornithiformes,
+        //// Эпиорнисообразные (вымершие)
+        //Aepyornithiformes,
 
-        // Литорнитообразные (вымершие)
-        Lithornithiformes,
+        //// Литорнитообразные (вымершие)
+        //Lithornithiformes,
 
-        // Моаобразные (вымершие)
-        Dinornithiformes,
+        //// Моаобразные (вымершие)
+        //Dinornithiformes,
 
         #endregion
 
