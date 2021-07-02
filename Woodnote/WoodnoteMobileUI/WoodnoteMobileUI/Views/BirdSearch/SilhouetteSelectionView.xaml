@@ -5,10 +5,6 @@
              x:Class="WoodnoteMobileUI.Views.BirdSearch.SilhouetteSelectionView">
     <ContentView.Content>
         <StackLayout>
-
-        <!--<CustomControls:ExpandableView>
-                <CustomControls:ExpandableView.Summary>-->
-
             <Grid x:Name="mainBirdSilhouetteGrid">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -25,23 +21,5 @@
                                         HorizontalOptions="CenterAndExpand"/>
             </Grid>
         </StackLayout>
-        <!--</CustomControls:ExpandableView.Summary>
-                
-                <CustomControls:ExpandableView.Details>
-                    <StackLayout>
-                        <Grid x:Name="extraBirdSilhouetteGrid">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="auto"/>
-                            </Grid.RowDefinitions>
-                        </Grid>
-                    </StackLayout>
-                </CustomControls:ExpandableView.Details>
-            </CustomControls:ExpandableView>-->
-        <!--</StackLayout>-->
     </ContentView.Content>
 </ContentView>
