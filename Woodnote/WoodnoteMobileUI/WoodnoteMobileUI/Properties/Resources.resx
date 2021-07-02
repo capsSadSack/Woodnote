@@ -118,6 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Aepyornithiformes_Silhouette_300x400" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Aepyornithiformes_Silhouette_300x400.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="Anseriformes_Silhouette_300x400" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Anseriformes_Silhouette_300x400.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -127,11 +130,20 @@
   <data name="Casuariiformes_Silhouette_300x400" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Casuariiformes_Silhouette_300x400.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="Ciconiiformes_Silhouette_300x400" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Ciconiiformes_Silhouette_300x400.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="Eurypygiformes_Silhouette_300x400" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Eurypygiformes_Silhouette_300x400.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Galliformes_Silhouette_300x400" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Galliformes_Silhouette_300x400.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Passeriformes_Silhouette_300x400" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Passeriformes_Silhouette_300x400.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Procellariiformes_Silhouette_300x400" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Procellariiformes_Silhouette_300x400.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Rheiformes_Silhouette_300x400" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Rheiformes_Silhouette_300x400.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

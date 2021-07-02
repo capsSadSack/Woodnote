@@ -63,6 +63,16 @@ namespace WoodnoteMobileUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] Aepyornithiformes_Silhouette_300x400 {
+            get {
+                object obj = ResourceManager.GetObject("Aepyornithiformes_Silhouette_300x400", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] Anseriformes_Silhouette_300x400 {
             get {
                 object obj = ResourceManager.GetObject("Anseriformes_Silhouette_300x400", resourceCulture);
@@ -93,6 +103,16 @@ namespace WoodnoteMobileUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] Ciconiiformes_Silhouette_300x400 {
+            get {
+                object obj = ResourceManager.GetObject("Ciconiiformes_Silhouette_300x400", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] Eurypygiformes_Silhouette_300x400 {
             get {
                 object obj = ResourceManager.GetObject("Eurypygiformes_Silhouette_300x400", resourceCulture);
@@ -106,6 +126,26 @@ namespace WoodnoteMobileUI.Properties {
         internal static byte[] Galliformes_Silhouette_300x400 {
             get {
                 object obj = ResourceManager.GetObject("Galliformes_Silhouette_300x400", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Passeriformes_Silhouette_300x400 {
+            get {
+                object obj = ResourceManager.GetObject("Passeriformes_Silhouette_300x400", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Procellariiformes_Silhouette_300x400 {
+            get {
+                object obj = ResourceManager.GetObject("Procellariiformes_Silhouette_300x400", resourceCulture);
                 return ((byte[])(obj));
             }
         }
