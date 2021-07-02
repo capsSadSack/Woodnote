@@ -7,7 +7,7 @@ using Xamarin.Forms;
 
 namespace WoodnoteMobileUI.ViewModels
 {
-    public class NewItemViewModel : BaseViewModel
+    public class NewItemViewModel : BaseDataSourceViewModel<Item>
     {
         private string text;
         private string description;

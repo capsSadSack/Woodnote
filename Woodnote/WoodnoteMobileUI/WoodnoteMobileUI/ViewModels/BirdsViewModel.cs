@@ -1,33 +1,30 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Text;
 using System.Threading.Tasks;
-
-using Xamarin.Forms;
-
 using WoodnoteMobileUI.Models;
 using WoodnoteMobileUI.Views;
+using Xamarin.Forms;
 
 namespace WoodnoteMobileUI.ViewModels
 {
-    public class ItemsViewModel : BaseDataSourceViewModel<Item>
+    public class BirdsViewModel : BaseDataSourceViewModel<Bird>
     {
-        private Item _selectedItem;
+        private Bird _selected;
 
-        public ObservableCollection<Item> Items { get; }
+        public ObservableCollection<Bird> SearchResults { get; }
         public Command LoadItemsCommand { get; }
-        public Command AddItemCommand { get; }
-        public Command<Item> ItemTapped { get; }
+        public Command<Bird> ResultTapped { get; }
 
-        public ItemsViewModel()
+        public BirdsViewModel()
         {
-            Title = "Browse";
-            Items = new ObservableCollection<Item>();
+            Title = "Search result";
+            SearchResults = new ObservableCollection<Bird>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
-            ItemTapped = new Command<Item>(OnItemSelected);
-
-            AddItemCommand = new Command(OnAddItem);
+            ResultTapped = new Command<Bird>(OnItemSelected);
         }
 
         private async Task ExecuteLoadItemsCommand()
@@ -36,11 +33,11 @@ namespace WoodnoteMobileUI.ViewModels
 
             try
             {
-                Items.Clear();
+                SearchResults.Clear();
                 var items = await DataStore.GetItemsAsync(true);
                 foreach (var item in items)
                 {
-                    Items.Add(item);
+                    SearchResults.Add(item);
                 }
             }
             catch (Exception ex)
@@ -59,28 +56,23 @@ namespace WoodnoteMobileUI.ViewModels
             SelectedItem = null;
         }
 
-        public Item SelectedItem
+        public Bird SelectedItem
         {
-            get => _selectedItem;
+            get => _selected;
             set
             {
-                SetProperty(ref _selectedItem, value);
+                SetProperty(ref _selected, value);
                 OnItemSelected(value);
             }
         }
 
-        private async void OnAddItem(object obj)
-        {
-            await Shell.Current.GoToAsync(nameof(NewItemPage));
-        }
-
-        private async void OnItemSelected(Item item)
+        private async void OnItemSelected(Bird item)
         {
             if (item == null)
                 return;
 
             // This will push the ItemDetailPage onto the navigation stack
-            await Shell.Current.GoToAsync($"{nameof(ItemDetailPage)}?{nameof(ItemDetailViewModel.ItemId)}={item.Id}");
+            await Shell.Current.GoToAsync($"{nameof(BirdPage)}?{nameof(BirdDetailViewModel.ItemId)}={item.Id}");
         }
     }
 }

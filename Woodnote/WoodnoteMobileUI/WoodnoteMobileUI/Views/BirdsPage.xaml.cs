@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace WoodnoteMobileUI.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class SearchResultPage : ContentPage
+    public partial class BirdsPage : ContentPage
     {
-        public SearchResultPage()
+        public BirdsPage()
         {
             InitializeComponent();
         }
