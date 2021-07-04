@@ -1,10 +1,10 @@
 ﻿using BirdInfoAccess.DatabaseAccess.ModelsDB;
-using Controllers.ViewModels;
+using Domain.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Controllers.Converters
+namespace Domain.Converters
 {
     public static class BirdColorConverter
     {

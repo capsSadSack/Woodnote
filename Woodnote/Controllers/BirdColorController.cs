@@ -1,12 +1,12 @@
 ﻿using BirdInfoAccess.DatabaseAccess;
-using Controllers.Converters;
-using Controllers.ViewModels;
+using Domain.Converters;
+using Domain.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Controllers
+namespace Domain
 {
     public class BirdColorController
     {

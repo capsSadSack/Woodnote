@@ -6,9 +6,9 @@ using Xamarin.Forms;
 namespace WoodnoteMobileUI.ViewModels
 {
     [QueryProperty(nameof(ItemId), nameof(ItemId))]
-    public class ItemDetailViewModel : BaseDataSourceViewModel<Item>
+    public class ItemDetailViewModel : BaseDataStoreViewModel<Item>
     {
-        private string _itemId;
+        private long _itemId;
         private string _text;
         private string _description;
 
@@ -26,7 +26,7 @@ namespace WoodnoteMobileUI.ViewModels
             set => SetProperty(ref _description, value);
         }
 
-        public string ItemId
+        public long ItemId
         {
             get
             {
@@ -39,7 +39,7 @@ namespace WoodnoteMobileUI.ViewModels
             }
         }
 
-        public async void LoadItemId(string itemId)
+        public async void LoadItemId(long itemId)
         {
             try
             {

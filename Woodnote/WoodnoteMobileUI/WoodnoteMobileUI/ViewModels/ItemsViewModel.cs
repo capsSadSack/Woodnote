@@ -10,7 +10,7 @@ using WoodnoteMobileUI.Views;
 
 namespace WoodnoteMobileUI.ViewModels
 {
-    public class ItemsViewModel : BaseDataSourceViewModel<Item>
+    public class ItemsViewModel : BaseDataStoreViewModel<Item>
     {
         private Item _selectedItem;
 

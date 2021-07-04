@@ -3,10 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-using Xamarin.Forms;
-using WoodnoteMobileUI.Models;
-using WoodnoteMobileUI.Services;
-
 namespace WoodnoteMobileUI.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged

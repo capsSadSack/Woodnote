@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Controllers.ViewModels
+namespace Domain.ViewModels
 {
     public class ColorVM
     {

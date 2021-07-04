@@ -13,11 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BirdClassification", "BirdC
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BirdClassification.Tests", "BirdClassification.Tests\BirdClassification.Tests.csproj", "{6A458F22-C34E-4494-B372-E74371B0C70F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Controllers", "Controllers\Controllers.csproj", "{565BB8EE-B8FB-42DA-AF1D-8A11041C168E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Controllers\Domain.csproj", "{565BB8EE-B8FB-42DA-AF1D-8A11041C168E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataAccess", "DataAccess", "{1342FEAE-9C51-428A-AF2B-BD176B6C8576}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BirdInfoAccess", "BirdInfoAccess\BirdInfoAccess.csproj", "{8B4849FE-80E2-4F72-A198-8CA8E22DEE4D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BirdInfoAccess", "BirdInfoAccess\BirdInfoAccess.csproj", "{8B4849FE-80E2-4F72-A198-8CA8E22DEE4D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

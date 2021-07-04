@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.Text;
 using System.Threading.Tasks;
 using WoodnoteMobileUI.Models;
 using WoodnoteMobileUI.Views;
@@ -10,7 +8,7 @@ using Xamarin.Forms;
 
 namespace WoodnoteMobileUI.ViewModels
 {
-    public class BirdsViewModel : BaseDataSourceViewModel<Bird>
+    public class BirdsViewModel : BaseDataStoreViewModel<Bird>
     {
         private Bird _selected;
 

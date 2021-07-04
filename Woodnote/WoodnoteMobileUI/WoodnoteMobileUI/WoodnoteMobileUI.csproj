@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Controllers\**" />
+    <EmbeddedResource Remove="Controllers\**" />
+    <None Remove="Controllers\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Resources\Aepyornithiformes_Silhouette_300x400.png" />
     <None Remove="Resources\Anseriformes_Silhouette_300x400.png" />
     <None Remove="Resources\Apterygiformes_Silhouette_300x400.png" />
@@ -44,7 +50,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\BirdClassification\BirdClassification.csproj" />
-    <ProjectReference Include="..\..\Controllers\Controllers.csproj" />
+    <ProjectReference Include="..\..\Controllers\Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -123,9 +129,5 @@
     <EmbeddedResource Update="Views\BirdsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Controllers\" />
   </ItemGroup>
 </Project>
