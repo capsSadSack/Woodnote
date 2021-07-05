@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Domain.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
-using WoodnoteMobileUI.Models;
 using Xamarin.Forms;
 
 namespace WoodnoteMobileUI.ViewModels

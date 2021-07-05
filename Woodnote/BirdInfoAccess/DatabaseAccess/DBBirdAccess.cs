@@ -34,12 +34,12 @@ namespace BirdInfoAccess.DatabaseAccess
             return await _database.GetAllColorsAsync();
         }
 
-        public BirdDA GetBird(long birdID)
+        public BirdDA GetBird(string birdID)
         {
             // TODO: [CG, 2021.07.04] Заглушка - вывод фейковых данных
             return new BirdDA()
             {
-                Id = birdID
+                Id = Convert.ToInt64(birdID)
             };
         }
 

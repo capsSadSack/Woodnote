@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 
-using WoodnoteMobileUI.Models;
 using WoodnoteMobileUI.Views;
+using Domain.Models;
 
 namespace WoodnoteMobileUI.ViewModels
 {

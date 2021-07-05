@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Domain.Models;
+using System;
 using System.Diagnostics;
-using WoodnoteMobileUI.Models;
 using Xamarin.Forms;
 
 namespace WoodnoteMobileUI.ViewModels
@@ -8,7 +8,7 @@ namespace WoodnoteMobileUI.ViewModels
     [QueryProperty(nameof(ItemId), nameof(ItemId))]
     public class ItemDetailViewModel : BaseDataStoreViewModel<Item>
     {
-        private long _itemId;
+        private string _itemId;
         private string _text;
         private string _description;
 
@@ -26,7 +26,7 @@ namespace WoodnoteMobileUI.ViewModels
             set => SetProperty(ref _description, value);
         }
 
-        public long ItemId
+        public string ItemId
         {
             get
             {
@@ -39,7 +39,7 @@ namespace WoodnoteMobileUI.ViewModels
             }
         }
 
-        public async void LoadItemId(long itemId)
+        public async void LoadItemId(string itemId)
         {
             try
             {

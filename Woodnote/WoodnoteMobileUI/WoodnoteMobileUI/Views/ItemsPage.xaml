@@ -4,7 +4,7 @@
              x:Class="WoodnoteMobileUI.Views.ItemsPage"
              Title="{Binding Title}"
              xmlns:local="clr-namespace:WoodnoteMobileUI.ViewModels"  
-             xmlns:model="clr-namespace:WoodnoteMobileUI.Models"  
+             xmlns:model="clr-namespace:Domain.Models;assembly=Domain"
              x:Name="BrowseItemsPage">
 
     <ContentPage.ToolbarItems>

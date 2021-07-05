@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Domain.Models;
+using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
-using WoodnoteMobileUI.Models;
 using WoodnoteMobileUI.Views;
 using Xamarin.Forms;
 
