@@ -6,33 +6,33 @@ using Domain.Models;
 
 namespace Domain.Endpoints
 {
-    public class MockDataStore : IDataStore<Item_>
+    public class MockDataStore : IDataStore<ItemDomain>
     {
-        readonly List<Item_> items;
+        readonly List<ItemDomain> items;
 
         public MockDataStore()
         {
-            items = new List<Item_>()
+            items = new List<ItemDomain>()
             {
-                new Item_ { Id = Guid.NewGuid().ToString(), Text = "First item", Description="This is an item description." },
-                new Item_ { Id = Guid.NewGuid().ToString(), Text = "Second item", Description="This is an item description." },
-                new Item_ { Id = Guid.NewGuid().ToString(), Text = "Third item", Description="This is an item description." },
-                new Item_ { Id = Guid.NewGuid().ToString(), Text = "Fourth item", Description="This is an item description." },
-                new Item_ { Id = Guid.NewGuid().ToString(), Text = "Fifth item", Description="This is an item description." },
-                new Item_ { Id = Guid.NewGuid().ToString(), Text = "Sixth item", Description="This is an item description." }
+                new ItemDomain { Id = Guid.NewGuid().ToString(), Text = "First item", Description="This is an item description." },
+                new ItemDomain { Id = Guid.NewGuid().ToString(), Text = "Second item", Description="This is an item description." },
+                new ItemDomain { Id = Guid.NewGuid().ToString(), Text = "Third item", Description="This is an item description." },
+                new ItemDomain { Id = Guid.NewGuid().ToString(), Text = "Fourth item", Description="This is an item description." },
+                new ItemDomain { Id = Guid.NewGuid().ToString(), Text = "Fifth item", Description="This is an item description." },
+                new ItemDomain { Id = Guid.NewGuid().ToString(), Text = "Sixth item", Description="This is an item description." }
             };
         }
 
-        public async Task<bool> AddItemAsync(Item_ item)
+        public async Task<bool> AddItemAsync(ItemDomain item)
         {
             items.Add(item);
 
             return await Task.FromResult(true);
         }
 
-        public async Task<bool> UpdateItemAsync(Item_ item)
+        public async Task<bool> UpdateItemAsync(ItemDomain item)
         {
-            var oldItem = items.Where((Item_ arg) => arg.Id == item.Id).FirstOrDefault();
+            var oldItem = items.Where((ItemDomain arg) => arg.Id == item.Id).FirstOrDefault();
             items.Remove(oldItem);
             items.Add(item);
 
@@ -41,18 +41,18 @@ namespace Domain.Endpoints
 
         public async Task<bool> DeleteItemAsync(string id)
         {
-            var oldItem = items.Where((Item_ arg) => arg.Id == id).FirstOrDefault();
+            var oldItem = items.Where((ItemDomain arg) => arg.Id == id).FirstOrDefault();
             items.Remove(oldItem);
 
             return await Task.FromResult(true);
         }
 
-        public async Task<Item_> GetItemAsync(string id)
+        public async Task<ItemDomain> GetItemAsync(string id)
         {
             return await Task.FromResult(items.FirstOrDefault(s => s.Id == id));
         }
 
-        public async Task<IEnumerable<Item_>> GetItemsAsync(bool forceRefresh = false)
+        public async Task<IEnumerable<ItemDomain>> GetItemsAsync(bool forceRefresh = false)
         {
             return await Task.FromResult(items);
         }

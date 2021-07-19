@@ -1,14 +1,12 @@
 ﻿using Domain.Models;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using WoodnoteMobileUI.Models;
 
 namespace WoodnoteMobileUI.Converters
 {
     public static class ItemConverter
     {
-        public static Item ToItemUI(this Item_ item)
+        public static Item ToItemUI(this ItemDomain item)
         {
             return new Item()
             {
@@ -18,12 +16,12 @@ namespace WoodnoteMobileUI.Converters
             };
         }
 
-        public static IEnumerable<Item> ToItemsUI(this IEnumerable<Item_> items)
+        public static IEnumerable<Item> ToItemsUI(this IEnumerable<ItemDomain> items)
             => CollectionsConverter.ConvertCollection(items, ToItemUI);
 
-        public static Item_ ToItemDomain(this Item item)
+        public static ItemDomain ToItemDomain(this Item item)
         {
-            return new Item_()
+            return new ItemDomain()
             {
                 Id = item.Id,
                 Text = item.Text,
@@ -31,7 +29,7 @@ namespace WoodnoteMobileUI.Converters
             };
         }
 
-        public static IEnumerable<Item_> ToItemsDomain(this IEnumerable<Item> items)
+        public static IEnumerable<ItemDomain> ToItemsDomain(this IEnumerable<Item> items)
             => CollectionsConverter.ConvertCollection(items, ToItemDomain);
     }
 }

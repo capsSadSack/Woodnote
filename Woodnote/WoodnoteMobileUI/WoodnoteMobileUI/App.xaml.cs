@@ -10,9 +10,6 @@ namespace WoodnoteMobileUI
 {
     public partial class App : Application
     {
-
-
-
         public App()
         {
             InitializeComponent();

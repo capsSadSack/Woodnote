@@ -1,8 +1,6 @@
 ﻿using Domain.Endpoints;
 using Domain.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using WoodnoteMobileUI.Converters;
 using WoodnoteMobileUI.Models;
@@ -12,7 +10,7 @@ namespace WoodnoteMobileUI.Endpoints
 {
     public class ItemDataStore : IDataStore<Item>
     {
-        private IDataStore<Item_> _itemDataStore => DependencyService.Get<IDataStore<Item_>>();
+        private IDataStore<ItemDomain> _itemDataStore => DependencyService.Get<IDataStore<ItemDomain>>();
 
 
         public async Task<bool> AddItemAsync(Item item)

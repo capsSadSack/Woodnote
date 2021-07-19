@@ -2,11 +2,8 @@
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
-
 using WoodnoteMobileUI.Views;
-using Domain.Models;
 using WoodnoteMobileUI.Models;
 
 namespace WoodnoteMobileUI.ViewModels
