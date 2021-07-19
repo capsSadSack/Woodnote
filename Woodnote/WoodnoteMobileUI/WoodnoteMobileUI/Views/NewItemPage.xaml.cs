@@ -6,6 +6,7 @@ using Xamarin.Forms.Xaml;
 
 using WoodnoteMobileUI.ViewModels;
 using Domain.Models;
+using WoodnoteMobileUI.Models;
 
 namespace WoodnoteMobileUI.Views
 {

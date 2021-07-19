@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace Domain
 
 {
-    public class BirdSearcher : IDataStore<Bird>
+    public class BirdSearcher : IDataStore<Bird_>
     {
         private DBBirdAccess _birdAccess;
 
@@ -20,25 +20,25 @@ namespace Domain
             _birdAccess = DBBirdAccess.GetInstance();
         }
 
-        public async Task<Bird> GetItemAsync(string id)
+        public async Task<Bird_> GetItemAsync(string id)
         {
             var task = Task.Run(() => _birdAccess.GetBird(id).ToBird());
             return await task;
         }
 
-        public async Task<IEnumerable<Bird>> GetItemsAsync(bool forceRefresh = false)
+        public async Task<IEnumerable<Bird_>> GetItemsAsync(bool forceRefresh = false)
         {
             var task = Task.Run(() => _birdAccess.GetBirds(null, null, null).ToBird());
             return await task;
         }
 
-        public Task<bool> AddItemAsync(Bird item)
+        public Task<bool> AddItemAsync(Bird_ item)
             => throw new Exception($"Method { MethodBase.GetCurrentMethod() } is not supported.");
 
         public Task<bool> DeleteItemAsync(string id)
             => throw new Exception($"Method { MethodBase.GetCurrentMethod() } is not supported.");
 
-        public Task<bool> UpdateItemAsync(Bird item)
+        public Task<bool> UpdateItemAsync(Bird_ item)
             => throw new Exception($"Method { MethodBase.GetCurrentMethod() } is not supported.");
     }
 }

@@ -8,16 +8,16 @@ namespace Domain.Converters
 {
     public static class BirdConverter
     {
-        public static Bird ToBird(this BirdDA birdDA)
+        public static Bird_ ToBird(this BirdDA birdDA)
         {
-            return new Bird()
+            return new Bird_()
             {
                 //Id = birdDA.
                 Name = birdDA.Name
             };
         }
 
-        public static IEnumerable<Bird> ToBird(this IEnumerable<BirdDA> birdsDA)
+        public static IEnumerable<Bird_> ToBird(this IEnumerable<BirdDA> birdsDA)
         {
             return CollectionsConverter.ConvertCollection(birdsDA, ToBird);
         }

@@ -1,6 +1,6 @@
 ﻿namespace Domain.Models
 {
-    public class Bird
+    public class Bird_
     {
         public string Id { get; set; }
         public string Name { get; set; }

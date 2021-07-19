@@ -4,6 +4,7 @@ using Xamarin.Forms.Xaml;
 using WoodnoteMobileUI.Views;
 using Domain.Endpoints;
 using Domain;
+using WoodnoteMobileUI.Endpoints;
 
 namespace WoodnoteMobileUI
 {
@@ -16,6 +17,7 @@ namespace WoodnoteMobileUI
         {
             InitializeComponent();
 
+            DependencyService.Register<ItemDataStore>();
             DependencyService.Register<MockDataStore>();
             DependencyService.Register<BirdSearcher>();
 

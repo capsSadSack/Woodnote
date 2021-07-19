@@ -1,6 +1,7 @@
 ﻿using Domain.Models;
 using System;
 using System.Diagnostics;
+using WoodnoteMobileUI.Models;
 using Xamarin.Forms;
 
 namespace WoodnoteMobileUI.ViewModels
