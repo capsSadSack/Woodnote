@@ -1,13 +1,15 @@
 ﻿using Domain.Models;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Text;
 using WoodnoteMobileUI.Models;
 using Xamarin.Forms;
 
 namespace WoodnoteMobileUI.ViewModels
 {
     [QueryProperty(nameof(ItemId), nameof(ItemId))]
-    public class ItemDetailViewModel : BaseDataStoreViewModel<Item>
+    public class BirdDetailViewModel : BaseDataStoreViewModel<Bird>
     {
         private string _itemId;
         private string _text;
@@ -51,7 +53,7 @@ namespace WoodnoteMobileUI.ViewModels
             }
             catch (Exception)
             {
-                Debug.WriteLine("Failed to Load Item");
+                Debug.WriteLine("Failed to Load Bird Details");
             }
         }
     }

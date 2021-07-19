@@ -1,5 +1,5 @@
 ﻿using BirdClassification;
-using Controllers;
+using Domain;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -17,9 +17,6 @@ namespace WoodnoteMobileUI.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class BirdSearchPage : ContentPage
     {
-        private BirdSearchController _birdSearchController = new BirdSearchController();
-
-
         public BirdSearchPage()
         {
             InitializeComponent();
@@ -38,8 +35,8 @@ namespace WoodnoteMobileUI.Views
             }
 
             // Search
-            var result = _birdSearchController.Search();
-            Debug.WriteLine("Birds count: " + result.Count());
+            // var result = _birdSearchController.Search();
+            //Debug.WriteLine("Birds count: " + result.Count());
 
             // View Result
             bool answer = await DisplayAlert("Question?", "Would you like to play a game", "Yes", "No");

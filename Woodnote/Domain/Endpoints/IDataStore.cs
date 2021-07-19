@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace WoodnoteMobileUI.Services
+namespace Domain.Endpoints
 {
     public interface IDataStore<T>
     {

@@ -1,6 +1,6 @@
-﻿namespace WoodnoteMobileUI.Models
+﻿namespace Domain.Models
 {
-    public class Item
+    public class ItemDomain
     {
         public string Id { get; set; }
         public string Text { get; set; }
