@@ -19,6 +19,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataAccess", "DataAccess", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BirdInfoAccess", "BirdInfoAccess\BirdInfoAccess.csproj", "{8B4849FE-80E2-4F72-A198-8CA8E22DEE4D}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WoodnoteWPF", "WoodnoteWPF\WoodnoteWPF.csproj", "{77AF618D-8E2F-45EC-AD49-66DA442BF621}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -131,6 +133,18 @@ Global
 		{8B4849FE-80E2-4F72-A198-8CA8E22DEE4D}.Release|iPhone.Build.0 = Release|Any CPU
 		{8B4849FE-80E2-4F72-A198-8CA8E22DEE4D}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{8B4849FE-80E2-4F72-A198-8CA8E22DEE4D}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{77AF618D-8E2F-45EC-AD49-66DA442BF621}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77AF618D-8E2F-45EC-AD49-66DA442BF621}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77AF618D-8E2F-45EC-AD49-66DA442BF621}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{77AF618D-8E2F-45EC-AD49-66DA442BF621}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{77AF618D-8E2F-45EC-AD49-66DA442BF621}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{77AF618D-8E2F-45EC-AD49-66DA442BF621}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{77AF618D-8E2F-45EC-AD49-66DA442BF621}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77AF618D-8E2F-45EC-AD49-66DA442BF621}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77AF618D-8E2F-45EC-AD49-66DA442BF621}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{77AF618D-8E2F-45EC-AD49-66DA442BF621}.Release|iPhone.Build.0 = Release|Any CPU
+		{77AF618D-8E2F-45EC-AD49-66DA442BF621}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{77AF618D-8E2F-45EC-AD49-66DA442BF621}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
