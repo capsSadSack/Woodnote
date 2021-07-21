@@ -27,18 +27,6 @@ namespace WoodnoteWPF.ViewModels
         {
             IEnumerable<Order> allBirdsOrders = EnumProcessor.GetAllValues(Order.Casuariiformes);
 
-            IEnumerable<Order> mainBirdsOrder = new List<Order>
-            {
-                Order.Accipitriformes,
-                Order.Aepyornithiformes,
-                Order.Anseriformes,
-                Order.Apodiformes,
-                Order.Apterygiformes,
-                Order.Bucerotiformes
-            };
-
-            IEnumerable<Order> extraBirdsOrders = allBirdsOrders.Where(x => !mainBirdsOrder.Contains(x));
-
             foreach (var birdOrder in allBirdsOrders)
             {
                 string orderNameEn = Enum.GetName(typeof(Order), birdOrder);
