@@ -48,6 +48,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BirdClassification\BirdClassification.csproj" />
+    <ProjectReference Include="..\Domain\Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -24,66 +24,75 @@
         </Grid.RowDefinitions>
         <ScrollViewer Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"
                       VerticalScrollBarVisibility="Auto">
-            <ItemsControl x:Name="Silhouettes">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Margin="5">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="auto"/>
-                                </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="auto"/>
-                                    <RowDefinition Height="auto"/>
-                                    <RowDefinition Height="auto"/>
-                                </Grid.RowDefinitions>
+            <StackPanel Orientation="Vertical">
+                <ItemsControl x:Name="Silhouettes">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Margin="5">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                    </Grid.RowDefinitions>
 
-                                <ToggleButton x:Name="SelectSihouette" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"
+                                    <ToggleButton x:Name="SelectSihouette" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"
                                     Width="150" Height="200"
                                         cal:Message.Attach="[Click] = [OnSilhouetteClicked($datacontext)]">
+                                        <Image Source="{Binding Path=ImagePath}"/>
+                                    </ToggleButton>
 
-                                    <Image Source="{Binding Path=ImagePath}"/>
-
-                                    <ToggleButton.Style>
-                                        <Style TargetType="{x:Type ToggleButton}">
-                                            <Setter Property="Background" Value="LightBlue"/>
-                                            <Setter Property="Template">
-                                                <Setter.Value>
-                                                    <ControlTemplate TargetType="{x:Type ToggleButton}">
-                                                        <Border Background="{TemplateBinding Background}" CornerRadius="5">
-                                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                                        </Border>
-                                                        <ControlTemplate.Triggers>
-
-                                                            <Trigger Property="IsMouseOver" Value="True">
-                                                                <Setter Property="Background" Value="DeepSkyBlue"/>
-                                                            </Trigger>
-                                                            <Trigger Property="IsChecked" Value="True">
-                                                                <Setter Property="Background" Value="DodgerBlue"/>
-                                                            </Trigger>
-                                                        </ControlTemplate.Triggers>
-                                                    </ControlTemplate>
-                                                </Setter.Value>
-                                            </Setter>
-                                        </Style>
-                                    </ToggleButton.Style>
-                                </ToggleButton>
-
-                                <CheckBox Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left"
+                                    <CheckBox Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left"
                                           IsChecked="{Binding Path=IsSelected}"/>
-                                <TextBlock Grid.Row="2" Grid.Column="0"
+                                    <TextBlock Grid.Row="2" Grid.Column="0"
                                     FontSize="16" Text="{Binding Path=Name}" HorizontalAlignment="Center" />
-                            </Grid>
-                            <!--<TextBlock FontSize="16" Text="{Binding Path=Company}" HorizontalAlignment="Center" />-->
-                        </StackPanel>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <WrapPanel />
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-            </ItemsControl>
+                                </Grid>
+                                <!--<TextBlock FontSize="16" Text="{Binding Path=Company}" HorizontalAlignment="Center" />-->
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
+
+                <TextBlock>Colors...</TextBlock>
+
+                <ItemsControl x:Name="Colors">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Margin="5">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Button x:Name="SelectColor" Grid.Row="0" Grid.Column="0"
+                                        Width="35" Height="35"
+
+                                                  Background="{Binding Color}">
+                                        x
+                                    </Button>
+                                </Grid>
+                                <!--<TextBlock FontSize="16" Text="{Binding Path=Company}" HorizontalAlignment="Center" />-->
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
+            </StackPanel>
         </ScrollViewer>
         
         <Button x:Name="SearchBirds" Grid.Row="4"  Grid.Column="2"> 

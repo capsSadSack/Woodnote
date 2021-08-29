@@ -1,10 +1,12 @@
 ﻿using BirdClassification.BiologyClassification;
 using Caliburn.Micro;
+using Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WoodnoteWPF.Converters;
 using WoodnoteWPF.Models;
 
 namespace WoodnoteWPF.ViewModels
@@ -15,11 +17,12 @@ namespace WoodnoteWPF.ViewModels
 
         private BindableCollection<BirdOrderSilhouetteModel> _silhouettes = new BindableCollection<BirdOrderSilhouetteModel>();
         private BirdOrderSilhouetteModel _selectedSilhouette;
-
+        private BindableCollection<ColorModel> _colors = new BindableCollection<ColorModel>();
 
         public BirdSearchViewModel()
         {
             LoadSilhouettes();
+            LoadColors();
         }
 
 
@@ -44,6 +47,16 @@ namespace WoodnoteWPF.ViewModels
             }
         }
 
+        private async Task<IEnumerable<ColorModel>> LoadColors()
+        {
+            BirdColorController bcc = new BirdColorController();
+            IEnumerable<Domain.ViewModels.ColorVM> colorsVM = await bcc.GetBirdsColors();
+            IEnumerable<ColorModel> output =  colorsVM.ToColorModels();
+
+            Colors.AddRange(output);
+            return output;
+        }
+
         public BindableCollection<BirdOrderSilhouetteModel> Silhouettes
         {
             get
@@ -53,6 +66,18 @@ namespace WoodnoteWPF.ViewModels
             set
             {
                 _silhouettes = value;
+            }
+        }
+
+        public BindableCollection<ColorModel> Colors
+        {
+            get
+            {
+                return _colors;
+            }
+            set
+            {
+                _colors = value;
             }
         }
 
@@ -101,10 +126,20 @@ namespace WoodnoteWPF.ViewModels
 
         public void SearchBirds()
         {
-            int i = 0;
+            var selectedSilhouettes = Silhouettes
+                .Where(x => x.IsSelected)
+                .Select(x => x.Name)
+                .ToList();
+
+            Console.WriteLine($"{ selectedSilhouettes.Count }");
         }
 
         public void OnSilhouetteClicked(BirdOrderSilhouetteModel item)
+        {
+            item.IsSelected = !item.IsSelected;
+        }
+
+        public void OnColorClicked(ColorModel item)
         {
             item.IsSelected = !item.IsSelected;
         }
