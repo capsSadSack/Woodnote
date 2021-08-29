@@ -3,8 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:WoodnoteWPF.Views"
-             mc:Ignorable="d" Background="LightSkyBlue"
+             xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro.Platform"
+             mc:Ignorable="d" Background="White"
              d:DesignHeight="450" d:DesignWidth="800">
 
     <Grid>
@@ -17,13 +17,13 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="5"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
         <ScrollViewer Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"
-                      VerticalScrollBarVisibility="Auto" Height="400">
+                      VerticalScrollBarVisibility="Auto">
             <ItemsControl x:Name="Silhouettes">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
@@ -38,35 +38,36 @@
                                     <RowDefinition Height="auto"/>
                                 </Grid.RowDefinitions>
 
-                                <Button Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"
-                                    Width="150" Height="200">
-                                    <Image  Source="{Binding Path=ImagePath}"/>
+                                <ToggleButton x:Name="SelectSihouette" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"
+                                    Width="150" Height="200"
+                                        cal:Message.Attach="[Click] = [OnSilhouetteClicked($datacontext)]">
 
-                                    <Button.Style>
-                                        <Style TargetType="{x:Type Button}">
-                                            <Setter Property="Background" Value="Green"/>
+                                    <Image Source="{Binding Path=ImagePath}"/>
+
+                                    <ToggleButton.Style>
+                                        <Style TargetType="{x:Type ToggleButton}">
+                                            <Setter Property="Background" Value="LightBlue"/>
                                             <Setter Property="Template">
                                                 <Setter.Value>
-                                                    <ControlTemplate TargetType="{x:Type Button}">
-                                                        <Border Background="{TemplateBinding Background}">
+                                                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                                                        <Border Background="{TemplateBinding Background}" CornerRadius="5">
                                                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                                         </Border>
+                                                        <ControlTemplate.Triggers>
+
+                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                <Setter Property="Background" Value="DeepSkyBlue"/>
+                                                            </Trigger>
+                                                            <Trigger Property="IsChecked" Value="True">
+                                                                <Setter Property="Background" Value="DodgerBlue"/>
+                                                            </Trigger>
+                                                        </ControlTemplate.Triggers>
                                                     </ControlTemplate>
                                                 </Setter.Value>
                                             </Setter>
-                                            <Style.Triggers>
-                                                <Trigger Property="IsMouseOver" Value="True">
-                                                    <Setter Property="Background" Value="DarkGoldenrod"/>
-                                                </Trigger>
-                                            </Style.Triggers>
                                         </Style>
-                                    </Button.Style>
-                                </Button>
-                                
-
-
-
-
+                                    </ToggleButton.Style>
+                                </ToggleButton>
 
                                 <CheckBox Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left"
                                           IsChecked="{Binding Path=IsSelected}"/>
@@ -85,28 +86,8 @@
             </ItemsControl>
         </ScrollViewer>
         
-        <Button x:Name="SearchBirds" Grid.Row="4"  Grid.Column="2"
-                Margin="5"> Найти
-
-            <Button.Style>
-                <Style TargetType="{x:Type Button}">
-                    <Setter Property="Background" Value="Green"/>
-                    <Setter Property="Template">
-                        <Setter.Value>
-                            <ControlTemplate TargetType="{x:Type Button}">
-                                <Border Background="{TemplateBinding Background}">
-                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                </Border>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                    <Style.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="DarkGoldenrod"/>
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-            </Button.Style>
+        <Button x:Name="SearchBirds" Grid.Row="4"  Grid.Column="2"> 
+            Найти
         </Button>
     </Grid>
 </UserControl>

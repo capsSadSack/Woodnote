@@ -97,5 +97,16 @@ namespace WoodnoteWPF.ViewModels
         {
             ActivateItemAsync(new BirdSearchViewModel());
         }
+
+
+        public void SearchBirds()
+        {
+            int i = 0;
+        }
+
+        public void OnSilhouetteClicked(BirdOrderSilhouetteModel item)
+        {
+            item.IsSelected = !item.IsSelected;
+        }
     }
 }
