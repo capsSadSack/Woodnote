@@ -40,7 +40,8 @@
                                     </Grid.RowDefinitions>
 
                                     <ToggleButton x:Name="SelectSihouette" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"
-                                    Width="150" Height="200"
+                                        Width="150" Height="200" 
+                                        Style="{StaticResource SilhouettesToggleButtonStyle}" 
                                         cal:Message.Attach="[Click] = [OnSilhouetteClicked($datacontext)]">
                                         <Image Source="{Binding Path=ImagePath}"/>
                                     </ToggleButton>
@@ -75,12 +76,10 @@
                                         <RowDefinition Height="auto"/>
                                     </Grid.RowDefinitions>
 
-                                    <Button x:Name="SelectColor" Grid.Row="0" Grid.Column="0"
+                                    <ToggleButton x:Name="SelectColor" Grid.Row="0" Grid.Column="0"
                                         Width="35" Height="35"
-
-                                                  Background="{Binding Color}">
-                                        x
-                                    </Button>
+                                        Background="{Binding Color}"
+                                        Style="{StaticResource ColorsToggleButtonStyle}"/>
                                 </Grid>
                                 <!--<TextBlock FontSize="16" Text="{Binding Path=Company}" HorizontalAlignment="Center" />-->
                             </StackPanel>

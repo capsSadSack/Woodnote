@@ -1,5 +1,4 @@
-﻿using BirdInfoAccess.DatabaseAccess;
-using BirdInfoAccess.DatabaseAccess.ModelsDB;
+﻿using BirdInfoAccess.DatabaseAccess.ModelsDB;
 using BirdInfoAccess.Models;
 using System;
 using System.Collections.Generic;
@@ -19,6 +18,8 @@ namespace BirdInfoAccess.DatabaseAccess
 
         private DBBirdAccess()
         {
+            // NOTE: [CG, 2021.08.30] App needs special requirements to create a new directory inside AppData/Local,
+            //                        so the DB file is just there 
             _database = new Database(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "birds.db3"));
         }
 

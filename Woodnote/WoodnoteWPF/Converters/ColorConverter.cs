@@ -1,9 +1,6 @@
 ﻿using Domain.ViewModels;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Media;
 using WoodnoteWPF.Models;
 
@@ -13,7 +10,7 @@ namespace WoodnoteWPF.Converters
     {
         public static ColorModel ToColorModel(this ColorVM colorVM)
         {
-            var converter = new System.Windows.Media.BrushConverter();
+            var converter = new BrushConverter();
             var brush = (Brush)converter.ConvertFromString(colorVM.ColorHex);
 
             return new ColorModel()
