@@ -19,6 +19,7 @@ namespace WoodnoteWPF.ViewModels
         private BirdOrderSilhouetteModel _selectedSilhouette;
         private BindableCollection<ColorModel> _colors = new BindableCollection<ColorModel>();
 
+
         public BirdSearchViewModel()
         {
             LoadSilhouettes();
@@ -126,12 +127,14 @@ namespace WoodnoteWPF.ViewModels
 
         public void SearchBirds()
         {
-            var selectedSilhouettes = Silhouettes
+            List<string> selectedSilhouetteNames = Silhouettes
                 .Where(x => x.IsSelected)
                 .Select(x => x.Name)
                 .ToList();
 
-            Console.WriteLine($"{ selectedSilhouettes.Count }");
+            List<ColorModel> selectedColors = Colors
+                .Where(x => x.IsSelected)
+                .ToList();
         }
 
         public void OnSilhouetteClicked(BirdOrderSilhouetteModel item)
