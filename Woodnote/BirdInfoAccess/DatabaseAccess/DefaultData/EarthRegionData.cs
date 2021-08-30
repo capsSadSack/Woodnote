@@ -1,73 +1,18 @@
-﻿using System.Collections.Generic;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Media;
-using System.Windows.Shapes;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
-namespace WoodnoteWPF.Views
+namespace BirdInfoAccess.DatabaseAccess.DefaultData
 {
-    /// <summary>
-    /// Interaction logic for BirdSearchView.xaml
-    /// </summary>
-    public partial class BirdSearchView : UserControl
+    public static class EarthRegionData
     {
-        private double _maxWidth = 600;
-        private double _maxHeight = 800;
+        #region Polygons
 
-        public BirdSearchView()
+        private static List<EarthPolygon> _northAmericaPolygons = new List<EarthPolygon>()
         {
-            InitializeComponent();
-            DrawPolygon();
-        }
-
-        public void DrawPolygon()
-        {
-            mapCanvas.Children.Add(CreatePolygon(_northAmericaPoints_01));
-            mapCanvas.Children.Add(CreatePolygon(_northAmericaPoints_02));
-            mapCanvas.Children.Add(CreatePolygon(_northAmericaPoints_03));
-            mapCanvas.Children.Add(CreatePolygon(_northAmericaPoints_04));
-            mapCanvas.Children.Add(CreatePolygon(_northAmericaPoints_05));
-            mapCanvas.Children.Add(CreatePolygon(_northAmericaPoints_06));
-            mapCanvas.Children.Add(CreatePolygon(_northAmericaPoints_07));
-            mapCanvas.Children.Add(CreatePolygon(_northAmericaPoints_08));
-            mapCanvas.Children.Add(CreatePolygon(_northAmericaPoints_09));
-        }
-
-        private Polygon CreatePolygon(List<EarthPoint> points)
-        {
-            Polygon p = new Polygon();
-            p.Stroke = Brushes.Black;
-            p.Fill = Brushes.LightBlue;
-            p.StrokeThickness = 1;
-            p.HorizontalAlignment = HorizontalAlignment.Left;
-            p.VerticalAlignment = VerticalAlignment.Center;
-            p.Points = ToPointCollection(points, _maxWidth, _maxHeight);
-
-            return p;
-        }
-
-        private PointCollection ToPointCollection(IEnumerable<EarthPoint> points, double maxWidth, double maxHeight)
-        {
-            var output = new PointCollection();
-
-            foreach (var earthPoint in points)
-            {
-                output.Add(ToPoint(earthPoint, maxWidth, maxHeight));
-            }
-
-            return output;
-        }
-
-        private Point ToPoint(EarthPoint earthPoint, double maxWidth, double maxHeight)
-        {
-            double y = (90.0 - earthPoint.Latitude_Degree) / 180.0 * maxHeight;
-            double x = (180.0 + earthPoint.Longitude_Degree) / 360.0 * maxWidth;
-
-            return new Point(x, y);
-        }
-
-        private List<EarthPoint> _northAmericaPoints_01 = new List<EarthPoint>()
-        {
+            // Canada, USA continental parts
+            FromPoints(
                 EarthPoint.FromDegree(54.97921316122329, -163.76823144847265),
                 EarthPoint.FromDegree(68.52925489717782, -166.22916893476744),
                 EarthPoint.FromDegree(71.1886524254245, -156.3854189895884),
@@ -92,37 +37,31 @@ namespace WoodnoteWPF.Views
                 EarthPoint.FromDegree(47.04184825288209, -124.0717807633267),
                 EarthPoint.FromDegree(58.40117168269589, -137.49576098765536),
                 EarthPoint.FromDegree(60.17807648424235, -148.18522672184298),
-                EarthPoint.FromDegree(57.61094100821055, -153.65425581149577)
-        };
+                EarthPoint.FromDegree(57.61094100821055, -153.65425581149577)),
 
-        // Bank Island and Victoria Island
-        private List<EarthPoint> _northAmericaPoints_02 = new List<EarthPoint>()
-        {
-            EarthPoint.FromDegree(72.5033688260793, -126.98478328301618),
+            // Bank Island and Victoria Island
+            FromPoints(
+                EarthPoint.FromDegree(72.5033688260793, -126.98478328301618),
                 EarthPoint.FromDegree(74.21347235826259, -124.52384579672145),
                 EarthPoint.FromDegree(71.85793410044988, -108.0004083887424),
                 EarthPoint.FromDegree(73.62933229439182, -104.48478340832133),
                 EarthPoint.FromDegree(70.73078674503647, -103.43009591419502),
                 EarthPoint.FromDegree(69.90199951391105, -101.67228342398448),
                 EarthPoint.FromDegree(68.53023941686425, -112.5707208632898),
-                EarthPoint.FromDegree(71.18951974436295, -118.19572083196351)
-        };
+                EarthPoint.FromDegree(71.18951974436295, -118.19572083196351)),
 
-        // Wales Island and nearby
-        private List<EarthPoint> _northAmericaPoints_03 = new List<EarthPoint>()
-        {
+            // Wales Island and nearby
+            FromPoints(
                 EarthPoint.FromDegree(72.84640799930416, -102.53676056374499),
                 EarthPoint.FromDegree(73.86400390218061, -90.20338215457075),
                 EarthPoint.FromDegree(71.83198003962094, -94.1751480829489),
                 EarthPoint.FromDegree(69.69932339646478, -91.66666433871006),
                 EarthPoint.FromDegree(69.48062577553023, -94.38418839496882),
                 EarthPoint.FromDegree(72.66047833821015, -102.32772025172508),
-                EarthPoint.FromDegree(69.48062577553023, -94.38418839496882)
-        };
+                EarthPoint.FromDegree(69.48062577553023, -94.38418839496882)),
 
-        // Baffin Island
-        private List<EarthPoint> _northAmericaPoints_04 = new List<EarthPoint>()
-        {
+            // Baffin Island
+            FromPoints(
                 EarthPoint.FromDegree(73.80822882257668, -86.10919502975194),
                 EarthPoint.FromDegree(73.45477954550294, -77.32950192491603),
                 EarthPoint.FromDegree(69.9187708440497, -67.29556694796074),
@@ -133,12 +72,10 @@ namespace WoodnoteWPF.Views
                 EarthPoint.FromDegree(67.08853767148621, -72.73061506047819),
                 EarthPoint.FromDegree(69.8468733380495, -79.41990504511506),
                 EarthPoint.FromDegree(70.13299060827562, -87.99055783793105),
-                EarthPoint.FromDegree(72.22166951719434, -89.87192064611017)
-        };
+                EarthPoint.FromDegree(72.22166951719434, -89.87192064611017)),
 
-        // Patrick Island, Melvile Island, King Island, etc.
-        private List<EarthPoint> _northAmericaPoints_05 = new List<EarthPoint>()
-        {
+            // Patrick Island, Melvile Island, King Island, etc.
+            FromPoints(
                 EarthPoint.FromDegree(76.2538973753246, -122.62093090766051),
                 EarthPoint.FromDegree(78.75564895766031, -109.61311848010253),
                 EarthPoint.FromDegree(77.5286480516156, -110.31624347618673),
@@ -146,18 +83,14 @@ namespace WoodnoteWPF.Views
                 EarthPoint.FromDegree(75.82992406309923, -109.96468097814463),
                 EarthPoint.FromDegree(76.7462641924539, -108.90999348401832),
                 EarthPoint.FromDegree(75.30422741723464, -105.74593100163933),
-                EarthPoint.FromDegree(74.38540086211758, -112.42561846443938)
-        };
+                EarthPoint.FromDegree(74.38540086211758, -112.42561846443938)),
 
-        private List<EarthPoint> _northAmericaPoints_06 = new List<EarthPoint>()
-        {
+             FromPoints(
                 EarthPoint.FromDegree(79.2548964757878, -105.74020698431228),
                 EarthPoint.FromDegree(77.66605796260369, -93.55918789186589),
-                EarthPoint.FromDegree(78.38783298672956, -104.49724585242998)
-        };
+                EarthPoint.FromDegree(78.38783298672956, -104.49724585242998)),
 
-        private List<EarthPoint> _northAmericaPoints_07 = new List<EarthPoint>()
-        {
+            FromPoints(
                 EarthPoint.FromDegree(76.55777933343579, -104.00006139967708),
                 EarthPoint.FromDegree(76.84369572413773, -96.54229460838339),
                 EarthPoint.FromDegree(75.66295879285765, -88.3387511379603),
@@ -168,11 +101,9 @@ namespace WoodnoteWPF.Views
                 EarthPoint.FromDegree(74.76472738630203, -95.28878836627719),
                 EarthPoint.FromDegree(75.55945161251486, -102.5316656526378),
                 EarthPoint.FromDegree(76.62479763095817, -104.15761769651466),
-                EarthPoint.FromDegree(76.96247338902825, -96.76692658798343)
-        };
+                EarthPoint.FromDegree(76.96247338902825, -96.76692658798343)),
 
-        private List<EarthPoint> _northAmericaPoints_08 = new List<EarthPoint>()
-        {
+            FromPoints(
                 EarthPoint.FromDegree(81.32733174640528, -94.43544324279257),
                 EarthPoint.FromDegree(83.04415220192243, -75.04524958542898),
                 EarthPoint.FromDegree(82.31628602132734, -61.86986158747679),
@@ -180,12 +111,10 @@ namespace WoodnoteWPF.Views
                 EarthPoint.FromDegree(76.30244350420351, -87.72345313062824),
                 EarthPoint.FromDegree(77.85693569384088, -87.72345313062824),
                 EarthPoint.FromDegree(78.31869072428947, -92.44670543178091),
-                EarthPoint.FromDegree(79.95534981755526, -96.42418105380422)
-        };
+                EarthPoint.FromDegree(79.95534981755526, -96.42418105380422)),
 
-        // Greenland
-        private List<EarthPoint> _northAmericaPoints_09 = new List<EarthPoint>()
-        {
+            // Greenland
+            FromPoints(
                 EarthPoint.FromDegree(78.37857212236044, -72.39487012470173),
                 EarthPoint.FromDegree(79.32944404169126, -65.36362016385964),
                 EarthPoint.FromDegree(80.26298370867109, -66.76987015602803),
@@ -199,24 +128,42 @@ namespace WoodnoteWPF.Views
                 EarthPoint.FromDegree(60.13691188306589, -43.91830778329146),
                 EarthPoint.FromDegree(67.25998629300993, -53.76205772847046),
                 EarthPoint.FromDegree(75.70793357259004, -59.38705769714418),
-                EarthPoint.FromDegree(76.46847472780561, -69.23080764232319)
+                EarthPoint.FromDegree(76.46847472780561, -69.23080764232319)),
         };
 
+        #endregion Polygons
 
-        private struct EarthPoint
+        private static Dictionary<EarthRegion, List<EarthPolygon>> _regions = new Dictionary<EarthRegion, List<EarthPolygon>>()
         {
-            public double Latitude_Degree { get; set; }
-            public double Longitude_Degree { get; set; }
+            { EarthRegion.NorthAmerica, _northAmericaPolygons },
+            { EarthRegion.CentralAmerica, new List<EarthPolygon>() },
+            { EarthRegion.SouthAmerica, new List<EarthPolygon>() },
+            { EarthRegion.Caribbean, new List<EarthPolygon>() },
+            { EarthRegion.NorthernEurope, new List<EarthPolygon>() },
+            { EarthRegion.WesternEurope, new List<EarthPolygon>() },
+            { EarthRegion.SouthernEurope, new List<EarthPolygon>() },
+            { EarthRegion.EasternEurope, new List<EarthPolygon>() },
+            { EarthRegion.WesternAsia, new List<EarthPolygon>() },
+            { EarthRegion.CentralAsia, new List<EarthPolygon>() },
+            { EarthRegion.EasternAsia, new List<EarthPolygon>() },
+            { EarthRegion.SouthernAsia, new List<EarthPolygon>() },
+            { EarthRegion.SoutheasternAsia, new List<EarthPolygon>() },
+            { EarthRegion.MelanesiaMicronesiaPolynesia, new List<EarthPolygon>() },
+            { EarthRegion.AustraliaNewZealand, new List<EarthPolygon>() },
+            { EarthRegion.NorthernAfrica, new List<EarthPolygon>() },
+            { EarthRegion.WesternAfrica, new List<EarthPolygon>() },
+            { EarthRegion.MiddleAfrica, new List<EarthPolygon>() },
+            { EarthRegion.EasternAfrica, new List<EarthPolygon>() },
+            { EarthRegion.SouthernAfrica, new List<EarthPolygon>() },
+            { EarthRegion.Antarctica,  new List<EarthPolygon>() }
+        };
 
-
-            public static EarthPoint FromDegree(double latitude_Degree, double longitude_Degree)
+        private static EarthPolygon FromPoints(params EarthPoint[] points)
+        {
+            return new EarthPolygon()
             {
-                return new EarthPoint()
-                {
-                    Latitude_Degree = latitude_Degree,
-                    Longitude_Degree = longitude_Degree
-                };
-            }
+                Points = points.ToList()
+            };
         }
     }
 }

@@ -25,10 +25,26 @@
         </Grid.RowDefinitions>
         <ScrollViewer Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"
                       VerticalScrollBarVisibility="Auto">
-            <StackPanel Orientation="Vertical">
-                <TextBlock Text="{x:Static resources:uiStrings.BirdColorsHeader}"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="10"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="10"/>
+                </Grid.RowDefinitions>
 
-                <ItemsControl x:Name="Colors">
+                <TextBlock Grid.Row="1" Grid.Column="1"
+                    Text="{x:Static resources:uiStrings.BirdColorsHeader}"/>
+
+                <ItemsControl x:Name="Colors" Grid.Row="2" Grid.Column="1">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Margin="5">
@@ -56,9 +72,10 @@
                     </ItemsControl.ItemsPanel>
                 </ItemsControl>
 
-                <TextBlock Text="{x:Static resources:uiStrings.BirdSilhouettesHeader}"/>
-                
-                <ItemsControl x:Name="Silhouettes">
+                <TextBlock Grid.Row="3" Grid.Column="1"
+                    Text="{x:Static resources:uiStrings.BirdSilhouettesHeader}"/>
+
+                <ItemsControl x:Name="Silhouettes" Grid.Row="4" Grid.Column="1">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Margin="5">
@@ -94,7 +111,10 @@
                         </ItemsPanelTemplate>
                     </ItemsControl.ItemsPanel>
                 </ItemsControl>
-            </StackPanel>
+
+                <Canvas x:Name="mapCanvas" Grid.Row="5" Grid.Column="1"
+                            HorizontalAlignment="Stretch" Height="800"/>
+            </Grid>
         </ScrollViewer>
         
         <Button x:Name="SearchBirds" Grid.Row="4"  Grid.Column="2"> 

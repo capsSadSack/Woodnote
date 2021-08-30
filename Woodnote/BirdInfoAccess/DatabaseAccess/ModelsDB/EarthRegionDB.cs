@@ -2,20 +2,18 @@
 
 namespace BirdInfoAccess.DatabaseAccess.ModelsDB
 {
-    public class ColorDB
+    public class EarthRegionDB
     {
         [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
         public string Name { get; set; }
-        public string ColorHex { get; set; }
 
 
-        internal static ColorDB FromHexCode(string name, string colorHex)
+        internal static EarthRegionDB FromName(string name)
         {
-            return new ColorDB()
+            return new EarthRegionDB()
             {
-                Name = name,
-                ColorHex = colorHex
+                Name = name
             };
         }
     }

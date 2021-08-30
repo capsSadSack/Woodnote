@@ -17,10 +17,13 @@ namespace BirdInfoAccess.DatabaseAccess
             _database.CreateTableAsync<BirdInfoDB>().Wait();
             _database.CreateTableAsync<ColorDB>().Wait();
             _database.CreateTableAsync<BirdColorDB>().Wait();
+            _database.CreateTableAsync<EarthRegionDB>().Wait();
+            _database.CreateTableAsync<EarthPolygonPointDB>().Wait();
 
             if (needToFillDBWithData)
             {
                 FillColorDBTable();
+                FillRegionsDBTable();
             }
         }
 
@@ -62,6 +65,39 @@ namespace BirdInfoAccess.DatabaseAccess
             foreach (var color in colors)
             {
                 _database.InsertAsync(color);
+            }
+        }
+
+        private void FillRegionsDBTable()
+        {
+            EarthRegionDB[] regions = new EarthRegionDB[]
+            {
+                EarthRegionDB.FromName("North America"),
+                EarthRegionDB.FromName("Central America"),
+                EarthRegionDB.FromName("South America"),
+                EarthRegionDB.FromName("Caribbean"),
+                EarthRegionDB.FromName("Northern Europe"),
+                EarthRegionDB.FromName("Western Europe"),
+                EarthRegionDB.FromName("Southern Europe"),
+                EarthRegionDB.FromName("Eastern Europe"),
+                EarthRegionDB.FromName("Western Asia"),
+                EarthRegionDB.FromName("Central Asia"),
+                EarthRegionDB.FromName("Eastern Asia"),
+                EarthRegionDB.FromName("Southern Asia"),
+                EarthRegionDB.FromName("Southeastern Asia"),
+                EarthRegionDB.FromName("Melanesia, Micronesia, Polynesia"),
+                EarthRegionDB.FromName("Australia and New Zealand"),
+                EarthRegionDB.FromName("Northern Africa"),
+                EarthRegionDB.FromName("Western Africa"),
+                EarthRegionDB.FromName("Middle Africa"),
+                EarthRegionDB.FromName("Eastern Africa"),
+                EarthRegionDB.FromName("Southern Africa"),
+                EarthRegionDB.FromName("Antarctica")
+            };
+
+            foreach (var region in regions)
+            {
+                _database.InsertAsync(region);
             }
         }
     }
