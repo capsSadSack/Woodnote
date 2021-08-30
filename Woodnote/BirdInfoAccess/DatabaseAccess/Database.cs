@@ -11,12 +11,17 @@ namespace BirdInfoAccess.DatabaseAccess
 
         public Database(string dbPath)
         {
+            bool needToFillDBWithData = !System.IO.File.Exists(dbPath);
+
             _database = new SQLiteAsyncConnection(dbPath);
             _database.CreateTableAsync<BirdInfoDB>().Wait();
             _database.CreateTableAsync<ColorDB>().Wait();
             _database.CreateTableAsync<BirdColorDB>().Wait();
 
-            FillColorDBTable();
+            if (needToFillDBWithData)
+            {
+                FillColorDBTable();
+            }
         }
 
 
