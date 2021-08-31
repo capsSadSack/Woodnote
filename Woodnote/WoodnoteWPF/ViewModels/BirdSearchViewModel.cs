@@ -4,7 +4,6 @@ using Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using WoodnoteWPF.Converters;
 using WoodnoteWPF.Models;
@@ -15,9 +14,10 @@ namespace WoodnoteWPF.ViewModels
     {
         public string PageTitle => "Bird Search";
 
-        private BindableCollection<BirdOrderSilhouetteModel> _silhouettes = new BindableCollection<BirdOrderSilhouetteModel>();
         private BirdOrderSilhouetteModel _selectedSilhouette;
+        private BindableCollection<BirdOrderSilhouetteModel> _silhouettes = new BindableCollection<BirdOrderSilhouetteModel>();
         private BindableCollection<ColorModel> _colors = new BindableCollection<ColorModel>();
+        private BindableCollection<RegionModel> _selectedRegions = new BindableCollection<RegionModel>();
 
 
         public BirdSearchViewModel()
@@ -58,6 +58,11 @@ namespace WoodnoteWPF.ViewModels
             return output;
         }
 
+        private void LoadRegions()
+        {
+
+        }
+
         public BindableCollection<BirdOrderSilhouetteModel> Silhouettes
         {
             get
@@ -79,6 +84,18 @@ namespace WoodnoteWPF.ViewModels
             set
             {
                 _colors = value;
+            }
+        }
+
+        public BindableCollection<RegionModel> SelectedRegions
+        {
+            get
+            {
+                return _selectedRegions;
+            }
+            set
+            {
+                _selectedRegions = value;
             }
         }
 
@@ -143,6 +160,11 @@ namespace WoodnoteWPF.ViewModels
         }
 
         public void OnColorClicked(ColorModel item)
+        {
+            item.IsSelected = !item.IsSelected;
+        }
+
+        public void OnDeselectRegionClicked(RegionModel item)
         {
             item.IsSelected = !item.IsSelected;
         }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -19,6 +20,36 @@ namespace WoodnoteWPF.Views
             InitializeComponent();
             DrawPolygon();
         }
+
+
+        //public event PropertyChangedEventHandler PropertyChanged;
+        //PointCollection imagePoints;
+        //public PointCollection ImagePoints
+        //{
+        //    get
+        //    {
+        //        return this.imagePoints;
+        //    }
+        //    set
+        //    {
+        //        if (this.imagePoints != value)
+        //        {
+        //            this.imagePoints = value;
+        //            if (this.PropertyChanged != null)
+        //            {
+        //                PropertyChanged(this, new PropertyChangedEventArgs("ImagePoints"));
+        //            }
+        //        }
+        //    }
+        //}
+
+        //private void btnSetNew(object sender, RoutedEventArgs e)
+        //{
+        //    this.ImagePoints = new PointCollection(
+        //        new[] { new Point(23, 2), new Point(12, 556), new Point(4, 89) });
+        //}
+
+
 
         public void DrawPolygon()
         {

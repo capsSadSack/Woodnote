@@ -38,6 +38,10 @@
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
                     <RowDefinition Height="10"/>
                 </Grid.RowDefinitions>
 
@@ -61,7 +65,6 @@
                                         Background="{Binding Color}"
                                         Style="{StaticResource ColorsToggleButtonStyle}"/>
                                 </Grid>
-                                <!--<TextBlock FontSize="16" Text="{Binding Path=Company}" HorizontalAlignment="Center" />-->
                             </StackPanel>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
@@ -101,7 +104,6 @@
                                     <TextBlock Grid.Row="2" Grid.Column="0"
                                     FontSize="16" Text="{Binding Path=Name}" HorizontalAlignment="Center" />
                                 </Grid>
-                                <!--<TextBlock FontSize="16" Text="{Binding Path=Company}" HorizontalAlignment="Center" />-->
                             </StackPanel>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
@@ -112,8 +114,32 @@
                     </ItemsControl.ItemsPanel>
                 </ItemsControl>
 
-                <Canvas x:Name="mapCanvas" Grid.Row="5" Grid.Column="1"
-                            HorizontalAlignment="Stretch" Height="800"/>
+                <ItemsControl x:Name="SelectedRegions" Grid.Row="5" Grid.Column="1">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <DockPanel Margin="5">
+                                <TextBlock Grid.Row="2" Grid.Column="0"
+                                    FontSize="16" Text="{Binding Path=Name}" HorizontalAlignment="Center" />
+
+                                <Button x:Name="DeselectRegion" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"
+                                    Width="150" Height="200"
+                                    Style="{StaticResource SilhouettesToggleButtonStyle}" 
+                                    cal:Message.Attach="[Click] = [OnDeselectRegionClicked($datacontext)]">
+                                    <Image Source="{Binding Path=ImagePath}"/>
+                                </Button>
+                            </DockPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
+
+                <Canvas x:Name="mapCanvas" Grid.Row="6" Grid.Column="1"
+                            HorizontalAlignment="Stretch" Height="800">
+                </Canvas>
             </Grid>
         </ScrollViewer>
         

@@ -1,4 +1,4 @@
-﻿namespace BirdInfoAccess.DatabaseAccess.DefaultData
+﻿namespace BirdInfoAccess.Models
 {
     public struct EarthPoint
     {

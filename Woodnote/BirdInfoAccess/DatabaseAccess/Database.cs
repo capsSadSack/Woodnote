@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using BirdInfoAccess.DatabaseAccess.ModelsDB;
+using BirdInfoAccess.Models;
 using SQLite;
 
 namespace BirdInfoAccess.DatabaseAccess
@@ -66,6 +67,23 @@ namespace BirdInfoAccess.DatabaseAccess
             {
                 _database.InsertAsync(color);
             }
+        }
+
+        public Task<List<EarthRegionDA>> GetAllRegionsAsync()
+        {
+            var regionsTask = _database.Table<EarthRegionDB>().ToListAsync();
+            var regions = regionsTask.Result;
+
+            var polygonsTask = _database.Table<EarthPolygonDB>().ToListAsync();
+            var polygons = polygonsTask.Result;
+
+            foreach (var region in regions)
+            {
+                
+
+            }
+
+            throw new System.NotImplementedException(); 
         }
 
         private void FillRegionsDBTable()

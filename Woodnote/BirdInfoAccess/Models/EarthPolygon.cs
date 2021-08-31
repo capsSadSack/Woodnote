@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace BirdInfoAccess.DatabaseAccess.DefaultData
+namespace BirdInfoAccess.Models
 {
     public class EarthPolygon
     {
