@@ -1,4 +1,5 @@
 ﻿using BirdInfoAccess.DatabaseAccess;
+using Domain.Converters;
 using Domain.ViewModels;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -19,7 +20,7 @@ namespace Domain
         public async Task<IEnumerable<EarthRegionVM>> GetEarthRegions()
         {
             var regions = await _birdAccess.GetAllRegionsAsync();
-            return regions.ToRegionsVM();
+            return regions.ToEarthRegionsVM();
         }
     }
 }

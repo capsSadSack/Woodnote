@@ -10,10 +10,13 @@ namespace Domain.Converters
     {
         public static EarthRegionVM ToEarthRegionVM(this EarthRegionDA earthRegionDA)
         {
-            throw new NotImplementedException();
+            return new EarthRegionVM()
+            {
+                
+            };
         }
 
-        public static IEnumerable<EarthRegionVM> ToEarthRegionVM(this IEnumerable<EarthRegionDA> earthRegionsDA)
+        public static IEnumerable<EarthRegionVM> ToEarthRegionsVM(this IEnumerable<EarthRegionDA> earthRegionsDA)
             => CollectionsConverter.ConvertCollection(earthRegionsDA, ToEarthRegionVM);
     }
 }

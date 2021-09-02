@@ -37,10 +37,7 @@ namespace BirdInfoAccess.DatabaseAccess
 
         public async Task<IEnumerable<EarthRegionDA>> GetAllRegionsAsync()
         {
-            IEnumerable<EarthRegionDB> earthRegionsDB = await _database.GetAllRegionsAsync();
-
-
-            throw new NotImplementedException();
+            return await _database.GetAllRegionsAsync();
         }
 
         public BirdDA GetBird(string birdID)

@@ -6,6 +6,6 @@ namespace BirdInfoAccess.Models
     {
         public long Id { get; set; }
         public string Name { get; set; }
-        public IEnumerable<EarthPolygon> Polygons { get; set; }
+        public IEnumerable<EarthPolygonDA> Polygons { get; set; }
     }
 }

@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using BirdInfoAccess.DatabaseAccess.Converters;
 using BirdInfoAccess.DatabaseAccess.ModelsDB;
 using BirdInfoAccess.Models;
 using SQLite;
@@ -8,7 +10,7 @@ namespace BirdInfoAccess.DatabaseAccess
 {
     public class Database
     {
-        readonly SQLiteAsyncConnection _database;
+        private readonly SQLiteAsyncConnection _database;
 
         public Database(string dbPath)
         {
@@ -69,21 +71,45 @@ namespace BirdInfoAccess.DatabaseAccess
             }
         }
 
-        public Task<List<EarthRegionDA>> GetAllRegionsAsync()
+        public async Task<List<EarthRegionDA>> GetAllRegionsAsync()
         {
-            var regionsTask = _database.Table<EarthRegionDB>().ToListAsync();
-            var regions = regionsTask.Result;
+            var regions= await _database.Table<EarthRegionDB>().ToListAsync();
+            var polygons = await _database.Table<EarthPolygonDB>().ToListAsync();
+            var points = await _database.Table<EarthPolygonPointDB>().ToListAsync();
 
-            var polygonsTask = _database.Table<EarthPolygonDB>().ToListAsync();
-            var polygons = polygonsTask.Result;
+            List<EarthRegionDA> output = new List<EarthRegionDA>();
 
             foreach (var region in regions)
             {
-                
+                var regionPolygons = polygons
+                    .Where(x => x.EarthRegionID == region.ID);
 
+                List<EarthPolygonDA> earthPolygons = new List<EarthPolygonDA>();
+
+                foreach (var regionPolygon in regionPolygons)
+                {
+                    var polygonPoints = points
+                        .Where(x => x.EarthPolygonID == regionPolygon.ID);
+
+                    EarthPolygonDA earthPolygon = new EarthPolygonDA()
+                    {
+                        Points = polygonPoints.ToEarthPoints().ToList()
+                    };
+
+                    earthPolygons.Add(earthPolygon);
+                }
+
+                EarthRegionDA earthRegion = new EarthRegionDA()
+                {
+                    Id = region.ID,
+                    Name = region.Name,
+                    Polygons = earthPolygons
+                };
+
+                output.Add(earthRegion);
             }
 
-            throw new System.NotImplementedException(); 
+            return output;
         }
 
         private void FillRegionsDBTable()
