@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using BirdInfoAccess.DatabaseAccess.Converters;
+using BirdInfoAccess.DatabaseAccess.DefaultData;
 using BirdInfoAccess.DatabaseAccess.ModelsDB;
 using BirdInfoAccess.Models;
 using SQLite;
@@ -114,34 +115,53 @@ namespace BirdInfoAccess.DatabaseAccess
 
         private void FillRegionsDBTable()
         {
-            EarthRegionDB[] regions = new EarthRegionDB[]
-            {
-                EarthRegionDB.FromName("North America"),
-                EarthRegionDB.FromName("Central America"),
-                EarthRegionDB.FromName("South America"),
-                EarthRegionDB.FromName("Caribbean"),
-                EarthRegionDB.FromName("Northern Europe"),
-                EarthRegionDB.FromName("Western Europe"),
-                EarthRegionDB.FromName("Southern Europe"),
-                EarthRegionDB.FromName("Eastern Europe"),
-                EarthRegionDB.FromName("Western Asia"),
-                EarthRegionDB.FromName("Central Asia"),
-                EarthRegionDB.FromName("Eastern Asia"),
-                EarthRegionDB.FromName("Southern Asia"),
-                EarthRegionDB.FromName("Southeastern Asia"),
-                EarthRegionDB.FromName("Melanesia, Micronesia, Polynesia"),
-                EarthRegionDB.FromName("Australia and New Zealand"),
-                EarthRegionDB.FromName("Northern Africa"),
-                EarthRegionDB.FromName("Western Africa"),
-                EarthRegionDB.FromName("Middle Africa"),
-                EarthRegionDB.FromName("Eastern Africa"),
-                EarthRegionDB.FromName("Southern Africa"),
-                EarthRegionDB.FromName("Antarctica")
-            };
+            IEnumerable<EarthRegion> regionEnums = EnumsProcessor.GetAllValues(EarthRegion.Antarctica);
 
-            foreach (var region in regions)
+            int earthRegionId = 1;
+            int earthPolygonId = 1;
+            int earthPolygonPointId = 1;
+
+            foreach (EarthRegion regionEnum in regionEnums)
             {
+                string regionName = EarthRegionData.GetName(regionEnum);
+                EarthRegionDB region = new EarthRegionDB()
+                {
+                    ID = earthRegionId,
+                    Name = regionName
+                };
+
                 _database.InsertAsync(region);
+
+                var regionPolygons = EarthRegionData.GetPolygons(regionEnum);
+                foreach (var regionPolygon in regionPolygons)
+                {
+                    EarthPolygonDB polygon = new EarthPolygonDB()
+                    {
+                        ID = earthPolygonId,
+                        EarthRegionID = earthRegionId
+                    };
+
+                    _database.InsertAsync(polygon);
+
+                    for (int i = 0; i < regionPolygon.Points.Count(); i++)
+                    {
+                        EarthPolygonPointDB pointDB = new EarthPolygonPointDB()
+                        {
+                            ID = earthPolygonPointId,
+                            EarthPolygonID = earthPolygonId,
+                            OrderNumber = i,
+                            Latitude_Degree = regionPolygon.Points[i].Latitude_Degree,
+                            Longitude_Degree = regionPolygon.Points[i].Longitude_Degree
+                        };
+
+                        _database.InsertAsync(pointDB);
+                        earthPolygonPointId++;
+                    }
+
+                    earthPolygonId++;
+                }
+                
+                earthRegionId++;
             }
         }
     }

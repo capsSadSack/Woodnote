@@ -1,6 +1,7 @@
 ﻿using BirdClassification.BiologyClassification;
 using Caliburn.Micro;
 using Domain;
+using Domain.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,7 @@ namespace WoodnoteWPF.ViewModels
         {
             LoadSilhouettes();
             LoadColors();
+            LoadRegions();
         }
 
 
@@ -58,9 +60,16 @@ namespace WoodnoteWPF.ViewModels
             return output;
         }
 
-        private void LoadRegions()
+        private async Task LoadRegions()
         {
+            EarthRegionsController erc = new EarthRegionsController();
+            IEnumerable<EarthRegionVM> regions = await erc.GetEarthRegions();
 
+            foreach (var region in regions)
+            {
+                RegionModel regionModel = region.ToRegionModel();
+                SelectedRegions.Add(regionModel);
+            }
         }
 
         public BindableCollection<BirdOrderSilhouetteModel> Silhouettes
