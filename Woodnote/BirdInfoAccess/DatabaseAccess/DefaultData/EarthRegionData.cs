@@ -194,10 +194,14 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
 
         private static EarthPolygonDA FromPoints(params EarthPointDA[] points)
         {
-            return new EarthPolygonDA()
+            var output =  new EarthPolygonDA()
             {
                 Points = points.ToList()
             };
+
+            EarthPointDA.ResetOrderNumberCounter();
+
+            return output;
         }
     }
 }

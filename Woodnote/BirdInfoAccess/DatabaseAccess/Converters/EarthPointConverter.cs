@@ -11,6 +11,7 @@ namespace BirdInfoAccess.DatabaseAccess.Converters
         {
             return new EarthPointDA()
             {
+                OrderNumber = earthPolygonPointDB.OrderNumber,
                 Latitude_Degree = earthPolygonPointDB.Latitude_Degree,
                 Longitude_Degree = earthPolygonPointDB.Longitude_Degree
             };

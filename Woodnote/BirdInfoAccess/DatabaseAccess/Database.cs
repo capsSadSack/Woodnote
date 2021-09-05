@@ -21,9 +21,9 @@ namespace BirdInfoAccess.DatabaseAccess
             _database.CreateTableAsync<BirdInfoDB>().Wait();
             _database.CreateTableAsync<ColorDB>().Wait();
             _database.CreateTableAsync<BirdColorDB>().Wait();
-            _database.CreateTableAsync<EarthRegionDB>().Wait();
-            _database.CreateTableAsync<EarthPolygonDB>().Wait();
             _database.CreateTableAsync<EarthPolygonPointDB>().Wait();
+            _database.CreateTableAsync<EarthPolygonDB>().Wait();
+            _database.CreateTableAsync<EarthRegionDB>().Wait();
 
             if (needToFillDBWithData)
             {

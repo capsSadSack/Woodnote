@@ -38,6 +38,7 @@ namespace Domain.Converters
         {
             return new EarthPointVM()
             {
+                OrderNumber = earthPointDA.OrderNumber,
                 Latitude_Degree = earthPointDA.Latitude_Degree,
                 Longitude_Degree = earthPointDA.Longitude_Degree
             };

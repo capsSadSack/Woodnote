@@ -10,6 +10,8 @@ namespace WoodnoteWPF.Converters
 {
     public static class RegionConverter
     {
+        private static int _counter = 0;
+
         public static RegionModel ToRegionModel(this EarthRegionVM regionVM)
         {
             ObservableCollection<PolygonModel> pointCollections = new ObservableCollection<PolygonModel>();
@@ -17,8 +19,11 @@ namespace WoodnoteWPF.Converters
             {
                 pointCollections.Add(new PolygonModel()
                 {
+                    Name = _counter.ToString(),
                     PointCollection = pointCollection
                 });
+
+                _counter++;
             }
 
             return new RegionModel()
@@ -35,9 +40,10 @@ namespace WoodnoteWPF.Converters
         private static PointCollection ToPointCollection(this EarthPolygonVM polygonVM)
         {
             var output = new PointCollection();
-
-            foreach (var point in polygonVM.Points)
+            var orderedPoints = polygonVM.Points.OrderBy(x => x.OrderNumber);
+            for (int i = 0; i < orderedPoints.Count(); i++)
             {
+                var point = orderedPoints.ElementAt(i);
                 var pointCollectionPoint = ToPoint(point.Latitude_Degree, point.Longitude_Degree, 800, 600); // TODO: [CG, 2021.09.05] Magic numbers NUMBERS
                 output.Add(pointCollectionPoint);
             }

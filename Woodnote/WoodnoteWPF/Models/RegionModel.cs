@@ -12,6 +12,7 @@ namespace WoodnoteWPF.Models
 
     public class PolygonModel
     {
+        public string Name { get; set; }
         public PointCollection PointCollection { get; set; }
     }
 }

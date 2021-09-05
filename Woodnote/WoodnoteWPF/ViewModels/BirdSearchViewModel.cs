@@ -20,6 +20,7 @@ namespace WoodnoteWPF.ViewModels
         private BindableCollection<BirdOrderSilhouetteModel> _silhouettes = new BindableCollection<BirdOrderSilhouetteModel>();
         private BindableCollection<ColorModel> _colors = new BindableCollection<ColorModel>();
         private BindableCollection<RegionModel> _regions = new BindableCollection<RegionModel>();
+        private BindableCollection<PolygonModel> _polygons = new BindableCollection<PolygonModel>();
 
 
         public BirdSearchViewModel()
@@ -68,7 +69,22 @@ namespace WoodnoteWPF.ViewModels
             IEnumerable<RegionModel> output = regions.ToRegionModels();
 
             Regions.AddRange(output);
+
+            LoadPolygonsFromRegions();
+
             return output;
+        }
+
+        private void LoadPolygonsFromRegions()
+        {
+            List<PolygonModel> output = new List<PolygonModel>();
+
+            foreach (var region in Regions)
+            {
+                output.AddRange(region.Polygons);
+            }
+
+            Polygons.AddRange(output);
         }
 
         public BindableCollection<BirdOrderSilhouetteModel> Silhouettes
@@ -104,6 +120,18 @@ namespace WoodnoteWPF.ViewModels
             set
             {
                 _regions = value;
+            }
+        }
+
+        public BindableCollection<PolygonModel> Polygons
+        {
+            get
+            {
+                return _polygons;
+            }
+            set
+            {
+                _polygons = value;
             }
         }
 

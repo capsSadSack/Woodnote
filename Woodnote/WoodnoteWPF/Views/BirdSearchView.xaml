@@ -103,7 +103,7 @@
                                     <CheckBox Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left"
                                           IsChecked="{Binding Path=IsSelected}"/>
                                     <TextBlock Grid.Row="2" Grid.Column="0"
-                                    FontSize="16" Text="{Binding Path=Name}" HorizontalAlignment="Center" />
+                                        FontSize="16" Text="{Binding Path=Name}" HorizontalAlignment="Center" />
                                 </Grid>
                             </StackPanel>
                         </DataTemplate>
@@ -118,27 +118,15 @@
                 <TextBlock Grid.Row="5" Grid.Column="1"
                     Text="{x:Static resources:uiStrings.BirdRegionHeader}"/>
 
-                <ItemsControl x:Name="Regions" Grid.Row="6" Grid.Column="1">
+                <ItemsControl x:Name="Polygons" Grid.Row="6" Grid.Column="1"  >
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Margin="5">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="auto"/>
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="auto"/>
-                                    </Grid.RowDefinitions>
-
-                                    <TextBlock Grid.Row="0" Grid.Column="0" 
-                                               FontSize="16" Text="{Binding Path=Name}" HorizontalAlignment="Center"/>
-                                </Grid>
-                            </StackPanel>
+                            <Polygon Points="{Binding Path=PointCollection}" Fill="Black" Opacity="0.8" />
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
-                            <WrapPanel />
+                            <Canvas Height="600" Width="800" HorizontalAlignment="Left" Background="LightBlue" />
                         </ItemsPanelTemplate>
                     </ItemsControl.ItemsPanel>
                 </ItemsControl>
