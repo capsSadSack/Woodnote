@@ -23,6 +23,7 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
+        
         <ScrollViewer Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"
                       VerticalScrollBarVisibility="Auto">
             <Grid>
@@ -114,20 +115,25 @@
                     </ItemsControl.ItemsPanel>
                 </ItemsControl>
 
-                <ItemsControl x:Name="SelectedRegions" Grid.Row="5" Grid.Column="1">
+                <TextBlock Grid.Row="5" Grid.Column="1"
+                    Text="{x:Static resources:uiStrings.BirdRegionHeader}"/>
+
+                <ItemsControl x:Name="Regions" Grid.Row="6" Grid.Column="1">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <DockPanel Margin="5">
-                                <TextBlock Grid.Row="2" Grid.Column="0"
-                                    FontSize="16" Text="{Binding Path=Name}" HorizontalAlignment="Center" />
+                            <StackPanel Margin="5">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                    </Grid.RowDefinitions>
 
-                                <Button x:Name="DeselectRegion" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"
-                                    Width="150" Height="200"
-                                    Style="{StaticResource SilhouettesToggleButtonStyle}" 
-                                    cal:Message.Attach="[Click] = [OnDeselectRegionClicked($datacontext)]">
-                                    <Image Source="{Binding Path=ImagePath}"/>
-                                </Button>
-                            </DockPanel>
+                                    <TextBlock Grid.Row="0" Grid.Column="0" 
+                                               FontSize="16" Text="{Binding Path=Name}" HorizontalAlignment="Center"/>
+                                </Grid>
+                            </StackPanel>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                     <ItemsControl.ItemsPanel>
@@ -137,9 +143,9 @@
                     </ItemsControl.ItemsPanel>
                 </ItemsControl>
 
-                <Canvas x:Name="mapCanvas" Grid.Row="6" Grid.Column="1"
+                <!--<Canvas x:Name="mapCanvas" Grid.Row="6" Grid.Column="1"
                             HorizontalAlignment="Stretch" Height="800">
-                </Canvas>
+                </Canvas>-->
             </Grid>
         </ScrollViewer>
         

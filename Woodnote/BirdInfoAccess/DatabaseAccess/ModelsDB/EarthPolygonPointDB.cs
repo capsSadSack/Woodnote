@@ -1,10 +1,7 @@
-﻿using SQLite;
-
-namespace BirdInfoAccess.DatabaseAccess.ModelsDB
+﻿namespace BirdInfoAccess.DatabaseAccess.ModelsDB
 {
     public class EarthPolygonPointDB
     {
-        [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
         public int EarthPolygonID { get; set; }
         public int OrderNumber { get; set; }

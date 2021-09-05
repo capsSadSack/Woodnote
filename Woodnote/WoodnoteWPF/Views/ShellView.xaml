@@ -6,7 +6,9 @@
         xmlns:local="clr-namespace:WoodnoteWPF.Views"
         xmlns:viewModels="clr-namespace:WoodnoteWPF.ViewModels"
         mc:Ignorable="d"
-        Title="ShellView" Height="450" Width="800">
+        Title="ShellView" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen" WindowState="Maximized">
+    
     <Window.Resources>
         <DataTemplate DataType="{x:Type viewModels:TimCoreyShellViewModel}">
             <local:TimCoreyShellView />

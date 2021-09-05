@@ -5,6 +5,7 @@ using Domain.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using WoodnoteWPF.Converters;
 using WoodnoteWPF.Models;
@@ -18,7 +19,7 @@ namespace WoodnoteWPF.ViewModels
         private BirdOrderSilhouetteModel _selectedSilhouette;
         private BindableCollection<BirdOrderSilhouetteModel> _silhouettes = new BindableCollection<BirdOrderSilhouetteModel>();
         private BindableCollection<ColorModel> _colors = new BindableCollection<ColorModel>();
-        private BindableCollection<RegionModel> _selectedRegions = new BindableCollection<RegionModel>();
+        private BindableCollection<RegionModel> _regions = new BindableCollection<RegionModel>();
 
 
         public BirdSearchViewModel()
@@ -53,23 +54,21 @@ namespace WoodnoteWPF.ViewModels
         private async Task<IEnumerable<ColorModel>> LoadColors()
         {
             BirdColorController bcc = new BirdColorController();
-            IEnumerable<Domain.ViewModels.ColorVM> colorsVM = await bcc.GetBirdsColors();
+            IEnumerable<ColorVM> colorsVM = await bcc.GetBirdsColors();
             IEnumerable<ColorModel> output =  colorsVM.ToColorModels();
 
             Colors.AddRange(output);
             return output;
         }
 
-        private async Task LoadRegions()
+        private async Task<IEnumerable<RegionModel>> LoadRegions()
         {
             EarthRegionsController erc = new EarthRegionsController();
             IEnumerable<EarthRegionVM> regions = await erc.GetEarthRegions();
+            IEnumerable<RegionModel> output = regions.ToRegionModels();
 
-            foreach (var region in regions)
-            {
-                RegionModel regionModel = region.ToRegionModel();
-                SelectedRegions.Add(regionModel);
-            }
+            Regions.AddRange(output);
+            return output;
         }
 
         public BindableCollection<BirdOrderSilhouetteModel> Silhouettes
@@ -96,15 +95,15 @@ namespace WoodnoteWPF.ViewModels
             }
         }
 
-        public BindableCollection<RegionModel> SelectedRegions
+        public BindableCollection<RegionModel> Regions
         {
             get
             {
-                return _selectedRegions;
+                return _regions;
             }
             set
             {
-                _selectedRegions = value;
+                _regions = value;
             }
         }
 

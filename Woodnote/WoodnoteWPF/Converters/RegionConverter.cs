@@ -4,6 +4,7 @@ using WoodnoteWPF.Models;
 using System.Windows.Media;
 using Domain.ViewModels;
 using System.Windows;
+using System.Collections.ObjectModel;
 
 namespace WoodnoteWPF.Converters
 {
@@ -11,18 +12,25 @@ namespace WoodnoteWPF.Converters
     {
         public static RegionModel ToRegionModel(this EarthRegionVM regionVM)
         {
+            ObservableCollection<PolygonModel> pointCollections = new ObservableCollection<PolygonModel>();
+            foreach (var pointCollection in regionVM.Polygons.ToPointCollections())
+            {
+                pointCollections.Add(new PolygonModel()
+                {
+                    PointCollection = pointCollection
+                });
+            }
+
             return new RegionModel()
             {
                 Name = regionVM.Name,
                 IsSelected = false,
-                PointCollections = regionVM.Polygons.ToPointCollections().ToList()
-        };
+                Polygons = pointCollections
+            };
         }
 
         public static IEnumerable<RegionModel> ToRegionModels(this IEnumerable<EarthRegionVM> regionsVM)
-        {
-            return regionsVM.Select(x => x.ToRegionModel());
-        }
+            => regionsVM.Select(x => x.ToRegionModel());
 
         private static PointCollection ToPointCollection(this EarthPolygonVM polygonVM)
         {
@@ -30,7 +38,7 @@ namespace WoodnoteWPF.Converters
 
             foreach (var point in polygonVM.Points)
             {
-                var pointCollectionPoint = new Point(point.Latitude_Degree, point.Longitude_Degree);
+                var pointCollectionPoint = ToPoint(point.Latitude_Degree, point.Longitude_Degree, 800, 600); // TODO: [CG, 2021.09.05] Magic numbers NUMBERS
                 output.Add(pointCollectionPoint);
             }
 
@@ -39,7 +47,22 @@ namespace WoodnoteWPF.Converters
 
         private static IEnumerable<PointCollection> ToPointCollections(this IEnumerable<EarthPolygonVM> polygonsVM)
         {
-            return polygonsVM.Select(x => x.ToPointCollection());
+            if (polygonsVM != null && polygonsVM.Count() > 0)
+            {
+                return polygonsVM.Select(x => x.ToPointCollection());
+            }
+            else
+            {
+                return new List<PointCollection>();
+            }
+        }
+
+        private static Point ToPoint(double latitude_Degree, double longitude_Degree, double maxWidth, double maxHeight)
+        {
+            double y = (90.0 - latitude_Degree) / 180.0 * maxHeight;
+            double x = (180.0 + longitude_Degree) / 360.0 * maxWidth;
+
+            return new Point(x, y);
         }
     }
 }

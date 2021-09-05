@@ -15,6 +15,7 @@ namespace WoodnoteWPF.Views
         private double _maxWidth = 600;
         private double _maxHeight = 800;
 
+
         public BirdSearchView()
         {
             InitializeComponent();
