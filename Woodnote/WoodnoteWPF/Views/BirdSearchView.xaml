@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro.Platform"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              xmlns:resources="clr-namespace:WoodnoteWPF.Properties"
              mc:Ignorable="d" Background="White"
              d:DesignHeight="450" d:DesignWidth="800">
@@ -121,7 +122,15 @@
                 <ItemsControl x:Name="Polygons" Grid.Row="6" Grid.Column="1"  >
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <Polygon Points="{Binding Path=PointCollection}" Fill="Black" Opacity="0.8" />
+                                <Polygon Points="{Binding Path=PointCollection}" 
+                                     Fill="Black" Opacity="0.8">
+                            
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="MouseDown" >
+                                        <i:InvokeCommandAction Command="{Binding Polygon_MouseDown}" />
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </Polygon>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                     <ItemsControl.ItemsPanel>
@@ -130,10 +139,6 @@
                         </ItemsPanelTemplate>
                     </ItemsControl.ItemsPanel>
                 </ItemsControl>
-
-                <!--<Canvas x:Name="mapCanvas" Grid.Row="6" Grid.Column="1"
-                            HorizontalAlignment="Stretch" Height="800">
-                </Canvas>-->
             </Grid>
         </ScrollViewer>
         

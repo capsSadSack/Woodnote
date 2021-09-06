@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using System.Windows.Shapes;
 using WoodnoteWPF.Converters;
 using WoodnoteWPF.Models;
 
@@ -27,7 +29,7 @@ namespace WoodnoteWPF.ViewModels
         {
             LoadSilhouettes();
             LoadColors();
-            LoadRegions();
+            LoadRegionsAndPolygons();
         }
 
 
@@ -62,7 +64,7 @@ namespace WoodnoteWPF.ViewModels
             return output;
         }
 
-        private async Task<IEnumerable<RegionModel>> LoadRegions()
+        private async Task<IEnumerable<RegionModel>> LoadRegionsAndPolygons()
         {
             EarthRegionsController erc = new EarthRegionsController();
             IEnumerable<EarthRegionVM> regions = await erc.GetEarthRegions();
@@ -193,6 +195,14 @@ namespace WoodnoteWPF.ViewModels
         public void OnSilhouetteClicked(BirdOrderSilhouetteModel item)
         {
             item.IsSelected = !item.IsSelected;
+        }
+
+
+        public void Polygon_MouseDown()
+        {
+            
+
+            int i = 0;
         }
 
         public void OnColorClicked(ColorModel item)
