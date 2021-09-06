@@ -197,8 +197,19 @@ namespace WoodnoteWPF.ViewModels
             item.IsSelected = !item.IsSelected;
         }
 
-
-        public void Polygon_MouseDown()
+        private RelayCommand addCommand;
+        public RelayCommand AddCommand
+        {
+            get
+            {
+                return addCommand ??
+                    (addCommand = new RelayCommand(obj =>
+                    {
+                        int i = 0;
+                    }));
+            }
+        }
+        public void Polygon_MouseDown(PolygonModel polygon)
         {
             
 
@@ -213,6 +224,37 @@ namespace WoodnoteWPF.ViewModels
         public void OnDeselectRegionClicked(RegionModel item)
         {
             item.IsSelected = !item.IsSelected;
+        }
+
+
+    }
+
+
+    public class RelayCommand : ICommand
+    {
+        private Action<object> execute;
+        private Func<object, bool> canExecute;
+
+        public event EventHandler CanExecuteChanged
+        {
+            add { CommandManager.RequerySuggested += value; }
+            remove { CommandManager.RequerySuggested -= value; }
+        }
+
+        public RelayCommand(Action<object> execute, Func<object, bool> canExecute = null)
+        {
+            this.execute = execute;
+            this.canExecute = canExecute;
+        }
+
+        public bool CanExecute(object parameter)
+        {
+            return this.canExecute == null || this.canExecute(parameter);
+        }
+
+        public void Execute(object parameter)
+        {
+            this.execute(parameter);
         }
     }
 }

@@ -102,7 +102,7 @@
                                     </ToggleButton>
 
                                     <CheckBox Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left"
-                                          IsChecked="{Binding Path=IsSelected}"/>
+                                        IsChecked="{Binding Path=IsSelected}"/>
                                     <TextBlock Grid.Row="2" Grid.Column="0"
                                         FontSize="16" Text="{Binding Path=Name}" HorizontalAlignment="Center" />
                                 </Grid>
@@ -122,14 +122,11 @@
                 <ItemsControl x:Name="Polygons" Grid.Row="6" Grid.Column="1"  >
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                                <Polygon Points="{Binding Path=PointCollection}" 
+                            <Polygon Points="{Binding Path=PointCollection}" 
                                      Fill="Black" Opacity="0.8">
-                            
-                                <i:Interaction.Triggers>
-                                    <i:EventTrigger EventName="MouseDown" >
-                                        <i:InvokeCommandAction Command="{Binding Polygon_MouseDown}" />
-                                    </i:EventTrigger>
-                                </i:Interaction.Triggers>
+                                <Polygon.InputBindings>
+                                    <MouseBinding MouseAction="LeftClick" Command="{Binding Path=AddCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"/>
+                                </Polygon.InputBindings>
                             </Polygon>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
