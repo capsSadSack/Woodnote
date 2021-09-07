@@ -123,9 +123,9 @@
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <Polygon Points="{Binding Path=PointCollection}" 
-                                     Fill="Black" Opacity="0.8">
+                                     Fill="Black" Opacity="0.9">
                                 <Polygon.InputBindings>
-                                    <MouseBinding MouseAction="LeftClick" Command="{Binding Path=AddCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"/>
+                                    <MouseBinding MouseAction="LeftClick" Command="{Binding Path=AddCommand}"/>
                                 </Polygon.InputBindings>
                             </Polygon>
                         </DataTemplate>
