@@ -14,10 +14,12 @@ namespace WoodnoteWPF.Converters
 
         public static RegionModel ToRegionModel(this EarthRegionVM regionVM)
         {
+            var output = new RegionModel();
+
             ObservableCollection<PolygonModel> pointCollections = new ObservableCollection<PolygonModel>();
             foreach (var pointCollection in regionVM.Polygons.ToPointCollections())
             {
-                pointCollections.Add(new PolygonModel()
+                pointCollections.Add(new PolygonModel(output)
                 {
                     Name = _counter.ToString(),
                     PointCollection = pointCollection
@@ -26,12 +28,11 @@ namespace WoodnoteWPF.Converters
                 _counter++;
             }
 
-            return new RegionModel()
-            {
-                Name = regionVM.Name,
-                IsSelected = false,
-                Polygons = pointCollections
-            };
+            output.Name = regionVM.Name;
+            output.IsSelected = false;
+            output.Polygons = pointCollections;
+
+            return output;
         }
 
         public static IEnumerable<RegionModel> ToRegionModels(this IEnumerable<EarthRegionVM> regionsVM)

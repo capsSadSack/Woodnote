@@ -22,6 +22,7 @@ namespace WoodnoteWPF.ViewModels
         private BindableCollection<BirdOrderSilhouetteModel> _silhouettes = new BindableCollection<BirdOrderSilhouetteModel>();
         private BindableCollection<ColorModel> _colors = new BindableCollection<ColorModel>();
         private BindableCollection<RegionModel> _regions = new BindableCollection<RegionModel>();
+        private BindableCollection<RegionModel> _selectedRegions = new BindableCollection<RegionModel>();
         private BindableCollection<PolygonModel> _polygons = new BindableCollection<PolygonModel>();
 
 
@@ -74,6 +75,7 @@ namespace WoodnoteWPF.ViewModels
 
             LoadPolygonsFromRegions();
 
+            SelectedRegions.AddRange(Regions.Where(x => !x.IsSelected));
             return output;
         }
 
@@ -122,6 +124,18 @@ namespace WoodnoteWPF.ViewModels
             set
             {
                 _regions = value;
+            }
+        }
+
+        public BindableCollection<RegionModel> SelectedRegions
+        {
+            get
+            {
+                return _selectedRegions;
+            }
+            set
+            {
+                _selectedRegions = value;
             }
         }
 
@@ -197,25 +211,6 @@ namespace WoodnoteWPF.ViewModels
             item.IsSelected = !item.IsSelected;
         }
 
-        private RelayCommand addCommand;
-        public RelayCommand AddCommand
-        {
-            get
-            {
-                return addCommand ??
-                    (addCommand = new RelayCommand(obj =>
-                    {
-                        int i = 0;
-                    }));
-            }
-        }
-        public void Polygon_MouseDown(PolygonModel polygon)
-        {
-            
-
-            int i = 0;
-        }
-
         public void OnColorClicked(ColorModel item)
         {
             item.IsSelected = !item.IsSelected;
@@ -225,8 +220,6 @@ namespace WoodnoteWPF.ViewModels
         {
             item.IsSelected = !item.IsSelected;
         }
-
-
     }
 
 
