@@ -23,7 +23,7 @@ namespace WoodnoteWPF.ViewModels
         private BindableCollection<ColorModel> _colors = new BindableCollection<ColorModel>();
         private BindableCollection<RegionModel> _regions = new BindableCollection<RegionModel>();
         private BindableCollection<RegionModel> _selectedRegions = new BindableCollection<RegionModel>();
-        private BindableCollection<PolygonModel> _polygons = new BindableCollection<PolygonModel>();
+        private BindableCollection<PolygonViewModel> _polygons = new BindableCollection<PolygonViewModel>();
 
 
         public BirdSearchViewModel()
@@ -81,11 +81,24 @@ namespace WoodnoteWPF.ViewModels
 
         private void LoadPolygonsFromRegions()
         {
-            List<PolygonModel> output = new List<PolygonModel>();
+            List<PolygonViewModel> output = new List<PolygonViewModel>();
 
             foreach (var region in Regions)
             {
-                output.AddRange(region.Polygons);
+                var polygonsVM = new List<PolygonViewModel>();
+
+                foreach (var polygon in region.Polygons)
+                {
+                    var polygonViewModel = new PolygonViewModel(region)
+                    {
+                        Name = polygon.Name,
+                        PointCollection = polygon.PointCollection
+                    };
+
+                    polygonsVM.Add(polygonViewModel);
+                };
+
+                output.AddRange(polygonsVM);
             }
 
             Polygons.AddRange(output);
@@ -124,6 +137,11 @@ namespace WoodnoteWPF.ViewModels
             set
             {
                 _regions = value;
+                NotifyOfPropertyChange(() => SelectedPerson);
+                SelectedRegions.AddRange(Regions.Where(x => x.IsSelected && !SelectedRegions.Contains(x)));
+                SelectedRegions.RemoveRange(SelectedRegions.Where(x => !x.IsSelected));
+                NotifyOfPropertyChange(() => Regions);
+                NotifyOfPropertyChange(() => SelectedRegions);
             }
         }
 
@@ -139,7 +157,7 @@ namespace WoodnoteWPF.ViewModels
             }
         }
 
-        public BindableCollection<PolygonModel> Polygons
+        public BindableCollection<PolygonViewModel> Polygons
         {
             get
             {
@@ -219,35 +237,6 @@ namespace WoodnoteWPF.ViewModels
         public void OnDeselectRegionClicked(RegionModel item)
         {
             item.IsSelected = !item.IsSelected;
-        }
-    }
-
-
-    public class RelayCommand : ICommand
-    {
-        private Action<object> execute;
-        private Func<object, bool> canExecute;
-
-        public event EventHandler CanExecuteChanged
-        {
-            add { CommandManager.RequerySuggested += value; }
-            remove { CommandManager.RequerySuggested -= value; }
-        }
-
-        public RelayCommand(Action<object> execute, Func<object, bool> canExecute = null)
-        {
-            this.execute = execute;
-            this.canExecute = canExecute;
-        }
-
-        public bool CanExecute(object parameter)
-        {
-            return this.canExecute == null || this.canExecute(parameter);
-        }
-
-        public void Execute(object parameter)
-        {
-            this.execute(parameter);
         }
     }
 }

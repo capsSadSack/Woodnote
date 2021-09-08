@@ -4,7 +4,6 @@ using WoodnoteWPF.Models;
 using System.Windows.Media;
 using Domain.ViewModels;
 using System.Windows;
-using System.Collections.ObjectModel;
 
 namespace WoodnoteWPF.Converters
 {
@@ -16,7 +15,7 @@ namespace WoodnoteWPF.Converters
         {
             var output = new RegionModel();
 
-            ObservableCollection<PolygonModel> pointCollections = new ObservableCollection<PolygonModel>();
+            List<PolygonModel> pointCollections = new List<PolygonModel>();
             foreach (var pointCollection in regionVM.Polygons.ToPointCollections())
             {
                 pointCollections.Add(new PolygonModel(output)

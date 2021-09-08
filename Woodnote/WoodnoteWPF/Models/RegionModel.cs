@@ -1,4 +1,4 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
 
 namespace WoodnoteWPF.Models
 {
@@ -6,6 +6,6 @@ namespace WoodnoteWPF.Models
     {
         public string Name { get; set; }
         public bool IsSelected { get; set; }
-        public ObservableCollection<PolygonModel> Polygons { get; set; }
+        public List<PolygonModel> Polygons { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Windows.Input;
 using System.Windows.Media;
+using WoodnoteWPF.Commands;
 
 namespace WoodnoteWPF.Models
 {
@@ -7,25 +8,11 @@ namespace WoodnoteWPF.Models
     {
         public string Name { get; set; }
         public PointCollection PointCollection { get; set; }
-        public ICommand SelectRegionCommand
-        {
-            get
-            {
-                return _addCommand ??
-                    (_addCommand = new RelayCommand(obj =>
-                    {
-                        _parentRegionModel.IsSelected = !_parentRegionModel.IsSelected;
-                    }));
-            }
-        }
-
-        private RegionModel _parentRegionModel;
-        private ICommand _addCommand;
 
 
         public PolygonModel(RegionModel parentRegion)
         {
-            _parentRegionModel = parentRegion;
+            //_parentRegionModel = parentRegion;
         }
     }
 }
