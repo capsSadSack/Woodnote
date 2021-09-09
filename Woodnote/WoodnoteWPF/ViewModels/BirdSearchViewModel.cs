@@ -95,6 +95,9 @@ namespace WoodnoteWPF.ViewModels
                         PointCollection = polygon.PointCollection
                     };
 
+                    polygonViewModel.OnRegionSelectionChanged += (o, e)
+                         => UpdateSelectedRegions();
+
                     polygonsVM.Add(polygonViewModel);
                 };
 
@@ -137,11 +140,6 @@ namespace WoodnoteWPF.ViewModels
             set
             {
                 _regions = value;
-                NotifyOfPropertyChange(() => SelectedPerson);
-                SelectedRegions.AddRange(Regions.Where(x => x.IsSelected && !SelectedRegions.Contains(x)));
-                SelectedRegions.RemoveRange(SelectedRegions.Where(x => !x.IsSelected));
-                NotifyOfPropertyChange(() => Regions);
-                NotifyOfPropertyChange(() => SelectedRegions);
             }
         }
 
@@ -189,6 +187,16 @@ namespace WoodnoteWPF.ViewModels
             {
                 return true;
             }
+        }
+
+        public void UpdateSelectedRegions()
+        {
+            var newSelectedRegions = Regions.Where(x => x.IsSelected && !SelectedRegions.Contains(x)).ToList();
+            SelectedRegions.AddRange(newSelectedRegions);
+            var newDeselectedRegions = SelectedRegions.Where(x => !x.IsSelected).ToList();
+            SelectedRegions.RemoveRange(newDeselectedRegions);
+
+            //NotifyOfPropertyChange(() => SelectedRegions);
         }
 
         public void ClearSelection(string firstName, string lastName)
