@@ -1,4 +1,5 @@
-﻿using System.Windows.Input;
+﻿using System;
+using System.Windows.Input;
 using System.Windows.Media;
 using WoodnoteWPF.Commands;
 using WoodnoteWPF.Models;
@@ -7,6 +8,8 @@ namespace WoodnoteWPF.ViewModels
 {
     public class PolygonViewModel
     {
+        public EventHandler OnRegionSelectionChanged;
+
         public string Name { get; set; }
         public PointCollection PointCollection { get; set; }
 
@@ -21,6 +24,7 @@ namespace WoodnoteWPF.ViewModels
                     (_selectRegionCommand = new RelayCommand(obj =>
                     {
                         _parentRegionModel.IsSelected = !_parentRegionModel.IsSelected;
+                        OnRegionSelectionChanged?.Invoke(this, null);
                     }));
             }
         }
