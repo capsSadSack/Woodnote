@@ -44,7 +44,7 @@ namespace WoodnoteWPF.Converters
             for (int i = 0; i < orderedPoints.Count(); i++)
             {
                 var point = orderedPoints.ElementAt(i);
-                var pointCollectionPoint = ToPoint(point.Latitude_Degree, point.Longitude_Degree, 800, 600); // TODO: [CG, 2021.09.05] Magic numbers NUMBERS
+                var pointCollectionPoint = ToPoint(point.Latitude_Degree, point.Longitude_Degree, 1000, 600); // TODO: [CG, 2021.09.05] Magic numbers NUMBERS
                 output.Add(pointCollectionPoint);
             }
 

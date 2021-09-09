@@ -75,7 +75,7 @@ namespace WoodnoteWPF.ViewModels
 
             LoadPolygonsFromRegions();
 
-            SelectedRegions.AddRange(Regions.Where(x => !x.IsSelected));
+            SelectedRegions.AddRange(Regions.Where(x => x.IsSelected));
             return output;
         }
 
