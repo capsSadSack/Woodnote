@@ -6,7 +6,8 @@
              xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro.Platform"
              xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              xmlns:resources="clr-namespace:WoodnoteWPF.Properties" 
-             xmlns:local="clr-namespace:WoodnoteWPF.Converters"
+             xmlns:local="clr-namespace:WoodnoteWPF.Converters" 
+             xmlns:views="clr-namespace:WoodnoteWPF.Views"
              mc:Ignorable="d" Background="White"
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
@@ -122,7 +123,7 @@
                 <TextBlock Grid.Row="5" Grid.Column="1"
                     Text="{x:Static resources:uiStrings.BirdRegionHeader}"/>
 
-                <ItemsControl ItemsSource="{Binding Path=SelectedRegions}"
+                <!--<ItemsControl ItemsSource="{Binding Path=SelectedRegions}"
                               Grid.Row="6" Grid.Column="1" Height="80">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
@@ -165,8 +166,12 @@
                             <Canvas Height="600" Width="1000" HorizontalAlignment="Left" Background="Lavender" />
                         </ItemsPanelTemplate>
                     </ItemsControl.ItemsPanel>
-                </ItemsControl>
+                </ItemsControl>-->
+
+                <views:MapView Grid.Row="8" Grid.Column="1" />
             </Grid>
+
+            
         </ScrollViewer>
         
         <Button x:Name="SearchBirds" Grid.Row="4"  Grid.Column="2"> 

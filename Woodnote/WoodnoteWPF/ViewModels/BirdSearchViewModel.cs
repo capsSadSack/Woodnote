@@ -30,7 +30,6 @@ namespace WoodnoteWPF.ViewModels
         {
             LoadSilhouettes();
             LoadColors();
-            LoadRegionsAndPolygons();
         }
 
 
@@ -65,47 +64,47 @@ namespace WoodnoteWPF.ViewModels
             return output;
         }
 
-        private async Task<IEnumerable<RegionModel>> LoadRegionsAndPolygons()
-        {
-            EarthRegionsController erc = new EarthRegionsController();
-            IEnumerable<EarthRegionVM> regions = await erc.GetEarthRegions();
-            IEnumerable<RegionModel> output = regions.ToRegionModels();
+        //private async Task<IEnumerable<RegionModel>> LoadRegionsAndPolygons()
+        //{
+        //    EarthRegionsController erc = new EarthRegionsController();
+        //    IEnumerable<EarthRegionVM> regions = await erc.GetEarthRegions();
+        //    IEnumerable<RegionModel> output = regions.ToRegionModels();
 
-            Regions.AddRange(output);
+        //    Regions.AddRange(output);
 
-            LoadPolygonsFromRegions();
+        //    LoadPolygonsFromRegions();
 
-            SelectedRegions.AddRange(Regions.Where(x => x.IsSelected));
-            return output;
-        }
+        //    SelectedRegions.AddRange(Regions.Where(x => x.IsSelected));
+        //    return output;
+        //}
 
-        private void LoadPolygonsFromRegions()
-        {
-            List<PolygonViewModel> output = new List<PolygonViewModel>();
+        //private void LoadPolygonsFromRegions()
+        //{
+        //    List<PolygonViewModel> output = new List<PolygonViewModel>();
 
-            foreach (var region in Regions)
-            {
-                var polygonsVM = new List<PolygonViewModel>();
+        //    foreach (var region in Regions)
+        //    {
+        //        var polygonsVM = new List<PolygonViewModel>();
 
-                foreach (var polygon in region.Polygons)
-                {
-                    var polygonViewModel = new PolygonViewModel(region)
-                    {
-                        Name = polygon.Name,
-                        PointCollection = polygon.PointCollection
-                    };
+        //        foreach (var polygon in region.Polygons)
+        //        {
+        //            var polygonViewModel = new PolygonViewModel(region)
+        //            {
+        //                Name = polygon.Name,
+        //                PointCollection = polygon.PointCollection
+        //            };
 
-                    polygonViewModel.OnRegionSelectionChanged += (o, e)
-                         => UpdateSelectedRegions();
+        //            polygonViewModel.OnRegionSelectionChanged += (o, e)
+        //                 => UpdateSelectedRegions();
 
-                    polygonsVM.Add(polygonViewModel);
-                };
+        //            polygonsVM.Add(polygonViewModel);
+        //        };
 
-                output.AddRange(polygonsVM);
-            }
+        //        output.AddRange(polygonsVM);
+        //    }
 
-            Polygons.AddRange(output);
-        }
+        //    Polygons.AddRange(output);
+        //}
 
         public BindableCollection<BirdOrderSilhouetteModel> Silhouettes
         {
@@ -131,41 +130,41 @@ namespace WoodnoteWPF.ViewModels
             }
         }
 
-        public BindableCollection<RegionModel> Regions
-        {
-            get
-            {
-                return _regions;
-            }
-            set
-            {
-                _regions = value;
-            }
-        }
+        //public BindableCollection<RegionModel> Regions
+        //{
+        //    get
+        //    {
+        //        return _regions;
+        //    }
+        //    set
+        //    {
+        //        _regions = value;
+        //    }
+        //}
 
-        public BindableCollection<RegionModel> SelectedRegions
-        {
-            get
-            {
-                return _selectedRegions;
-            }
-            set
-            {
-                _selectedRegions = value;
-            }
-        }
+        //public BindableCollection<RegionModel> SelectedRegions
+        //{
+        //    get
+        //    {
+        //        return _selectedRegions;
+        //    }
+        //    set
+        //    {
+        //        _selectedRegions = value;
+        //    }
+        //}
 
-        public BindableCollection<PolygonViewModel> Polygons
-        {
-            get
-            {
-                return _polygons;
-            }
-            set
-            {
-                _polygons = value;
-            }
-        }
+        //public BindableCollection<PolygonViewModel> Polygons
+        //{
+        //    get
+        //    {
+        //        return _polygons;
+        //    }
+        //    set
+        //    {
+        //        _polygons = value;
+        //    }
+        //}
 
         public BirdOrderSilhouetteModel SelectedPerson
         {
@@ -189,15 +188,15 @@ namespace WoodnoteWPF.ViewModels
             }
         }
 
-        public void UpdateSelectedRegions()
-        {
-            var newSelectedRegions = Regions.Where(x => x.IsSelected && !SelectedRegions.Contains(x)).ToList();
-            SelectedRegions.AddRange(newSelectedRegions);
-            var newDeselectedRegions = SelectedRegions.Where(x => !x.IsSelected).ToList();
-            SelectedRegions.RemoveRange(newDeselectedRegions);
+        //public void UpdateSelectedRegions()
+        //{
+        //    var newSelectedRegions = Regions.Where(x => x.IsSelected && !SelectedRegions.Contains(x)).ToList();
+        //    SelectedRegions.AddRange(newSelectedRegions);
+        //    var newDeselectedRegions = SelectedRegions.Where(x => !x.IsSelected).ToList();
+        //    SelectedRegions.RemoveRange(newDeselectedRegions);
 
-            //NotifyOfPropertyChange(() => SelectedRegions);
-        }
+        //    //NotifyOfPropertyChange(() => SelectedRegions);
+        //}
 
         public void ClearSelection(string firstName, string lastName)
         {
