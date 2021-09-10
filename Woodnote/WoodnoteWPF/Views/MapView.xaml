@@ -18,7 +18,7 @@
         </Grid.DataContext>
 
         <StackPanel Orientation="Vertical">
-            <ItemsControl ItemsSource="{Binding Path=SelectedRegions}" Height="80">
+            <ItemsControl ItemsSource="{Binding Path=SelectedRegions}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Margin="5" Orientation="Horizontal">
@@ -39,7 +39,7 @@
                 </ItemsControl.ItemTemplate>
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <WrapPanel />
+                        <WrapPanel HorizontalAlignment="Stretch" Width="1000"/>
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
             </ItemsControl>
@@ -57,7 +57,7 @@
                 </ItemsControl.ItemTemplate>
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <Canvas Height="600" Width="1000" HorizontalAlignment="Left" Background="Lavender" />
+                        <Canvas Height="600" Width="1000" HorizontalAlignment="Stretch" Background="Lavender" />
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
             </ItemsControl>
