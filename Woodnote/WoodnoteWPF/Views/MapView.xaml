@@ -52,6 +52,15 @@
                             <Polygon.InputBindings>
                                 <MouseBinding MouseAction="LeftClick" Command="{Binding Path=SelectRegionCommand}"/>
                             </Polygon.InputBindings>
+                            <Polygon.Style>
+                                <Style TargetType="{x:Type Polygon}">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Path=IsSelected}" Value="True">
+                                            <Setter Property="Fill" Value="Red"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Polygon.Style>
                         </Polygon>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>

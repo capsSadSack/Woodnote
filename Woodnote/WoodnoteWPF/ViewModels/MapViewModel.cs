@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using WoodnoteWPF.Converters;
+using WoodnoteWPF.DataSharing;
 using WoodnoteWPF.Models;
 
 namespace WoodnoteWPF.ViewModels
@@ -15,7 +16,6 @@ namespace WoodnoteWPF.ViewModels
     public class MapViewModel : Screen
     {
         private BindableCollection<RegionModel> _regions = new BindableCollection<RegionModel>();
-        private BindableCollection<RegionModel> _selectedRegions = new BindableCollection<RegionModel>();
         private BindableCollection<PolygonViewModel> _polygons = new BindableCollection<PolygonViewModel>();
 
         public BindableCollection<RegionModel> Regions
@@ -34,11 +34,11 @@ namespace WoodnoteWPF.ViewModels
         {
             get
             {
-                return _selectedRegions;
+                return _rscs.SelectedRegions; ;
             }
             set
             {
-                _selectedRegions = value;
+                _rscs.SelectedRegions = value;
             }
         }
 
@@ -54,9 +54,12 @@ namespace WoodnoteWPF.ViewModels
             }
         }
 
+        private RegionsSessionContextSingletone _rscs;
 
         public MapViewModel()
         {
+            _rscs = RegionsSessionContextSingletone.GetInstance();
+
             Thread th = new Thread(() => DoLoadRegions());
             th.Start();
         }

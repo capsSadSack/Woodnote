@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows.Shapes;
 using WoodnoteWPF.Converters;
+using WoodnoteWPF.DataSharing;
 using WoodnoteWPF.Models;
 
 namespace WoodnoteWPF.ViewModels
@@ -21,10 +22,12 @@ namespace WoodnoteWPF.ViewModels
         private BirdOrderSilhouetteModel _selectedSilhouette;
         private BindableCollection<BirdOrderSilhouetteModel> _silhouettes = new BindableCollection<BirdOrderSilhouetteModel>();
         private BindableCollection<ColorModel> _colors = new BindableCollection<ColorModel>();
-
+        private RegionsSessionContextSingletone _rscs;
 
         public BirdSearchViewModel()
         {
+            _rscs = RegionsSessionContextSingletone.GetInstance();
+
             LoadSilhouettes();
             LoadColors();
         }
@@ -138,7 +141,7 @@ namespace WoodnoteWPF.ViewModels
                 .Where(x => x.IsSelected)
                 .ToList();
 
-            //var selectedRegions =
+            var selectedRegions = _rscs.SelectedRegions;
         }
 
         public void OnSilhouetteClicked(BirdOrderSilhouetteModel item)
