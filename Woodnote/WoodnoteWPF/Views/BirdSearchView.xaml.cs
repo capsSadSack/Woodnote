@@ -1,5 +1,4 @@
-﻿using System.Windows;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 
 namespace WoodnoteWPF.Views
 {
@@ -12,7 +11,5 @@ namespace WoodnoteWPF.Views
         {
             InitializeComponent();
         }
-
-
     }
 }

@@ -10,7 +10,7 @@ namespace BirdInfoAccess.DatabaseAccess.ModelsDB
         public string ColorHex { get; set; }
 
 
-        public static ColorDB FromHexCode(string name, string colorHex)
+        internal static ColorDB FromHexCode(string name, string colorHex)
         {
             return new ColorDB()
             {

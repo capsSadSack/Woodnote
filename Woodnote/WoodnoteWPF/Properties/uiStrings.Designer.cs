@@ -70,6 +70,15 @@ namespace WoodnoteWPF.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select habitat.
+        /// </summary>
+        public static string BirdRegionHeader {
+            get {
+                return ResourceManager.GetString("BirdRegionHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Select bird silhouette.
         /// </summary>
         public static string BirdSilhouettesHeader {

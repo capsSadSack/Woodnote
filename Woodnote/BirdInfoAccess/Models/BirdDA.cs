@@ -1,7 +1,5 @@
 ﻿using BirdInfoAccess.DatabaseAccess.ModelsDB;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace BirdInfoAccess.Models
 {

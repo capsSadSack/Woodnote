@@ -35,6 +35,11 @@ namespace BirdInfoAccess.DatabaseAccess
             return await _database.GetAllColorsAsync();
         }
 
+        public async Task<IEnumerable<EarthRegionDA>> GetAllRegionsAsync()
+        {
+            return await _database.GetAllRegionsAsync();
+        }
+
         public BirdDA GetBird(string birdID)
         {
             // TODO: [CG, 2021.07.04] Заглушка - вывод фейковых данных

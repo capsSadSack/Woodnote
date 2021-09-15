@@ -1,12 +1,16 @@
 ﻿using BirdClassification.BiologyClassification;
 using Caliburn.Micro;
 using Domain;
+using Domain.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using System.Windows.Shapes;
 using WoodnoteWPF.Converters;
+using WoodnoteWPF.DataSharing;
 using WoodnoteWPF.Models;
 
 namespace WoodnoteWPF.ViewModels
@@ -15,13 +19,15 @@ namespace WoodnoteWPF.ViewModels
     {
         public string PageTitle => "Bird Search";
 
-        private BindableCollection<BirdOrderSilhouetteModel> _silhouettes = new BindableCollection<BirdOrderSilhouetteModel>();
         private BirdOrderSilhouetteModel _selectedSilhouette;
+        private BindableCollection<BirdOrderSilhouetteModel> _silhouettes = new BindableCollection<BirdOrderSilhouetteModel>();
         private BindableCollection<ColorModel> _colors = new BindableCollection<ColorModel>();
-
+        private RegionsSessionContextSingletone _rscs;
 
         public BirdSearchViewModel()
         {
+            _rscs = RegionsSessionContextSingletone.GetInstance();
+
             LoadSilhouettes();
             LoadColors();
         }
@@ -51,13 +57,12 @@ namespace WoodnoteWPF.ViewModels
         private async Task<IEnumerable<ColorModel>> LoadColors()
         {
             BirdColorController bcc = new BirdColorController();
-            IEnumerable<Domain.ViewModels.ColorVM> colorsVM = await bcc.GetBirdsColors();
+            IEnumerable<ColorVM> colorsVM = await bcc.GetBirdsColors();
             IEnumerable<ColorModel> output =  colorsVM.ToColorModels();
 
             Colors.AddRange(output);
             return output;
         }
-
         public BindableCollection<BirdOrderSilhouetteModel> Silhouettes
         {
             get
@@ -135,6 +140,8 @@ namespace WoodnoteWPF.ViewModels
             List<ColorModel> selectedColors = Colors
                 .Where(x => x.IsSelected)
                 .ToList();
+
+            var selectedRegions = _rscs.SelectedRegions;
         }
 
         public void OnSilhouetteClicked(BirdOrderSilhouetteModel item)
@@ -143,6 +150,11 @@ namespace WoodnoteWPF.ViewModels
         }
 
         public void OnColorClicked(ColorModel item)
+        {
+            item.IsSelected = !item.IsSelected;
+        }
+
+        public void OnDeselectRegionClicked(RegionModel item)
         {
             item.IsSelected = !item.IsSelected;
         }
