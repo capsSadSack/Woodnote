@@ -18,8 +18,11 @@
     <None Remove="Resources\Apterygiformes_Silhouette_300x400.png" />
     <None Remove="Resources\Casuariiformes_Silhouette_300x400.png" />
     <None Remove="Resources\Ciconiiformes_Silhouette_300x400.png" />
+    <None Remove="Resources\Columbiformes_Silhouette_300x400.png" />
     <None Remove="Resources\Eurypygiformes_Silhouette_300x400.png" />
     <None Remove="Resources\Galliformes_Silhouette_300x400.png" />
+    <None Remove="Resources\Gaviiformes_Silhouette_300x400.png" />
+    <None Remove="Resources\Opisthocomiformes_Silhouette_300x400.png" />
     <None Remove="Resources\Passeriformes_Silhouette_300x400.png" />
     <None Remove="Resources\Procellariiformes_Silhouette_300x400.png" />
     <None Remove="Resources\Rheiformes_Silhouette_300x400.png" />
@@ -33,8 +36,11 @@
     <EmbeddedResource Include="Resources\Apterygiformes_Silhouette_300x400.png" />
     <EmbeddedResource Include="Resources\Casuariiformes_Silhouette_300x400.png" />
     <EmbeddedResource Include="Resources\Ciconiiformes_Silhouette_300x400.png" />
+    <EmbeddedResource Include="Resources\Columbiformes_Silhouette_300x400.png" />
     <EmbeddedResource Include="Resources\Eurypygiformes_Silhouette_300x400.png" />
     <EmbeddedResource Include="Resources\Galliformes_Silhouette_300x400.png" />
+    <EmbeddedResource Include="Resources\Gaviiformes_Silhouette_300x400.png" />
+    <EmbeddedResource Include="Resources\Opisthocomiformes_Silhouette_300x400.png" />
     <EmbeddedResource Include="Resources\Passeriformes_Silhouette_300x400.png" />
     <EmbeddedResource Include="Resources\Procellariiformes_Silhouette_300x400.png" />
     <EmbeddedResource Include="Resources\Rheiformes_Silhouette_300x400.png" />

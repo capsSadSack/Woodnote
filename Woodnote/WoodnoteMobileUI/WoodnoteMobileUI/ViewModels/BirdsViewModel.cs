@@ -1,8 +1,10 @@
-﻿using Domain.Models;
+﻿using Domain;
 using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading.Tasks;
+using WoodnoteMobileUI.Converters;
 using WoodnoteMobileUI.Models;
 using WoodnoteMobileUI.Views;
 using Xamarin.Forms;
@@ -13,14 +15,52 @@ namespace WoodnoteMobileUI.ViewModels
     {
         private Bird _selected;
 
-        public ObservableCollection<Bird> SearchResults { get; }
+        private ObservableCollection<Bird> _searchResults;
+
+        public ObservableCollection<Bird> SearchResults 
+        { 
+            get
+            {
+                _searchResults = new ObservableCollection<Bird>();
+
+                _searchResults.Add(new Bird()
+                {
+                    Id = "0",
+                    Name = "Bird_01",
+                    Text = "Bird 01 Text",
+                    Description = "Bid 01 Description"
+                });
+
+                _searchResults.Add(new Bird()
+                {
+                    Id = "1",
+                    Name = "Bird_02",
+                    Text = "Bird 02 Text",
+                    Description = "Bid 02 Description"
+                });
+
+                //var task = new BirdSearcher().GetItemsAsync();
+                //var result = task.Result.ToBirdsUI();
+
+                //Debug.WriteLine("++++ Birds count: " + result.Count());
+
+                //foreach (var bird in result)
+                //{
+                //    _searchResults.Add(bird);
+                //}
+
+                return _searchResults;
+            }
+        
+        } 
         public Command LoadItemsCommand { get; }
         public Command<Bird> ResultTapped { get; }
 
         public BirdsViewModel()
         {
             Title = "Search result";
-            SearchResults = new ObservableCollection<Bird>();
+
+
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
             ResultTapped = new Command<Bird>(OnItemSelected);

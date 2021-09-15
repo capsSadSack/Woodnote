@@ -42,6 +42,8 @@ namespace WoodnoteMobileUI.Views
             bool answer = await DisplayAlert("Question?", "Would you like to play a game", "Yes", "No");
             Debug.WriteLine("Answer: " + answer);
 
+
+            await Navigation.PushAsync(new BirdsPage());
         }
     }
 }
