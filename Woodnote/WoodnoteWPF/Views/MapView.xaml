@@ -48,11 +48,12 @@
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <Polygon Points="{Binding Path=PointCollection}" 
-                                     Fill="Black" Opacity="0.9" Stroke="MediumPurple">
+                                  Opacity="0.9" Stroke="MediumPurple"
+                                 Style="{StaticResource PolygonStyle}">
                             <Polygon.InputBindings>
                                 <MouseBinding MouseAction="LeftClick" Command="{Binding Path=SelectRegionCommand}"/>
                             </Polygon.InputBindings>
-                            <Polygon.Style>
+                            <!--<Polygon.Style>
                                 <Style TargetType="{x:Type Polygon}">
                                     <Style.Triggers>
                                         <DataTrigger Binding="{Binding Path=IsSelected}" Value="True">
@@ -60,7 +61,8 @@
                                         </DataTrigger>
                                     </Style.Triggers>
                                 </Style>
-                            </Polygon.Style>
+                            </Polygon.Style>-->
+
                         </Polygon>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>

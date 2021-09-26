@@ -93,11 +93,14 @@ namespace WoodnoteWPF.ViewModels
 
             foreach (var region in Regions)
             {
+                var regionVM = new RegionViewModel(region);
                 var polygonsVM = new List<PolygonViewModel>();
 
                 foreach (var polygon in region.Polygons)
                 {
-                    var polygonViewModel = new PolygonViewModel(region)
+                    
+
+                    var polygonViewModel = new PolygonViewModel(regionVM)
                     {
                         Name = polygon.Name,
                         PointCollection = polygon.PointCollection
@@ -109,6 +112,7 @@ namespace WoodnoteWPF.ViewModels
                     polygonsVM.Add(polygonViewModel);
                 };
 
+                regionVM.Polygons = polygonsVM;
                 output.AddRange(polygonsVM);
             }
 
