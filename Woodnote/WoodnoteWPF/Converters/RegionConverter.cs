@@ -63,7 +63,7 @@ namespace WoodnoteWPF.Converters
             }
         }
 
-        private static Point ToPoint(double latitude_Degree, double longitude_Degree, double maxWidth, double maxHeight)
+        public static Point ToPoint(double latitude_Degree, double longitude_Degree, double maxWidth, double maxHeight)
         {
             double y = (90.0 - latitude_Degree) / 180.0 * maxHeight;
             double x = (180.0 + longitude_Degree) / 360.0 * maxWidth;

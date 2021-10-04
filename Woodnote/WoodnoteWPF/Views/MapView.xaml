@@ -28,7 +28,10 @@
                                     <Button Background="Transparent" BorderThickness="0" Margin="2,0">
                                         <TextBlock Foreground="Violet" FontFamily="Berlin Sans FB Demi" 
                                                        FontWeight="Bold">
-                                                X
+                                            X
+                                            <TextBlock.InputBindings>
+                                                <MouseBinding Command="{Binding Path=SelectRegionCommand}" MouseAction="LeftClick" />
+                                            </TextBlock.InputBindings>
                                         </TextBlock>
                                     </Button>
                                     <TextBlock Text="{Binding Path=Name}" Margin="2,0" Foreground="MediumPurple"/>
@@ -44,6 +47,7 @@
                 </ItemsControl.ItemsPanel>
             </ItemsControl>
 
+
             <ItemsControl ItemsSource="{Binding Path=Polygons}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
@@ -53,22 +57,12 @@
                             <Polygon.InputBindings>
                                 <MouseBinding MouseAction="LeftClick" Command="{Binding Path=SelectRegionCommand}"/>
                             </Polygon.InputBindings>
-                            <!--<Polygon.Style>
-                                <Style TargetType="{x:Type Polygon}">
-                                    <Style.Triggers>
-                                        <DataTrigger Binding="{Binding Path=IsSelected}" Value="True">
-                                            <Setter Property="Fill" Value="Red"/>
-                                        </DataTrigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </Polygon.Style>-->
-
                         </Polygon>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <Canvas Height="600" Width="1000" HorizontalAlignment="Stretch" Background="Lavender" />
+                        <Canvas Height="600" Width="1000" HorizontalAlignment="Stretch" Background="Lavender"/>
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
             </ItemsControl>
