@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Style x:Key="PolygonStyle" TargetType="{x:Type Polygon}">
-        <Setter Property="Fill" Value="Black" />
+        <!--<Setter Property="Fill" Value="Black" />
         <Style.Triggers>
             <DataTrigger Binding="{Binding Path=IsSelected}" Value="False">
                 <Setter Property="Fill" Value="Black" />
@@ -9,6 +9,6 @@
             <DataTrigger Binding="{Binding Path=IsSelected}" Value="True">
                 <Setter Property="Fill" Value="Purple" />
             </DataTrigger>
-        </Style.Triggers>
+        </Style.Triggers>-->
     </Style>
 </ResourceDictionary>

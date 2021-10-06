@@ -50,6 +50,11 @@ namespace WoodnoteWPF.ViewModels
                     {
                         IsSelected = !IsSelected;
 
+                        foreach (var polygon in Polygons)
+                        {
+                            polygon.IsSelected = this.IsSelected;
+                        }
+
                         OnRegionSelectionChanged?.Invoke(this, null);
                     }));
             }

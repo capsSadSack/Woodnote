@@ -128,6 +128,7 @@ namespace WoodnoteWPF.ViewModels
             SelectedRegions.RemoveRange(newDeselectedRegions);
 
             NotifyOfPropertyChange(() => SelectedRegions);
+            NotifyOfPropertyChange(() => Polygons);
         }
     }
 }
