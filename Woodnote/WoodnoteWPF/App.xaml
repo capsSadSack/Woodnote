@@ -10,6 +10,8 @@
                 </ResourceDictionary>
                     <ResourceDictionary Source="Styles/BirdOrderSilhouetteStyles.xaml">
                 </ResourceDictionary>
+                <ResourceDictionary Source="Styles/MapStyles.xaml">
+                </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
