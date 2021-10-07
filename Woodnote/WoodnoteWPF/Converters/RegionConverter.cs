@@ -63,10 +63,17 @@ namespace WoodnoteWPF.Converters
             }
         }
 
+        private const double _usaRussiaBorderLongitude_Degree = -169.0;
+
         private static Point ToPoint(double latitude_Degree, double longitude_Degree, double maxWidth, double maxHeight)
         {
             double y = (90.0 - latitude_Degree) / 180.0 * maxHeight;
-            double x = (180.0 + longitude_Degree) / 360.0 * maxWidth;
+
+            if (longitude_Degree < _usaRussiaBorderLongitude_Degree)
+            {
+                longitude_Degree += 360;
+            }
+            double x = (-_usaRussiaBorderLongitude_Degree + longitude_Degree) / 360.0 * maxWidth;
 
             return new Point(x, y);
         }
