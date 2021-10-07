@@ -15,10 +15,10 @@ namespace WoodnoteWPF.ViewModels
 {
     public class MapViewModel : Screen
     {
-        private BindableCollection<RegionModel> _regions = new BindableCollection<RegionModel>();
+        private BindableCollection<RegionViewModel> _regions = new BindableCollection<RegionViewModel>();
         private BindableCollection<PolygonViewModel> _polygons = new BindableCollection<PolygonViewModel>();
 
-        public BindableCollection<RegionModel> Regions
+        public BindableCollection<RegionViewModel> Regions
         {
             get
             {
@@ -30,7 +30,7 @@ namespace WoodnoteWPF.ViewModels
             }
         }
 
-        public BindableCollection<RegionModel> SelectedRegions
+        public BindableCollection<RegionViewModel> SelectedRegions
         {
             get
             {
@@ -69,7 +69,7 @@ namespace WoodnoteWPF.ViewModels
             Task<IEnumerable<RegionModel>> regionsTask = GetRegionsAsync();
             var regions = regionsTask.Result;
 
-            Regions.AddRange(regions);
+            Regions.AddRange(RegionViewModel.FromRegionModels(regions));
             LoadPolygonsFromRegions();
             SelectedRegions.AddRange(Regions.Where(x => x.IsSelected));
 
@@ -91,13 +91,15 @@ namespace WoodnoteWPF.ViewModels
         {
             List<PolygonViewModel> output = new List<PolygonViewModel>();
 
-            foreach (var region in Regions)
+            foreach (var regionVM in Regions)
             {
                 var polygonsVM = new List<PolygonViewModel>();
 
-                foreach (var polygon in region.Polygons)
+                foreach (var polygon in regionVM.RegionModel.Polygons)
                 {
-                    var polygonViewModel = new PolygonViewModel(region)
+                    
+
+                    var polygonViewModel = new PolygonViewModel(regionVM)
                     {
                         Name = polygon.Name,
                         PointCollection = polygon.PointCollection
@@ -109,6 +111,9 @@ namespace WoodnoteWPF.ViewModels
                     polygonsVM.Add(polygonViewModel);
                 };
 
+                regionVM.Polygons = polygonsVM;
+                regionVM.OnRegionSelectionChanged += (o, e)
+                    => UpdateSelectedRegions();
                 output.AddRange(polygonsVM);
             }
 
@@ -122,7 +127,8 @@ namespace WoodnoteWPF.ViewModels
             var newDeselectedRegions = SelectedRegions.Where(x => !x.IsSelected).ToList();
             SelectedRegions.RemoveRange(newDeselectedRegions);
 
-            //NotifyOfPropertyChange(() => SelectedRegions);
+            NotifyOfPropertyChange(() => SelectedRegions);
+            NotifyOfPropertyChange(() => Polygons);
         }
     }
 }
