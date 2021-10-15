@@ -1,5 +1,5 @@
 ﻿using Caliburn.Micro;
-using WoodnoteWPF.Models;
+using WoodnoteWPF.ViewModels;
 
 namespace WoodnoteWPF.DataSharing
 {
@@ -22,7 +22,7 @@ namespace WoodnoteWPF.DataSharing
         #endregion
 
 
-        public BindableCollection<RegionModel> SelectedRegions { get; set; } = new BindableCollection<RegionModel>();
+        public BindableCollection<RegionViewModel> SelectedRegions { get; set; } = new BindableCollection<RegionViewModel>();
 
         private RegionsSessionContextSingletone()
         {
