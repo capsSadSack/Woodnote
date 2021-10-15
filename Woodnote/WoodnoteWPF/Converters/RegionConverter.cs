@@ -4,6 +4,7 @@ using WoodnoteWPF.Models;
 using System.Windows.Media;
 using Domain.ViewModels;
 using System.Windows;
+using System;
 
 namespace WoodnoteWPF.Converters
 {
@@ -75,6 +76,13 @@ namespace WoodnoteWPF.Converters
             }
             double x = (-_usaRussiaBorderLongitude_Degree + longitude_Degree) / 360.0 * maxWidth;
 
+            return TransformPoint(new Point(x, y), maxWidth, maxHeight);
+        }
+
+        private static Point TransformPoint(Point point, double maxWidth, double maxHeight)
+        {
+            double y = point.Y;
+            double x = (1 - Math.Pow(point.Y - maxHeight / 2, 2) / maxHeight / maxHeight) * (point.X - maxWidth / 2) + maxWidth / 2;
             return new Point(x, y);
         }
     }
