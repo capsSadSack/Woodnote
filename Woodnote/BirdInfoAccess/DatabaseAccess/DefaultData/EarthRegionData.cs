@@ -10,7 +10,7 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
 
         private static List<EarthPolygonDA> _northAmericaPolygons = new List<EarthPolygonDA>()
         {
-            // Canada, USA continental parts
+            #region Canada, USA continental parts
             FromPoints(
                 EarthPointDA.FromDegree(54.52420305564253, -164.75261198679715),
                 EarthPointDA.FromDegree(56.90393728380806, -158.53780632738577),
@@ -451,8 +451,9 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
                 EarthPointDA.FromDegree(55.79516537714566, -160.02751491812447),
                 EarthPointDA.FromDegree(55.58498034272408, -160.40040325768916),
                 EarthPointDA.FromDegree(55.16121254101646, -161.8919566159479)),
+            #endregion
 
-            // Southampton island
+            #region Southampton island
             FromPoints(
                 EarthPointDA.FromDegree(65.84670482573209, -85.39599047746097),
                 EarthPointDA.FromDegree(65.77467801517753, -85.22020922843991),
@@ -483,8 +484,9 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
                 EarthPointDA.FromDegree(64.09987196682276, -86.1870060980557),
                 EarthPointDA.FromDegree(64.78238150806719, -86.27489672256624),
                 EarthPointDA.FromDegree(65.30156479541981, -86.1870060980557)),
+            #endregion
 
-            // Banks Island
+            #region Banks Island
             FromPoints(
                 EarthPointDA.FromDegree(71.97314481,-125.8198221),
                 EarthPointDA.FromDegree(72.4921284,-125.1875006),
@@ -512,8 +514,9 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
                 EarthPointDA.FromDegree(71.05947281,-123.0015907),
                 EarthPointDA.FromDegree(71.42977035,-123.6127053),
                 EarthPointDA.FromDegree(71.71212211,-124.1062978)),
+            #endregion
 
-            // Victoria Island
+            #region Victoria Island
             FromPoints(
                 EarthPointDA.FromDegree(71.94788439,-119.0905012),
                 EarthPointDA.FromDegree(72.56777123,-118.3174321),
@@ -563,8 +566,9 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
                 EarthPointDA.FromDegree(71.004451,-118.5208713),
                 EarthPointDA.FromDegree(71.56577747,-115.7134097),
                 EarthPointDA.FromDegree(71.37180732,-118.3174321)),
+            #endregion
 
-            // Wales Island and nearby
+            #region Prince of Wales Island
             FromPoints(
                 EarthPointDA.FromDegree(72.84640799930416, -102.53676056374499),
                 EarthPointDA.FromDegree(73.86400390218061, -90.20338215457075),
@@ -573,22 +577,53 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
                 EarthPointDA.FromDegree(69.48062577553023, -94.38418839496882),
                 EarthPointDA.FromDegree(72.66047833821015, -102.32772025172508),
                 EarthPointDA.FromDegree(69.48062577553023, -94.38418839496882)),
+            #endregion
 
-            // Baffin Island
+            #region Baffin Island
             FromPoints(
                 EarthPointDA.FromDegree(73.80822882257668, -86.10919502975194),
-                EarthPointDA.FromDegree(73.45477954550294, -77.32950192491603),
-                EarthPointDA.FromDegree(69.9187708440497, -67.29556694796074),
-                EarthPointDA.FromDegree(66.84316023005057, -61.651478523423364),
-                EarthPointDA.FromDegree(65.57863740140898, -67.50460725998063),
-                EarthPointDA.FromDegree(61.982204063021854, -66.0413250758413),
-                EarthPointDA.FromDegree(64.78907944441553, -78.37470348501556),
-                EarthPointDA.FromDegree(67.08853767148621, -72.73061506047819),
-                EarthPointDA.FromDegree(69.8468733380495, -79.41990504511506),
-                EarthPointDA.FromDegree(70.13299060827562, -87.99055783793105),
-                EarthPointDA.FromDegree(72.22166951719434, -89.87192064611017)),
+                EarthPointDA.FromDegree(73.62258365578927, -78.03520814716995),
+                EarthPointDA.FromDegree(72.91421177011699, -76.10161440793836),
+                EarthPointDA.FromDegree(72.78462468397532, -76.80473940402257),
+                EarthPointDA.FromDegree(72.49617006179308, -75.13481753832257),
+                EarthPointDA.FromDegree(71.79939607783346, -73.86456775379855),
+                EarthPointDA.FromDegree(71.52286527587023, -71.4036302675038),
+                EarthPointDA.FromDegree(70.19780945026326, -67.53644278904062),
+                EarthPointDA.FromDegree(69.28497596141051, -66.4817552949143),
+                EarthPointDA.FromDegree(69.0976389782456, -68.06378653610378),
+                EarthPointDA.FromDegree(68.59013262689004, -67.88800528708272),
+                EarthPointDA.FromDegree(66.78936805903113, -61.20831782428269),
+                EarthPointDA.FromDegree(64.84619638960383, -63.66925531057743),
+                EarthPointDA.FromDegree(65.21719090674559, -64.89972405372482),
+                EarthPointDA.FromDegree(66.44052906458278, -66.83331779295641),
+                EarthPointDA.FromDegree(65.21719090674559, -67.1848802909985),
+                EarthPointDA.FromDegree(63.85719470103572, -64.1965990576406),
+                EarthPointDA.FromDegree(62.42808957996701, -64.89972405372482),
+                EarthPointDA.FromDegree(63.62387990625591, -68.41534903414589),
+                EarthPointDA.FromDegree(61.68681386179676, -65.77863029883008),
+                EarthPointDA.FromDegree(62.832144734412864, -71.4036302675038),
+                EarthPointDA.FromDegree(64.31807703202284, -73.68878650477751),
+                EarthPointDA.FromDegree(64.47001468980784, -75.44659899498804),
+                EarthPointDA.FromDegree(64.1652968668415, -76.85284898715649),
+                EarthPointDA.FromDegree(64.3941509504638, -78.08331773030386),
+                EarthPointDA.FromDegree(65.43732113913336, -77.55597398324069),
+                EarthPointDA.FromDegree(65.51028950272432, -74.74347399890384),
+                EarthPointDA.FromDegree(67.20153362018915, -72.6340990106512),
+                EarthPointDA.FromDegree(68.20181760656149, -73.68878650477751),
+                EarthPointDA.FromDegree(68.13645023885566, -74.39191150086172),
+                EarthPointDA.FromDegree(67.33737620111113, -75.44659899498804),
+                EarthPointDA.FromDegree(67.13332358807111, -77.02863023617753),
+                EarthPointDA.FromDegree(67.67363491684077, -77.55597398324069),
+                EarthPointDA.FromDegree(68.33199496637324, -76.67706773813542),
+                EarthPointDA.FromDegree(68.59013262689004, -74.39191150086172),
+                EarthPointDA.FromDegree(70.07836489180225, -78.08331773030386),
+                EarthPointDA.FromDegree(69.83739920043698, -79.13800522443017),
+                EarthPointDA.FromDegree(70.07836489180225, -87.57550517744075),
+                EarthPointDA.FromDegree(70.90015816662525, -89.50909891667234),
+                EarthPointDA.FromDegree(72.3405081017599, -89.86066141471446)),
+            #endregion
 
-            // Patrick Island, Melvile Island, King Island, etc.
+            #region Patrick Island, Melvile Island, King Island, etc.
             FromPoints(
                 EarthPointDA.FromDegree(76.2538973753246, -122.62093090766051),
                 EarthPointDA.FromDegree(78.75564895766031, -109.61311848010253),
@@ -599,35 +634,80 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
                 EarthPointDA.FromDegree(75.30422741723464, -105.74593100163933),
                 EarthPointDA.FromDegree(74.38540086211758, -112.42561846443938)),
 
-             FromPoints(
+            FromPoints(
                 EarthPointDA.FromDegree(79.2548964757878, -105.74020698431228),
-                EarthPointDA.FromDegree(77.66605796260369, -93.55918789186589),
-                EarthPointDA.FromDegree(78.38783298672956, -104.49724585242998)),
+                EarthPointDA.FromDegree(79.3399409952812, -103.6438881847901),
+                EarthPointDA.FromDegree(78.57585201406414, -99.65291498618323),
+                EarthPointDA.FromDegree(77.94441848240427, -98.61821823098884),
+                EarthPointDA.FromDegree(77.78907862452444, -100.39198409703636),
+                EarthPointDA.FromDegree(78.15862812786975, -101.27886703006011),
+                EarthPointDA.FromDegree(78.24927975757149, -104.38295729564324),
+                EarthPointDA.FromDegree(78.54653741388927, -104.82639876215511),
+                EarthPointDA.FromDegree(78.77899125634453, -104.087329651302)),
+
+            FromPoints(
+                EarthPointDA.FromDegree(78.80771857871662, -98.32259058664759),
+                EarthPointDA.FromDegree(78.36908498653473, -94.62724503238198),
+                EarthPointDA.FromDegree(77.78907862452444, -94.62724503238198),
+                EarthPointDA.FromDegree(77.75777491302628, -93.14910681067573),
+                EarthPointDA.FromDegree(77.40817666137562, -93.44473445501697),
+                EarthPointDA.FromDegree(77.47246265170295, -95.95756943191759),
+                EarthPointDA.FromDegree(78.03668621671916, -97.5835214757945)),
 
             FromPoints(
                 EarthPointDA.FromDegree(76.55777933343579, -104.00006139967708),
-                EarthPointDA.FromDegree(76.84369572413773, -96.54229460838339),
-                EarthPointDA.FromDegree(75.66295879285765, -88.3387511379603),
-                EarthPointDA.FromDegree(75.72438733316014, -81.87535325217243),
-                EarthPointDA.FromDegree(75.65677058268683, -81.22648452113589),
-                EarthPointDA.FromDegree(75.18619993460987, -79.7683370383616),
-                EarthPointDA.FromDegree(74.60857954756706, -80.65521997138536),
-                EarthPointDA.FromDegree(74.76472738630203, -95.28878836627719),
-                EarthPointDA.FromDegree(75.55945161251486, -102.5316656526378),
-                EarthPointDA.FromDegree(76.62479763095817, -104.15761769651466),
-                EarthPointDA.FromDegree(76.96247338902825, -96.76692658798343)),
+                EarthPointDA.FromDegree(76.43876384542048, -102.90481907887612),
+                EarthPointDA.FromDegree(76.78105214297798, -98.32259059158676),
+                EarthPointDA.FromDegree(75.76429632336925, -97.435707658563),
+                EarthPointDA.FromDegree(75.58141014241242, -94.62724503732116),
+                EarthPointDA.FromDegree(74.74903289800721, -93.14910681561489),
+                EarthPointDA.FromDegree(74.59272807841728, -94.92287268166238),
+                EarthPointDA.FromDegree(75.0188489653967, -96.6966385477099),
+                EarthPointDA.FromDegree(75.28399891919557, -96.25319708119802),
+                EarthPointDA.FromDegree(75.05701144883952, -98.02696294724551),
+                EarthPointDA.FromDegree(74.98059125666454, -100.53979792414613),
+                EarthPointDA.FromDegree(75.54455787254824, -100.24417027980489),
+                EarthPointDA.FromDegree(75.47057658320531, -102.90481907887612)),
+            #endregion
 
+            #region Ellesemere, Axel Heiberg, Devon Islands
             FromPoints(
                 EarthPointDA.FromDegree(81.32733174640528, -94.43544324279257),
-                EarthPointDA.FromDegree(83.04415220192243, -75.04524958542898),
-                EarthPointDA.FromDegree(82.31628602132734, -61.86986158747679),
-                EarthPointDA.FromDegree(76.41968017529702, -78.77413298107582),
-                EarthPointDA.FromDegree(76.30244350420351, -87.72345313062824),
-                EarthPointDA.FromDegree(77.85693569384088, -87.72345313062824),
-                EarthPointDA.FromDegree(78.31869072428947, -92.44670543178091),
-                EarthPointDA.FromDegree(79.95534981755526, -96.42418105380422)),
+                EarthPointDA.FromDegree(82.46265143207043, -85.39856313622445),
+                EarthPointDA.FromDegree(83.04251183755899, -76.82791034340848),
+                EarthPointDA.FromDegree(83.06778769226749, -69.9295800467517),
+                EarthPointDA.FromDegree(82.4351814566723, -61.35892725393568),
+                EarthPointDA.FromDegree(81.25086880019239, -65.33069318231382),
+                EarthPointDA.FromDegree(80.86093452571382, -67.63013661453277),
+                EarthPointDA.FromDegree(79.77206488837174, -71.18382191887109),
+                EarthPointDA.FromDegree(79.4325473757281, -74.11038628714974),
+                EarthPointDA.FromDegree(78.00305907442652, -75.57366847128905),
+                EarthPointDA.FromDegree(77.7838546158722, -77.45503128528901),
+                EarthPointDA.FromDegree(77.00865817676318, -78.91831346942833),
+                EarthPointDA.FromDegree(76.81934342588295, -77.2459909732691),
+                EarthPointDA.FromDegree(76.13516558581004, -81.00871658962735),
+                EarthPointDA.FromDegree(76.4325496614765, -89.16128875840357),
+                EarthPointDA.FromDegree(76.03462434192346, -89.57936938244336),
+                EarthPointDA.FromDegree(75.62526686635158, -87.90704688628415),
+                EarthPointDA.FromDegree(75.88247134214045, -82.68103908578657),
+                EarthPointDA.FromDegree(75.41620539992533, -79.33639409346813),
+                EarthPointDA.FromDegree(74.549827755431, -80.17255534154775),
+                EarthPointDA.FromDegree(74.60541833432733, -91.4607321906225),
+                EarthPointDA.FromDegree(75.31056200487768, -92.7149740627419),
+                EarthPointDA.FromDegree(75.78013497068095, -92.50593375072201),
+                EarthPointDA.FromDegree(76.23499708495588, -93.1330546867817),
+                EarthPointDA.FromDegree(76.33412354867045, -95.64153843102055),
+                EarthPointDA.FromDegree(76.96158149332908, -96.47769967910016),
+                EarthPointDA.FromDegree(76.77159284374952, -92.0878531266822),
+                EarthPointDA.FromDegree(77.19529988709193, -87.69800657426424),
+                EarthPointDA.FromDegree(78.13271662290727, -88.53416782234386),
+                EarthPointDA.FromDegree(78.21838670542644, -92.29689343870211),
+                EarthPointDA.FromDegree(79.5469402969162, -95.85057874304046),
+                EarthPointDA.FromDegree(80.34920868032947, -96.89578030313996),
+                EarthPointDA.FromDegree(81.02545890656167, -95.43249811900064)),
+            #endregion
 
-            // Greenland
+            #region Greenland
             FromPoints(
                 EarthPointDA.FromDegree(78.50837786,-72.49508516),
                 EarthPointDA.FromDegree(78.84409754,-68.87986344),
@@ -867,10 +947,12 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
                 EarthPointDA.FromDegree(77.66446858,-70.54311469),
                 EarthPointDA.FromDegree(77.87941085,-72.06538278),
                 EarthPointDA.FromDegree(77.93256744,-72.23452367)),
+            #endregion
         };
 
         private static List<EarthPolygonDA> _centralAmericaPolygons = new List<EarthPolygonDA>()
         {
+            #region Central America
             FromPoints(
                 EarthPointDA.FromDegree(32.554493489533336, -117.0750765866029), // граница с США - окончание
                 EarthPointDA.FromDegree(32.74459361837618, -114.7326505315185),
@@ -941,6 +1023,7 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
                 EarthPointDA.FromDegree(27.794212573932505, -113.93766684201604),
                 EarthPointDA.FromDegree(29.730884767649204, -115.70049747236892),
                 EarthPointDA.FromDegree(32.35724177730627, -117.25390322114256)),
+            #endregion
         };
 
         //private static List<EarthPolygonDA> _southAmericaPolygons = new List<EarthPolygonDA>()
@@ -961,7 +1044,7 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
 
         private static List<EarthPolygonDA> _caribbeanPolygons = new List<EarthPolygonDA>()
         {
-            // Cuba
+            #region Cuba
             FromPoints(
                 EarthPointDA.FromDegree(21.867421775575618, -84.91319938937517),
                 EarthPointDA.FromDegree(22.038791516524476, -84.32194410069266),
@@ -1003,8 +1086,9 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
                 EarthPointDA.FromDegree(22.209954016640616, -83.36115425658362),
                 EarthPointDA.FromDegree(22.141513967296373, -83.95240954526611),
                 EarthPointDA.FromDegree(21.867421775575618, -84.83929247828985)),
+            #endregion
 
-            //Bagamas
+            #region Bagamas
             FromPoints(
                 EarthPointDA.FromDegree(24.572431326087724, -78.47233017982711),
                 EarthPointDA.FromDegree(25.17047063866799, -78.18668565016792),
@@ -1014,8 +1098,9 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
                 EarthPointDA.FromDegree(23.750483219523996, -77.76920518374291),
                 EarthPointDA.FromDegree(24.21222779767639, -78.01090440114686),
                 EarthPointDA.FromDegree(24.572431326087724, -78.42838486757185)),
+            #endregion
 
-            //Jamaica
+            #region Jamaica
             FromPoints(
                 EarthPointDA.FromDegree(18.352916680402597, -78.33181888055223),
                 EarthPointDA.FromDegree(18.436316581757723, -77.36502201093641),
@@ -1023,9 +1108,10 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
                 EarthPointDA.FromDegree(17.97712078799288, -76.83767826387326),
                 EarthPointDA.FromDegree(17.642406697996737, -77.2771313864259),
                 EarthPointDA.FromDegree(17.893501235978984, -77.84842044574432)),
+            #endregion
 
-            // Haiti and Dominican Republic
-             FromPoints(
+            #region Haiti and Dominican Republic
+            FromPoints(
                 EarthPointDA.FromDegree(19.71425296892362, -73.46439646620559),
                 EarthPointDA.FromDegree(19.920966435223463, -72.7173261578661),
                 EarthPointDA.FromDegree(19.71425296892362, -71.88236522501609),
@@ -1050,19 +1136,21 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
                 EarthPointDA.FromDegree(19.00943979143158, -72.7173261578661),
                 EarthPointDA.FromDegree(19.465843803813836, -72.80521678237663),
                 EarthPointDA.FromDegree(19.590096297587237, -73.15677928041873)),
+            #endregion
 
-             // Puerto Rico
-             FromPoints(
+            #region Puerto Rico
+            FromPoints(
                 EarthPointDA.FromDegree(18.343344356965527, -67.29008009434106),
                 EarthPointDA.FromDegree(18.55177983098408, -67.11429884532002),
                 EarthPointDA.FromDegree(18.343344356965527, -65.62015822864106),
                 EarthPointDA.FromDegree(18.00932506390521, -65.92777541442791),
                 EarthPointDA.FromDegree(17.967527847797708, -67.2461347820858)),
+             #endregion
         };
 
         private static List<EarthPolygonDA> _southAmericaPolygons = new List<EarthPolygonDA>()
         {
-            // South Ameica - continental part
+            #region South Ameica - continental part
             FromPoints(
                 EarthPointDA.FromDegree(-4.260898383,-81.27411939),
                 EarthPointDA.FromDegree(-3.139608841,-80.10161505),
@@ -1229,9 +1317,10 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
                 EarthPointDA.FromDegree(-13.79847351,-76.37776664),
                 EarthPointDA.FromDegree(-7.124635923,-79.65100792),
                 EarthPointDA.FromDegree(-5.911194836,-81.11663835)),
+            #endregion
 
-             // Tierra del Fuego
-             FromPoints(
+            #region Tierra del Fuego
+            FromPoints(
                 EarthPointDA.FromDegree(-54.500548094947206, -71.90830596645955),
                 EarthPointDA.FromDegree(-54.32306473179584, -70.72227967849217),
                 EarthPointDA.FromDegree(-53.625526155371105, -70.4511879555282),
@@ -1261,11 +1350,12 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
                 EarthPointDA.FromDegree(-54.95063387676224, -69.94289097497075),
                 EarthPointDA.FromDegree(-55.125396046014956, -70.5189608862692),
                 EarthPointDA.FromDegree(-54.71643015198873, -70.92559847071514))
+            #endregion
         };
 
         private static List<EarthPolygonDA> _northernEuropePolygons = new List<EarthPolygonDA>()
         {
-            // Iceland
+            #region Iceland
             FromPoints(
                 EarthPointDA.FromDegree(65.58683346,-24.46233111),
                 EarthPointDA.FromDegree(66.41231765,-22.94006302),
@@ -1288,8 +1378,9 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
                 EarthPointDA.FromDegree(65.37626126,-22.17892898),
                 EarthPointDA.FromDegree(65.48175945,-22.94006302),
                 EarthPointDA.FromDegree(65.44664058,-23.78576751)),
+            #endregion
 
-            // Ireland
+            #region Ireland
             FromPoints(
                 EarthPointDA.FromDegree(52.15057715,-10.59277735),
                 EarthPointDA.FromDegree(52.61515417,-9.49336151),
@@ -1303,8 +1394,9 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
                 EarthPointDA.FromDegree(52.20243836,-6.364254898),
                 EarthPointDA.FromDegree(52.15057715,-7.04081849),
                 EarthPointDA.FromDegree(51.41815731,-9.239650163)),
+            #endregion
 
-            // Britain
+            #region Britain
             FromPoints(
                 EarthPointDA.FromDegree(57.4916726,-6.40680999),
                 EarthPointDA.FromDegree(57.33994799,-5.772907186),
@@ -1349,8 +1441,9 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
                 EarthPointDA.FromDegree(56.18184689,-6.195509055),
                 EarthPointDA.FromDegree(57.07291453,-5.772907186),
                 EarthPointDA.FromDegree(57.14940697,-6.2659427)),
+            #endregion
 
-            // Denmark
+            #region Denmark
             FromPoints(
                 EarthPointDA.FromDegree(56.44205673608339, 8.178676416539213),
                 EarthPointDA.FromDegree(57.60265371703072, 10.51420370111485),
@@ -1365,8 +1458,9 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
                 EarthPointDA.FromDegree(55.012678746045296, 8.686399739273062),
                 EarthPointDA.FromDegree(55.244903954254106, 8.686399739273062),
                 EarthPointDA.FromDegree(55.418187591314826, 8.280221081085998)),
+            #endregion
 
-            // Estonia, Latvia, Litva
+            #region Estonia, Latvia, Litva
             FromPoints(
                 EarthPointDA.FromDegree(55.26970420047451, 21.193668217097727),
                 EarthPointDA.FromDegree(57.00175269500841, 21.135008266887017),
@@ -1388,8 +1482,9 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
                 EarthPointDA.FromDegree(54.39125983478219, 22.89480677320824),
                 EarthPointDA.FromDegree(54.93410213942806, 22.718826922576117),
                 EarthPointDA.FromDegree(55.236270733447775, 21.310988117519138)), // Border with Russia - Kaliningrad
+            #endregion
 
-            // Norway, Sweden, Finland
+            #region Norway, Sweden, Finland
             FromPoints(
                 EarthPointDA.FromDegree(62.039757208179964, 4.99415706085617),
                 EarthPointDA.FromDegree(63.709833186418834, 9.43990268072533),
@@ -1442,8 +1537,9 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
                 EarthPointDA.FromDegree(57.9668470903912, 6.704059222344306),
                 EarthPointDA.FromDegree(58.60883601902193, 5.6292635779803355),
                 EarthPointDA.FromDegree(60.34524945818967, 4.89644836591399)),
+            #endregion
 
-            // Sweden - Kopenhagen
+            #region Sweden - Kopenhagen
             FromPoints(
                 EarthPointDA.FromDegree(55.728019014237255, 11.015288058965417),
                 EarthPointDA.FromDegree(56.12079615184623, 12.30323944205528),
@@ -1457,6 +1553,7 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
                 EarthPointDA.FromDegree(54.986633647027354, 11.08050078722313),
                 EarthPointDA.FromDegree(55.154657001247664, 11.748931251864706),
                 EarthPointDA.FromDegree(55.21050808987296, 11.259835789931847)),
+            #endregion
         };
 
         private static List<EarthPolygonDA> _easternEuropePolygons = new List<EarthPolygonDA>()
