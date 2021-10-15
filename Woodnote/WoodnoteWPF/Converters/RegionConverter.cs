@@ -4,6 +4,7 @@ using WoodnoteWPF.Models;
 using System.Windows.Media;
 using Domain.ViewModels;
 using System.Windows;
+using System;
 
 namespace WoodnoteWPF.Converters
 {
@@ -44,7 +45,7 @@ namespace WoodnoteWPF.Converters
             for (int i = 0; i < orderedPoints.Count(); i++)
             {
                 var point = orderedPoints.ElementAt(i);
-                var pointCollectionPoint = ToPoint(point.Latitude_Degree, point.Longitude_Degree, 1000, 600); // TODO: [CG, 2021.09.05] Magic numbers NUMBERS
+                var pointCollectionPoint = PointConverter.ToPoint(point.Latitude_Degree, point.Longitude_Degree, 1000, 600); // TODO: [CG, 2021.09.05] Magic numbers NUMBERS
                 output.Add(pointCollectionPoint);
             }
 
@@ -61,14 +62,6 @@ namespace WoodnoteWPF.Converters
             {
                 return new List<PointCollection>();
             }
-        }
-
-        public static Point ToPoint(double latitude_Degree, double longitude_Degree, double maxWidth, double maxHeight)
-        {
-            double y = (90.0 - latitude_Degree) / 180.0 * maxHeight;
-            double x = (180.0 + longitude_Degree) / 360.0 * maxWidth;
-
-            return new Point(x, y);
         }
     }
 }
