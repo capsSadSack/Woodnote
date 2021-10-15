@@ -7,9 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Media;
 using WoodnoteWPF.Converters;
 using WoodnoteWPF.DataSharing;
 using WoodnoteWPF.Models;
+using PointConverter = WoodnoteWPF.Converters.PointConverter;
 
 namespace WoodnoteWPF.ViewModels
 {
@@ -17,6 +20,7 @@ namespace WoodnoteWPF.ViewModels
     {
         private BindableCollection<RegionViewModel> _regions = new BindableCollection<RegionViewModel>();
         private BindableCollection<PolygonViewModel> _polygons = new BindableCollection<PolygonViewModel>();
+        private BindableCollection<PointCollection> _lines = new BindableCollection<PointCollection>();
 
         public BindableCollection<RegionViewModel> Regions
         {
@@ -54,14 +58,59 @@ namespace WoodnoteWPF.ViewModels
             }
         }
 
+        public BindableCollection<PointCollection> MapLines
+        {
+            get
+            {
+                return _lines;
+            }
+            set
+            {
+                _lines = value;
+            }
+        }
+
         private RegionsSessionContextSingletone _rscs;
 
         public MapViewModel()
         {
             _rscs = RegionsSessionContextSingletone.GetInstance();
 
+            FillLines();
+
             Thread th = new Thread(() => DoLoadRegions());
             th.Start();
+        }
+
+        // TODO: [CG, 2021.10.15] Magic numbers, DRY !!!
+        private double _maxHeight = 600;
+        private double _maxWidth = 1000; 
+
+        private void FillLines()
+        {
+            for (int latitude_Degree = -90; latitude_Degree <= 90; latitude_Degree += 10)
+            {
+                List<Point> linePoints = new List<Point>();
+
+                for(int i = -175; i <= 175; i++)
+                {
+                    linePoints.Add(PointConverter.ToPoint(latitude_Degree, i, _maxWidth, _maxHeight));
+                }
+
+                _lines.Add(new PointCollection(linePoints));
+            }
+
+            for (int longitude_Degree = -170; longitude_Degree <= 170; longitude_Degree += 10)
+            {
+                List<Point> linePoints = new List<Point>();
+
+                for (int i = -90; i <= 90; i++)
+                {
+                    linePoints.Add(PointConverter.ToPoint(i, longitude_Degree, _maxWidth, _maxHeight));
+                }
+
+                _lines.Add(new PointCollection(linePoints));
+            }
         }
 
         private void DoLoadRegions()
@@ -97,8 +146,6 @@ namespace WoodnoteWPF.ViewModels
 
                 foreach (var polygon in regionVM.RegionModel.Polygons)
                 {
-                    
-
                     var polygonViewModel = new PolygonViewModel(regionVM)
                     {
                         Name = polygon.Name,
