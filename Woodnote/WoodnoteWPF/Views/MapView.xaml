@@ -7,7 +7,7 @@
              xmlns:local1="clr-namespace:WoodnoteWPF.Converters" 
              xmlns:vm="clr-namespace:WoodnoteWPF.ViewModels"
              mc:Ignorable="d" 
-             d:DesignHeight="600" d:DesignWidth="1000">
+             d:DesignHeight="600" d:DesignWidth="1210">
     <UserControl.Resources>
         <local1:BoolToVisibilityConverter x:Key="BoolToVis" />
     </UserControl.Resources>
@@ -18,15 +18,17 @@
         </Grid.DataContext>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="210"/>
             <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
-        <ItemsControl Grid.Row="0" Grid.Column="0" 
+        <ItemsControl Grid.Row="0" Grid.Column="1" 
                           ItemsSource="{Binding Path=SelectedRegions}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
@@ -56,7 +58,7 @@
             </ItemsControl.ItemsPanel>
         </ItemsControl>
 
-        <ItemsControl Grid.Row="0" Grid.Column="1"
+        <ItemsControl Grid.Row="0" Grid.Column="2"
                       ItemsSource="{Binding Path=Polygons}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
@@ -77,12 +79,13 @@
             </ItemsControl.ItemsPanel>
         </ItemsControl>
 
-        <ItemsControl Grid.Row="0" Grid.Column="1" IsHitTestVisible="False"
+        <ItemsControl Grid.Row="0" Grid.Column="2" IsHitTestVisible="False"
                       ItemsSource="{Binding Path=MapLines}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Polyline Points="{Binding}" 
                                  Opacity="0.8" Stroke="Violet"
+                                 StrokeThickness="0.5"
                                  Fill="{Binding Path=Color}">
                     </Polyline>
                 </DataTemplate>
