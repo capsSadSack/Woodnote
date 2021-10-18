@@ -83,8 +83,8 @@ namespace WoodnoteWPF.ViewModels
         }
 
         // TODO: [CG, 2021.10.15] Magic numbers, DRY !!!
-        private double _maxHeight = 600;
-        private double _maxWidth = 1000; 
+        private double _maxHeight = 1000;
+        private double _maxWidth = 1800; 
 
         private void FillLines()
         {
@@ -100,7 +100,7 @@ namespace WoodnoteWPF.ViewModels
                 _lines.Add(new PointCollection(linePoints));
             }
 
-            for (int longitude_Degree = -170; longitude_Degree <= 170; longitude_Degree += 10)
+            for (int longitude_Degree = -170; longitude_Degree <= 180; longitude_Degree += 10)
             {
                 List<Point> linePoints = new List<Point>();
 
