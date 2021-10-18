@@ -5,12 +5,12 @@ using System.Text;
 
 namespace BirdInfoAccess.DatabaseAccess.DefaultData
 {
-    public static partial class EarthRegionData
+    internal static class CentralAmericaData
     {
-        private static List<EarthPolygonDA> _centralAmericaPolygons = new List<EarthPolygonDA>()
+        internal static List<EarthPolygonDA> CentralAmericaPolygons = new List<EarthPolygonDA>()
         {
             #region Central America
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(32.554493489533336, -117.0750765866029), // USA border start
                 EarthPointDA.FromDegree(32.74459361837618, -114.7326505315185),
                 EarthPointDA.FromDegree(32.506905359264074, -114.81731653350951),

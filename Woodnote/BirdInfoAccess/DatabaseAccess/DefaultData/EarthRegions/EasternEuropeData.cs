@@ -5,12 +5,12 @@ using System.Text;
 
 namespace BirdInfoAccess.DatabaseAccess.DefaultData
 {
-    public static partial class EarthRegionData
+    internal static class EasternEuropeData
     {
-        private static List<EarthPolygonDA> _easternEuropePolygons = new List<EarthPolygonDA>()
+        internal static List<EarthPolygonDA> EasternEuropePolygons = new List<EarthPolygonDA>()
         {
             #region Continental part
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(41.77240232234268, 26.283424974756784), // Greece - Turkey
                 EarthPointDA.FromDegree(41.6740041355358, 26.06369841348046),
                 EarthPointDA.FromDegree(41.44382259548219, 26.151589037990988),
@@ -577,7 +577,7 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
             #endregion
 
             #region Новая Земля
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(72.16653317926183, 51.782791046031775),
                 EarthPointDA.FromDegree(72.03145765453635, 52.398025392686854),
                 EarthPointDA.FromDegree(72.85323010507216, 52.485916013637585),
@@ -607,7 +607,7 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
             #endregion
 
             #region Северная Земля
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(80.04529749671268, 91.2262162792204),
                 EarthPointDA.FromDegree(80.04529749671268, 92.28090377334672),
                 EarthPointDA.FromDegree(80.94448857865459, 93.15981001845198),
@@ -616,7 +616,7 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
                 EarthPointDA.FromDegree(80.16611466709557, 94.91762250866252),
                 EarthPointDA.FromDegree(79.64240520097941, 92.98402876943094)),
 
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(79.5152235425529, 93.33559126747303),
                 EarthPointDA.FromDegree(80.07563885378104, 95.09340375768357),
                 EarthPointDA.FromDegree(80.13604717146676, 97.73012249299939),
@@ -627,7 +627,7 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
                 EarthPointDA.FromDegree(78.92353639729826, 97.02699749691517),
                 EarthPointDA.FromDegree(79.02439284117125, 94.74184125964149)),
 
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(78.04671097505886, 99.48793498320993),
                 EarthPointDA.FromDegree(79.38649789488193, 101.59730997146258),
                 EarthPointDA.FromDegree(79.38649789488193, 102.82777871460995),
@@ -641,7 +641,7 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
             #endregion
 
             #region Islands
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(75.51820588702246, 136.90113034021428),
                 EarthPointDA.FromDegree(76.23223770542683, 138.78249314839343),
                 EarthPointDA.FromDegree(75.67420324727564, 140.66385595657255),
@@ -652,14 +652,14 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
                 EarthPointDA.FromDegree(74.98611858489346, 142.33617845273176),
                 EarthPointDA.FromDegree(74.60233975446661, 139.20057377243322)),
 
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(75.41328534097839, 146.5169846931298),
                 EarthPointDA.FromDegree(75.41328534097839, 149.0254684373686),
                 EarthPointDA.FromDegree(75.0401758063574, 150.69779093352784),
                 EarthPointDA.FromDegree(74.82279945180561, 150.48875062150793),
                 EarthPointDA.FromDegree(74.71295753849469, 148.39834750130893)),
 
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(73.45236289855566, 140.24577533253273),
                 EarthPointDA.FromDegree(73.92205444342663, 141.08193658061234),
                 EarthPointDA.FromDegree(73.80586240387923, 142.33617845273176),

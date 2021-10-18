@@ -1,6 +1,7 @@
 ﻿using BirdInfoAccess.Models;
 using System.Collections.Generic;
 using System.Linq;
+using BirdInfoAccess.DatabaseAccess.DefaultData;
 
 namespace BirdInfoAccess.DatabaseAccess.DefaultData
 {
@@ -13,7 +14,7 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
         //private static List<EarthPolygonDA> _southAmericaPolygons = new List<EarthPolygonDA>()
         //{
         //    FromPoints(
-        //        EarthPointDA.FromDegree(32.35724177730627, -117.25390322114256),
+        //        EarthPointDA.FromDegree(),
         //        EarthPointDA.FromDegree(),
         //        EarthPointDA.FromDegree(),
         //        EarthPointDA.FromDegree(),
@@ -31,21 +32,21 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
 
         private static Dictionary<EarthRegion, List<EarthPolygonDA>> _regionPoints = new Dictionary<EarthRegion, List<EarthPolygonDA>>()
         {
-            { EarthRegion.NorthAmerica, _northAmericaPolygons },
-            { EarthRegion.CentralAmerica, _centralAmericaPolygons },
-            { EarthRegion.SouthAmerica, _southAmericaPolygons },
-            { EarthRegion.Caribbean, _caribbeanPolygons },
-            { EarthRegion.NorthernEurope, _northernEuropePolygons },
-            { EarthRegion.WesternEurope, _westernEuropePolygons },
-            { EarthRegion.SouthernEurope, _southernEuropePolygons },
-            { EarthRegion.EasternEurope, _easternEuropePolygons },
-            { EarthRegion.WesternAsia, _westernAsiaPolygons },
-            { EarthRegion.CentralAsia, _centralAsiaPolygons },
-            { EarthRegion.EasternAsia, _easternAsiaPolygons },
-            { EarthRegion.SouthernAsia, _southernAsiaPolygons },
-            { EarthRegion.SoutheasternAsia, _southeasternAsiaPolygons },
-            { EarthRegion.MelanesiaMicronesiaPolynesia, _melanesiaMicronesiaPolynesiaPolygons },
-            { EarthRegion.AustraliaNewZealand, _australiaAndNewZealandPolygons },
+            { EarthRegion.NorthAmerica, NorthAmericaData.NorthAmericaPolygons },
+            { EarthRegion.CentralAmerica, CentralAmericaData.CentralAmericaPolygons },
+            { EarthRegion.SouthAmerica, SouthAmericaData.SouthAmericaPolygons },
+            { EarthRegion.Caribbean, CarribeanData.CaribbeanPolygons },
+            { EarthRegion.NorthernEurope, NorthernEuropeData.NorthernEuropePolygons },
+            { EarthRegion.WesternEurope, WesternEuropeData.WesternEuropePolygons },
+            { EarthRegion.SouthernEurope, SouthernEuropeData.SouthernEuropePolygons },
+            { EarthRegion.EasternEurope, EasternEuropeData.EasternEuropePolygons },
+            { EarthRegion.WesternAsia, WesternAsiaData.WesternAsiaPolygons },
+            { EarthRegion.CentralAsia, CentralAsiaData.CentralAsiaPolygons },
+            { EarthRegion.EasternAsia, EasternAsiaData.EasternAsiaPolygons },
+            { EarthRegion.SouthernAsia, SouthernAsiaData.SouthernAsiaPolygons },
+            { EarthRegion.SoutheasternAsia, SoutheasternAsiaData.SoutheasternAsiaPolygons },
+            { EarthRegion.MelanesiaMicronesiaPolynesia, MelanesiaMicronesiaData.MelanesiaMicronesiaPolynesiaPolygons },
+            { EarthRegion.AustraliaNewZealand, AustraliaAndNewZealandData.AustraliaAndNewZealandPolygons },
             { EarthRegion.NorthernAfrica, new List<EarthPolygonDA>() },
             { EarthRegion.WesternAfrica, new List<EarthPolygonDA>() },
             { EarthRegion.MiddleAfrica, new List<EarthPolygonDA>() },
@@ -89,7 +90,7 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
             return _regionNames[earthRegion];
         }
 
-        private static EarthPolygonDA FromPoints(params EarthPointDA[] points)
+        internal static EarthPolygonDA FromPoints(params EarthPointDA[] points)
         {
             var output =  new EarthPolygonDA()
             {

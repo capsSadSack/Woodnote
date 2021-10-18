@@ -5,12 +5,12 @@ using System.Text;
 
 namespace BirdInfoAccess.DatabaseAccess.DefaultData
 {
-    public static partial class EarthRegionData
+    internal static class EasternAsiaData
     {
-        private static List<EarthPolygonDA> _easternAsiaPolygons = new List<EarthPolygonDA>()
+        internal static List<EarthPolygonDA> EasternAsiaPolygons = new List<EarthPolygonDA>()
         {
             #region Continental Part - China, Mongolia
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(37.35513733,75.00900593), // Граница Таджикистана, Афганистана и Китая
                 EarthPointDA.FromDegree(38.58135621,73.92776217),
                 EarthPointDA.FromDegree(39.35172583,73.53677588),
@@ -142,7 +142,7 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
             #endregion
 
             #region Taiwan
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(23.982020451839887, 120.21538375433045),
                 EarthPointDA.FromDegree(25.10130279005141, 121.62163372327807),
                 EarthPointDA.FromDegree(24.142526734696848, 121.97319621551495),
@@ -151,7 +151,7 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
             #endregion
 
             #region Japan - North Part
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(42.501087745830965, 139.90288367281798),
                 EarthPointDA.FromDegree(43.40168197508772, 140.25444616505487),
                 EarthPointDA.FromDegree(43.27383271793163, 141.30913364176558),
@@ -170,7 +170,7 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
             #endregion
 
             #region Japan (South Part) - Honshū
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(33.37254417229092, 129.53179015182923),
                 EarthPointDA.FromDegree(35.68923257014955, 133.0474150741983),
                 EarthPointDA.FromDegree(35.68923257014955, 135.68413376597508),
@@ -202,7 +202,7 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
                 EarthPointDA.FromDegree(31.211977471986273, 130.201575185222),
                 EarthPointDA.FromDegree(32.18409563442073, 130.201575185222)),
 
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(33.513116104215385, 132.31095013864342),
                 EarthPointDA.FromDegree(34.024549188959014, 133.01407512311727),
                 EarthPointDA.FromDegree(34.24279823570104, 134.5082157151241),

@@ -5,11 +5,11 @@ using System.Text;
 
 namespace BirdInfoAccess.DatabaseAccess.DefaultData
 {
-    public static partial class EarthRegionData
+    internal static class WesternEuropeData
     {
-        private static List<EarthPolygonDA> _westernEuropePolygons = new List<EarthPolygonDA>()
+        internal static List<EarthPolygonDA> WesternEuropePolygons = new List<EarthPolygonDA>()
         {
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(46.861190853289095, 16.285866398505444), // Австрия, Венгрия, Словения
                 EarthPointDA.FromDegree(46.43886457842937, 14.484108596039642),
                 EarthPointDA.FromDegree(46.770969951843796, 12.330788295531736),

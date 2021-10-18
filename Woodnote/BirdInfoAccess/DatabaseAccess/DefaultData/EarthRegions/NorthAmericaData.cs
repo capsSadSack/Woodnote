@@ -5,12 +5,12 @@ using System.Text;
 
 namespace BirdInfoAccess.DatabaseAccess.DefaultData
 {
-    public static partial class EarthRegionData
+    internal static class NorthAmericaData
     {
-        private static List<EarthPolygonDA> _northAmericaPolygons = new List<EarthPolygonDA>()
+        internal static List<EarthPolygonDA> NorthAmericaPolygons = new List<EarthPolygonDA>()
         {
             #region Canada, USA continental parts
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(54.52420305564253, -164.75261198679715),
                 EarthPointDA.FromDegree(56.90393728380806, -158.53780632738577),
                 EarthPointDA.FromDegree(58.302236350917084, -157.66773353506815),
@@ -453,7 +453,7 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
             #endregion
 
             #region Southampton island
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(65.84670482573209, -85.39599047746097),
                 EarthPointDA.FromDegree(65.77467801517753, -85.22020922843991),
                 EarthPointDA.FromDegree(66.02589194000214, -85.04442797941886),
@@ -486,7 +486,7 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
             #endregion
 
             #region Banks Island
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(71.97314481,-125.8198221),
                 EarthPointDA.FromDegree(72.4921284,-125.1875006),
                 EarthPointDA.FromDegree(72.87687578,-125.0464742),
@@ -516,7 +516,7 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
             #endregion
 
             #region Victoria Island
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(71.94788439,-119.0905012),
                 EarthPointDA.FromDegree(72.56777123,-118.3174321),
                 EarthPointDA.FromDegree(73.38943874,-114.4520863),
@@ -568,7 +568,7 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
             #endregion
 
             #region Prince of Wales Island
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(72.84640799930416, -102.53676056374499),
                 EarthPointDA.FromDegree(73.86400390218061, -90.20338215457075),
                 EarthPointDA.FromDegree(71.83198003962094, -94.1751480829489),
@@ -579,7 +579,7 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
             #endregion
 
             #region Baffin Island
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(73.80822882257668, -86.10919502975194),
                 EarthPointDA.FromDegree(73.62258365578927, -78.03520814716995),
                 EarthPointDA.FromDegree(72.91421177011699, -76.10161440793836),
@@ -623,7 +623,7 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
             #endregion
 
             #region Patrick Island, Melvile Island, King Island, etc.
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(76.2538973753246, -122.62093090766051),
                 EarthPointDA.FromDegree(78.75564895766031, -109.61311848010253),
                 EarthPointDA.FromDegree(77.5286480516156, -110.31624347618673),
@@ -633,7 +633,7 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
                 EarthPointDA.FromDegree(75.30422741723464, -105.74593100163933),
                 EarthPointDA.FromDegree(74.38540086211758, -112.42561846443938)),
 
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(79.2548964757878, -105.74020698431228),
                 EarthPointDA.FromDegree(79.3399409952812, -103.6438881847901),
                 EarthPointDA.FromDegree(78.57585201406414, -99.65291498618323),
@@ -644,7 +644,7 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
                 EarthPointDA.FromDegree(78.54653741388927, -104.82639876215511),
                 EarthPointDA.FromDegree(78.77899125634453, -104.087329651302)),
 
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(78.80771857871662, -98.32259058664759),
                 EarthPointDA.FromDegree(78.36908498653473, -94.62724503238198),
                 EarthPointDA.FromDegree(77.78907862452444, -94.62724503238198),
@@ -653,7 +653,7 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
                 EarthPointDA.FromDegree(77.47246265170295, -95.95756943191759),
                 EarthPointDA.FromDegree(78.03668621671916, -97.5835214757945)),
 
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(76.55777933343579, -104.00006139967708),
                 EarthPointDA.FromDegree(76.43876384542048, -102.90481907887612),
                 EarthPointDA.FromDegree(76.78105214297798, -98.32259059158676),
@@ -670,7 +670,7 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
             #endregion
 
             #region Ellesemere, Axel Heiberg, Devon Islands
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(81.32733174640528, -94.43544324279257),
                 EarthPointDA.FromDegree(82.46265143207043, -85.39856313622445),
                 EarthPointDA.FromDegree(83.04251183755899, -76.82791034340848),
@@ -707,7 +707,7 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
             #endregion
 
             #region Greenland
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(78.50837786,-72.49508516),
                 EarthPointDA.FromDegree(78.84409754,-68.87986344),
                 EarthPointDA.FromDegree(79.0779506,-68.09819388),

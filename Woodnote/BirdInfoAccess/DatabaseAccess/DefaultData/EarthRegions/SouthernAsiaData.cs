@@ -5,12 +5,12 @@ using System.Text;
 
 namespace BirdInfoAccess.DatabaseAccess.DefaultData
 {
-    public static partial class EarthRegionData
+    internal static class SouthernAsiaData
     {
-        private static List<EarthPolygonDA> _southernAsiaPolygons = new List<EarthPolygonDA>()
+        internal static List<EarthPolygonDA> SouthernAsiaPolygons = new List<EarthPolygonDA>()
         {
             #region Continental Part
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(29.9120668,48.67746661), // граница Иран - Ирак, Персидский_залив
                 EarthPointDA.FromDegree(31.17354999,47.70095821),
                 EarthPointDA.FromDegree(31.76350948,47.78233391),
@@ -169,7 +169,7 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
             #endregion
 
             #region Sri-Lanka
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(8.056684825947432, 79.6162563407535),
                 EarthPointDA.FromDegree(9.605850979850507, 80.34789742074189),
                 EarthPointDA.FromDegree(7.538918345726202, 81.81117958071863),
