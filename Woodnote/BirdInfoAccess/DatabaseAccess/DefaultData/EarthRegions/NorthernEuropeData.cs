@@ -5,12 +5,12 @@ using System.Text;
 
 namespace BirdInfoAccess.DatabaseAccess.DefaultData
 {
-    public static partial class EarthRegionData
+    internal static class NorthernEuropeData
     {
-        private static List<EarthPolygonDA> _northernEuropePolygons = new List<EarthPolygonDA>()
+        internal static List<EarthPolygonDA> NorthernEuropePolygons = new List<EarthPolygonDA>()
         {
             #region Iceland
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(65.58683346,-24.46233111),
                 EarthPointDA.FromDegree(66.41231765,-22.94006302),
                 EarthPointDA.FromDegree(65.93403405,-21.24865404),
@@ -35,7 +35,7 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
             #endregion
 
             #region Ireland
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(52.15057715,-10.59277735),
                 EarthPointDA.FromDegree(52.61515417,-9.49336151),
                 EarthPointDA.FromDegree(53.52969641,-10.08535465),
@@ -51,7 +51,7 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
             #endregion
 
             #region Britain
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(57.4916726,-6.40680999),
                 EarthPointDA.FromDegree(57.33994799,-5.772907186),
                 EarthPointDA.FromDegree(57.94308547,-5.491172607),
@@ -98,7 +98,7 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
             #endregion
 
             #region Denmark
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(56.44205673608339, 8.178676416539213),
                 EarthPointDA.FromDegree(57.60265371703072, 10.51420370111485),
                 EarthPointDA.FromDegree(56.77735817326745, 10.41265903656809),
@@ -115,7 +115,7 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
             #endregion
 
             #region Estonia, Latvia, Litva
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(55.26970420047451, 21.193668217097727),
                 EarthPointDA.FromDegree(57.00175269500841, 21.135008266887017),
                 EarthPointDA.FromDegree(57.729305825396125, 22.718826922576117),
@@ -139,7 +139,7 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
             #endregion
 
             #region Norway, Sweden, Finland
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(62.039757208179964, 4.99415706085617),
                 EarthPointDA.FromDegree(63.709833186418834, 9.43990268072533),
                 EarthPointDA.FromDegree(67.0240889010473, 13.8367939531234),
@@ -194,7 +194,7 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
             #endregion
 
             #region Sweden - Kopenhagen
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(55.728019014237255, 11.015288058965417),
                 EarthPointDA.FromDegree(56.12079615184623, 12.30323944205528),
                 EarthPointDA.FromDegree(56.020697012336285, 12.56409035508614),

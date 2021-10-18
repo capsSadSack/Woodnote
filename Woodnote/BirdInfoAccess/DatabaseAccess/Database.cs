@@ -116,6 +116,8 @@ namespace BirdInfoAccess.DatabaseAccess
 
         private void FillRegionsDBTable()
         {
+            System.Threading.Thread.Sleep(5000);
+
             IEnumerable<EarthRegion> regionEnums = EnumsProcessor.GetAllValues(EarthRegion.Antarctica);
 
             int earthRegionId = 1;
@@ -131,7 +133,7 @@ namespace BirdInfoAccess.DatabaseAccess
                     Name = regionName
                 };
 
-                _database.InsertAsync(region);
+                Task.Run(async () => await _database.InsertAsync(region));
 
                 var regionPolygons = EarthRegionData.GetPolygons(regionEnum);
                 foreach (var regionPolygon in regionPolygons)

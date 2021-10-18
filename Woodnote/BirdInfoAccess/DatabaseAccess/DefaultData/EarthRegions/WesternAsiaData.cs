@@ -1,15 +1,16 @@
-﻿using BirdInfoAccess.Models;
+﻿
+using BirdInfoAccess.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace BirdInfoAccess.DatabaseAccess.DefaultData
 {
-    public static partial class EarthRegionData
+    internal static class WesternAsiaData
     {
-        private static List<EarthPolygonDA> _westernAsiaPolygons = new List<EarthPolygonDA>()
+        internal static List<EarthPolygonDA> WesternAsiaPolygons = new List<EarthPolygonDA>()
         {
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(40.71506428062007, 26.0197531012252), // Греция - Турция
                 EarthPointDA.FromDegree(41.34492247005583, 26.634987472798883),
                 EarthPointDA.FromDegree(41.77240232234268, 26.283424974756784), // Греция - Турция
@@ -180,7 +181,7 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
                 EarthPointDA.FromDegree(40.61559005,26.09980427)),
 
             // Кипр
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(35.025968467777965, 32.301027434378135),
                 EarthPointDA.FromDegree(35.30299050366191, 33.08041613789955),
                 EarthPointDA.FromDegree(35.30299050366191, 33.65648604919799),

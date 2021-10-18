@@ -5,11 +5,11 @@ using System.Text;
 
 namespace BirdInfoAccess.DatabaseAccess.DefaultData
 {
-    public static partial class EarthRegionData
+    internal static class CentralAsiaData
     {
-        private static List<EarthPolygonDA> _centralAsiaPolygons = new List<EarthPolygonDA>()
+        internal static List<EarthPolygonDA> CentralAsiaPolygons = new List<EarthPolygonDA>()
         {
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(46.16050218,49.49763531), // Граница Казахстана и России у Касп. моря
                 EarthPointDA.FromDegree(47.77964494,47.65193227),
                 EarthPointDA.FromDegree(48.48355109,46.33357296),

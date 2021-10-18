@@ -5,12 +5,12 @@ using System.Text;
 
 namespace BirdInfoAccess.DatabaseAccess.DefaultData
 {
-    public static partial class EarthRegionData
+    internal static class SoutheasternAsiaData
     {
-        private static List<EarthPolygonDA> _southeasternAsiaPolygons = new List<EarthPolygonDA>()
+        internal static List<EarthPolygonDA> SoutheasternAsiaPolygons = new List<EarthPolygonDA>()
         {
             #region Continental Part
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(20.69783960551379, 92.2866549325065), // Граница Мьянма - Бангладеш у Инд. океана
                 EarthPointDA.FromDegree(21.33202873884639, 92.23439485536446),
                 EarthPointDA.FromDegree(21.477994829466876, 92.39117508679054),
@@ -96,7 +96,7 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
             #endregion
 
             #region Borneo (Kalimantan)
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(1.7566699179699383, 109.47150337123209),
                 EarthPointDA.FromDegree(1.652196021612231, 111.0393056854929),
                 EarthPointDA.FromDegree(2.8010303529613365, 111.45738630262913),
@@ -131,7 +131,7 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
             #endregion
 
             #region Sumatra
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(5.511152777253841, 95.36128254288478),
                 EarthPointDA.FromDegree(5.6151806196652485, 95.77936316002099),
                 EarthPointDA.FromDegree(5.198961248358341, 96.30196393144129),
@@ -158,7 +158,7 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
             #endregion
 
             #region Java
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(-6.792307692235091, 105.54613719217713),
                 EarthPointDA.FromDegree(-6.05121568862566, 105.91902552558446),
                 EarthPointDA.FromDegree(-6.792307692235091, 110.39368552647254),
@@ -176,7 +176,7 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
             #endregion
 
             #region Sulawesi
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(-2.8025575273460803, 118.77043862382304),
                 EarthPointDA.FromDegree(0.8876949159105141, 120.0009073466522),
                 EarthPointDA.FromDegree(1.2391963031217723, 120.87981357724448),
@@ -203,13 +203,13 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
             #endregion 
 
             #region Some islands
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(-8.173997924119886, 116.32241994027133),
                 EarthPointDA.FromDegree(-8.27744277160228, 119.03994395165675),
                 EarthPointDA.FromDegree(-8.897529892434136, 119.35350441450892),
                 EarthPointDA.FromDegree(-9.00077768517049, 116.74050055740757)),
 
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(-8.587613012804406, 119.87610518592916),
                 EarthPointDA.FromDegree(-8.27744277160228, 120.7122664202016),
                 EarthPointDA.FromDegree(-8.27744277160228, 122.17554858017836),
@@ -217,14 +217,14 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
                 EarthPointDA.FromDegree(-9.00077768517049, 121.96650827161027),
                 EarthPointDA.FromDegree(-9.00077768517049, 120.5032261116335)),
 
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(-9.516568193113113, 119.03994395165675),
                 EarthPointDA.FromDegree(-9.825672023775343, 120.60774626591756),
                 EarthPointDA.FromDegree(-10.340199580228555, 120.81678657448566),
                 EarthPointDA.FromDegree(-10.237360120951372, 120.08514549449728),
                 EarthPointDA.FromDegree(-9.825672023775343, 119.87610518592916)),
 
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(-9.413470975484598, 123.84787127721346),
                 EarthPointDA.FromDegree(-8.48425064944809, 125.62471390004241),
                 EarthPointDA.FromDegree(-8.277442775623557, 127.50607667715536),
@@ -232,7 +232,7 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
                 EarthPointDA.FromDegree(-10.237360124950298, 124.4749922029178),
                 EarthPointDA.FromDegree(-10.237360124950298, 123.53431081436129)),
 
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(-3.1006920194752223, 127.8602428140552),
                 EarthPointDA.FromDegree(-2.891937605696143, 129.74160559116817),
                 EarthPointDA.FromDegree(-2.9963197890430138, 130.68228697972464),
@@ -242,7 +242,7 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
             #endregion
 
             #region West Papua
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(-1.1162530239166768, 130.89132740830783),
                 EarthPointDA.FromDegree(-0.28016129180961574, 132.45912972256863),
                 EarthPointDA.FromDegree(-0.8027369180272554, 134.23597234539758),

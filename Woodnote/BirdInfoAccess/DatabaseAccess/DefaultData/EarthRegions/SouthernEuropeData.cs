@@ -5,12 +5,12 @@ using System.Text;
 
 namespace BirdInfoAccess.DatabaseAccess.DefaultData
 {
-    public static partial class EarthRegionData
+    internal static class SouthernEuropeData
     {
-        private static List<EarthPolygonDA> _southernEuropePolygons = new List<EarthPolygonDA>()
+        internal static List<EarthPolygonDA> SouthernEuropePolygons = new List<EarthPolygonDA>()
         {
             // Portugal and Spain
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(38.71245513,-9.505406354),
                 EarthPointDA.FromDegree(39.68441742,-9.035065687),
                 EarthPointDA.FromDegree(41.07765747,-8.669245169),
@@ -42,7 +42,7 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
                 EarthPointDA.FromDegree(38.54915612,-8.773765317)),
 
             // Майорка
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(39.54201833267398, 2.319020707560809),
                 EarthPointDA.FromDegree(39.93666251482839, 3.134134749343635),
                 EarthPointDA.FromDegree(39.693178517874934, 3.4662182478477477),
@@ -50,7 +50,7 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
                 EarthPointDA.FromDegree(39.53037695513832, 2.6511042060649226)),
 
             // Корсика
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(42.39391080072965, 8.521146380709268),
                 EarthPointDA.FromDegree(42.77409567880812, 9.29018934517638),
                 EarthPointDA.FromDegree(43.015554150117524, 9.378079969686905),
@@ -60,7 +60,7 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
                 EarthPointDA.FromDegree(42.2395612016211, 8.543119036836902)),
 
             // Сардиния
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(40.891571459885235, 8.191556540385585),
                 EarthPointDA.FromDegree(40.85834267190245, 8.565091694555324),
                 EarthPointDA.FromDegree(41.255986660379676, 9.180326066129012),
@@ -76,7 +76,7 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
                 EarthPointDA.FromDegree(40.69194863390194, 8.081693259747427)),
 
             // Италия и Сицилия
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(43.80387410248885, 7.518776543739223), // Граница Италии и Франции
                 EarthPointDA.FromDegree(44.18325260850938, 7.584694571963282),
                 EarthPointDA.FromDegree(44.528885275481755, 6.881569575879068),
@@ -229,7 +229,7 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
                 EarthPointDA.FromDegree(43.80605055507371, 7.989286470216347)),
 
             // Крит
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(35.56159926981509, 23.620598228968912),
                 EarthPointDA.FromDegree(35.50145413749098, 24.285760428736722),
                 EarthPointDA.FromDegree(35.381028693245206, 24.285760428736722),

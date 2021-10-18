@@ -5,12 +5,12 @@ using System.Text;
 
 namespace BirdInfoAccess.DatabaseAccess.DefaultData
 {
-    public static partial class EarthRegionData
+    internal static class SouthAmericaData
     {
-        private static List<EarthPolygonDA> _southAmericaPolygons = new List<EarthPolygonDA>()
+        internal static List<EarthPolygonDA> SouthAmericaPolygons = new List<EarthPolygonDA>()
         {
             #region South Ameica - continental part
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(-4.260898383,-81.27411939),
                 EarthPointDA.FromDegree(-3.139608841,-80.10161505),
                 EarthPointDA.FromDegree(-2.212398599,-80.93213895),
@@ -179,7 +179,7 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
             #endregion
 
             #region Tierra del Fuego
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(-54.500548094947206, -71.90830596645955),
                 EarthPointDA.FromDegree(-54.32306473179584, -70.72227967849217),
                 EarthPointDA.FromDegree(-53.625526155371105, -70.4511879555282),

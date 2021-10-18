@@ -5,12 +5,12 @@ using System.Text;
 
 namespace BirdInfoAccess.DatabaseAccess.DefaultData
 {
-    public static partial class EarthRegionData
+    internal static class CarribeanData
     {
-        private static List<EarthPolygonDA> _caribbeanPolygons = new List<EarthPolygonDA>()
+        internal static List<EarthPolygonDA> CaribbeanPolygons = new List<EarthPolygonDA>()
         {
             #region Cuba
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(21.867421775575618, -84.91319938937517),
                 EarthPointDA.FromDegree(22.038791516524476, -84.32194410069266),
                 EarthPointDA.FromDegree(22.415073664282982, -84.32194410069266),
@@ -54,7 +54,7 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
             #endregion
 
             #region Bagamas
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(24.572431326087724, -78.47233017982711),
                 EarthPointDA.FromDegree(25.17047063866799, -78.18668565016792),
                 EarthPointDA.FromDegree(25.13069160915156, -78.01090440114686),
@@ -66,7 +66,7 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
             #endregion
 
             #region Jamaica
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(18.352916680402597, -78.33181888055223),
                 EarthPointDA.FromDegree(18.436316581757723, -77.36502201093641),
                 EarthPointDA.FromDegree(17.935315949498143, -76.17849858004432),
@@ -76,7 +76,7 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
             #endregion
 
             #region Haiti and Dominican Republic
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(19.71425296892362, -73.46439646620559),
                 EarthPointDA.FromDegree(19.920966435223463, -72.7173261578661),
                 EarthPointDA.FromDegree(19.71425296892362, -71.88236522501609),
@@ -104,7 +104,7 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
             #endregion
 
             #region Puerto Rico
-            FromPoints(
+            EarthRegionData.FromPoints(
                 EarthPointDA.FromDegree(18.343344356965527, -67.29008009434106),
                 EarthPointDA.FromDegree(18.55177983098408, -67.11429884532002),
                 EarthPointDA.FromDegree(18.343344356965527, -65.62015822864106),
