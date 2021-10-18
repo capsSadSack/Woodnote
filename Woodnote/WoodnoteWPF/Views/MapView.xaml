@@ -58,43 +58,62 @@
             </ItemsControl.ItemsPanel>
         </ItemsControl>
 
-        <ItemsControl Grid.Row="0" Grid.Column="2"
+        <ScrollViewer x:Name="scrollViewer" Grid.Row="0" Grid.Column="2"
+                      PanningMode="Both"  
+                      HorizontalScrollBarVisibility="Hidden"
+                      VerticalScrollBarVisibility="Hidden"
+                      PreviewMouseRightButtonDown="ScrollViewer_PreviewMouseRightButtonDown"
+                      PreviewMouseMove="ScrollViewer_PreviewMouseMove"
+                      PreviewMouseRightButtonUp="ScrollViewer_PreviewMouseRightButtonUp"
+                      Width="1000" Height="600">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <ItemsControl Grid.Row="0" Grid.Column="0"
                       ItemsSource="{Binding Path=Polygons}">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <Polygon Points="{Binding Path=PointCollection}" 
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Polygon Points="{Binding Path=PointCollection}" 
                                   Opacity="0.9" Stroke="MediumPurple"
                                  Style="{StaticResource PolygonStyle}"
                                  Fill="{Binding Path=Color}">
-                        <Polygon.InputBindings>
-                            <MouseBinding MouseAction="LeftClick" Command="{Binding Path=SelectRegionCommand}"/>
-                        </Polygon.InputBindings>
-                    </Polygon>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-            <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <Canvas Height="600" Width="1000" HorizontalAlignment="Stretch" Background="Lavender"/>
-                </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
-        </ItemsControl>
+                                <Polygon.InputBindings>
+                                    <MouseBinding MouseAction="LeftClick" Command="{Binding Path=SelectRegionCommand}"/>
+                                </Polygon.InputBindings>
+                            </Polygon>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <Canvas Height="1000" Width="1800" HorizontalAlignment="Stretch" Background="Lavender"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
 
-        <ItemsControl Grid.Row="0" Grid.Column="2" IsHitTestVisible="False"
-                      ItemsSource="{Binding Path=MapLines}">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <Polyline Points="{Binding}" 
+                <ItemsControl Grid.Row="0" Grid.Column="0" 
+                              IsHitTestVisible="False"
+                              ItemsSource="{Binding Path=MapLines}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Polyline Points="{Binding}" 
                                  Opacity="0.8" Stroke="Violet"
                                  StrokeThickness="0.5"
                                  Fill="{Binding Path=Color}">
-                    </Polyline>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-            <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <Canvas Height="600" Width="1000" HorizontalAlignment="Stretch" Background="Transparent"/>
-                </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
-        </ItemsControl>
+                            </Polyline>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <Canvas Height="1000" Width="1800" HorizontalAlignment="Stretch" Background="Transparent"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
+            </Grid>
+        </ScrollViewer>
     </Grid>
 </UserControl>

@@ -83,8 +83,8 @@ namespace WoodnoteWPF.ViewModels
         }
 
         // TODO: [CG, 2021.10.15] Magic numbers, DRY !!!
-        private double _maxHeight = 600;
-        private double _maxWidth = 1000; 
+        private double _maxHeight = 1000;
+        private double _maxWidth = 1800; 
 
         private void FillLines()
         {
