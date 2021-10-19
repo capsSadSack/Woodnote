@@ -18,9 +18,7 @@
         </Grid.DataContext>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="210"/>
-            <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -28,7 +26,7 @@
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
-        <ItemsControl Grid.Row="0" Grid.Column="1" 
+        <ItemsControl Grid.Row="1" Grid.Column="0" 
                           ItemsSource="{Binding Path=SelectedRegions}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
@@ -58,14 +56,14 @@
             </ItemsControl.ItemsPanel>
         </ItemsControl>
 
-        <ScrollViewer x:Name="scrollViewer" Grid.Row="0" Grid.Column="2"
+        <ScrollViewer x:Name="scrollViewer" Grid.Row="1" Grid.Column="1"
                       PanningMode="Both"  
                       HorizontalScrollBarVisibility="Hidden"
                       VerticalScrollBarVisibility="Hidden"
                       PreviewMouseRightButtonDown="ScrollViewer_PreviewMouseRightButtonDown"
                       PreviewMouseMove="ScrollViewer_PreviewMouseMove"
                       PreviewMouseRightButtonUp="ScrollViewer_PreviewMouseRightButtonUp"
-                      Width="1000" Height="600">
+                      HorizontalAlignment="Stretch" Height="800">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
