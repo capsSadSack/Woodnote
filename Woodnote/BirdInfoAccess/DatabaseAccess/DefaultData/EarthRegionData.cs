@@ -47,7 +47,7 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
             { EarthRegion.SoutheasternAsia, SoutheasternAsiaData.SoutheasternAsiaPolygons },
             { EarthRegion.MelanesiaMicronesiaPolynesia, MelanesiaMicronesiaData.MelanesiaMicronesiaPolynesiaPolygons },
             { EarthRegion.AustraliaNewZealand, AustraliaAndNewZealandData.AustraliaAndNewZealandPolygons },
-            { EarthRegion.NorthernAfrica, new List<EarthPolygonDA>() },
+            { EarthRegion.NorthernAfrica, NorthernAfricaData.NorthernAfricaPolygons },
             { EarthRegion.WesternAfrica, new List<EarthPolygonDA>() },
             { EarthRegion.MiddleAfrica, new List<EarthPolygonDA>() },
             { EarthRegion.EasternAfrica, new List<EarthPolygonDA>() },
