@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BirdInfoAccess.DatabaseAccess.DefaultData
+namespace BirdInfoAccess.DatabaseAccess.DefaultData.EarthRegions
 {
     internal static class NorthernEuropeData
     {

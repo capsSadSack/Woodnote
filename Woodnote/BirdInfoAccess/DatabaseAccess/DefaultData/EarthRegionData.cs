@@ -52,7 +52,7 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
             { EarthRegion.WesternAfrica, new List<EarthPolygonDA>() },
             { EarthRegion.MiddleAfrica, new List<EarthPolygonDA>() },
             { EarthRegion.EasternAfrica, EasternAfricaData.EasternAfricaPolygons },
-            { EarthRegion.SouthernAfrica, new List<EarthPolygonDA>() },
+            { EarthRegion.SouthernAfrica, SouthernAfricaData.SouthernAfricaPolygons },
             { EarthRegion.Antarctica,  new List<EarthPolygonDA>() }
         };
 
