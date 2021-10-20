@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using BirdInfoAccess.DatabaseAccess.DefaultData;
+using BirdInfoAccess.DatabaseAccess.DefaultData.EarthRegions;
 
 namespace BirdInfoAccess.DatabaseAccess.DefaultData
 {
@@ -50,7 +51,7 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
             { EarthRegion.NorthernAfrica, NorthernAfricaData.NorthernAfricaPolygons },
             { EarthRegion.WesternAfrica, new List<EarthPolygonDA>() },
             { EarthRegion.MiddleAfrica, new List<EarthPolygonDA>() },
-            { EarthRegion.EasternAfrica, new List<EarthPolygonDA>() },
+            { EarthRegion.EasternAfrica, EasternAfricaData.EasternAfricaPolygons },
             { EarthRegion.SouthernAfrica, new List<EarthPolygonDA>() },
             { EarthRegion.Antarctica,  new List<EarthPolygonDA>() }
         };
