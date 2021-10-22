@@ -8,29 +8,6 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
 {
     public static partial class EarthRegionData
     {
-        #region Polygons
-
-
-
-        //private static List<EarthPolygonDA> _southAmericaPolygons = new List<EarthPolygonDA>()
-        //{
-        //    FromPoints(
-        //        EarthPointDA.FromDegree(),
-        //        EarthPointDA.FromDegree(),
-        //        EarthPointDA.FromDegree(),
-        //        EarthPointDA.FromDegree(),
-        //        EarthPointDA.FromDegree(),
-        //        EarthPointDA.FromDegree(),
-        //        EarthPointDA.FromDegree(),
-        //        EarthPointDA.FromDegree(),
-        //        EarthPointDA.FromDegree(),
-        //        EarthPointDA.FromDegree(),
-        //        EarthPointDA.FromDegree())
-        //};
-
-
-        #endregion Polygons
-
         private static Dictionary<EarthRegion, List<EarthPolygonDA>> _regionPoints = new Dictionary<EarthRegion, List<EarthPolygonDA>>()
         {
             { EarthRegion.NorthAmerica, NorthAmericaData.NorthAmericaPolygons },
@@ -49,8 +26,8 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
             { EarthRegion.MelanesiaMicronesiaPolynesia, MelanesiaMicronesiaData.MelanesiaMicronesiaPolynesiaPolygons },
             { EarthRegion.AustraliaNewZealand, AustraliaAndNewZealandData.AustraliaAndNewZealandPolygons },
             { EarthRegion.NorthernAfrica, NorthernAfricaData.NorthernAfricaPolygons },
-            { EarthRegion.WesternAfrica, new List<EarthPolygonDA>() },
-            { EarthRegion.MiddleAfrica, new List<EarthPolygonDA>() },
+            { EarthRegion.WesternAfrica, WesternAfricaData.WesternAfricaPolygons },
+            { EarthRegion.MiddleAfrica, MiddleAfricaData.MiddleAfricaPolygons },
             { EarthRegion.EasternAfrica, EasternAfricaData.EasternAfricaPolygons },
             { EarthRegion.SouthernAfrica, SouthernAfricaData.SouthernAfricaPolygons },
             { EarthRegion.Antarctica,  new List<EarthPolygonDA>() }

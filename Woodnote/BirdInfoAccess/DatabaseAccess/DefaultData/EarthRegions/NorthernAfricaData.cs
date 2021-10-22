@@ -242,6 +242,7 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData.EarthRegions
                 EarthPointDA.FromDegree(15.695797962322033, 23.990977856477205),
                 EarthPointDA.FromDegree(19.480013845130614, 23.993367140975312),
                 EarthPointDA.FromDegree(23.456917231093392, 15.998433816956725),
+                EarthPointDA.FromDegree(23.014883325663853, 14.9942273304639), // Chad - Niger
                 EarthPointDA.FromDegree(22.66618020639572, 14.18911326504891),
                 EarthPointDA.FromDegree(23.155737426027105, 13.544542968770182),
                 EarthPointDA.FromDegree(23.5191449907645, 12.006620858350766),
