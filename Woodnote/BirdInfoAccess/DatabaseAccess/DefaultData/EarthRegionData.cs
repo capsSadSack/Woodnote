@@ -32,7 +32,7 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
             { EarthRegion.SouthernAfrica, SouthernAfricaData.SouthernAfricaPolygons },
             { EarthRegion.Antarctica,  new List<EarthPolygonDA>() }
         };
-        j
+
         private static Dictionary<EarthRegion, string> _regionNames = new Dictionary<EarthRegion, string>()
         {
             { EarthRegion.NorthAmerica, "North America" },
