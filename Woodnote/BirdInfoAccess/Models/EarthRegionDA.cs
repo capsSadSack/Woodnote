@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using BirdInfoAccess.DatabaseAccess.DefaultData;
+using System.Collections.Generic;
 
 namespace BirdInfoAccess.Models
 {
@@ -6,6 +7,7 @@ namespace BirdInfoAccess.Models
     {
         public long Id { get; set; }
         public string Name { get; set; }
+        public EarthRegion Region { get; set; }
         public IEnumerable<EarthPolygonDA> Polygons { get; set; }
     }
 }
