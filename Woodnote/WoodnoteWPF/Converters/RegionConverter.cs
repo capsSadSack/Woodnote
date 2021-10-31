@@ -3,8 +3,8 @@ using System.Linq;
 using WoodnoteWPF.Models;
 using System.Windows.Media;
 using Domain.ViewModels;
-using System.Windows;
 using System;
+using Domain.Models;
 
 namespace WoodnoteWPF.Converters
 {
@@ -28,11 +28,18 @@ namespace WoodnoteWPF.Converters
                 _counter++;
             }
 
-            output.Name = regionVM.Name;
+            output.Name = GetNameFromResources(regionVM.Region);//regionVM.Name;
             output.IsSelected = false;
             output.Polygons = pointCollections;
 
             return output;
+        }
+
+        private static string GetNameFromResources(EarthRegion region)
+        {
+            string regionNameEn = Enum.GetName(typeof(EarthRegion), region);
+            string regionName = Properties.earthRegion.ResourceManager.GetString(regionNameEn);
+            return regionName;
         }
 
         public static IEnumerable<RegionModel> ToRegionModels(this IEnumerable<EarthRegionVM> regionsVM)

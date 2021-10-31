@@ -100,7 +100,7 @@ namespace WoodnoteWPF.ViewModels
                 _lines.Add(new PointCollection(linePoints));
             }
 
-            for (int longitude_Degree = -170; longitude_Degree <= 180; longitude_Degree += 10)
+            for (int longitude_Degree = -160; longitude_Degree <= 180; longitude_Degree += 10)
             {
                 List<Point> linePoints = new List<Point>();
 

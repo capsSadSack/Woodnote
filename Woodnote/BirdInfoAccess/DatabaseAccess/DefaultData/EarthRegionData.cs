@@ -2,34 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using BirdInfoAccess.DatabaseAccess.DefaultData;
+using BirdInfoAccess.DatabaseAccess.DefaultData.EarthRegions;
 
 namespace BirdInfoAccess.DatabaseAccess.DefaultData
 {
     public static partial class EarthRegionData
     {
-        #region Polygons
-
-
-
-        //private static List<EarthPolygonDA> _southAmericaPolygons = new List<EarthPolygonDA>()
-        //{
-        //    FromPoints(
-        //        EarthPointDA.FromDegree(),
-        //        EarthPointDA.FromDegree(),
-        //        EarthPointDA.FromDegree(),
-        //        EarthPointDA.FromDegree(),
-        //        EarthPointDA.FromDegree(),
-        //        EarthPointDA.FromDegree(),
-        //        EarthPointDA.FromDegree(),
-        //        EarthPointDA.FromDegree(),
-        //        EarthPointDA.FromDegree(),
-        //        EarthPointDA.FromDegree(),
-        //        EarthPointDA.FromDegree())
-        //};
-
-
-        #endregion Polygons
-
         private static Dictionary<EarthRegion, List<EarthPolygonDA>> _regionPoints = new Dictionary<EarthRegion, List<EarthPolygonDA>>()
         {
             { EarthRegion.NorthAmerica, NorthAmericaData.NorthAmericaPolygons },
@@ -47,11 +25,11 @@ namespace BirdInfoAccess.DatabaseAccess.DefaultData
             { EarthRegion.SoutheasternAsia, SoutheasternAsiaData.SoutheasternAsiaPolygons },
             { EarthRegion.MelanesiaMicronesiaPolynesia, MelanesiaMicronesiaData.MelanesiaMicronesiaPolynesiaPolygons },
             { EarthRegion.AustraliaNewZealand, AustraliaAndNewZealandData.AustraliaAndNewZealandPolygons },
-            { EarthRegion.NorthernAfrica, new List<EarthPolygonDA>() },
-            { EarthRegion.WesternAfrica, new List<EarthPolygonDA>() },
-            { EarthRegion.MiddleAfrica, new List<EarthPolygonDA>() },
-            { EarthRegion.EasternAfrica, new List<EarthPolygonDA>() },
-            { EarthRegion.SouthernAfrica, new List<EarthPolygonDA>() },
+            { EarthRegion.NorthernAfrica, NorthernAfricaData.NorthernAfricaPolygons },
+            { EarthRegion.WesternAfrica, WesternAfricaData.WesternAfricaPolygons },
+            { EarthRegion.MiddleAfrica, MiddleAfricaData.MiddleAfricaPolygons },
+            { EarthRegion.EasternAfrica, EasternAfricaData.EasternAfricaPolygons },
+            { EarthRegion.SouthernAfrica, SouthernAfricaData.SouthernAfricaPolygons },
             { EarthRegion.Antarctica,  new List<EarthPolygonDA>() }
         };
 

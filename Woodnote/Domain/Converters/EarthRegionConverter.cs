@@ -15,6 +15,7 @@ namespace Domain.Converters
             {
                 Id = earthRegionDA.Id,
                 Name = earthRegionDA.Name,
+                Region = (Domain.Models.EarthRegion)((int)earthRegionDA.Region),
                 Polygons = earthRegionDA.Polygons.ToEarthPolygonsVM()
             };
         }

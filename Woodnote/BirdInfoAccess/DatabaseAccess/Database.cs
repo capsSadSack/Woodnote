@@ -105,6 +105,7 @@ namespace BirdInfoAccess.DatabaseAccess
                 {
                     Id = region.ID,
                     Name = region.Name,
+                    Region = region.Region,
                     Polygons = earthPolygons
                 };
 
@@ -130,7 +131,8 @@ namespace BirdInfoAccess.DatabaseAccess
                 EarthRegionDB region = new EarthRegionDB()
                 {
                     ID = earthRegionId,
-                    Name = regionName
+                    Name = regionName,
+                    Region = regionEnum
                 };
 
                 Task.Run(async () => await _database.InsertAsync(region));
