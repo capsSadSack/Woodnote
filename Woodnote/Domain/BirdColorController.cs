@@ -22,7 +22,7 @@ namespace Domain
         public async Task<IEnumerable<ColorVM>> GetBirdsColors()
         {
             var colors = await _birdAccess.GetAllBirdsColorsAsync();
-            return colors.ToColorVM();
+            return colors.ToColor().ToColorVM();
         }
     }
 }

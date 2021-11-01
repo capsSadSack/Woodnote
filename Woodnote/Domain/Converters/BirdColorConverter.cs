@@ -1,4 +1,5 @@
 ﻿using BirdInfoAccess.DatabaseAccess.ModelsDB;
+using Domain.Models;
 using Domain.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,29 @@ namespace Domain.Converters
 {
     public static class BirdColorConverter
     {
-        public static ColorVM ToColorVM(this ColorDB color)
+        public static Color ToColor(this ColorDB color)
+        {
+            return new Color()
+            {
+                ID = color.ID,
+                Name = color.Name,
+                ColorHex = color.ColorHex
+            };
+        }
+
+        public static IEnumerable<Color> ToColor(this IEnumerable<ColorDB> colors)
+        {
+            List<Color> output = new List<Color>();
+
+            foreach(var color in colors)
+            {
+                output.Add(color.ToColor());
+            }
+
+            return output;
+        }
+
+        public static ColorVM ToColorVM(this Color color)
         {
             return new ColorVM()
             {
@@ -18,11 +41,11 @@ namespace Domain.Converters
             };
         }
 
-        public static IEnumerable<ColorVM> ToColorVM(this IEnumerable<ColorDB> colors)
+        public static IEnumerable<ColorVM> ToColorVM(this IEnumerable<Color> colors)
         {
             List<ColorVM> output = new List<ColorVM>();
 
-            foreach(var color in colors)
+            foreach (var color in colors)
             {
                 output.Add(color.ToColorVM());
             }

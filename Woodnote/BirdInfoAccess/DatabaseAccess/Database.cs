@@ -29,6 +29,7 @@ namespace BirdInfoAccess.DatabaseAccess
             {
                 FillColorDBTable();
                 FillRegionsDBTable();
+                FillBirdsDBTable();
             }
         }
 
@@ -73,9 +74,11 @@ namespace BirdInfoAccess.DatabaseAccess
             }
         }
 
+        #region Regions
+
         public async Task<List<EarthRegionDA>> GetAllRegionsAsync()
         {
-            var regions= await _database.Table<EarthRegionDB>().ToListAsync();
+            var regions = await _database.Table<EarthRegionDB>().ToListAsync();
             var polygons = await _database.Table<EarthPolygonDB>().ToListAsync();
             var points = await _database.Table<EarthPolygonPointDB>().ToListAsync();
 
@@ -117,8 +120,6 @@ namespace BirdInfoAccess.DatabaseAccess
 
         private void FillRegionsDBTable()
         {
-            System.Threading.Thread.Sleep(5000);
-
             IEnumerable<EarthRegion> regionEnums = EnumsProcessor.GetAllValues(EarthRegion.Antarctica);
 
             int earthRegionId = 1;
@@ -165,9 +166,35 @@ namespace BirdInfoAccess.DatabaseAccess
 
                     earthPolygonId++;
                 }
-                
+
                 earthRegionId++;
             }
         }
+
+        #endregion
+
+        #region Birds
+
+        // TODO: [CG, 2021.11.01] Add arguments! No need to return ALL birds!
+        public async Task<List<BirdDA>> GetBirdsAsync(object obj1, object obj2)
+        {
+            List<BirdDA> output = new List<BirdDA>();
+
+            output.Add(new BirdDA()
+            {
+                Id = 1,
+                Name = "Sparrow",
+                BiologyClasificationID = 1,
+                Colors = new List<ColorDB> (),
+            });
+
+            return await Task.Run(() => { return output; });
+        }
+
+        private void FillBirdsDBTable()
+        {
+        }
+
+        #endregion
     }
 }

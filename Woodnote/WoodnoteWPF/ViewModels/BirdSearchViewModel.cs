@@ -142,6 +142,10 @@ namespace WoodnoteWPF.ViewModels
                 .ToList();
 
             var selectedRegions = _rscs.SelectedRegions;
+
+            BirdSearcher birdSearcher = new BirdSearcher();
+            var birds = birdSearcher.GetItemsAsync();
+
         }
 
         public void OnSilhouetteClicked(BirdOrderSilhouetteModel item)
