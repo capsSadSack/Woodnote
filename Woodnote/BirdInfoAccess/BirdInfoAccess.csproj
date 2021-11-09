@@ -13,4 +13,8 @@
     <Folder Include="DatabaseAccess\DefaultData\Birds\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj" />
+  </ItemGroup>
+
 </Project>

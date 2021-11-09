@@ -1,5 +1,6 @@
 ﻿using BirdInfoAccess.DatabaseAccess.ModelsDB;
 using BirdInfoAccess.Models;
+using Domain.Endpoints;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 namespace BirdInfoAccess.DatabaseAccess
 {
     // Singletone
-    public class DBBirdAccess
+    public class DBBirdAccess : IBirdAccess
     {
         private static readonly DBBirdAccess _instance = new DBBirdAccess();
 

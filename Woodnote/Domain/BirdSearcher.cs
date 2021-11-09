@@ -12,18 +12,17 @@ namespace Domain
 {
     public class BirdSearcher : IDataStore<BirdDomain>
     {
-        private DBBirdAccess _birdAccess;
+        private IBirdAccess _birdAccess;
 
 
-        public BirdSearcher()
+        public BirdSearcher(IBirdAccess birdAccess)
         {
-            _birdAccess = DBBirdAccess.GetInstance();
+            _birdAccess = birdAccess;//DBBirdAccess.GetInstance();
         }
 
         public async Task<BirdDomain> GetItemAsync(string id)
         {
-            var task = Task.Run(() => _birdAccess.GetBird(id).ToBird());
-            return await task;
+            return await _birdAccess.GetBirdAsync(id);
         }
 
         public async Task<IEnumerable<BirdDomain>> GetItemsAsync(bool forceRefresh = false)

@@ -6,7 +6,7 @@ using BirdInfoAccess.DatabaseAccess.DefaultData.EarthRegions;
 
 namespace BirdInfoAccess.DatabaseAccess.DefaultData
 {
-    public static partial class EarthRegionData
+    public static class EarthRegionData
     {
         private static Dictionary<EarthRegion, List<EarthPolygonDA>> _regionPoints = new Dictionary<EarthRegion, List<EarthPolygonDA>>()
         {

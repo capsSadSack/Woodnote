@@ -191,6 +191,13 @@ namespace BirdInfoAccess.DatabaseAccess
             return await Task.Run(() => { return output; });
         }
 
+        private void FillBiologyClassificationTable()
+        {
+            //var values = EnumsProcessor.GetAllValues(BirdClassification.BiologyClassification.Order.);
+
+
+        }
+
         private void FillBirdsDBTable()
         {
         }
