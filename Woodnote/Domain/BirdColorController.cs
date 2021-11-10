@@ -1,28 +1,26 @@
-﻿using BirdInfoAccess.DatabaseAccess;
-using Domain.Converters;
+﻿using Domain.Converters;
+using Domain.Endpoints;
 using Domain.ViewModels;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Domain
 {
     public class BirdColorController
     {
-        private DBBirdAccess _birdAccess;
+        private IBirdAccess _birdAccess;
 
 
-        public BirdColorController()
+        public BirdColorController(IBirdAccess birdAccess)
         {
-            _birdAccess = DBBirdAccess.GetInstance();
+            _birdAccess = birdAccess;
         }
 
 
         public async Task<IEnumerable<ColorVM>> GetBirdsColors()
         {
             var colors = await _birdAccess.GetAllBirdsColorsAsync();
-            return colors.ToColor().ToColorVM();
+            return colors.ToColorVM();
         }
     }
 }

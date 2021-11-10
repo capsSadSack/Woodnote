@@ -9,8 +9,6 @@ namespace Domain.Endpoints
     {
         Task<IEnumerable<Color>> GetAllBirdsColorsAsync();
 
-        Task<IEnumerable<EarthRegion>> GetAllRegionsAsync();
-
         Task<BirdDomain> GetBirdAsync(string birdID);
 
         Task<IEnumerable<BirdDomain>> GetBirdsAsync(IEnumerable<Order> classifications,

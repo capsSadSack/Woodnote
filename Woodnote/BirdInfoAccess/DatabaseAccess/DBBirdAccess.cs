@@ -1,6 +1,9 @@
-﻿using BirdInfoAccess.DatabaseAccess.ModelsDB;
+﻿using BirdClassification.BiologyClassification;
+using BirdInfoAccess.DatabaseAccess.Converters;
+using BirdInfoAccess.DatabaseAccess.ModelsDB;
 using BirdInfoAccess.Models;
 using Domain.Endpoints;
+using Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -31,38 +34,35 @@ namespace BirdInfoAccess.DatabaseAccess
         }
 
 
-        public async Task<IEnumerable<ColorDB>> GetAllBirdsColorsAsync()
+        public async Task<IEnumerable<Color>> GetAllBirdsColorsAsync()
         {
-            return await _database.GetAllColorsAsync();
+            var colorsDB = await _database.GetAllColorsAsync();
+            return colorsDB.ToColors();
         }
 
-        public async Task<IEnumerable<EarthRegionDA>> GetAllRegionsAsync()
-        {
-            return await _database.GetAllRegionsAsync();
-        }
-
-        public BirdDA GetBird(string birdID)
+        public async Task<BirdDomain> GetBirdAsync(string birdID)
         {
             // TODO: [CG, 2021.07.04] Заглушка - вывод фейковых данных
-            return new BirdDA()
-            {
-                Id = Convert.ToInt64(birdID)
-            };
+            //await 
+
+            throw new NotImplementedException();
         }
 
-        public IEnumerable<BirdDA> GetBirds(BiologyClassificationDB classification,
-            IEnumerable<ColorDB> colors, IEnumerable<object> habitat)
+        public async Task<IEnumerable<BirdDomain>> GetBirdsAsync(IEnumerable<Order> classifications,
+            IEnumerable<Color> colors, IEnumerable<object> habitat)
         {
+
+            throw new NotImplementedException();
             // TODO: [CG, 2021.07.04] Заглушка - вывод фейковых данных
-            return new List<BirdDA>()
-            {
-                new BirdDA()
-                {
-                    BiologyClasificationID = 1,
-                    Colors = new List<ColorDB>(),
-                    Name = "Sparrow"
-                }
-            };
+            // Task.Run(() => new List<BirdDA>()
+            //{
+            //    new BirdDA()
+            //    {
+            //        BiologyClasificationID = 1,
+            //        Colors = new List<ColorDB>(),
+            //        Name = "Sparrow"
+            //    }
+            //});
         }
     }
 }

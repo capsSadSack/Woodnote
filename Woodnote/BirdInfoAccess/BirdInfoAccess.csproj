@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <Folder Include="DatabaseAccess\DefaultData\Birds\" />
+    <Folder Include="DatabaseAccess\DefaultData\Birds\" />
   </ItemGroup>
 
   <ItemGroup>
