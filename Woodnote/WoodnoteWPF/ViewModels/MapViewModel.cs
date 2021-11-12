@@ -1,4 +1,5 @@
-﻿using Caliburn.Micro;
+﻿using BirdInfoAccess.DatabaseAccess;
+using Caliburn.Micro;
 using Domain;
 using Domain.ViewModels;
 using System;
@@ -129,7 +130,7 @@ namespace WoodnoteWPF.ViewModels
 
         private static async Task<IEnumerable<RegionModel>> GetRegionsAsync()
         {
-            EarthRegionsController erc = new EarthRegionsController();
+            EarthRegionsController erc = new EarthRegionsController(DBRegionAccess.GetInstance());
             IEnumerable<EarthRegionVM> regions = await erc.GetEarthRegions();
             IEnumerable<RegionModel> output = regions.ToRegionModels();
 

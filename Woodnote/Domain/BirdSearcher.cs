@@ -1,5 +1,4 @@
-﻿using BirdInfoAccess.DatabaseAccess;
-using Domain.Converters;
+﻿using Domain.Converters;
 using Domain.Endpoints;
 using Domain.Models;
 using System;
@@ -12,24 +11,23 @@ namespace Domain
 {
     public class BirdSearcher : IDataStore<BirdDomain>
     {
-        private DBBirdAccess _birdAccess;
+        private IBirdAccess _birdAccess;
 
 
-        public BirdSearcher()
+        public BirdSearcher(IBirdAccess birdAccess)
         {
-            _birdAccess = DBBirdAccess.GetInstance();
+            _birdAccess = birdAccess;//DBBirdAccess.GetInstance();
         }
 
         public async Task<BirdDomain> GetItemAsync(string id)
         {
-            var task = Task.Run(() => _birdAccess.GetBird(id).ToBird());
-            return await task;
+            return await _birdAccess.GetBirdAsync(id);
         }
 
         public async Task<IEnumerable<BirdDomain>> GetItemsAsync(bool forceRefresh = false)
         {
-            var task = Task.Run(() => _birdAccess.GetBirds(null, null, null).ToBird());
-            return await task;
+            var birds = await _birdAccess.GetBirdsAsync(null, null, null);
+            return birds;
         }
 
         public Task<bool> AddItemAsync(BirdDomain item)

@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BirdInfoAccess\BirdInfoAccess.csproj" />
+    <ProjectReference Include="..\BirdClassification\BirdClassification.csproj" />
   </ItemGroup>
 
 </Project>

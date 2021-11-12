@@ -1,4 +1,4 @@
-﻿using BirdInfoAccess.Models;
+﻿using Domain.Models;
 using Domain.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -9,43 +9,41 @@ namespace Domain.Converters
 {
     public static class EarthRegionConverter
     {
-        public static EarthRegionVM ToEarthRegionVM(this EarthRegionDA earthRegionDA)
+        public static EarthRegionVM ToEarthRegionVM(this EarthRegionDomain earthRegion)
         {
             return new EarthRegionVM()
             {
-                Id = earthRegionDA.Id,
-                Name = earthRegionDA.Name,
-                Region = (Domain.Models.EarthRegion)((int)earthRegionDA.Region),
-                Polygons = earthRegionDA.Polygons.ToEarthPolygonsVM()
+                Name = earthRegion.Name,
+                Region = earthRegion.EarthRegion,
+                Polygons = earthRegion.Polygons.ToEarthPolygonsVM()
             };
         }
 
-        public static IEnumerable<EarthRegionVM> ToEarthRegionsVM(this IEnumerable<EarthRegionDA> earthRegionsDA)
+        public static IEnumerable<EarthRegionVM> ToEarthRegionsVM(this IEnumerable<EarthRegionDomain> earthRegionsDA)
             => CollectionsConverter.ConvertCollection(earthRegionsDA, ToEarthRegionVM);
 
-        private static EarthPolygonVM ToEarthPolygonVM(this EarthPolygonDA earthPolygonDA)
+        private static EarthPolygonVM ToEarthPolygonVM(this PolygonDomain polygon)
         {
             return new EarthPolygonVM()
             {
-                Id = earthPolygonDA.Id,
-                Points = earthPolygonDA.Points.ToEarthPointsVM().ToList()
+                Points = polygon.Points.ToEarthPointsVM().ToList()
             };
         }
 
-        private static IEnumerable<EarthPolygonVM> ToEarthPolygonsVM(this IEnumerable<EarthPolygonDA> earthPolygonsDA)
-            => CollectionsConverter.ConvertCollection(earthPolygonsDA, ToEarthPolygonVM);
+        private static IEnumerable<EarthPolygonVM> ToEarthPolygonsVM(this IEnumerable<PolygonDomain> polygons)
+            => CollectionsConverter.ConvertCollection(polygons, ToEarthPolygonVM);
 
-        private static EarthPointVM ToEarthPointVM(this EarthPointDA earthPointDA)
+        private static EarthPointVM ToEarthPointVM(this PolygonPointDomain point)
         {
             return new EarthPointVM()
             {
-                OrderNumber = earthPointDA.OrderNumber,
-                Latitude_Degree = earthPointDA.Latitude_Degree,
-                Longitude_Degree = earthPointDA.Longitude_Degree
+                OrderNumber = point.OrderNumber,
+                Latitude_Degree = point.Latitude_Degree,
+                Longitude_Degree = point.Longitude_Degree
             };
         }
 
-        private static IEnumerable<EarthPointVM> ToEarthPointsVM(this IEnumerable<EarthPointDA> earthPointsDA)
-            => CollectionsConverter.ConvertCollection(earthPointsDA, ToEarthPointVM);
+        private static IEnumerable<EarthPointVM> ToEarthPointsVM(this IEnumerable<PolygonPointDomain> points)
+            => CollectionsConverter.ConvertCollection(points, ToEarthPointVM);
     }
 }

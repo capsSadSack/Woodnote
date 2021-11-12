@@ -1,4 +1,5 @@
 ﻿using BirdClassification.BiologyClassification;
+using BirdInfoAccess.DatabaseAccess;
 using Caliburn.Micro;
 using Domain;
 using Domain.ViewModels;
@@ -56,7 +57,7 @@ namespace WoodnoteWPF.ViewModels
 
         private async Task<IEnumerable<ColorModel>> LoadColors()
         {
-            BirdColorController bcc = new BirdColorController();
+            BirdColorController bcc = new BirdColorController(DBBirdAccess.GetInstance());
             IEnumerable<ColorVM> colorsVM = await bcc.GetBirdsColors();
             IEnumerable<ColorModel> output =  colorsVM.ToColorModels();
 
@@ -143,7 +144,7 @@ namespace WoodnoteWPF.ViewModels
 
             var selectedRegions = _rscs.SelectedRegions;
 
-            BirdSearcher birdSearcher = new BirdSearcher();
+            BirdSearcher birdSearcher = new BirdSearcher(DBBirdAccess.GetInstance());
             var birds = birdSearcher.GetItemsAsync();
 
         }
