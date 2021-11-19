@@ -51,18 +51,26 @@ namespace BirdInfoAccess.DatabaseAccess
         public async Task<IEnumerable<BirdDomain>> GetBirdsAsync(IEnumerable<Order> classifications,
             IEnumerable<Color> colors, IEnumerable<object> habitat)
         {
+            var birds = new List<BirdDomain>()
+            {
+                new BirdDomain()
+                {
+                    Order = Order.Passeriformes,
+                    Regions = new List<EarthRegion>()
+                    {
+                        EarthRegion.EasternEurope
+                    },
+                    Colors = new List<Color>()
+                    {
+                        new Color() { Name = "Gray",  ColorHex = "#808080" },
+                        new Color() { Name = "Black", ColorHex = "#000000" },
+                        new Color() { Name = "Brown", ColorHex = "#8B4513" },
+                    },
+                    Name = "Sparrow"
+                }
+            };
 
-            throw new NotImplementedException();
-            // TODO: [CG, 2021.07.04] Заглушка - вывод фейковых данных
-            // Task.Run(() => new List<BirdDA>()
-            //{
-            //    new BirdDA()
-            //    {
-            //        BiologyClasificationID = 1,
-            //        Colors = new List<ColorDB>(),
-            //        Name = "Sparrow"
-            //    }
-            //});
+            return await Task.Run(() => birds);
         }
     }
 }

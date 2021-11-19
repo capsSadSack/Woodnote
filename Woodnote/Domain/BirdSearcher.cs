@@ -16,7 +16,7 @@ namespace Domain
 
         public BirdSearcher(IBirdAccess birdAccess)
         {
-            _birdAccess = birdAccess;//DBBirdAccess.GetInstance();
+            _birdAccess = birdAccess;
         }
 
         public async Task<BirdDomain> GetItemAsync(string id)
