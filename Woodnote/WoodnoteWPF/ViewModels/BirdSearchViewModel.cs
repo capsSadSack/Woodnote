@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Shapes;
 using WoodnoteWPF.Converters;
 using WoodnoteWPF.DataSharing;
+using WoodnoteWPF.EventModels;
 using WoodnoteWPF.Models;
 
 namespace WoodnoteWPF.ViewModels
@@ -138,7 +139,7 @@ namespace WoodnoteWPF.ViewModels
         }
 
 
-        public async void SearchBirds()
+        public async void OnSearchBirdsClicked()
         {
             List<string> selectedSilhouetteNames = Silhouettes
                 .Where(x => x.IsSelected)
@@ -155,7 +156,12 @@ namespace WoodnoteWPF.ViewModels
             
             var birds = await birdSearcher.GetItemsAsync();
 
-            await _eventAggregator.PublishOnUIThreadAsync(birds);
+            var eventArgs = new OnSearchResultRequestedEvent()
+            {
+                Birds = birds
+            };
+
+            await _eventAggregator.PublishOnUIThreadAsync(eventArgs);
             await _eventAggregator.PublishOnUIThreadAsync("Horey!!!!!");
         }
 

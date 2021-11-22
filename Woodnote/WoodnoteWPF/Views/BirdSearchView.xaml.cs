@@ -11,11 +11,5 @@ namespace WoodnoteWPF.Views
         {
             InitializeComponent();
         }
-
-        private void SearchBirds_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            //SearchResultView.Visibility = System.Windows.Visibility.Visible;
-            //SearchResultView.IsEnabled = true;
-        }
     }
 }

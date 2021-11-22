@@ -32,7 +32,6 @@
             </ItemsControl>
         </Border>
 
-        <!--<ContentControl Content="{Binding CurrentPageViewModel}" />-->
         <ContentControl x:Name="ActiveItem" />
     </DockPanel>
 </Window>

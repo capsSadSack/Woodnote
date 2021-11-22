@@ -19,10 +19,9 @@
         </Grid.RowDefinitions>
 
 
-        <Button x:Name="Close" Grid.Row="0" Grid.Column="0" 
+        <Button x:Name="OnCloseClicked" Grid.Row="0" Grid.Column="0" 
             HorizontalAlignment="Right" Width="30" Height="30"
-            Background="Transparent" BorderThickness="0"
-            Click="Close_Click">
+            Background="Transparent" BorderThickness="0">
             <Image Source="pack://application:,,,/Images/Icon_CrossWhite.png"/>
         </Button>
 

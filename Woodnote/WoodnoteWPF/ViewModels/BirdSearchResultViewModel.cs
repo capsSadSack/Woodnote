@@ -8,15 +8,16 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Threading;
+using WoodnoteWPF.EventModels;
 
 namespace WoodnoteWPF.ViewModels
 {
-    public class BirdSearchResultViewModel : Conductor<object>, IPageViewModel, 
-        IHandle<IEnumerable<BirdDomain>>, IHandle<string>
+    public class BirdSearchResultViewModel : Conductor<object>, IPageViewModel,
+        IHandle<OnSearchResultRequestedEvent>, IHandle<string>
     {
         public string PageTitle { get; set; } = "Bird Search Result";
 
-        private /*readonly*/ IEventAggregator _eventAggregator;
+        private readonly IEventAggregator _eventAggregator;
         private BindableCollection<BirdDomain> _searchResult = new BindableCollection<BirdDomain>();
 
         public BindableCollection<BirdDomain> SearchResult
@@ -40,15 +41,20 @@ namespace WoodnoteWPF.ViewModels
         }
 
 
-        public async Task HandleAsync(IEnumerable<BirdDomain> message, CancellationToken cancellationToken)
+        public async Task HandleAsync(OnSearchResultRequestedEvent message, CancellationToken cancellationToken)
         {
-            await Task.Run(() => SearchResult.AddRange(message), cancellationToken);
+            await Task.Run(() => SearchResult.AddRange(message.Birds), cancellationToken);
         }
 
         public async Task HandleAsync(string message, CancellationToken cancellationToken)
         {
             PageTitle = message;
             NotifyOfPropertyChange(() => PageTitle);
+        }
+
+        public void OnCloseClicked()
+        {
+            _eventAggregator.PublishOnUIThreadAsync(new OnSearchResultClosedEvent());
         }
     }
 }

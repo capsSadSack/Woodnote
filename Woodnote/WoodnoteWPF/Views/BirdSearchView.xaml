@@ -101,9 +101,9 @@
                                         </Grid.RowDefinitions>
 
                                         <ToggleButton x:Name="SelectSihouette" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"
-                                        Width="120" Height="160" 
-                                        Style="{StaticResource SilhouettesToggleButtonStyle}" 
-                                        cal:Message.Attach="[Click] = [OnSilhouetteClicked($datacontext)]">
+                                            Width="120" Height="160" 
+                                            Style="{StaticResource SilhouettesToggleButtonStyle}" 
+                                            cal:Message.Attach="[Click] = [OnSilhouetteClicked($datacontext)]">
                                             <Image Source="{Binding Path=ImagePath}"/>
                                         </ToggleButton>
 
@@ -128,17 +128,13 @@
                 <views:MapView Grid.Row="8" Grid.Column="1" />
             </Grid>
         </WrapPanel>
-        
-        <Button x:Name="SearchBirds" Grid.Row="4"  Grid.Column="2"
-                HorizontalAlignment="Right"
-                Background="Transparent" BorderThickness="0"
-                Click="SearchBirds_Click">
-            <Image Source="pack://application:,,,/Images/Icon_MagnifyingGlass.png" 
-                   Width="40" Height="40"/>
-        </Button>
 
-        <!--<views:BirdSearchResultView x:Name="SearchResultView" Grid.Row="0"  Grid.Column="0"
-                                    Grid.RowSpan="6" Grid.ColumnSpan="3"
-                                    IsEnabled="False" Visibility="Hidden"/>-->
+        <Button x:Name="OnSearchBirdsClicked" Grid.Row="4"  Grid.Column="2"
+            HorizontalAlignment="Right"
+            Background="Transparent" BorderThickness="0">
+
+            <Image Source="pack://application:,,,/Images/Icon_MagnifyingGlass.png" 
+                Width="40" Height="40"/>
+        </Button>
     </Grid>
 </UserControl>
