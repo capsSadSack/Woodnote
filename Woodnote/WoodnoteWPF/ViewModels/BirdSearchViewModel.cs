@@ -20,13 +20,18 @@ namespace WoodnoteWPF.ViewModels
     {
         public string PageTitle => "Bird Search";
 
+        private readonly IEventAggregator _eventAggregator;
+
         private BirdOrderSilhouetteModel _selectedSilhouette;
         private BindableCollection<BirdOrderSilhouetteModel> _silhouettes = new BindableCollection<BirdOrderSilhouetteModel>();
         private BindableCollection<ColorModel> _colors = new BindableCollection<ColorModel>();
         private RegionsSessionContextSingletone _rscs;
 
-        public BirdSearchViewModel()
+
+        public BirdSearchViewModel(IEventAggregator eventAggregator)
         {
+            _eventAggregator = eventAggregator;
+
             _rscs = RegionsSessionContextSingletone.GetInstance();
 
             LoadSilhouettes();
@@ -98,6 +103,8 @@ namespace WoodnoteWPF.ViewModels
             }
         }
 
+
+
         public bool CanClearText(string firstName, string lastName)
         {
             if (String.IsNullOrWhiteSpace(firstName) && String.IsNullOrWhiteSpace(lastName))
@@ -127,11 +134,11 @@ namespace WoodnoteWPF.ViewModels
 
         public void SearchBySilhouette()
         {
-            ActivateItemAsync(new BirdSearchViewModel());
+            ActivateItemAsync(new BirdSearchViewModel(_eventAggregator));
         }
 
 
-        public void SearchBirds()
+        public async void SearchBirds()
         {
             List<string> selectedSilhouetteNames = Silhouettes
                 .Where(x => x.IsSelected)
@@ -145,8 +152,11 @@ namespace WoodnoteWPF.ViewModels
             var selectedRegions = _rscs.SelectedRegions;
 
             BirdSearcher birdSearcher = new BirdSearcher(DBBirdAccess.GetInstance());
-            var birds = birdSearcher.GetItemsAsync();
+            
+            var birds = await birdSearcher.GetItemsAsync();
 
+            await _eventAggregator.PublishOnUIThreadAsync(birds);
+            await _eventAggregator.PublishOnUIThreadAsync("Horey!!!!!");
         }
 
         public void OnSilhouetteClicked(BirdOrderSilhouetteModel item)

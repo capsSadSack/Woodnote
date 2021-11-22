@@ -24,5 +24,11 @@ namespace WoodnoteWPF.Views
         {
             InitializeComponent();
         }
+
+        private void Close_Click(object sender, RoutedEventArgs e)
+        {
+            //this.Visibility = Visibility.Hidden;
+            //this.IsEnabled = false;
+        }
     }
 }

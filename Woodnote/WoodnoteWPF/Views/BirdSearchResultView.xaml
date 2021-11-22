@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:WoodnoteWPF.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <Grid Background="Black" Opacity="0.75">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
@@ -18,13 +18,50 @@
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
 
-        <Button Grid.Row="0" Grid.Column="0" 
-                HorizontalAlignment="Right" Width="40"
-                Background="Transparent" BorderThickness="0">
+
+        <Button x:Name="Close" Grid.Row="0" Grid.Column="0" 
+            HorizontalAlignment="Right" Width="30" Height="30"
+            Background="Transparent" BorderThickness="0"
+            Click="Close_Click">
             <Image Source="pack://application:,,,/Images/Icon_CrossWhite.png"/>
         </Button>
-        <StackPanel Grid.Row="2" Grid.Column="0">
-            
-        </StackPanel>
+
+        <TextBlock Grid.Row="1" Grid.Column="0" 
+                   Text="{Binding Path=PageTitle}"
+                   Foreground="White"/>
+
+            <ItemsControl x:Name="SearchResult" Grid.Row="2" Grid.Column="0">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="5">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Grid.Row="0" Grid.Column="0"
+                                       Text="{Binding Name}"
+                                       Foreground="White"/>
+                            <TextBlock Grid.Row="1" Grid.Column="0"
+                                       Text="Some text"
+                                       Foreground="White"/>
+                            <!--<ToggleButton x:Name="SelectColor" Grid.Row="0" Grid.Column="0"
+                                        Width="35" Height="35"
+                                        Background="{Binding Color}"
+                                        Style="{StaticResource ColorsToggleButtonStyle}"/>-->
+                        </Grid>
+                    </StackPanel>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+        </ItemsControl>
     </Grid>
 </UserControl>
