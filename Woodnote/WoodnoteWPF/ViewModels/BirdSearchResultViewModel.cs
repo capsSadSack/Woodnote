@@ -1,4 +1,5 @@
 ﻿using Caliburn.Micro;
+using Domain.Endpoints;
 using Domain.Models;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Threading;
 using WoodnoteWPF.EventModels;
+using WoodnoteWPF.Models;
 
 namespace WoodnoteWPF.ViewModels
 {
@@ -18,9 +20,9 @@ namespace WoodnoteWPF.ViewModels
         public string PageTitle { get; set; } = "Bird Search Result";
 
         private readonly IEventAggregator _eventAggregator;
-        private BindableCollection<BirdDomain> _searchResult = new BindableCollection<BirdDomain>();
+        private BindableCollection<BirdModel> _searchResult = new BindableCollection<BirdModel>();
 
-        public BindableCollection<BirdDomain> SearchResult
+        public BindableCollection<BirdModel> SearchResult
         {
             get
             {

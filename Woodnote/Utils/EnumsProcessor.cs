@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 
-namespace Domain
+namespace Utils
 {
     public static class EnumsProcessor
     {
@@ -103,5 +103,21 @@ namespace Domain
             }
             throw new ArgumentException("Not found.", nameof(description));
         }
+
+        public static string GetName<T>(T value)
+        {
+            var type = typeof(T);
+            if (!type.IsEnum)
+            {
+                throw new InvalidOperationException();
+            }
+            else
+            {
+                Enum enumValue = value as Enum;
+                return Enum.GetName(type, enumValue);
+            }
+        }
+
+
     }
 }

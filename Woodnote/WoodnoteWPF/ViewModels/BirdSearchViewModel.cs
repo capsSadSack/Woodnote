@@ -1,4 +1,5 @@
 ﻿using BirdClassification.BiologyClassification;
+using BirdImageAccess;
 using BirdInfoAccess.DatabaseAccess;
 using Caliburn.Micro;
 using Domain;
@@ -152,13 +153,15 @@ namespace WoodnoteWPF.ViewModels
 
             var selectedRegions = _rscs.SelectedRegions;
 
-            BirdSearcher birdSearcher = new BirdSearcher(DBBirdAccess.GetInstance());
+            BirdSearcher birdSearcher = new BirdSearcher(
+                DBBirdAccess.GetInstance(), 
+                new InFileBirdImageAccess(@"E:\Programming\Complex\Woodnote\Woodnote - Images\BirdImages"));
             
             var birds = await birdSearcher.GetItemsAsync();
 
             var eventArgs = new OnSearchResultRequestedEvent()
             {
-                Birds = birds
+                Birds = birds.ToBirdModel()
             };
 
             await _eventAggregator.PublishOnUIThreadAsync(eventArgs);

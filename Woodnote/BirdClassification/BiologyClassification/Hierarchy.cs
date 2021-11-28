@@ -17,7 +17,7 @@ namespace BirdClassification.BiologyClassification
             _hierarchy.Nodes.Last().AddChild(Order.Rheiformes);
             _hierarchy.Nodes.Last().AddChild(Order.Struthioniformes);
             _hierarchy.Nodes.Last().AddChild(Order.Tinamiformes);
-            // Вымершие:
+            // Extinct ones:
             _hierarchy.Nodes.Last().AddChild(Order.Aepyornithiformes);
             _hierarchy.Nodes.Last().AddChild(Order.Lithornithiformes);
             _hierarchy.Nodes.Last().AddChild(Order.Dinornithiformes);
