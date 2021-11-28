@@ -20,10 +20,10 @@ namespace BirdImageAccess
         }
 
 
-        public async Task<Bitmap> GetImageAsync(BirdDomain bird, Gender gender)
+        public async Task<Image> GetImageAsync(BirdDomain bird, Gender gender)
         {
             string filePath = GetFilePath(bird, gender);
-            return await Task.Run(() => new Bitmap(filePath));
+            return await Task.Run(() => Image.FromFile(filePath));
         }
 
         private string GetFilePath(BirdDomain bird, Gender gender)

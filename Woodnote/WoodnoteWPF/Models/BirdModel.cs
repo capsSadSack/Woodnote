@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Media.Imaging;
 
 namespace WoodnoteWPF.Models
 {
@@ -14,7 +11,7 @@ namespace WoodnoteWPF.Models
         //public IEnumerable<EarthRegion> Regions { get; set; }
         public IEnumerable<ColorModel> Colors { get; set; }
         public string Description { get; set; }
-        public Image Image_Male { get; set; }
-        public Image Image_Female { get; set; }
+        public BitmapImage Image_Male { get; set; }
+        public BitmapImage Image_Female { get; set; }
     }
 }

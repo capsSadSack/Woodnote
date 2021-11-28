@@ -47,19 +47,19 @@ namespace Domain
             return output;
         }
 
-        private async Task<Dictionary<Gender, Bitmap>> GetImageAsync(BirdDomain bird)
+        private async Task<Dictionary<Gender, Image>> GetImageAsync(BirdDomain bird)
         {
-            Bitmap maleImage = await _birdImageAccess.GetImageAsync(bird, Gender.Male);
-            Bitmap femaleImage = await _birdImageAccess.GetImageAsync(bird, Gender.Female);
+            Image maleImage = await _birdImageAccess.GetImageAsync(bird, Gender.Male);
+            Image femaleImage = await _birdImageAccess.GetImageAsync(bird, Gender.Female);
 
-            return new Dictionary<Gender, Bitmap>()
+            return new Dictionary<Gender, Image>()
             {
                 { Gender.Male, maleImage },
                 { Gender.Female, femaleImage }
             };
         }
 
-        private BirdVM ToBirdVM(BirdDomain birdDomain, Bitmap image_Male, Bitmap image_Female)
+        private BirdVM ToBirdVM(BirdDomain birdDomain, Image image_Male, Image image_Female)
         {
             return new BirdVM()
             {

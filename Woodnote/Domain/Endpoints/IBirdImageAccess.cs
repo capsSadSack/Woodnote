@@ -6,6 +6,6 @@ namespace Domain.Endpoints
 {
     public interface IBirdImageAccess
     {
-        Task<Bitmap> GetImageAsync(BirdDomain bird, Gender gender);
+        Task<Image> GetImageAsync(BirdDomain bird, Gender gender);
     }
 }

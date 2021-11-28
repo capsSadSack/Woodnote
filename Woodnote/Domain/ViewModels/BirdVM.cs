@@ -12,7 +12,7 @@ namespace Domain.ViewModels
         //public IEnumerable<EarthRegion> Regions { get; set; }
         public IEnumerable<ColorVM> Colors { get; set; }
         public string Description { get; set; }
-        public Bitmap Image_Male { get; set; }
-        public Bitmap Image_Female { get; set; }
+        public Image Image_Male { get; set; }
+        public Image Image_Female { get; set; }
     }
 }
