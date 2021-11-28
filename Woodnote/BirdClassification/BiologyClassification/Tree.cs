@@ -28,32 +28,43 @@ namespace BirdClassification.BiologyClassification
             Nodes.Add(childTree);
         }
 
-        public List<System.Enum> GetAllParentNodes(System.Enum obj)
+        public List<object> GetAllParentNodes(System.Enum obj)
         {
-            foreach (Tree node in this.Nodes)
+            TryGetParentNodes(this.Nodes, obj, out List<object> parentNodes);
+            return parentNodes;
+        }
+
+        private bool TryGetParentNodes(List<Tree> nodes, Enum obj, out List<object> parentNodes)
+        {
+            foreach (Tree node in nodes)
             {
-                if (node.Obj.GetType() == obj.GetType() 
-                    & Convert.ToInt32(node.Obj) == Convert.ToInt32(obj))
+                if (node.Obj.GetType() == obj.GetType()
+                    && Convert.ToInt32(node.Obj) == Convert.ToInt32(obj))
                 {
-                    return GetAllParentNodeObjects(node);
+                    parentNodes = GetAllParentNodes(node);
+                    return true;
                 }
             }
 
-            foreach (Tree node in this.Nodes)
+            foreach (Tree node in nodes)
             {
                 if (node.Nodes.Count > 0)
                 {
-                    return node.GetAllParentNodes(obj);
+                    if (TryGetParentNodes(node.Nodes, obj, out parentNodes))
+                    {
+                        return true;
+                    }
                 }
             }
 
-            return new List<System.Enum>();
+            parentNodes = new List<object>();
+            return false;
         }
 
-        private List<System.Enum> GetAllParentNodeObjects(Tree node)
+        private List<object> GetAllParentNodes(Tree node)
         {
-            List<System.Enum> output = new List<System.Enum>();
             Tree parent = node.Parent;
+            List<object> output = new List<object>();
 
             while (parent != null)
             {

@@ -32,9 +32,10 @@ namespace BirdImageAccess
             string fileName = GetFileNameWithoutExtension(bird, gender);
 
             var allFiles = System.IO.Directory.GetFiles(dir);
-            return allFiles
-                .Where(x => System.IO.Path.GetFileNameWithoutExtension(x).StartsWith(fileName))
-                .FirstOrDefault();
+            var similarFiles = allFiles
+                .Where(x => System.IO.Path.GetFileNameWithoutExtension(x).StartsWith(fileName));
+            return similarFiles.FirstOrDefault();
+
         }
 
         private string GetFileNameWithoutExtension(BirdDomain bird, Gender gender)
@@ -64,22 +65,19 @@ namespace BirdImageAccess
         private string GetDirectoryPath(Order birdOrder)
         {
             var hierarchyElements = _hierarchy.GetUpperHierarchy(birdOrder);
+            string path = _directory;
 
-            string path = null;
-
-            for (int i = 0; i < hierarchyElements.Count(); i++)
+            for (int i = hierarchyElements.Count() - 2; i >= 0; i--)
             {
-                string name = EnumsProcessor.GetName(hierarchyElements[i]);
-
-                if (path != null)
-                {
-                    path = System.IO.Path.Combine(path, name);
-                }
-                else
-                {
-                    path = name;
-                }
+                Type type = hierarchyElements[i].GetType();
+                string name = EnumsProcessor.GetName(type, hierarchyElements[i]);
+                string temp = System.IO.Path.Combine(path, name);
+                path = temp;
             }
+
+            string orderName = EnumsProcessor.GetName(typeof(Order), birdOrder);
+            string orderTemp = System.IO.Path.Combine(path, orderName);
+            path = orderTemp;
 
             return path;
         }

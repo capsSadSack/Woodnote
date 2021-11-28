@@ -104,10 +104,15 @@ namespace Utils
             throw new ArgumentException("Not found.", nameof(description));
         }
 
-        public static string GetName<T>(T value)
+        public static string GetName<T>(object value)
         {
             var type = typeof(T);
-            if (!type.IsEnum)
+            return GetName(type, value);
+        }
+
+        public static string GetName(Type type, object value)
+        {
+            if (type is Enum)
             {
                 throw new InvalidOperationException();
             }

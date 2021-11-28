@@ -64,9 +64,24 @@ namespace BirdClassification.BiologyClassification
         }
 
 
-        public List<System.Enum> GetUpperHierarchy(System.Enum element)
+        public List<object> GetUpperHierarchy(System.Enum element)
         {
-            return _hierarchy.GetAllParentNodes(element);
+            if (element is Order)
+            {
+                return _hierarchy.GetAllParentNodes((Order)element);
+            }
+            else if (element is Superorder)
+            {
+                return _hierarchy.GetAllParentNodes((Superorder)element);
+            }
+            else if (element is Clade)
+            {
+                return _hierarchy.GetAllParentNodes((Clade)element);
+            }
+            else
+            {
+                throw new System.Exception();
+            }
         }
     }
 }
