@@ -67,6 +67,38 @@ namespace BirdInfoAccess.DatabaseAccess
                         new Color() { Name = "Brown", ColorHex = "#8B4513" },
                     },
                     Name = "Sparrow"
+                },
+
+                new BirdDomain()
+                {
+                    Order = Order.Passeriformes,
+                    Regions = new List<EarthRegion>()
+                    {
+                        EarthRegion.EasternEurope
+                    },
+                    Colors = new List<Color>()
+                    {
+                        new Color() { Name = "Gray",  ColorHex = "#808080" },
+                        new Color() { Name = "Black", ColorHex = "#000000" },
+                        new Color() { Name = "Brown", ColorHex = "#8B4513" },
+                    },
+                    Name = "Sparrow"
+                },
+
+                new BirdDomain()
+                {
+                    Order = Order.Passeriformes,
+                    Regions = new List<EarthRegion>()
+                    {
+                        EarthRegion.EasternEurope
+                    },
+                    Colors = new List<Color>()
+                    {
+                        new Color() { Name = "Gray",  ColorHex = "#808080" },
+                        new Color() { Name = "Black", ColorHex = "#000000" },
+                        new Color() { Name = "Brown", ColorHex = "#8B4513" },
+                    },
+                    Name = "Sparrow"
                 }
             };
 

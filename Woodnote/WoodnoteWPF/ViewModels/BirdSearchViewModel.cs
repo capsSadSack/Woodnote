@@ -154,9 +154,11 @@ namespace WoodnoteWPF.ViewModels
             var selectedRegions = _rscs.SelectedRegions;
 
             BirdSearcher birdSearcher = new BirdSearcher(
-                DBBirdAccess.GetInstance(), 
-                new InFileBirdImageAccess(@"E:\Programming\Complex\Woodnote\Woodnote - Images\BirdImages"));
-            
+                DBBirdAccess.GetInstance(),
+                //new InFileBirdImageAccess(@"E:\Programming\Complex\Woodnote\Woodnote - Images\BirdImages"));
+                new InFileBirdImageAccess(@"C:\Repos\Woodnote\Woodnote - Images\BirdImages"));
+
+
             var birds = await birdSearcher.GetItemsAsync();
 
             var eventArgs = new OnSearchResultRequestedEvent()

@@ -13,8 +13,6 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
 
@@ -25,46 +23,64 @@
             <Image Source="pack://application:,,,/Images/Icon_CrossWhite.png"/>
         </Button>
 
-        <TextBlock Grid.Row="1" Grid.Column="0" 
-                   Text="{Binding Path=PageTitle}"
-                   Foreground="White"/>
+        <TextBlock Grid.Row="0" Grid.Column="0"
+            Text="Результатов поиска найдено: 000"
+            HorizontalAlignment="Left" Margin="5,0"
+            Foreground="White" FontSize="14"/>
 
-            <ItemsControl x:Name="SearchResult" Grid.Row="2" Grid.Column="0">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Margin="5">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="auto"/>
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="auto"/>
-                                <RowDefinition Height="auto"/>
-                                <RowDefinition Height="auto"/>
-                            </Grid.RowDefinitions>
+        <ScrollViewer Grid.Row="1" Grid.Column="0" >
+            <ItemsControl x:Name="SearchResult"
+                      HorizontalAlignment="Center">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border Margin="5"  CornerRadius="5" BorderThickness="2" BorderBrush="White">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
 
-                            <TextBlock Grid.Row="0" Grid.Column="0"
-                                       Text="{Binding Path=Name}"
-                                       Foreground="White"/>
-                            <Image Grid.Row="1" Grid.Column="0"
-                                Source="{Binding Path=Image_Female}" />
-                            <TextBlock Grid.Row="2" Grid.Column="0"
-                                       Text="{Binding Path=Description}"
-                                       Foreground="White"/>
+                                <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                                    Text="{Binding Path=Name}"
+                                    HorizontalAlignment="Center"
+                                    Foreground="White" FontWeight="Bold" FontSize="14" />
 
-                            <!--<ToggleButton x:Name="SelectColor" Grid.Row="0" Grid.Column="0"
-                                        Width="35" Height="35"
-                                        Background="{Binding Color}"
-                                        Style="{StaticResource ColorsToggleButtonStyle}"/>-->
-                        </Grid>
-                    </StackPanel>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-            <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <StackPanel Orientation="Horizontal"/>
-                </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
-        </ItemsControl>
+                                <Image Grid.Row="1" Grid.Column="0"
+                                    Source="{Binding Path=Image_Male}" 
+                                    Margin="5" Height="400" />
+                                <Image Grid.Row="1" Grid.Column="1"
+                                    Source="{Binding Path=Image_Female}" 
+                                    Margin="5" Height="400" />
+
+                                <TextBlock Grid.Row="2" Grid.Column="0"
+                                    Text="Male"
+                                    HorizontalAlignment="Center"
+                                    Foreground="White" FontStyle="Italic" FontSize="12" />
+                                <TextBlock Grid.Row="2" Grid.Column="1"
+                                    Text="Female"
+                                    HorizontalAlignment="Center"
+                                    Foreground="White" FontStyle="Italic" FontSize="12" />
+
+                                <TextBlock Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
+                                    Text="{Binding Path=Description}"
+                                    HorizontalAlignment="Left"
+                                    Foreground="White" FontSize="14"/>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Vertical"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+        </ScrollViewer>
     </Grid>
 </UserControl>
