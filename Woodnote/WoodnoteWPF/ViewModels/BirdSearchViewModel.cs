@@ -155,9 +155,9 @@ namespace WoodnoteWPF.ViewModels
 
             BirdSearcher birdSearcher = new BirdSearcher(
                 DBBirdAccess.GetInstance(),
-                //new InFileBirdImageAccess(@"E:\Programming\Complex\Woodnote\Woodnote - Images\BirdImages"));
+                new InFileBirdImageAccess(@"E:\Programming\Complex\Woodnote\Woodnote - Images\BirdImages"));
                 //new InFileBirdImageAccess(@"C:\Repos\Woodnote\Woodnote - Images\BirdImages"));
-                new InFileBirdImageAccess(@"D:\Science\Woodnote\Woodnote - Images\BirdImages"));
+                //new InFileBirdImageAccess(@"D:\Science\Woodnote\Woodnote - Images\BirdImages"));
 
 
             var birds = await birdSearcher.GetItemsAsync();

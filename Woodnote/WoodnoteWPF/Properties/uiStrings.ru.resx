@@ -120,10 +120,19 @@
   <data name="BirdColorsHeader" xml:space="preserve">
     <value>Выберите цвет птицы</value>
   </data>
+  <data name="BirdGenderFemale" xml:space="preserve">
+    <value>Самка</value>
+  </data>
+  <data name="BirdGenderMale" xml:space="preserve">
+    <value>Самец</value>
+  </data>
   <data name="BirdRegionHeader" xml:space="preserve">
     <value>Выберите ареал обитания</value>
   </data>
   <data name="BirdSilhouettesHeader" xml:space="preserve">
     <value>Выберите силуэт</value>
+  </data>
+  <data name="SearchResultsCount" xml:space="preserve">
+    <value>Результатов поиска</value>
   </data>
 </root>

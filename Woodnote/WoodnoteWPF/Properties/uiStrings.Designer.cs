@@ -70,6 +70,24 @@ namespace WoodnoteWPF.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Female.
+        /// </summary>
+        public static string BirdGenderFemale {
+            get {
+                return ResourceManager.GetString("BirdGenderFemale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Male.
+        /// </summary>
+        public static string BirdGenderMale {
+            get {
+                return ResourceManager.GetString("BirdGenderMale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Select habitat.
         /// </summary>
         public static string BirdRegionHeader {
@@ -84,6 +102,15 @@ namespace WoodnoteWPF.Properties {
         public static string BirdSilhouettesHeader {
             get {
                 return ResourceManager.GetString("BirdSilhouettesHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search results.
+        /// </summary>
+        public static string SearchResultsCount {
+            get {
+                return ResourceManager.GetString("SearchResultsCount", resourceCulture);
             }
         }
     }

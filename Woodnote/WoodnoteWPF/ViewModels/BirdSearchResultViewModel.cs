@@ -46,8 +46,8 @@ namespace WoodnoteWPF.ViewModels
             set
             {
                 _searchResult = value;
-                SearchResultCount = _searchResult.Count();
-                NotifyOfPropertyChange(() => SearchResult);         
+                SearchResultCount = SearchResult.Count();
+                NotifyOfPropertyChange(() => SearchResult);                
             }
         }
 
