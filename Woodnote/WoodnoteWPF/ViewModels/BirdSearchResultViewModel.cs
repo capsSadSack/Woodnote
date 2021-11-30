@@ -19,6 +19,9 @@ namespace WoodnoteWPF.ViewModels
     {
         public string PageTitle { get; set; } = "Bird Search Result";
 
+        public string SearchResultCount { get; set; }
+
+
         private readonly IEventAggregator _eventAggregator;
         private BindableCollection<BirdModel> _searchResult = new BindableCollection<BirdModel>();
 
@@ -31,7 +34,9 @@ namespace WoodnoteWPF.ViewModels
             set
             {
                 _searchResult = value;
+                SearchResultCount = _searchResult.Count().ToString();
                 NotifyOfPropertyChange(() => SearchResult);
+                NotifyOfPropertyChange(() => SearchResultCount);
             }
         }
 

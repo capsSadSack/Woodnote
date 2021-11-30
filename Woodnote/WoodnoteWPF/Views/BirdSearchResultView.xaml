@@ -23,10 +23,17 @@
             <Image Source="pack://application:,,,/Images/Icon_CrossWhite.png"/>
         </Button>
 
-        <TextBlock Grid.Row="0" Grid.Column="0"
-            Text="Результатов поиска найдено: 000"
-            HorizontalAlignment="Left" Margin="5,0"
-            Foreground="White" FontSize="14"/>
+        <StackPanel Grid.Row="0" Grid.Column="0"
+            Orientation="Horizontal" HorizontalAlignment="Left">
+            <TextBlock 
+                Text="Результатов поиска найдено:"
+                HorizontalAlignment="Left" Margin="5,0"
+                Foreground="White" FontSize="14"/>
+            <TextBlock 
+                Text="{Binding Path=SearchResultCount}"
+                HorizontalAlignment="Left" Margin="5,0"
+                Foreground="White" FontSize="14"/>
+        </StackPanel>
 
         <ScrollViewer Grid.Row="1" Grid.Column="0" >
             <ItemsControl x:Name="SearchResult"
