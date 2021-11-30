@@ -19,7 +19,19 @@ namespace WoodnoteWPF.ViewModels
     {
         public string PageTitle { get; set; } = "Bird Search Result";
 
-        public string SearchResultCount { get; set; }
+        private int _searchResultCount = 0;
+        public int SearchResultCount
+        {
+            get
+            {
+                return _searchResultCount;
+            }
+            set
+            {
+                _searchResultCount = value;
+                NotifyOfPropertyChange(() => SearchResultCount);
+            }
+        }
 
 
         private readonly IEventAggregator _eventAggregator;
@@ -34,9 +46,8 @@ namespace WoodnoteWPF.ViewModels
             set
             {
                 _searchResult = value;
-                SearchResultCount = _searchResult.Count().ToString();
-                NotifyOfPropertyChange(() => SearchResult);
-                NotifyOfPropertyChange(() => SearchResultCount);
+                SearchResultCount = _searchResult.Count();
+                NotifyOfPropertyChange(() => SearchResult);         
             }
         }
 
@@ -50,7 +61,12 @@ namespace WoodnoteWPF.ViewModels
 
         public async Task HandleAsync(OnSearchResultRequestedEvent message, CancellationToken cancellationToken)
         {
-            await Task.Run(() => SearchResult.AddRange(message.Birds), cancellationToken);
+            await Task.Run(() =>
+            {
+                var temp = new BindableCollection<BirdModel>();
+                temp.AddRange(message.Birds);
+                SearchResult = temp;
+            }, cancellationToken);
         }
 
         public async Task HandleAsync(string message, CancellationToken cancellationToken)
