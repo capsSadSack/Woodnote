@@ -3,7 +3,7 @@
 	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
     [BirdId] INT NOT NULL, 
     [LanguageId] INT NOT NULL, 
-    [Name] NVARCHAR(100) NOT NULL, 
+    [Name] NVARCHAR(100) NULL, 
     CONSTRAINT [FK_BirdNames_Languages] FOREIGN KEY (LanguageId) REFERENCES [Languages]([Id]), 
     CONSTRAINT [FK_BirdNames_Birds] FOREIGN KEY ([BirdId]) REFERENCES [Birds]([Id])
 )
