@@ -10,7 +10,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DatabaseAccess\DefaultData\Birds\" />
+    <Folder Include="DatabaseAccess\" />
+    <Folder Include="SQLiteDatabaseAccess\DefaultData\Birds\" />
     <Folder Include="DatabaseAccess\DefaultData\Birds\" />
   </ItemGroup>
 

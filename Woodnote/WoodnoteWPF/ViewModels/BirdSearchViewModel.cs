@@ -1,6 +1,6 @@
 ﻿using BirdClassification.BiologyClassification;
 using BirdImageAccess;
-using BirdInfoAccess.DatabaseAccess;
+using BirdInfoAccess.SQLiteDatabaseAccess;
 using Caliburn.Micro;
 using Domain;
 using Domain.ViewModels;
