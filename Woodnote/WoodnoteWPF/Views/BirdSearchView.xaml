@@ -29,8 +29,7 @@
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
         
-        <ScrollViewer Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"
-                      VerticalScrollBarVisibility="Auto">
+        <WrapPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="10"/>
@@ -46,7 +45,7 @@
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="10"/>
                 </Grid.RowDefinitions>
@@ -84,53 +83,58 @@
                 <TextBlock Grid.Row="3" Grid.Column="1"
                     Text="{x:Static resources:uiStrings.BirdSilhouettesHeader}"/>
 
-                <ItemsControl x:Name="Silhouettes" Grid.Row="4" Grid.Column="1">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Margin="5">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="auto"/>
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="auto"/>
-                                        <RowDefinition Height="auto"/>
-                                        <RowDefinition Height="auto"/>
-                                    </Grid.RowDefinitions>
+                <ScrollViewer Grid.Row="4" Grid.Column="1"
+                              HorizontalScrollBarVisibility="Visible"
+                              VerticalScrollBarVisibility="Hidden">
+                    <ItemsControl x:Name="Silhouettes">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Margin="5">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="auto"/>
+                                        </Grid.RowDefinitions>
 
-                                    <ToggleButton x:Name="SelectSihouette" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"
-                                        Width="150" Height="200" 
-                                        Style="{StaticResource SilhouettesToggleButtonStyle}" 
-                                        cal:Message.Attach="[Click] = [OnSilhouetteClicked($datacontext)]">
-                                        <Image Source="{Binding Path=ImagePath}"/>
-                                    </ToggleButton>
+                                        <ToggleButton x:Name="SelectSihouette" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"
+                                            Width="120" Height="160" 
+                                            Style="{StaticResource SilhouettesToggleButtonStyle}" 
+                                            cal:Message.Attach="[Click] = [OnSilhouetteClicked($datacontext)]">
+                                            <Image Source="{Binding Path=ImagePath}"/>
+                                        </ToggleButton>
 
-                                    <CheckBox Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left"
-                                        IsChecked="{Binding Path=IsSelected}"/>
-                                    <TextBlock Grid.Row="2" Grid.Column="0"
-                                        FontSize="16" Text="{Binding Path=Name}" HorizontalAlignment="Center" />
-                                </Grid>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <WrapPanel />
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                </ItemsControl>
+                                        <TextBlock Grid.Row="2" Grid.Column="0"
+                                            Text="{Binding Path=Name}" 
+                                            FontSize="12" HorizontalAlignment="Center" />
+                                    </Grid>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                </ScrollViewer>
 
                 <TextBlock Grid.Row="5" Grid.Column="1"
                     Text="{x:Static resources:uiStrings.BirdRegionHeader}"/>
 
                 <views:MapView Grid.Row="8" Grid.Column="1" />
             </Grid>
+        </WrapPanel>
 
-            
-        </ScrollViewer>
-        
-        <Button x:Name="SearchBirds" Grid.Row="4"  Grid.Column="2"> 
-            Найти
+        <Button x:Name="OnSearchBirdsClicked" Grid.Row="4"  Grid.Column="2"
+            HorizontalAlignment="Right"
+            Background="Transparent" BorderThickness="0">
+
+            <Image Source="pack://application:,,,/Images/Icon_MagnifyingGlass.png" 
+                Width="40" Height="40"/>
         </Button>
     </Grid>
 </UserControl>

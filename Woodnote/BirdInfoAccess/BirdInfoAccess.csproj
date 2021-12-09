@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
@@ -10,12 +10,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DatabaseAccess\DefaultData\Birds\" />
+    <Folder Include="DatabaseAccess\" />
+    <Folder Include="SQLiteDatabaseAccess\DefaultData\Birds\" />
     <Folder Include="DatabaseAccess\DefaultData\Birds\" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj" />
+    <ProjectReference Include="..\Utils\Utils.csproj" />
   </ItemGroup>
 
 </Project>

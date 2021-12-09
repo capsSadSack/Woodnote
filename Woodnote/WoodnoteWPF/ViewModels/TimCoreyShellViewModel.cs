@@ -17,9 +17,12 @@ namespace WoodnoteWPF.ViewModels
         private BindableCollection<PersonModel> _people = new BindableCollection<PersonModel>();
         private PersonModel _selectedPerson;
 
+        private readonly IEventAggregator _eventAggregator;
 
-        public TimCoreyShellViewModel()
+        public TimCoreyShellViewModel(IEventAggregator eventAggregator)
         {
+            _eventAggregator = eventAggregator;
+
             People.Add(new PersonModel()
             {
                 FirstName = "Tim",
@@ -128,7 +131,7 @@ namespace WoodnoteWPF.ViewModels
 
         public void SearchBySilhouette()
         {
-            ActivateItemAsync(new BirdSearchViewModel());
+            ActivateItemAsync(new BirdSearchViewModel(_eventAggregator));
         }
     }
 }

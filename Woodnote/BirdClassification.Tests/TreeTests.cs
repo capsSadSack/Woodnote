@@ -18,6 +18,12 @@ namespace BirdClassification.Tests
             _tree.AddChild(TestEnum.Two);
             _tree.Nodes.Last().AddChild(TestEnum.Three);
             _tree.Nodes.Last().AddChild(TestEnum.Four);
+
+            //   1
+            //   |
+            //   2
+            //  / \
+            // 3   4
         }
 
         [Test]
@@ -33,6 +39,15 @@ namespace BirdClassification.Tests
             var nodes = _tree.GetAllParentNodes(TestEnum.Two);
             Assert.AreEqual(1, nodes.Count());
             Assert.AreEqual(TestEnum.One, nodes.ElementAt(0));
+        }
+
+        [Test]
+        public void FourthNode_GetAllParentNodes_CorrectNodes()
+        {
+            var nodes = _tree.GetAllParentNodes(TestEnum.Four);
+            Assert.AreEqual(2, nodes.Count());
+            Assert.AreEqual(TestEnum.Two, nodes.ElementAt(0));
+            Assert.AreEqual(TestEnum.One, nodes.ElementAt(1));
         }
 
         private enum TestEnum

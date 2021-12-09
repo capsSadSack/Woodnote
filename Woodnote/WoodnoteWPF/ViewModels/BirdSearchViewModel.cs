@@ -1,5 +1,6 @@
 ﻿using BirdClassification.BiologyClassification;
-using BirdInfoAccess.DatabaseAccess;
+using BirdImageAccess;
+using BirdInfoAccess.SQLiteDatabaseAccess;
 using Caliburn.Micro;
 using Domain;
 using Domain.ViewModels;
@@ -12,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Shapes;
 using WoodnoteWPF.Converters;
 using WoodnoteWPF.DataSharing;
+using WoodnoteWPF.EventModels;
 using WoodnoteWPF.Models;
 
 namespace WoodnoteWPF.ViewModels
@@ -20,13 +22,18 @@ namespace WoodnoteWPF.ViewModels
     {
         public string PageTitle => "Bird Search";
 
+        private readonly IEventAggregator _eventAggregator;
+
         private BirdOrderSilhouetteModel _selectedSilhouette;
         private BindableCollection<BirdOrderSilhouetteModel> _silhouettes = new BindableCollection<BirdOrderSilhouetteModel>();
         private BindableCollection<ColorModel> _colors = new BindableCollection<ColorModel>();
         private RegionsSessionContextSingletone _rscs;
 
-        public BirdSearchViewModel()
+
+        public BirdSearchViewModel(IEventAggregator eventAggregator)
         {
+            _eventAggregator = eventAggregator;
+
             _rscs = RegionsSessionContextSingletone.GetInstance();
 
             LoadSilhouettes();
@@ -98,6 +105,8 @@ namespace WoodnoteWPF.ViewModels
             }
         }
 
+
+
         public bool CanClearText(string firstName, string lastName)
         {
             if (String.IsNullOrWhiteSpace(firstName) && String.IsNullOrWhiteSpace(lastName))
@@ -127,11 +136,11 @@ namespace WoodnoteWPF.ViewModels
 
         public void SearchBySilhouette()
         {
-            ActivateItemAsync(new BirdSearchViewModel());
+            ActivateItemAsync(new BirdSearchViewModel(_eventAggregator));
         }
 
 
-        public void SearchBirds()
+        public async void OnSearchBirdsClicked()
         {
             List<string> selectedSilhouetteNames = Silhouettes
                 .Where(x => x.IsSelected)
@@ -144,9 +153,22 @@ namespace WoodnoteWPF.ViewModels
 
             var selectedRegions = _rscs.SelectedRegions;
 
-            BirdSearcher birdSearcher = new BirdSearcher(DBBirdAccess.GetInstance());
-            var birds = birdSearcher.GetItemsAsync();
+            BirdSearcher birdSearcher = new BirdSearcher(
+                DBBirdAccess.GetInstance(),
+                new InFileBirdImageAccess(@"E:\Programming\Complex\Woodnote\Woodnote - Images\BirdImages"));
+                //new InFileBirdImageAccess(@"C:\Repos\Woodnote\Woodnote - Images\BirdImages"));
+                //new InFileBirdImageAccess(@"D:\Science\Woodnote\Woodnote - Images\BirdImages"));
 
+
+            var birds = await birdSearcher.GetItemsAsync();
+
+            var eventArgs = new OnSearchResultRequestedEvent()
+            {
+                Birds = birds.ToBirdModel()
+            };
+
+            await _eventAggregator.PublishOnUIThreadAsync(eventArgs);
+            await _eventAggregator.PublishOnUIThreadAsync("Horey!!!!!");
         }
 
         public void OnSilhouetteClicked(BirdOrderSilhouetteModel item)
