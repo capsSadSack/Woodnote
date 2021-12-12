@@ -74,6 +74,8 @@
     <Build Include="dbo\Tables\GeneralTaxonomicRanks.sql" />
     <Build Include="dbo\Tables\Languages.sql" />
     <Build Include="dbo\StoredProcedures\spColors_GetAll.sql" />
+    <Build Include="dbo\StoredProcedures\spLanguages_GetAll.sql" />
+    <Build Include="dbo\StoredProcedures\spBirdColors_GetByBirdId.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\RegionNames.sql" />
