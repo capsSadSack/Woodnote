@@ -28,15 +28,16 @@ namespace WoodnoteWPF.ViewModels
 
 
 
-        public ShellViewModel(IEventAggregator eventAggregator)
+        public ShellViewModel(IEventAggregator eventAggregator,
+            SimpleContainer container)
         {
             _eventAggregator = eventAggregator;
             _eventAggregator.SubscribeOnUIThread(this);
 
             // Add available pages
-            PageViewModels.Add(new BirdSearchViewModel(_eventAggregator));
-            PageViewModels.Add(new TimCoreyShellViewModel(_eventAggregator));
-            PageViewModels.Add(new BirdSearchResultViewModel(_eventAggregator));
+            PageViewModels.Add(container.GetInstance<BirdSearchViewModel>());// new BirdSearchViewModel(_eventAggregator));
+            PageViewModels.Add(container.GetInstance<TimCoreyShellViewModel>());// new TimCoreyShellViewModel(_eventAggregator));
+            PageViewModels.Add(container.GetInstance<BirdSearchResultViewModel>());// new BirdSearchResultViewModel(_eventAggregator));
 
             // Set starting page
             ActivateItemAsync(PageViewModels[0]);

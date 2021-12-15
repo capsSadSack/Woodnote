@@ -23,6 +23,8 @@ namespace WoodnoteWPF.ViewModels
         public string PageTitle => "Bird Search";
 
         private readonly IEventAggregator _eventAggregator;
+        private readonly BirdColorController _birdColorController;
+        private readonly BirdSearcher _birdSearcher;
 
         private BirdOrderSilhouetteModel _selectedSilhouette;
         private BindableCollection<BirdOrderSilhouetteModel> _silhouettes = new BindableCollection<BirdOrderSilhouetteModel>();
@@ -30,10 +32,11 @@ namespace WoodnoteWPF.ViewModels
         private RegionsSessionContextSingletone _rscs;
 
 
-        public BirdSearchViewModel(IEventAggregator eventAggregator)
+        public BirdSearchViewModel(IEventAggregator eventAggregator, BirdColorController birdColorController, BirdSearcher birdSearcher)
         {
             _eventAggregator = eventAggregator;
-
+            _birdColorController = birdColorController;
+            _birdSearcher = birdSearcher;
             _rscs = RegionsSessionContextSingletone.GetInstance();
 
             LoadSilhouettes();
@@ -64,8 +67,7 @@ namespace WoodnoteWPF.ViewModels
 
         private async Task<IEnumerable<ColorModel>> LoadColors()
         {
-            BirdColorController bcc = new BirdColorController(DBBirdAccess.GetInstance());
-            IEnumerable<ColorVM> colorsVM = await bcc.GetBirdsColors();
+            IEnumerable<ColorVM> colorsVM = await _birdColorController.GetBirdsColors();
             IEnumerable<ColorModel> output =  colorsVM.ToColorModels();
 
             Colors.AddRange(output);
@@ -136,7 +138,7 @@ namespace WoodnoteWPF.ViewModels
 
         public void SearchBySilhouette()
         {
-            ActivateItemAsync(new BirdSearchViewModel(_eventAggregator));
+            ActivateItemAsync(new BirdSearchViewModel(_eventAggregator, _birdColorController, _birdSearcher));
         }
 
 
@@ -153,14 +155,14 @@ namespace WoodnoteWPF.ViewModels
 
             var selectedRegions = _rscs.SelectedRegions;
 
-            BirdSearcher birdSearcher = new BirdSearcher(
-                DBBirdAccess.GetInstance(),
-                //new InFileBirdImageAccess(@"E:\Programming\Complex\Woodnote\Woodnote - Images\BirdImages"));
-                new InFileBirdImageAccess(@"C:\Repos\Woodnote\Woodnote - Images\BirdImages"));
-                //new InFileBirdImageAccess(@"D:\Science\Woodnote\Woodnote - Images\BirdImages"));
+            //BirdSearcher birdSearcher = new BirdSearcher(
+            //    DBBirdAccess.GetInstance(),
+            //    //new InFileBirdImageAccess(@"E:\Programming\Complex\Woodnote\Woodnote - Images\BirdImages"));
+            //    new InFileBirdImageAccess(@"C:\Repos\Woodnote\Woodnote - Images\BirdImages"));
+            //    //new InFileBirdImageAccess(@"D:\Science\Woodnote\Woodnote - Images\BirdImages"));
 
 
-            var birds = await birdSearcher.GetItemsAsync();
+            var birds = await _birdSearcher.GetItemsAsync();
 
             var eventArgs = new OnSearchResultRequestedEvent()
             {

@@ -18,10 +18,12 @@ namespace WoodnoteWPF.ViewModels
         private PersonModel _selectedPerson;
 
         private readonly IEventAggregator _eventAggregator;
+        private readonly SimpleContainer _container;
 
-        public TimCoreyShellViewModel(IEventAggregator eventAggregator)
+        public TimCoreyShellViewModel(IEventAggregator eventAggregator, SimpleContainer container)
         {
             _eventAggregator = eventAggregator;
+            _container = container;
 
             People.Add(new PersonModel()
             {
@@ -131,7 +133,7 @@ namespace WoodnoteWPF.ViewModels
 
         public void SearchBySilhouette()
         {
-            ActivateItemAsync(new BirdSearchViewModel(_eventAggregator));
+            ActivateItemAsync(_container.GetInstance<BirdSearchViewModel>());
         }
     }
 }

@@ -15,12 +15,12 @@ namespace BirdInfoAccess.SQLiteDatabaseAccess
     // Singletone
     public class DBBirdAccess : IBirdAccess
     {
-        private static readonly DBBirdAccess _instance = new DBBirdAccess();
+        //private static readonly DBBirdAccess _instance = new DBBirdAccess();
 
         private Database _database;
 
 
-        private DBBirdAccess()
+        public DBBirdAccess()
         {
             // NOTE: [CG, 2021.08.30] App needs special requirements to create a new directory inside AppData/Local,
             //                        so the DB file is just there 
@@ -28,10 +28,10 @@ namespace BirdInfoAccess.SQLiteDatabaseAccess
         }
 
 
-        public static DBBirdAccess GetInstance()
-        {
-            return _instance;
-        }
+        //public static DBBirdAccess GetInstance()
+        //{
+        //    return _instance;
+        //}
 
 
         public async Task<IEnumerable<Color>> GetAllBirdsColorsAsync()
