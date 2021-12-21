@@ -15,7 +15,7 @@ namespace WoodnoteWPF
 {
     public class Bootstrapper : BootstrapperBase
     {
-        private SimpleContainer container;
+        private SimpleContainer _container;
 
         public Bootstrapper()
         {
@@ -40,44 +40,44 @@ namespace WoodnoteWPF
 
         protected override void Configure()
         {
-            container = new SimpleContainer();
+            _container = new SimpleContainer();
 
-            container.RegisterInstance(typeof(SimpleContainer), "SimpleContainer", container);
+            _container.RegisterInstance(typeof(SimpleContainer), "SimpleContainer", _container);
 
-            container.Singleton<IWindowManager, WindowManager>();
-            container.Singleton<IEventAggregator, EventAggregator>();
+            _container.Singleton<IWindowManager, WindowManager>();
+            _container.Singleton<IEventAggregator, EventAggregator>();
 
-            container.Singleton<IBirdAccess, BirdInfoAccess.SQLiteDatabaseAccess.DBBirdAccess>();
-            container.RegisterInstance(typeof(IBirdImageAccess), "IBirdImageAccess",
+            _container.Singleton<IBirdAccess, BirdInfoAccess.SQLiteDatabaseAccess.DBBirdAccess>();
+            _container.RegisterInstance(typeof(IBirdImageAccess), "IBirdImageAccess",
                 //new BirdImageAccess.InFileBirdImageAccess(@"E:\Programming\Complex\Woodnote\Woodnote - Images\BirdImages")
                 new BirdImageAccess.InFileBirdImageAccess(@"C:\Repos\Woodnote\Woodnote - Images\BirdImages")
                 //new BirdImageAccess.InFileBirdImageAccess(@"D:\Science\Woodnote\Woodnote - Images\BirdImages")
                 );
-            container.PerRequest<BirdSearcher>();
+            _container.PerRequest<BirdSearcher>();
 
-            container.PerRequest<BirdColorController>();
+            _container.PerRequest<BirdColorController>();
 
-            container.PerRequest<ShellViewModel>();
-            container.PerRequest<BirdSearchResultViewModel>();
-            container.PerRequest<BirdSearchViewModel>();
-            container.PerRequest<TimCoreyShellViewModel>();
+            _container.PerRequest<ShellViewModel>();
+            _container.PerRequest<BirdSearchResultViewModel>();
+            _container.Singleton<BirdSearchViewModel>();
+            _container.PerRequest<TimCoreyShellViewModel>();
 
-            container.RegisterInstance(typeof(IConfiguration), "IConfiguration", AddConfiguration());
+            _container.RegisterInstance(typeof(IConfiguration), "IConfiguration", AddConfiguration());
         }
 
         protected override object GetInstance(Type service, string key)
         {
-            return container.GetInstance(service, key);
+            return _container.GetInstance(service, key);
         }
 
         protected override IEnumerable<object> GetAllInstances(Type service)
         {
-            return container.GetAllInstances(service);
+            return _container.GetAllInstances(service);
         }
 
         protected override void BuildUp(object instance)
         {
-            container.BuildUp(instance);
+            _container.BuildUp(instance);
         }
 
         protected override void OnStartup(object sender, StartupEventArgs e)
