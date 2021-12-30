@@ -80,8 +80,8 @@
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
                                 <Polygon Points="{Binding Path=PointCollection}" 
-                                  Opacity="0.9" Stroke="MediumPurple"
-                                 Style="{StaticResource PolygonStyle}"
+                                Opacity="0.9" Stroke="MediumPurple"
+                                Style="{StaticResource PolygonStyle}"
                                  Fill="{Binding Path=Color}">
                                     <Polygon.InputBindings>
                                         <MouseBinding MouseAction="LeftClick" Command="{Binding Path=SelectRegionCommand}"/>
