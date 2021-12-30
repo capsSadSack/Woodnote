@@ -7,10 +7,12 @@
 
   <ItemGroup>
     <PackageReference Include="Caliburn.Micro" Version="4.0.173" />
+    <PackageReference Include="SQLite" Version="3.13.0" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DataAccess\" />
+    <ProjectReference Include="..\Utils\Utils.csproj" />
   </ItemGroup>
 
 </Project>
