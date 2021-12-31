@@ -10,6 +10,15 @@ namespace BirdInfoAccess.DatabaseAccess
 {
     public class DBBirdAccess : IBirdAccess
     {
+        private DatabaseAccessHelper _databaseAccessHelper;
+
+
+        public DBBirdAccess()
+        {
+
+        }
+
+
         public Task<IEnumerable<Color>> GetAllBirdsColorsAsync()
         {
             throw new NotImplementedException();
