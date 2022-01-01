@@ -6,6 +6,7 @@ namespace PolygonMapControlLibrary.Models
     {
         public string Name { get; set; }
         public bool IsSelected { get; set; }
+        public EarthRegion EarthRegion { get; set; }
         public List<PolygonModel> Polygons { get; set; }
     }
 }

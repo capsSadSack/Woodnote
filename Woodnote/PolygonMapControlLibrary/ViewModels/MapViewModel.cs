@@ -1,5 +1,6 @@
 ﻿using Caliburn.Micro;
 using PolygonMapControlLibrary.Controllers;
+using PolygonMapControlLibrary.DataAccess.SQLiteDatabaseAccess;
 using PolygonMapControlLibrary.DataSharing;
 using PolygonMapControlLibrary.Models;
 using System;
@@ -128,8 +129,7 @@ namespace PolygonMapControlLibrary.ViewModels
         private static async Task<IEnumerable<RegionModel>> GetRegionsAsync()
         {
             EarthRegionsController erc = new EarthRegionsController(DBRegionAccess.GetInstance());
-            IEnumerable<EarthRegionVM> regions = await erc.GetEarthRegions();
-            IEnumerable<RegionModel> output = regions.ToRegionModels();
+            IEnumerable<RegionModel> output = await erc.GetEarthRegions();
 
             return output;
         }

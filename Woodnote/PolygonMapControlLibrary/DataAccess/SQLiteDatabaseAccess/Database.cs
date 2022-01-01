@@ -5,6 +5,7 @@ using PolygonMapControlLibrary.DataAccess.ModelsDA;
 using PolygonMapControlLibrary.DataAccess.SQLiteDatabaseAccess.Converters;
 using PolygonMapControlLibrary.DataAccess.SQLiteDatabaseAccess.DefaultData;
 using PolygonMapControlLibrary.DataAccess.SQLiteDatabaseAccess.ModelsDB;
+using PolygonMapControlLibrary.Models;
 using SQLite;
 using Utils;
 

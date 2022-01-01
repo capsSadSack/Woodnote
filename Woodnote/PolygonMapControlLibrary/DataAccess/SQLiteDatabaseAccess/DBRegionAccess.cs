@@ -1,4 +1,6 @@
-﻿using PolygonMapControlLibrary.Endpoints;
+﻿using PolygonMapControlLibrary.Converters;
+using PolygonMapControlLibrary.Endpoints;
+using PolygonMapControlLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -26,10 +28,10 @@ namespace PolygonMapControlLibrary.DataAccess.SQLiteDatabaseAccess
             return _instance;
         }
 
-        public async Task<IEnumerable<EarthRegionDomain>> GetAllRegionsAsync()
+        public async Task<IEnumerable<RegionModel>> GetAllRegionsAsync()
         {
             var regionsDA = await _database.GetAllRegionsAsync();
-            return regionsDA.ToEarthRegionDomain();
+            return regionsDA.ToRegionModels();
         }
     }
 }

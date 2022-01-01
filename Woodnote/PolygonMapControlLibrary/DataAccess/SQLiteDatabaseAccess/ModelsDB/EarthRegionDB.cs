@@ -1,4 +1,4 @@
-﻿using PolygonMapControlLibrary.DataAccess.SQLiteDatabaseAccess.DefaultData;
+﻿using PolygonMapControlLibrary.Models;
 
 namespace PolygonMapControlLibrary.DataAccess.SQLiteDatabaseAccess.ModelsDB
 {

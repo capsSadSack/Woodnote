@@ -1,4 +1,4 @@
-﻿namespace PolygonMapControlLibrary.DataAccess.SQLiteDatabaseAccess.DefaultData
+﻿namespace PolygonMapControlLibrary.Models
 {
     public enum EarthRegion
     {
