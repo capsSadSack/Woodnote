@@ -50,6 +50,17 @@ namespace PolygonMapControlLibrary.Converters
         }
 
         private static IEnumerable<Point> ToPoints(this IEnumerable<EarthPointDA> points)
-            => CollectionsConverter.ConvertCollection(points, ToPoint);
+        {
+            var orderedPoints = points.OrderBy(x => x.OrderNumber);
+
+            List<Point> output = new List<Point>();
+            for (int i = 0; i < orderedPoints.Count(); i++)
+            {
+                var point = orderedPoints.ElementAt(i).ToPoint();
+                output.Add(point);
+            }
+
+            return output;
+        }
     }
 }
