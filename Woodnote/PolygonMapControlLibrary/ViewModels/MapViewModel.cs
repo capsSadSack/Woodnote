@@ -17,6 +17,9 @@ namespace PolygonMapControlLibrary.ViewModels
 {
     public class MapViewModel : Screen
     {
+        public int Height_Pixels { get; set; } = 1000;
+        public int Width_Pixels { get; set; } = 1800;
+
         private BindableCollection<RegionViewModel> _regions = new BindableCollection<RegionViewModel>();
         private BindableCollection<PolygonViewModel> _polygons = new BindableCollection<PolygonViewModel>();
         private BindableCollection<PointCollection> _lines = new BindableCollection<PointCollection>();
@@ -81,9 +84,6 @@ namespace PolygonMapControlLibrary.ViewModels
             th.Start();
         }
 
-        // TODO: [CG, 2021.10.15] Magic numbers, DRY !!!
-        private double _maxHeight = 1000;
-        private double _maxWidth = 1800;
 
         private void FillLines()
         {
@@ -93,7 +93,7 @@ namespace PolygonMapControlLibrary.ViewModels
 
                 for (int i = -175; i <= 175; i++)
                 {
-                    linePoints.Add(PointConverter.ToPoint(latitude_Degree, i, _maxWidth, _maxHeight));
+                    linePoints.Add(PointConverter.ToPoint(latitude_Degree, i, Width_Pixels, Height_Pixels));
                 }
 
                 _lines.Add(new PointCollection(linePoints));
@@ -105,7 +105,7 @@ namespace PolygonMapControlLibrary.ViewModels
 
                 for (int i = -90; i <= 90; i++)
                 {
-                    linePoints.Add(PointConverter.ToPoint(i, longitude_Degree, _maxWidth, _maxHeight));
+                    linePoints.Add(PointConverter.ToPoint(i, longitude_Degree, Width_Pixels, Height_Pixels));
                 }
 
                 _lines.Add(new PointCollection(linePoints));

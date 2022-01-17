@@ -23,7 +23,7 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
+            <!--<RowDefinition Height="auto"/>-->
         </Grid.RowDefinitions>
 
         <ItemsControl Grid.Row="1" Grid.Column="0" 
@@ -91,7 +91,8 @@
                         </ItemsControl.ItemTemplate>
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
-                                <Canvas Height="1000" Width="1800" HorizontalAlignment="Stretch" Background="Lavender"/>
+                                <Canvas Height="{Binding Path=Height_Pixels}" Width="{Binding Path=Width_Pixels}"
+                                        HorizontalAlignment="Stretch" Background="Lavender"/>
                             </ItemsPanelTemplate>
                         </ItemsControl.ItemsPanel>
                     </ItemsControl>
@@ -110,7 +111,7 @@
                         </ItemsControl.ItemTemplate>
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
-                                <Canvas Height="1000" Width="1800" 
+                                <Canvas Height="{Binding Path=Height_Pixels}" Width="{Binding Path=Width_Pixels}" 
                                         HorizontalAlignment="Stretch" Background="Transparent"/>
                             </ItemsPanelTemplate>
                         </ItemsControl.ItemsPanel>
