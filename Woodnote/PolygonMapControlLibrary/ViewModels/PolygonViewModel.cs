@@ -19,8 +19,10 @@ namespace PolygonMapControlLibrary.ViewModels
             set
             {
                 _isSelected = value;
-                Color = _isSelected ? FromHex("#800080") : FromHex("#000000");
-
+                Color = _isSelected 
+                    ? FromHex("#800080") 
+                    : FromHex("#000000");
+       
                 NotifyOfPropertyChange(() => IsSelected);
             }
         }
@@ -57,6 +59,27 @@ namespace PolygonMapControlLibrary.ViewModels
             }
         }
 
+        private System.Windows.Media.Brush _strokeColor;
+        public System.Windows.Media.Brush StrokeColor
+        {
+            get
+            {
+                if (_strokeColor == null)
+                {
+                    return System.Windows.Media.Brushes.MediumPurple;
+                }
+                else
+                {
+                    return _strokeColor;
+                }
+            }
+            set
+            {
+                _strokeColor = value;
+                NotifyOfPropertyChange(() => StrokeColor);
+            }
+        }
+
         public string Name { get; set; }
         public PointCollection PointCollection { get; set; }
 
@@ -68,21 +91,22 @@ namespace PolygonMapControlLibrary.ViewModels
             get
             {
                 return _selectRegionCommand ??
-                    (_selectRegionCommand = new RelayCommand(obj =>
-                    {
-                        _parentRegionModel.IsSelected = !_parentRegionModel.IsSelected;
-                        
-                        for (int i = 0; i < _parentRegionModel.Polygons.Count(); i++)
-                        {
-                            var regionPolygon = _parentRegionModel.Polygons.ElementAt(i);
-                            regionPolygon.IsSelected = _parentRegionModel.IsSelected;
-                        }
-
-                        OnRegionSelectionChanged?.Invoke(this, null);
-                    }));
+                    (_selectRegionCommand = new RelayCommand(obj => DoSelectRegion()));
             }
         }
 
+        private void DoSelectRegion()
+        {
+            _parentRegionModel.IsSelected = !_parentRegionModel.IsSelected;
+
+            for (int i = 0; i < _parentRegionModel.Polygons.Count(); i++)
+            {
+                var regionPolygon = _parentRegionModel.Polygons.ElementAt(i);
+                regionPolygon.IsSelected = _parentRegionModel.IsSelected;
+            }
+
+            OnRegionSelectionChanged?.Invoke(this, null);
+        }
 
         public PolygonViewModel(RegionViewModel parentRegion)
         {

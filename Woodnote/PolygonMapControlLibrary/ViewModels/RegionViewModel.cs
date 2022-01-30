@@ -24,7 +24,16 @@ namespace PolygonMapControlLibrary.ViewModels
             {
                 RegionModel.IsSelected = value;
                 _isSelected = value;
+
                 NotifyOfPropertyChange(() => IsSelected);
+
+                if (Polygons != null)
+                {
+                    foreach (var polygon in Polygons)
+                    {
+                        polygon.IsSelected = value;
+                    }
+                }
             }
         }
         public List<PolygonViewModel> Polygons { get; set; }
@@ -63,6 +72,11 @@ namespace PolygonMapControlLibrary.ViewModels
         public static IEnumerable<RegionViewModel> FromRegionModels(IEnumerable<RegionModel> regionModels)
         {
             return regionModels.Select(x => new RegionViewModel(x));
+        }
+
+        public void Select()
+        {
+            IsSelected = true;
         }
 
         public override string ToString()

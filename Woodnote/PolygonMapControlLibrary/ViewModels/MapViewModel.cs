@@ -15,8 +15,9 @@ using PointConverter = PolygonMapControlLibrary.Converters.PointConverter;
 
 namespace PolygonMapControlLibrary.ViewModels
 {
-    public class MapViewModel : Screen
+    public class MapViewModel : Conductor<object>
     {
+        public int MaxHeight_Pixels { get; set; } = 1000;
         public int Height_Pixels { get; set; } = 1000;
         public int Width_Pixels { get; set; } = 1800;
 
@@ -175,6 +176,15 @@ namespace PolygonMapControlLibrary.ViewModels
             NotifyOfPropertyChange(() => SelectedRegions);
             NotifyOfPropertyChange(() => Polygons);
         }
-    }
 
+        public async void OnSelectAllClicked()
+        {
+            foreach (var region in Regions)
+            {
+                region.Select();
+            }
+
+            UpdateSelectedRegions();
+        }
+    }
 }
