@@ -136,6 +136,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="DataSharing\" />
     <Folder Include="Resources\" />
   </ItemGroup>
 

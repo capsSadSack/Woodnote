@@ -2,6 +2,7 @@
 using PolygonMapControlLibrary.Controllers;
 using PolygonMapControlLibrary.DataAccess.SQLiteDatabaseAccess;
 using PolygonMapControlLibrary.DataSharing;
+using PolygonMapControlLibrary.EventModels;
 using PolygonMapControlLibrary.Models;
 using System;
 using System.Collections.Generic;
@@ -75,6 +76,7 @@ namespace PolygonMapControlLibrary.ViewModels
 
         private RegionsSessionContextSingletone _rscs;
 
+
         public MapViewModel()
         {
             _rscs = RegionsSessionContextSingletone.GetInstance();
@@ -115,16 +117,19 @@ namespace PolygonMapControlLibrary.ViewModels
 
         private void DoLoadRegions()
         {
-            Task<IEnumerable<RegionModel>> regionsTask = GetRegionsAsync();
-            var regions = regionsTask.Result;
+            if (Regions.Count() == 0)
+            {
+                Task<IEnumerable<RegionModel>> regionsTask = GetRegionsAsync();
+                var regions = regionsTask.Result;
 
-            Regions.AddRange(RegionViewModel.FromRegionModels(regions));
-            LoadPolygonsFromRegions();
-            SelectedRegions.AddRange(Regions.Where(x => x.IsSelected));
+                Regions.AddRange(RegionViewModel.FromRegionModels(regions));
+                LoadPolygonsFromRegions();
+                SelectedRegions.AddRange(Regions.Where(x => x.IsSelected));
 
-            NotifyOfPropertyChange(() => SelectedRegions);
-            NotifyOfPropertyChange(() => Regions);
-            NotifyOfPropertyChange(() => Polygons);
+                NotifyOfPropertyChange(() => SelectedRegions);
+                NotifyOfPropertyChange(() => Regions);
+                NotifyOfPropertyChange(() => Polygons);
+            }
         }
 
         private static async Task<IEnumerable<RegionModel>> GetRegionsAsync()
@@ -168,6 +173,7 @@ namespace PolygonMapControlLibrary.ViewModels
 
         public void UpdateSelectedRegions()
         {
+            SelectedRegions.Clear();
             var newSelectedRegions = Regions.Where(x => x.IsSelected && !SelectedRegions.Contains(x)).ToList();
             SelectedRegions.AddRange(newSelectedRegions);
             var newDeselectedRegions = SelectedRegions.Where(x => !x.IsSelected).ToList();
@@ -179,6 +185,7 @@ namespace PolygonMapControlLibrary.ViewModels
 
         public async void OnSelectAllClicked()
         {
+
             foreach (var region in Regions)
             {
                 region.Select();
