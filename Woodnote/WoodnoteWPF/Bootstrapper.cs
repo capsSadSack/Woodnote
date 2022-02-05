@@ -2,6 +2,7 @@
 using Domain;
 using Domain.Endpoints;
 using Microsoft.Extensions.Configuration;
+using PolygonMapControlLibrary.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -60,6 +61,7 @@ namespace WoodnoteWPF
             _container.PerRequest<ShellViewModel>();
             _container.PerRequest<BirdSearchResultViewModel>();
             _container.Singleton<BirdSearchViewModel>();
+            _container.Singleton<MapViewModel>();
             _container.PerRequest<TimCoreyShellViewModel>();
 
             _container.RegisterInstance(typeof(IConfiguration), "IConfiguration", AddConfiguration());

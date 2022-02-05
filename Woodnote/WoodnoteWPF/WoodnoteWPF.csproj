@@ -69,6 +69,7 @@
     <ProjectReference Include="..\BirdImageAccess\BirdImageAccess.csproj" />
     <ProjectReference Include="..\BirdInfoAccess\BirdInfoAccess.csproj" />
     <ProjectReference Include="..\Domain\Domain.csproj" />
+    <ProjectReference Include="..\PolygonMapControlLibrary\PolygonMapControlLibrary.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -135,6 +136,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="DataSharing\" />
     <Folder Include="Resources\" />
   </ItemGroup>
 

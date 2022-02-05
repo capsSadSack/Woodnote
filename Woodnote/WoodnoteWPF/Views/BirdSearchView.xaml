@@ -8,6 +8,7 @@
              xmlns:resources="clr-namespace:WoodnoteWPF.Properties" 
              xmlns:local="clr-namespace:WoodnoteWPF.Converters" 
              xmlns:views="clr-namespace:WoodnoteWPF.Views"
+             xmlns:map="clr-namespace:PolygonMapControlLibrary.Views;assembly=PolygonMapControlLibrary"
              mc:Ignorable="d" Background="White"
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
@@ -125,7 +126,7 @@
                 <TextBlock Grid.Row="5" Grid.Column="1"
                     Text="{x:Static resources:uiStrings.BirdRegionHeader}"/>
 
-                <views:MapView Grid.Row="8" Grid.Column="1" />
+                <map:MapView Grid.Row="8" Grid.Column="1" />
             </Grid>
         </WrapPanel>
 

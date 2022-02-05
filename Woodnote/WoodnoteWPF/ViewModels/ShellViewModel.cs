@@ -35,9 +35,9 @@ namespace WoodnoteWPF.ViewModels
             _eventAggregator.SubscribeOnUIThread(this);
 
             // Add available pages
-            PageViewModels.Add(container.GetInstance<BirdSearchViewModel>());// new BirdSearchViewModel(_eventAggregator));
-            PageViewModels.Add(container.GetInstance<TimCoreyShellViewModel>());// new TimCoreyShellViewModel(_eventAggregator));
-            PageViewModels.Add(container.GetInstance<BirdSearchResultViewModel>());// new BirdSearchResultViewModel(_eventAggregator));
+            PageViewModels.Add(container.GetInstance<BirdSearchViewModel>());
+            PageViewModels.Add(container.GetInstance<TimCoreyShellViewModel>());
+            PageViewModels.Add(container.GetInstance<BirdSearchResultViewModel>());
 
             // Set starting page
             ActivateItemAsync(PageViewModels[0]);

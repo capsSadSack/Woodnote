@@ -1,6 +1,7 @@
 ﻿using Caliburn.Micro;
 using Domain.Endpoints;
 using Domain.Models;
+using PolygonMapControlLibrary.EventModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -61,7 +62,7 @@ namespace WoodnoteWPF.ViewModels
 
         public async Task HandleAsync(OnSearchResultRequestedEvent message, CancellationToken cancellationToken)
         {
-            await Task.Run(() =>
+            await Task.Factory.StartNew(() =>
             {
                 var temp = new BindableCollection<BirdModel>();
                 temp.AddRange(message.Birds);

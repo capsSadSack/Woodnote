@@ -1,7 +1,9 @@
-﻿using BirdInfoAccess.SQLiteDatabaseAccess;
-using Caliburn.Micro;
-using Domain;
-using Domain.ViewModels;
+﻿using Caliburn.Micro;
+using PolygonMapControlLibrary.Controllers;
+using PolygonMapControlLibrary.DataAccess.SQLiteDatabaseAccess;
+using PolygonMapControlLibrary.DataSharing;
+using PolygonMapControlLibrary.EventModels;
+using PolygonMapControlLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,15 +12,16 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
-using WoodnoteWPF.Converters;
-using WoodnoteWPF.DataSharing;
-using WoodnoteWPF.Models;
-using PointConverter = WoodnoteWPF.Converters.PointConverter;
+using PointConverter = PolygonMapControlLibrary.Converters.PointConverter;
 
-namespace WoodnoteWPF.ViewModels
+namespace PolygonMapControlLibrary.ViewModels
 {
-    public class MapViewModel : Screen
+    public class MapViewModel : Conductor<object>
     {
+        public int MaxHeight_Pixels { get; set; } = 1000;
+        public int Height_Pixels { get; set; } = 1000;
+        public int Width_Pixels { get; set; } = 1800;
+
         private BindableCollection<RegionViewModel> _regions = new BindableCollection<RegionViewModel>();
         private BindableCollection<PolygonViewModel> _polygons = new BindableCollection<PolygonViewModel>();
         private BindableCollection<PointCollection> _lines = new BindableCollection<PointCollection>();
@@ -73,6 +76,7 @@ namespace WoodnoteWPF.ViewModels
 
         private RegionsSessionContextSingletone _rscs;
 
+
         public MapViewModel()
         {
             _rscs = RegionsSessionContextSingletone.GetInstance();
@@ -83,9 +87,6 @@ namespace WoodnoteWPF.ViewModels
             th.Start();
         }
 
-        // TODO: [CG, 2021.10.15] Magic numbers, DRY !!!
-        private double _maxHeight = 1000;
-        private double _maxWidth = 1800; 
 
         private void FillLines()
         {
@@ -93,9 +94,9 @@ namespace WoodnoteWPF.ViewModels
             {
                 List<Point> linePoints = new List<Point>();
 
-                for(int i = -175; i <= 175; i++)
+                for (int i = -175; i <= 175; i++)
                 {
-                    linePoints.Add(PointConverter.ToPoint(latitude_Degree, i, _maxWidth, _maxHeight));
+                    linePoints.Add(PointConverter.ToPoint(latitude_Degree, i, Width_Pixels, Height_Pixels));
                 }
 
                 _lines.Add(new PointCollection(linePoints));
@@ -107,7 +108,7 @@ namespace WoodnoteWPF.ViewModels
 
                 for (int i = -90; i <= 90; i++)
                 {
-                    linePoints.Add(PointConverter.ToPoint(i, longitude_Degree, _maxWidth, _maxHeight));
+                    linePoints.Add(PointConverter.ToPoint(i, longitude_Degree, Width_Pixels, Height_Pixels));
                 }
 
                 _lines.Add(new PointCollection(linePoints));
@@ -116,23 +117,25 @@ namespace WoodnoteWPF.ViewModels
 
         private void DoLoadRegions()
         {
-            Task<IEnumerable<RegionModel>> regionsTask = GetRegionsAsync();
-            var regions = regionsTask.Result;
+            if (Regions.Count() == 0)
+            {
+                Task<IEnumerable<RegionModel>> regionsTask = GetRegionsAsync();
+                var regions = regionsTask.Result;
 
-            Regions.AddRange(RegionViewModel.FromRegionModels(regions));
-            LoadPolygonsFromRegions();
-            SelectedRegions.AddRange(Regions.Where(x => x.IsSelected));
+                Regions.AddRange(RegionViewModel.FromRegionModels(regions));
+                LoadPolygonsFromRegions();
+                SelectedRegions.AddRange(Regions.Where(x => x.IsSelected));
 
-            NotifyOfPropertyChange(() => SelectedRegions);
-            NotifyOfPropertyChange(() => Regions);
-            NotifyOfPropertyChange(() => Polygons);
+                NotifyOfPropertyChange(() => SelectedRegions);
+                NotifyOfPropertyChange(() => Regions);
+                NotifyOfPropertyChange(() => Polygons);
+            }
         }
 
         private static async Task<IEnumerable<RegionModel>> GetRegionsAsync()
         {
             EarthRegionsController erc = new EarthRegionsController(DBRegionAccess.GetInstance());
-            IEnumerable<EarthRegionVM> regions = await erc.GetEarthRegions();
-            IEnumerable<RegionModel> output = regions.ToRegionModels();
+            IEnumerable<RegionModel> output = await erc.GetEarthRegions();
 
             return output;
         }
@@ -170,6 +173,7 @@ namespace WoodnoteWPF.ViewModels
 
         public void UpdateSelectedRegions()
         {
+            SelectedRegions.Clear();
             var newSelectedRegions = Regions.Where(x => x.IsSelected && !SelectedRegions.Contains(x)).ToList();
             SelectedRegions.AddRange(newSelectedRegions);
             var newDeselectedRegions = SelectedRegions.Where(x => !x.IsSelected).ToList();
@@ -177,6 +181,17 @@ namespace WoodnoteWPF.ViewModels
 
             NotifyOfPropertyChange(() => SelectedRegions);
             NotifyOfPropertyChange(() => Polygons);
+        }
+
+        public async void OnSelectAllClicked()
+        {
+
+            foreach (var region in Regions)
+            {
+                region.Select();
+            }
+
+            UpdateSelectedRegions();
         }
     }
 }
