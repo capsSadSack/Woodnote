@@ -48,7 +48,7 @@ namespace WoodnoteWPF
             _container.Singleton<IWindowManager, WindowManager>();
             _container.Singleton<IEventAggregator, EventAggregator>();
 
-            _container.Singleton<IBirdAccess, BirdInfoAccess.SQLiteDatabaseAccess.DBBirdAccess>();
+            _container.Singleton<IBirdAccess, BirdInfoAccess.DatabaseAccess.DBBirdAccess>();
             _container.RegisterInstance(typeof(IBirdImageAccess), "IBirdImageAccess",
                 //new BirdImageAccess.InFileBirdImageAccess(@"E:\Programming\Complex\Woodnote\Woodnote - Images\BirdImages")
                 new BirdImageAccess.InFileBirdImageAccess(@"C:\Repos\Woodnote\Woodnote - Images\BirdImages")

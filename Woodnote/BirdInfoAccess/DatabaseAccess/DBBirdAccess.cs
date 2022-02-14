@@ -1,8 +1,12 @@
-﻿using BirdClassification.BiologyClassification;
+﻿using AutoMapper;
+using BirdClassification.BiologyClassification;
+using BirdInfoAccess.DatabaseAccess.ModelsDB;
+using DapperHelper;
 using Domain.Endpoints;
 using Domain.Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,12 +14,20 @@ namespace BirdInfoAccess.DatabaseAccess
 {
     public class DBBirdAccess : IBirdAccess
     {
-        private DatabaseAccessHelper _databaseAccessHelper;
+        private DatabaseAccessHelper _dbAccessHelper = new DatabaseAccessHelper();
+        private Mapper _mapper;
+
+        private IDbConnection _newConnection => ConnectionHelper.GetConnection("EphemerisDatabase");
 
 
         public DBBirdAccess()
         {
-
+            MapperConfiguration config = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<BirdDomain, BirdDB>();
+                cfg.CreateMap<BirdDB, BirdDomain>();
+            });
+            _mapper = new Mapper(config);
         }
 
 
@@ -24,14 +36,27 @@ namespace BirdInfoAccess.DatabaseAccess
             throw new NotImplementedException();
         }
 
-        public Task<BirdDomain> GetBirdAsync(string birdID)
+        public async Task<BirdDomain> GetBirdAsync(string birdId)
         {
-            throw new NotImplementedException();
+            BirdDB bird = _dbAccessHelper.GetOne<BirdDB, dynamic>(_newConnection, "spBirds_GetById",
+                                                                                        new { BirdId = birdId });
+            BirdDomain output = _mapper.Map<BirdDomain>(bird);
+
+            return output;
         }
 
-        public Task<IEnumerable<BirdDomain>> GetBirdsAsync(IEnumerable<Order> classifications, IEnumerable<Color> colors, IEnumerable<object> habitat)
+        public async Task<BirdDomain> GetBirdAsync(string birdId, long languageId)
         {
-            throw new NotImplementedException();
+            BirdDB bird = _dbAccessHelper.GetOne<BirdDB, dynamic>(_newConnection, "spBirds_GetById",
+                                                                                        new { BirdId = birdId, LanguageId = languageId });
+            BirdDomain output = _mapper.Map<BirdDomain>(bird);
+
+            return output;
+        }
+
+        public async Task<IEnumerable<BirdDomain>> GetBirdsAsync(IEnumerable<Order> classifications, IEnumerable<Color> colors, IEnumerable<object> habitat)
+        {
+            return new List<BirdDomain>() { await GetBirdAsync("1") };
         }
     }
 }

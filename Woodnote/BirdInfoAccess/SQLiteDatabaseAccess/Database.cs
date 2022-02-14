@@ -7,6 +7,9 @@ using BirdInfoAccess.SQLiteDatabaseAccess.ModelsDB;
 using BirdInfoAccess.Models;
 using SQLite;
 using Utils;
+using BirdClassification.BiologyClassification;
+using Domain.Models;
+using EarthRegion = BirdInfoAccess.SQLiteDatabaseAccess.DefaultData.EarthRegion;
 
 namespace BirdInfoAccess.SQLiteDatabaseAccess
 {
@@ -177,19 +180,31 @@ namespace BirdInfoAccess.SQLiteDatabaseAccess
         #region Birds
 
         // TODO: [CG, 2021.11.01] Add arguments! No need to return ALL birds!
-        public async Task<List<BirdDA>> GetBirdsAsync(object obj1, object obj2)
+        public async Task<List<BirdDA>> GetBirdsAsync(IEnumerable<Order> birdOrders, IEnumerable<Color> birdColors, 
+            IEnumerable<object> regions)
         {
-            List<BirdDA> output = new List<BirdDA>();
+            //List<BirdDA> allBirds = _database.Table<BirdInfoDB>().ToListAsync();
 
-            output.Add(new BirdDA()
-            {
-                Id = 1,
-                Name = "Sparrow",
-                BiologyClasificationID = 1,
-                Colors = new List<ColorDB> (),
-            });
+            //foreach (var birdOrder in birdOrders)
+            //{
+            //    List<BirdDA> birds = new List<BirdDA>();
 
-            return await Task.Run(() => { return output; });
+
+
+            //    output.Add(new BirdDA()
+            //    {
+            //        Id = 1,
+            //        Name = "Sparrow",
+            //        BiologyClasificationID = 1,
+            //        Colors = new List<ColorDB>(),
+            //    });
+
+            //    output.AddRange(birds);
+            //}
+
+            //return output;
+
+            throw new System.NotImplementedException();
         }
 
         private void FillBiologyClassificationTable()
