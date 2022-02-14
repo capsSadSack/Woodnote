@@ -4,6 +4,7 @@ using BirdInfoAccess.SQLiteDatabaseAccess;
 using Caliburn.Micro;
 using Domain;
 using Domain.ViewModels;
+using PolygonMapControlLibrary.DataSharing;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,13 +13,15 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows.Shapes;
 using WoodnoteWPF.Converters;
-using WoodnoteWPF.DataSharing;
 using WoodnoteWPF.EventModels;
 using WoodnoteWPF.Models;
 
 namespace WoodnoteWPF.ViewModels
 {
-    public class BirdSearchViewModel : Conductor<object>, IPageViewModel
+    public class BirdSearchViewModel : Conductor<object>, 
+        IPageViewModel,
+        IHandle<OnSearchResultClosedEvent>
+
     {
         public string PageTitle => "Bird Search";
 
@@ -186,6 +189,11 @@ namespace WoodnoteWPF.ViewModels
         public void OnDeselectRegionClicked(RegionModel item)
         {
             item.IsSelected = !item.IsSelected;
+        }
+
+        public async Task HandleAsync(OnSearchResultClosedEvent message, CancellationToken cancellationToken)
+        {
+            
         }
     }
 }
