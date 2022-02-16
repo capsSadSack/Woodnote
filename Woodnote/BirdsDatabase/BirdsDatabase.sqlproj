@@ -87,5 +87,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="PublishLocations\LaptopBirdsDatabase.publish.xml" />
+    <None Include="PublishLocations\PcBirdsDatabase.publish.xml" />
   </ItemGroup>
 </Project>

@@ -17,7 +17,9 @@ namespace BirdInfoAccess.DatabaseAccess
         private DatabaseAccessHelper _dbAccessHelper = new DatabaseAccessHelper();
         private Mapper _mapper;
 
-        private IDbConnection _newConnection => ConnectionHelper.GetConnection("EphemerisDatabase");
+        // 
+        private IDbConnection _newConnection => ConnectionHelper.GetConnection(
+            @"Data Source=DESKTOP-ESI9LR3;Initial Catalog=WoodnoteDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
 
 
         public DBBirdAccess()
