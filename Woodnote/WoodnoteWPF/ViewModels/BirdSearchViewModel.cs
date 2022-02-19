@@ -43,7 +43,7 @@ namespace WoodnoteWPF.ViewModels
             _rscs = RegionsSessionContextSingletone.GetInstance();
 
             LoadSilhouettes();
-            LoadColors();
+            Task.Factory.StartNew(() => LoadColors());
         }
 
 
@@ -76,6 +76,7 @@ namespace WoodnoteWPF.ViewModels
             Colors.AddRange(output);
             return output;
         }
+
         public BindableCollection<BirdOrderSilhouetteModel> Silhouettes
         {
             get

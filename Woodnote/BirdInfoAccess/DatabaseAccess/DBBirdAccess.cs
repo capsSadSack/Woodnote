@@ -9,6 +9,7 @@ using Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -38,9 +39,14 @@ namespace BirdInfoAccess.DatabaseAccess
         }
 
 
-        public Task<IEnumerable<Color>> GetAllBirdsColorsAsync()
+        public async Task<IEnumerable<Color>> GetAllBirdsColorsAsync()
         {
-            throw new NotImplementedException();
+            IEnumerable<ColorDB> colors = _dbAccessHelper.GetFew<ColorDB, dynamic>(_newConnection, "spColors_GetAll",
+                                                                            new { });
+
+            IEnumerable<ColorDA> colorsDA = colors.ToColorDA();
+
+            return colorsDA.Select(x => _mapper.Map<Color>(x));
         }
 
         public async Task<BirdDomain> GetBirdAsync(string birdId)
@@ -96,19 +102,6 @@ namespace BirdInfoAccess.DatabaseAccess
                                                                                         new { BirdId = birdId, LanguageId = languageId });
 
             return colors;
-        }
-
-        private BirdDA ToBirdDA(BirdDB birdDB)
-        {
-
-
-
-            return new BirdDA()
-            {
-                Name = birdDB.Name,
-                Description = "Default description", // TODO: [CG, 2022.02.19] Hard-code. Change description when db table would be created.
-
-            };
         }
 
         public async Task<IEnumerable<BirdDomain>> GetBirdsAsync(IEnumerable<Order> classifications, IEnumerable<Color> colors, IEnumerable<object> habitat)

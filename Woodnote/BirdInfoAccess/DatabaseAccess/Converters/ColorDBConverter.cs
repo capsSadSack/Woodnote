@@ -13,6 +13,7 @@ namespace BirdInfoAccess.DatabaseAccess.Converters
         {
             return new ColorDA()
             {
+                Id = colorDB.Id,    
                 Name = colorDB.Name,
                 ColorHex = colorDB.ColorHex
             };
