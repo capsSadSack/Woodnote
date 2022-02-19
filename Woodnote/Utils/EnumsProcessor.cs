@@ -123,6 +123,23 @@ namespace Utils
             }
         }
 
+        public static T GetByName<T>(string name)
+        {
+            var type = typeof(T);
+            if (!type.IsEnum)
+            {
+                throw new InvalidOperationException();
+            }
+            foreach (var field in type.GetFields())
+            {
 
+                if (field.Name == name)
+                {
+                    return (T)field.GetValue(null);
+                }
+            }
+
+            throw new ArgumentException("Not found.", nameof(name));
+        }
     }
 }

@@ -10,6 +10,6 @@ namespace BirdInfoAccess.DatabaseAccess.ModelsDB
         public string Name { get; set; }
         public string GeneralTaxonomicRankName { get; set; }
         public string TaxonomicRankName { get; set; }
-
+        public string TaxonomicRankNameEn { get; set; }
     }
 }

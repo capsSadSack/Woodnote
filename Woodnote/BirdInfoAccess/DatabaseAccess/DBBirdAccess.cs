@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using BirdClassification.BiologyClassification;
+using BirdInfoAccess.DatabaseAccess.Converters;
 using BirdInfoAccess.DatabaseAccess.ModelsDB;
+using BirdInfoAccess.Models;
 using DapperHelper;
 using Domain.Endpoints;
 using Domain.Models;
@@ -26,8 +28,11 @@ namespace BirdInfoAccess.DatabaseAccess
         {
             MapperConfiguration config = new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<BirdDomain, BirdDB>();
-                cfg.CreateMap<BirdDB, BirdDomain>();
+                cfg.CreateMap<BirdDomain, BirdDA>();
+                cfg.CreateMap<BirdDA, BirdDomain>();
+
+                cfg.CreateMap<Color, ColorDA>();
+                cfg.CreateMap<ColorDA, Color>();
             });
             _mapper = new Mapper(config);
         }
@@ -42,7 +47,17 @@ namespace BirdInfoAccess.DatabaseAccess
         {
             BirdDB bird = _dbAccessHelper.GetOne<BirdDB, dynamic>(_newConnection, "spBirds_GetById",
                                                                                         new { BirdId = birdId });
-            BirdDomain output = _mapper.Map<BirdDomain>(bird);
+            
+            IEnumerable<ColorDB> colors = await GetBirdColorsAsync(birdId);
+
+            BirdDA birdDA = new BirdDA()
+            {
+                Name = bird.Name,
+                Order = Utils.EnumsProcessor.GetByName<Order>(bird.TaxonomicRankNameEn),
+                Colors = colors.ToColorDA()
+            };
+
+            BirdDomain output = _mapper.Map<BirdDomain>(birdDA);
 
             return output;
         }
@@ -51,9 +66,49 @@ namespace BirdInfoAccess.DatabaseAccess
         {
             BirdDB bird = _dbAccessHelper.GetOne<BirdDB, dynamic>(_newConnection, "spBirds_GetById",
                                                                                         new { BirdId = birdId, LanguageId = languageId });
-            BirdDomain output = _mapper.Map<BirdDomain>(bird);
+
+
+            IEnumerable<ColorDB> colors = await GetBirdColorsAsync(birdId, languageId);
+
+            BirdDA birdDA = new BirdDA()
+            {
+                Name = bird.Name,
+                Order = Utils.EnumsProcessor.GetByName<Order>(bird.TaxonomicRankNameEn),
+                Colors = colors.ToColorDA()
+            };
+            
+            BirdDomain output = _mapper.Map<BirdDomain>(birdDA);
 
             return output;
+        }
+
+        private async Task<IEnumerable<ColorDB>> GetBirdColorsAsync(string birdId)
+        {
+            IEnumerable<ColorDB> colors = _dbAccessHelper.GetFew<ColorDB, dynamic>(_newConnection, "spBirdColors_GetByBirdId",
+                                                                                        new { BirdId = birdId });
+
+            return colors;
+        }
+
+        private async Task<IEnumerable<ColorDB>> GetBirdColorsAsync(string birdId, long languageId)
+        {
+            IEnumerable<ColorDB> colors = _dbAccessHelper.GetFew<ColorDB, dynamic>(_newConnection, "spBirdColors_GetByBirdId",
+                                                                                        new { BirdId = birdId, LanguageId = languageId });
+
+            return colors;
+        }
+
+        private BirdDA ToBirdDA(BirdDB birdDB)
+        {
+
+
+
+            return new BirdDA()
+            {
+                Name = birdDB.Name,
+                Description = "Default description", // TODO: [CG, 2022.02.19] Hard-code. Change description when db table would be created.
+
+            };
         }
 
         public async Task<IEnumerable<BirdDomain>> GetBirdsAsync(IEnumerable<Order> classifications, IEnumerable<Color> colors, IEnumerable<object> habitat)

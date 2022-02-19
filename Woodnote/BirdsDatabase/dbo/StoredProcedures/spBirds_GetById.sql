@@ -5,7 +5,8 @@ AS
 SELECT dbo.Birds.Id AS 'Id',
        dbo.BirdNames.Name AS 'Name',
 	   dbo.GeneralTaxonomicRankNames.Name AS 'GeneralTaxonomicRankName',
-	   dbo.TaxonomicRankNames.Name AS 'TaxonomicRankName'
+	   dbo.TaxonomicRankNames.Name AS 'TaxonomicRankName',
+	   dbo.TaxonomicRanks.Name AS 'TaxonomicRankNameEn'
     FROM dbo.Birds 
 	LEFT JOIN  dbo.TaxonomicRanks ON TaxonomicRanks.Id = dbo.Birds.TaxonomicRankId
 	LEFT JOIN  dbo.TaxonomicRankNames ON TaxonomicRankNames.TaxonomicRankId = dbo.Birds.TaxonomicRankId
