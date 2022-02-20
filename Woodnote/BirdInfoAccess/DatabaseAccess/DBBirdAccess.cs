@@ -12,6 +12,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Utils;
 
 namespace BirdInfoAccess.DatabaseAccess
 {
@@ -104,9 +105,48 @@ namespace BirdInfoAccess.DatabaseAccess
             return colors;
         }
 
-        public async Task<IEnumerable<BirdDomain>> GetBirdsAsync(IEnumerable<Order> classifications, IEnumerable<Color> colors, IEnumerable<object> habitat)
+        public async Task<IEnumerable<BirdDomain>> GetBirdsAsync(
+            IEnumerable<Order> classifications, IEnumerable<Color> colors, IEnumerable<EarthRegion> habitat)
         {
-            return new List<BirdDomain>() { await GetBirdAsync("1") };
+            long languageId = 2;
+            List<BirdDomain> birds = new List<BirdDomain>();
+
+            // TODO: [CG, 2022.02.20] Распараллелить
+            foreach(var order in classifications)
+            {
+                var orderBirds = await GetBirdsAsync(order, languageId);
+
+                foreach (var bird in orderBirds)
+                {
+                    IEnumerable<ColorDB> birdColors = await GetBirdColorsAsync(bird.Id.ToString(), languageId);
+                    BirdDomain birdDomain = ToBirdDomain(bird, birdColors);
+                    birds.Add(birdDomain);
+                }
+            }
+
+            return birds;
+        }
+
+        private BirdDomain ToBirdDomain(BirdDB birdDB, IEnumerable<ColorDB> colors)
+        {
+            BirdDA birdDA = new BirdDA()
+            {
+                Name = birdDB.Name,
+                Order = EnumsProcessor.GetByName<Order>(birdDB.TaxonomicRankNameEn),
+                Colors = colors.ToColorDA()
+            };
+
+            BirdDomain output = _mapper.Map<BirdDomain>(birdDA);
+            return output;
+        }
+
+        private async Task<IEnumerable<BirdDB>> GetBirdsAsync(Order birdOrder, long languageId)
+        {
+            string taxonomicRankNameEn = EnumsProcessor.GetName(typeof(Order), birdOrder);
+            IEnumerable<BirdDB> birds = _dbAccessHelper.GetFew<BirdDB, dynamic>(_newConnection, "spBirds_GetByTaxonomicRankName",
+                                                                            new { TaxonomicRankName = taxonomicRankNameEn, LanguageId = languageId });
+
+            return birds;
         }
     }
 }

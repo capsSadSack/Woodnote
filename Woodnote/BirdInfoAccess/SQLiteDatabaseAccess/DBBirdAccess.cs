@@ -49,7 +49,7 @@ namespace BirdInfoAccess.SQLiteDatabaseAccess
         }
 
         public async Task<IEnumerable<BirdDomain>> GetBirdsAsync(IEnumerable<Order> birdOrders,
-            IEnumerable<Color> birdColors, IEnumerable<object> regions)
+            IEnumerable<Color> birdColors, IEnumerable<EarthRegion> regions)
         {
             var colorsDB = await _database.GetBirdsAsync(birdOrders, birdColors, regions);
 

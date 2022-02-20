@@ -1,4 +1,5 @@
-﻿using Domain.Converters;
+﻿using BirdClassification.BiologyClassification;
+using Domain.Converters;
 using Domain.Endpoints;
 using Domain.Models;
 using Domain.ViewModels;
@@ -8,11 +9,11 @@ using System.Drawing;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
+using Color = Domain.Models.Color;
 
 namespace Domain
-
 {
-    public class BirdSearcher : IDataStore<BirdVM>
+    public class BirdSearcher //: IDataStore<BirdVM>
     {
         private readonly IBirdAccess _birdAccess;
         private readonly IBirdImageAccess _birdImageAccess;
@@ -32,11 +33,14 @@ namespace Domain
             return ToBirdVM(bird, images[Gender.Male], images[Gender.Female]);
         }
 
-        public async Task<IEnumerable<BirdVM>> GetItemsAsync(bool forceRefresh = false)
+        public async Task<IEnumerable<BirdVM>> GetItemsAsync(
+            IEnumerable<Order> orders, IEnumerable<Color> colors, IEnumerable<EarthRegion> habitat,
+            bool forceRefresh = false)
         {
             List<BirdVM> output = new List<BirdVM>();
 
-            var birds = (await _birdAccess.GetBirdsAsync(null, null, null)).ToList();
+            // TODO: [CG, 2022.02.20] Заглушка: аргументы равны null
+            var birds = (await _birdAccess.GetBirdsAsync(orders, colors, habitat)).ToList();
 
             foreach (var bird in birds)
             {

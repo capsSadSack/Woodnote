@@ -181,7 +181,7 @@ namespace BirdInfoAccess.SQLiteDatabaseAccess
 
         // TODO: [CG, 2021.11.01] Add arguments! No need to return ALL birds!
         public async Task<List<BirdDA>> GetBirdsAsync(IEnumerable<Order> birdOrders, IEnumerable<Color> birdColors, 
-            IEnumerable<object> regions)
+            IEnumerable<Domain.Models.EarthRegion> regions)
         {
             //List<BirdDA> allBirds = _database.Table<BirdInfoDB>().ToListAsync();
 

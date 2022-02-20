@@ -3,6 +3,7 @@ using BirdImageAccess;
 using BirdInfoAccess.SQLiteDatabaseAccess;
 using Caliburn.Micro;
 using Domain;
+using Domain.Models;
 using Domain.ViewModels;
 using PolygonMapControlLibrary.DataSharing;
 using System;
@@ -12,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows.Shapes;
+using Utils;
 using WoodnoteWPF.Converters;
 using WoodnoteWPF.EventModels;
 using WoodnoteWPF.Models;
@@ -60,6 +62,7 @@ namespace WoodnoteWPF.ViewModels
                 BirdOrderSilhouetteModel silhouetteModel = new BirdOrderSilhouetteModel()
                 {
                     Name = orderName,
+                    NameEn = orderNameEn,
                     ImagePath = imageFileName,
                     IsSelected = false
                 };
@@ -150,15 +153,23 @@ namespace WoodnoteWPF.ViewModels
         {
             List<string> selectedSilhouetteNames = Silhouettes
                 .Where(x => x.IsSelected)
-                .Select(x => x.Name)
+                .Select(x => x.NameEn)
                 .ToList();
+
+            List<Order> selectedOrders = selectedSilhouetteNames.Select(x => 
+                EnumsProcessor.GetByName<Order>(x)).ToList();
 
             List<ColorModel> selectedColors = Colors
                 .Where(x => x.IsSelected)
                 .ToList();
 
+
+            // TODO: [CG, 2022.02.20] Преобразовать модели отображения к моделям domain, запихнуть в _birdSearcher.
+
+
+
             var selectedRegions = _rscs.SelectedRegions;
-            var birds = await _birdSearcher.GetItemsAsync();
+            var birds = await _birdSearcher.GetItemsAsync(selectedOrders, new List<Color>(), null);
 
             var eventArgs = new OnSearchResultRequestedEvent()
             {
