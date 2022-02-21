@@ -1,20 +1,19 @@
 ﻿using Caliburn.Micro;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using WoodnoteWPF.Commands;
 using WoodnoteWPF.EventModels;
-using WoodnoteWPF.Models;
 
 namespace WoodnoteWPF.ViewModels
 {
     public class ShellViewModel : Conductor<object>,
         IHandle<OnSearchResultClosedEvent>,
-        IHandle<OnSearchResultRequestedEvent>
+        IHandle<OnSearchResultRequestedEvent>,
+        IHandle<OnAddBirdClickedEvent>,
+        IHandle<OnRetunToBirdSearchEvent>
     {
         #region Fields
 
@@ -38,6 +37,7 @@ namespace WoodnoteWPF.ViewModels
             PageViewModels.Add(container.GetInstance<BirdSearchViewModel>());
             PageViewModels.Add(container.GetInstance<TimCoreyShellViewModel>());
             PageViewModels.Add(container.GetInstance<BirdSearchResultViewModel>());
+            PageViewModels.Add(container.GetInstance<AddBirdViewModel>());
 
             // Set starting page
             ActivateItemAsync(PageViewModels[0]);
@@ -99,6 +99,24 @@ namespace WoodnoteWPF.ViewModels
             await Task.Run(() =>
             {
                 ChangeViewModel(PageViewModels.Where(x => x is BirdSearchResultViewModel).FirstOrDefault());
+            },
+            cancellationToken);
+        }
+
+        public async Task HandleAsync(OnAddBirdClickedEvent message, CancellationToken cancellationToken)
+        {
+            await Task.Run(() =>
+            {
+                ChangeViewModel(PageViewModels.Where(x => x is AddBirdViewModel).FirstOrDefault());
+            },
+            cancellationToken);
+        }
+
+        public async Task HandleAsync(OnRetunToBirdSearchEvent message, CancellationToken cancellationToken)
+        {
+            await Task.Run(() =>
+            {
+                ChangeViewModel(PageViewModels.Where(x => x is BirdSearchViewModel).FirstOrDefault());
             },
             cancellationToken);
         }

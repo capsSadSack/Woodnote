@@ -199,5 +199,12 @@ namespace WoodnoteWPF.ViewModels
         {
             
         }
+
+        public async void OnAddBirdClicked()
+        {
+            var eventArgs = new OnAddBirdClickedEvent();
+            await _eventAggregator.PublishOnUIThreadAsync(eventArgs);
+        }
+
     }
 }
