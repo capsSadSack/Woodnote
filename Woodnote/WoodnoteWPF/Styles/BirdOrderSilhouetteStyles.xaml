@@ -44,7 +44,7 @@
                         </Trigger>
                         <Trigger Property="IsChecked" Value="True">
                             <Setter Property="BorderThickness" Value="4"/>
-                            <Setter Property="BorderBrush" Value="DarkGreen"/>
+                            <Setter Property="BorderBrush" Value="DarkOrange"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

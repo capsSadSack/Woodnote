@@ -1,11 +1,12 @@
 ﻿using Caliburn.Micro;
-using System;
+using Domain;
+using Domain.ViewModels;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using WoodnoteWPF.Converters;
 using WoodnoteWPF.EventModels;
+using WoodnoteWPF.Models;
 
 namespace WoodnoteWPF.ViewModels
 {
@@ -14,15 +15,42 @@ namespace WoodnoteWPF.ViewModels
     {
         public string PageTitle => "Adding bird";
 
+        public BindableCollection<ColorModel> Colors
+        {
+            get
+            {
+                return _colors;
+            }
+            set
+            {
+                _colors = value;
+            }
+        }
+
+        private BindableCollection<ColorModel> _colors = new BindableCollection<ColorModel>();
+
+        private readonly BirdColorController _birdColorController;
         private readonly IEventAggregator _eventAggregator;
 
 
-        public AddBirdViewModel(IEventAggregator eventAggregator)
+        public AddBirdViewModel(IEventAggregator eventAggregator, BirdColorController birdColorController)
         {
+            _birdColorController = birdColorController;
             _eventAggregator = eventAggregator;
             _eventAggregator.SubscribeOnUIThread(this);
+
+            Task.Factory.StartNew(() => LoadColors());
         }
 
+
+        private async Task<IEnumerable<ColorModel>> LoadColors()
+        {
+            IEnumerable<ColorVM> colorsVM = await _birdColorController.GetBirdsColors();
+            IEnumerable<ColorModel> output = colorsVM.ToColorModels();
+
+            Colors.AddRange(output);
+            return output;
+        }
 
         public async Task HandleAsync(OnAddBirdClickedEvent message, CancellationToken cancellationToken)
         {
