@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WoodnoteWPF.Views"
+             xmlns:resources="clr-namespace:WoodnoteWPF.Properties" 
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="Black" Opacity="0.75">
@@ -22,11 +23,102 @@
             <Image Source="pack://application:,,,/Images/Icon_CrossWhite.png"/>
         </Button>
 
+        <Grid Grid.Row="1" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="10"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="10"/>
+            </Grid.RowDefinitions>
+            
+            <ComboBox x:Name="GenealTaxonomicRankComboBox" Grid.Column="1" Grid.Row="1"
+                      Width="250" Margin="5,0" HorizontalAlignment="Left"/>
+            <ComboBox x:Name="TaxonomicRankComboBox" Grid.Column="2" Grid.Row="1"
+                      Width="250" Margin="5,0" HorizontalAlignment="Left"/>
+
+            <TabControl x:Name="LocalizableFieldsTabControl" Grid.Column="1" Grid.Row="2"
+                        Grid.ColumnSpan="3" Margin="5">
+
+            </TabControl>
+
+            <TextBlock Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3"
+                       Text="{x:Static resources:uiStrings.MaleImagePath}" Foreground="White" Margin="5,0"/>
+            <TextBox x:Name="maleImagePath" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2"
+                       Text="" Margin="5,0" />
+            <Button x:Name="SelectMaleImageButton" Grid.Column="3" Grid.Row="4" Margin="5,0">
+                <TextBlock Text="{x:Static resources:uiStrings.PathButtonLabel}" Margin="5,0"/>
+            </Button>
+
+            <TextBlock Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="3"
+                       Text="{x:Static resources:uiStrings.FemaleImagePath}" Foreground="White" Margin="5,0"/>
+            <TextBox x:Name="femaleImagePathValue" Grid.Column="1" Grid.Row="6" Grid.ColumnSpan="2"
+                       Text="" Margin="5,0" />
+            <Button x:Name="SelectFemaleImageButton" Grid.Column="3" Grid.Row="6" Margin="5,0">
+                <TextBlock Text="{x:Static resources:uiStrings.PathButtonLabel}" Margin="5,0"/>
+            </Button>
+
+            <TextBlock Grid.Column="1" Grid.Row="7" Grid.ColumnSpan="3"
+                       Text="{x:Static resources:uiStrings.BirdColorsHeader}" Foreground="White" Margin="5,0"/>
+
+            <ItemsControl x:Name="Colors" Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="3">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Margin="5">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+
+                                <ToggleButton x:Name="SelectColor" Grid.Row="0" Grid.Column="0"
+                                        Width="35" Height="35"
+                                        Background="{Binding Color}"
+                                        Style="{StaticResource ColorsToggleButtonStyle}"/>
+                            </Grid>
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+
+            <TextBlock Grid.Column="1" Grid.Row="9" Grid.ColumnSpan="3"
+                       Text="{x:Static resources:uiStrings.BirdSilhouettesHeader}" Foreground="White" Margin="5,0"/>
+
+            <TextBlock Grid.Column="1" Grid.Row="10" Grid.ColumnSpan="3"
+                       Text="Выберите ареал обитания (Hard-code)" Foreground="White" Margin="5,0"/>
+
+            <TextBlock Grid.Column="1" Grid.Row="11" Grid.ColumnSpan="3"
+                       Text="Выберите ареал обитания (Hard-code)" Foreground="White" Margin="5,0"/>
+
+        </Grid>
 
         <Button x:Name="OnSaveBirdClicked" Grid.Row="2" Grid.Column="0" 
-            HorizontalAlignment="Right" Width="30" Height="30"
+            HorizontalAlignment="Right" Height="30" Margin="15,0"
             Background="Transparent" BorderThickness="0.5" BorderBrush="White">
-            <TextBlock Text="OK" Foreground="White" FontWeight="Bold"/>
+            <TextBlock Text="{x:Static resources:uiStrings.Okay}" Foreground="White" FontWeight="Bold"
+                       Margin="5,0"/>
         </Button>
     </Grid>
 </UserControl>

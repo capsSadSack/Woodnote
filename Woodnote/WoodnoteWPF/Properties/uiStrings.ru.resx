@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="BirdColorsHeader" xml:space="preserve">
-    <value>Выберите цвет птицы</value>
+    <value>Выберите цвет(а) птицы</value>
   </data>
   <data name="BirdGenderFemale" xml:space="preserve">
     <value>Самка</value>
@@ -131,6 +131,21 @@
   </data>
   <data name="BirdSilhouettesHeader" xml:space="preserve">
     <value>Выберите силуэт</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="FemaleImagePath" xml:space="preserve">
+    <value>Путь к изображению самки</value>
+  </data>
+  <data name="MaleImagePath" xml:space="preserve">
+    <value>Путь к изображению самца</value>
+  </data>
+  <data name="Okay" xml:space="preserve">
+    <value>Готово</value>
+  </data>
+  <data name="PathButtonLabel" xml:space="preserve">
+    <value>Обзор...</value>
   </data>
   <data name="SearchResultsCount" xml:space="preserve">
     <value>Результатов поиска</value>
