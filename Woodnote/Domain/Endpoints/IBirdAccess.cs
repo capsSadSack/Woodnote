@@ -12,6 +12,6 @@ namespace Domain.Endpoints
         Task<BirdDomain> GetBirdAsync(string birdID);
 
         Task<IEnumerable<BirdDomain>> GetBirdsAsync(IEnumerable<Order> classifications,
-            IEnumerable<Color> colors, IEnumerable<object> habitat);
+            IEnumerable<Color> colors, IEnumerable<EarthRegion> habitat);
     }
 }

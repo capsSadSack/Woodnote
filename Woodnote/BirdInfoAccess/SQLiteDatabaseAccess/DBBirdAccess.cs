@@ -48,9 +48,11 @@ namespace BirdInfoAccess.SQLiteDatabaseAccess
             throw new NotImplementedException();
         }
 
-        public async Task<IEnumerable<BirdDomain>> GetBirdsAsync(IEnumerable<Order> classifications,
-            IEnumerable<Color> colors, IEnumerable<object> habitat)
+        public async Task<IEnumerable<BirdDomain>> GetBirdsAsync(IEnumerable<Order> birdOrders,
+            IEnumerable<Color> birdColors, IEnumerable<EarthRegion> regions)
         {
+            var colorsDB = await _database.GetBirdsAsync(birdOrders, birdColors, regions);
+
             var birds = new List<BirdDomain>()
             {
                 new BirdDomain()

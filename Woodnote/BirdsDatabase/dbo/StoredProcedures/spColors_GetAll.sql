@@ -8,7 +8,10 @@ BEGIN
 	--SELECT [Id], [HexCode], [Name] 
 	--FROM dbo.Colors
 
-	SELECT ColorId as 'Id', [HexCode], ColorNames.Name
+	SELECT 
+		ColorId AS 'Id', 
+		HexCode AS 'ColorHex', 
+		ColorNames.Name AS 'Name'
 	FROM 
 	(
 		dbo.Colors

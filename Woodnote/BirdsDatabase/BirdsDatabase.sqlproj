@@ -16,7 +16,7 @@
     <ModelCollation>1049,CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetLanguage>CS</TargetLanguage>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <SqlServerVerification>False</SqlServerVerification>
@@ -24,6 +24,7 @@
     <TargetDatabaseSet>True</TargetDatabaseSet>
     <DefaultCollation>Cyrillic_General_CI_AS</DefaultCollation>
     <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -76,6 +77,8 @@
     <Build Include="dbo\StoredProcedures\spColors_GetAll.sql" />
     <Build Include="dbo\StoredProcedures\spLanguages_GetAll.sql" />
     <Build Include="dbo\StoredProcedures\spBirdColors_GetByBirdId.sql" />
+    <Build Include="dbo\StoredProcedures\spBirds_GetById.sql" />
+    <Build Include="dbo\StoredProcedures\spBirds_GetByTaxonomicRankName.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\RegionNames.sql" />
@@ -85,5 +88,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="PublishLocations\LaptopBirdsDatabase.publish.xml" />
+    <None Include="PublishLocations\PcBirdsDatabase.publish.xml" />
+    <None Include="PublishLocations\RssPcBirdsDatabase.publish.xml" />
   </ItemGroup>
 </Project>

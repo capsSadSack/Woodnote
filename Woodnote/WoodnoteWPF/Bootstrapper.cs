@@ -2,6 +2,7 @@
 using Domain;
 using Domain.Endpoints;
 using Microsoft.Extensions.Configuration;
+using PolygonMapControlLibrary.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,11 +48,11 @@ namespace WoodnoteWPF
             _container.Singleton<IWindowManager, WindowManager>();
             _container.Singleton<IEventAggregator, EventAggregator>();
 
-            _container.Singleton<IBirdAccess, BirdInfoAccess.SQLiteDatabaseAccess.DBBirdAccess>();
+            _container.Singleton<IBirdAccess, BirdInfoAccess.DatabaseAccess.DBBirdAccess>();
             _container.RegisterInstance(typeof(IBirdImageAccess), "IBirdImageAccess",
-                //new BirdImageAccess.InFileBirdImageAccess(@"E:\Programming\Complex\Woodnote\Woodnote - Images\BirdImages")
-                new BirdImageAccess.InFileBirdImageAccess(@"C:\Repos\Woodnote\Woodnote - Images\BirdImages")
-                //new BirdImageAccess.InFileBirdImageAccess(@"D:\Science\Woodnote\Woodnote - Images\BirdImages")
+                //new BirdImageAccess.InFileBirdImageAccess(@"F:\Programming\Complex\Woodnote\Woodnote - Images\BirdImages")
+                //new BirdImageAccess.InFileBirdImageAccess(@"C:\Repos\Woodnote\Woodnote - Images\BirdImages")
+                new BirdImageAccess.InFileBirdImageAccess(@"D:\Science\Woodnote\Woodnote - Images\BirdImages")
                 );
             _container.PerRequest<BirdSearcher>();
 
@@ -60,6 +61,7 @@ namespace WoodnoteWPF
             _container.PerRequest<ShellViewModel>();
             _container.PerRequest<BirdSearchResultViewModel>();
             _container.Singleton<BirdSearchViewModel>();
+            _container.Singleton<MapViewModel>();
             _container.PerRequest<TimCoreyShellViewModel>();
 
             _container.RegisterInstance(typeof(IConfiguration), "IConfiguration", AddConfiguration());

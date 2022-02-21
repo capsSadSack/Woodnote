@@ -3,7 +3,9 @@ using BirdImageAccess;
 using BirdInfoAccess.SQLiteDatabaseAccess;
 using Caliburn.Micro;
 using Domain;
+using Domain.Models;
 using Domain.ViewModels;
+using PolygonMapControlLibrary.DataSharing;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,14 +13,17 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows.Shapes;
+using Utils;
 using WoodnoteWPF.Converters;
-using WoodnoteWPF.DataSharing;
 using WoodnoteWPF.EventModels;
 using WoodnoteWPF.Models;
 
 namespace WoodnoteWPF.ViewModels
 {
-    public class BirdSearchViewModel : Conductor<object>, IPageViewModel
+    public class BirdSearchViewModel : Conductor<object>, 
+        IPageViewModel,
+        IHandle<OnSearchResultClosedEvent>
+
     {
         public string PageTitle => "Bird Search";
 
@@ -40,7 +45,7 @@ namespace WoodnoteWPF.ViewModels
             _rscs = RegionsSessionContextSingletone.GetInstance();
 
             LoadSilhouettes();
-            LoadColors();
+            Task.Factory.StartNew(() => LoadColors());
         }
 
 
@@ -57,6 +62,7 @@ namespace WoodnoteWPF.ViewModels
                 BirdOrderSilhouetteModel silhouetteModel = new BirdOrderSilhouetteModel()
                 {
                     Name = orderName,
+                    NameEn = orderNameEn,
                     ImagePath = imageFileName,
                     IsSelected = false
                 };
@@ -73,6 +79,7 @@ namespace WoodnoteWPF.ViewModels
             Colors.AddRange(output);
             return output;
         }
+
         public BindableCollection<BirdOrderSilhouetteModel> Silhouettes
         {
             get
@@ -146,23 +153,23 @@ namespace WoodnoteWPF.ViewModels
         {
             List<string> selectedSilhouetteNames = Silhouettes
                 .Where(x => x.IsSelected)
-                .Select(x => x.Name)
+                .Select(x => x.NameEn)
                 .ToList();
+
+            List<Order> selectedOrders = selectedSilhouetteNames.Select(x => 
+                EnumsProcessor.GetByName<Order>(x)).ToList();
 
             List<ColorModel> selectedColors = Colors
                 .Where(x => x.IsSelected)
                 .ToList();
 
+
+            // TODO: [CG, 2022.02.20] Преобразовать модели отображения к моделям domain, запихнуть в _birdSearcher.
+
+
+
             var selectedRegions = _rscs.SelectedRegions;
-
-            //BirdSearcher birdSearcher = new BirdSearcher(
-            //    DBBirdAccess.GetInstance(),
-            //    //new InFileBirdImageAccess(@"E:\Programming\Complex\Woodnote\Woodnote - Images\BirdImages"));
-            //    new InFileBirdImageAccess(@"C:\Repos\Woodnote\Woodnote - Images\BirdImages"));
-            //    //new InFileBirdImageAccess(@"D:\Science\Woodnote\Woodnote - Images\BirdImages"));
-
-
-            var birds = await _birdSearcher.GetItemsAsync();
+            var birds = await _birdSearcher.GetItemsAsync(selectedOrders, new List<Color>(), new List<EarthRegion>());
 
             var eventArgs = new OnSearchResultRequestedEvent()
             {
@@ -186,6 +193,11 @@ namespace WoodnoteWPF.ViewModels
         public void OnDeselectRegionClicked(RegionModel item)
         {
             item.IsSelected = !item.IsSelected;
+        }
+
+        public async Task HandleAsync(OnSearchResultClosedEvent message, CancellationToken cancellationToken)
+        {
+            
         }
     }
 }
