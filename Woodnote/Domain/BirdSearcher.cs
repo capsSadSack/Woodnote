@@ -68,6 +68,7 @@ namespace Domain
             return new BirdVM()
             {
                 Name = birdDomain.Name,
+                NameEn = birdDomain.NameEn,
                 Description = birdDomain.Description,
                 Colors = birdDomain.Colors.ToColorVM(),
                 Image_Male = image_Male,

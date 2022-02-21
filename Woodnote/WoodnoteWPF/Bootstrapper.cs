@@ -50,9 +50,9 @@ namespace WoodnoteWPF
 
             _container.Singleton<IBirdAccess, BirdInfoAccess.DatabaseAccess.DBBirdAccess>();
             _container.RegisterInstance(typeof(IBirdImageAccess), "IBirdImageAccess",
-                new BirdImageAccess.InFileBirdImageAccess(@"F:\Programming\Complex\Woodnote\Woodnote - Images\BirdImages")
+                //new BirdImageAccess.InFileBirdImageAccess(@"F:\Programming\Complex\Woodnote\Woodnote - Images\BirdImages")
                 //new BirdImageAccess.InFileBirdImageAccess(@"C:\Repos\Woodnote\Woodnote - Images\BirdImages")
-                //new BirdImageAccess.InFileBirdImageAccess(@"D:\Science\Woodnote\Woodnote - Images\BirdImages")
+                new BirdImageAccess.InFileBirdImageAccess(@"D:\Science\Woodnote\Woodnote - Images\BirdImages")
                 );
             _container.PerRequest<BirdSearcher>();
 

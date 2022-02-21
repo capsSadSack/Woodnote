@@ -23,7 +23,7 @@ namespace BirdImageAccess
         public async Task<Image> GetImageAsync(BirdDomain bird, Gender gender)
         {
             string filePath = GetFilePath(bird, gender);
-            return await Task.Run(() => Image.FromFile(filePath));
+            return Image.FromFile(filePath);
         }
 
         private string GetFilePath(BirdDomain bird, Gender gender)
@@ -40,7 +40,7 @@ namespace BirdImageAccess
 
         private string GetFileNameWithoutExtension(BirdDomain bird, Gender gender)
         {
-            return bird.Name + "_" + GetGenderStr(gender);
+            return bird.NameEn + "_" + GetGenderStr(gender);
         }
 
         private string GetGenderStr(Gender gender)

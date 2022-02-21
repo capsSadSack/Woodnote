@@ -169,7 +169,7 @@ namespace WoodnoteWPF.ViewModels
 
 
             var selectedRegions = _rscs.SelectedRegions;
-            var birds = await _birdSearcher.GetItemsAsync(selectedOrders, new List<Color>(), null);
+            var birds = await _birdSearcher.GetItemsAsync(selectedOrders, new List<Color>(), new List<EarthRegion>());
 
             var eventArgs = new OnSearchResultRequestedEvent()
             {

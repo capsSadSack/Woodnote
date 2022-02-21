@@ -23,7 +23,10 @@ namespace BirdInfoAccess.DatabaseAccess
 
         // 
         private IDbConnection _newConnection => ConnectionHelper.GetConnection(
-            @"Data Source=DESKTOP-ESI9LR3;Initial Catalog=WoodnoteDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            // TODO: [CG, 2022.02.21] RSS PC DB
+            @"Data Source=112M10-04;Initial Catalog=WoodnoteDB;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            // TODO: [CG, 2022.02.21] PC DB
+            //@"Data Source=DESKTOP-ESI9LR3;Initial Catalog=WoodnoteDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
 
 
         public DBBirdAccess()
@@ -132,6 +135,7 @@ namespace BirdInfoAccess.DatabaseAccess
             BirdDA birdDA = new BirdDA()
             {
                 Name = birdDB.Name,
+                NameEn = birdDB.NameEn,
                 Order = EnumsProcessor.GetByName<Order>(birdDB.TaxonomicRankNameEn),
                 Colors = colors.ToColorDA()
             };
@@ -144,7 +148,7 @@ namespace BirdInfoAccess.DatabaseAccess
         {
             string taxonomicRankNameEn = EnumsProcessor.GetName(typeof(Order), birdOrder);
             IEnumerable<BirdDB> birds = _dbAccessHelper.GetFew<BirdDB, dynamic>(_newConnection, "spBirds_GetByTaxonomicRankName",
-                                                                            new { TaxonomicRankName = taxonomicRankNameEn, LanguageId = languageId });
+                new { TaxonomicRankName = taxonomicRankNameEn, LanguageId = languageId });
 
             return birds;
         }

@@ -19,6 +19,7 @@ namespace WoodnoteWPF.Converters
             return new BirdModel()
             {
                 Name = birdVM.Name,
+                NameEn = birdVM.NameEn,
                 Description = birdVM.Description,
                 Colors = ColorConverter.ToColorModels(birdVM.Colors),
                 Image_Male = ToBitmapImage(birdVM.Image_Male),

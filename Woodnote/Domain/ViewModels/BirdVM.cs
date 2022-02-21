@@ -8,6 +8,7 @@ namespace Domain.ViewModels
     public class BirdVM
     {
         public string Name { get; set; }
+        public string NameEn { get; set; }
         //public Order Order { get; set; }
         //public IEnumerable<EarthRegion> Regions { get; set; }
         public IEnumerable<ColorVM> Colors { get; set; }
