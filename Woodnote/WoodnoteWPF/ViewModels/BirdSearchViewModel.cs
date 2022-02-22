@@ -25,15 +25,53 @@ namespace WoodnoteWPF.ViewModels
         IHandle<OnSearchResultClosedEvent>
 
     {
+        #region Properties 
+
         public string PageTitle => "Bird Search";
+
+        private BindableCollection<BirdOrderSilhouetteModel> _silhouettes = new BindableCollection<BirdOrderSilhouetteModel>();
+        public BindableCollection<BirdOrderSilhouetteModel> Silhouettes
+        {
+            get
+            {
+                return _silhouettes;
+            }
+            set
+            {
+                _silhouettes = value;
+            }
+        }
+
+        private BindableCollection<ColorModel> _colors = new BindableCollection<ColorModel>();
+        public BindableCollection<ColorModel> Colors
+        {
+            get
+            {
+                return _colors;
+            }
+            set
+            {
+                _colors = value;
+            }
+        }
+
+        private BirdOrderSilhouetteModel _selectedSilhouette;
+        public BirdOrderSilhouetteModel SelectedSilhouette
+        {
+            get { return _selectedSilhouette; }
+            set
+            {
+                _selectedSilhouette = value;
+                NotifyOfPropertyChange(() => SelectedSilhouette);
+            }
+        }
+
+        #endregion
 
         private readonly IEventAggregator _eventAggregator;
         private readonly BirdColorController _birdColorController;
         private readonly BirdSearcher _birdSearcher;
 
-        private BirdOrderSilhouetteModel _selectedSilhouette;
-        private BindableCollection<BirdOrderSilhouetteModel> _silhouettes = new BindableCollection<BirdOrderSilhouetteModel>();
-        private BindableCollection<ColorModel> _colors = new BindableCollection<ColorModel>();
         private RegionsSessionContextSingletone _rscs;
 
 
@@ -44,7 +82,7 @@ namespace WoodnoteWPF.ViewModels
             _birdSearcher = birdSearcher;
             _rscs = RegionsSessionContextSingletone.GetInstance();
 
-            LoadSilhouettes();
+            Task.Factory.StartNew(() => LoadSilhouettes());
             Task.Factory.StartNew(() => LoadColors());
         }
 
@@ -79,42 +117,6 @@ namespace WoodnoteWPF.ViewModels
             Colors.AddRange(output);
             return output;
         }
-
-        public BindableCollection<BirdOrderSilhouetteModel> Silhouettes
-        {
-            get
-            {
-                return _silhouettes;
-            }
-            set
-            {
-                _silhouettes = value;
-            }
-        }
-
-        public BindableCollection<ColorModel> Colors
-        {
-            get
-            {
-                return _colors;
-            }
-            set
-            {
-                _colors = value;
-            }
-        }
-
-        public BirdOrderSilhouetteModel SelectedPerson
-        {
-            get { return _selectedSilhouette; }
-            set
-            {
-                _selectedSilhouette = value;
-                NotifyOfPropertyChange(() => SelectedPerson);
-            }
-        }
-
-
 
         public bool CanClearText(string firstName, string lastName)
         {
