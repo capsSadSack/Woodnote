@@ -8,15 +8,13 @@ namespace Domain
 {
     public class BirdTaxonomicRanksController
     {
-        // Хочу реализовать следующие методы:
-        // - получить все такс. ранги по базовому рангу (отряд, клада, и т.п.)
-        // - получить цепочку родительских рангов,
-        private readonly IBirdAccess _birdAccess;
+        
+        private readonly ITaxonomicRankAccess _taxonomicRankAccess;
 
 
-        public BirdTaxonomicRanksController(IBirdAccess birdAccess)
+        public BirdTaxonomicRanksController(ITaxonomicRankAccess taxonomicRankAccess)
         {
-            _birdAccess = birdAccess;
+            _taxonomicRankAccess = taxonomicRankAccess;
         }
 
 

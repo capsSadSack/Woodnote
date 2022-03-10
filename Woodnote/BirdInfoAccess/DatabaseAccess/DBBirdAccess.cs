@@ -24,9 +24,9 @@ namespace BirdInfoAccess.DatabaseAccess
         // 
         private IDbConnection _newConnection => ConnectionHelper.GetConnection(
             // TODO: [CG, 2022.02.21] RSS PC DB
-            @"Data Source=112M10-04;Initial Catalog=WoodnoteDB;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            //@"Data Source=112M10-04;Initial Catalog=WoodnoteDB;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
             // TODO: [CG, 2022.02.21] PC DB
-            //@"Data Source=DESKTOP-ESI9LR3;Initial Catalog=WoodnoteDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            @"Data Source=DESKTOP-ESI9LR3;Initial Catalog=WoodnoteDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
 
 
         public DBBirdAccess()
