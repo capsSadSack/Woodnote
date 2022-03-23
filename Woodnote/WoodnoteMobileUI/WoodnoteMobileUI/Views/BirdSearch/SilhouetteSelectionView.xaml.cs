@@ -1,4 +1,4 @@
-﻿using BirdClassification;
+﻿using BirdClassification.BiologyClassification;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,8 +36,8 @@ namespace WoodnoteMobileUI.Views.BirdSearch
 
             IEnumerable<Order> extraBirdsOrders = allBirdsOrders.Where(x => !mainBirdsOrder.Contains(x));
 
-            FillGrid(mainBirdsOrder, mainBirdSilhouetteGrid);
-            FillGrid(extraBirdsOrders, extraBirdSilhouetteGrid);
+            FillGrid(/*mainBirdsOrder*/ allBirdsOrders, mainBirdSilhouetteGrid);
+            //FillGrid(extraBirdsOrders, extraBirdSilhouetteGrid);
         }
 
         private void FillGrid(IEnumerable<Order> birdsOrders, Grid grid)
@@ -61,7 +61,7 @@ namespace WoodnoteMobileUI.Views.BirdSearch
                     {
                         string orderNameEn = Enum.GetName(typeof(Order), birdsOrders.ElementAt(currentNumber));
                         string orderName = Properties.biologyClass.ResourceManager.GetString("Order_" + orderNameEn);
-                        string imageFileName = @"WoodnoteMobileUI.Resources." + orderNameEn + @"_Silhouette_150х200.png";
+                        string imageFileName = @"WoodnoteMobileUI.Resources." + orderNameEn + @"_Silhouette_300x400.png";//@"_Silhouette_150x200.png";
 
                         SilhouetteView view = new SilhouetteView(imageFileName, orderName);
                         AddChild(grid, view, 1 + row, 0 + col, 1, 1);

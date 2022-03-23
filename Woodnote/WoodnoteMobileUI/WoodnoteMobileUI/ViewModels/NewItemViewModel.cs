@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Domain.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
@@ -7,7 +8,7 @@ using Xamarin.Forms;
 
 namespace WoodnoteMobileUI.ViewModels
 {
-    public class NewItemViewModel : BaseViewModel
+    public class NewItemViewModel : BaseDataStoreViewModel<Item>
     {
         private string text;
         private string description;

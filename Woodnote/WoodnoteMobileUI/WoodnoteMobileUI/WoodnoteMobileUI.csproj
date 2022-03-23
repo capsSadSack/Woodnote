@@ -1,31 +1,62 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
     <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+    <UserSecretsId>d345712c-68c9-471c-87fb-0362d44398f5</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Resources\Aepyornithiformes_Silhouette_150х200.png" />
-    <None Remove="Resources\Anseriformes_Silhouette_150х200.png" />
-    <None Remove="Resources\Eurypygiformes_Silhouette_150х200.png" />
-    <None Remove="Resources\Galliformes_Silhouette_150х200.png" />
+    <Compile Remove="Controllers\**" />
+    <EmbeddedResource Remove="Controllers\**" />
+    <None Remove="Controllers\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Aepyornithiformes_Silhouette_150х200.png" />
-    <EmbeddedResource Include="Resources\Anseriformes_Silhouette_150х200.png" />
-    <EmbeddedResource Include="Resources\Eurypygiformes_Silhouette_150х200.png" />
-    <EmbeddedResource Include="Resources\Galliformes_Silhouette_150х200.png" />
+    <None Remove="Resources\Aepyornithiformes_Silhouette_300x400.png" />
+    <None Remove="Resources\Anseriformes_Silhouette_300x400.png" />
+    <None Remove="Resources\Apterygiformes_Silhouette_300x400.png" />
+    <None Remove="Resources\Casuariiformes_Silhouette_300x400.png" />
+    <None Remove="Resources\Ciconiiformes_Silhouette_300x400.png" />
+    <None Remove="Resources\Columbiformes_Silhouette_300x400.png" />
+    <None Remove="Resources\Eurypygiformes_Silhouette_300x400.png" />
+    <None Remove="Resources\Galliformes_Silhouette_300x400.png" />
+    <None Remove="Resources\Gaviiformes_Silhouette_300x400.png" />
+    <None Remove="Resources\Opisthocomiformes_Silhouette_300x400.png" />
+    <None Remove="Resources\Passeriformes_Silhouette_300x400.png" />
+    <None Remove="Resources\Procellariiformes_Silhouette_300x400.png" />
+    <None Remove="Resources\Rheiformes_Silhouette_300x400.png" />
+    <None Remove="Resources\Struthioniformes_Silhouette_300x400.png" />
+    <None Remove="Resources\Tinamiformes_Silhouette_300x400.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="4.6.0.1141" />  
-    <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
+    <EmbeddedResource Include="Resources\Aepyornithiformes_Silhouette_300x400.png" />
+    <EmbeddedResource Include="Resources\Anseriformes_Silhouette_300x400.png" />
+    <EmbeddedResource Include="Resources\Apterygiformes_Silhouette_300x400.png" />
+    <EmbeddedResource Include="Resources\Casuariiformes_Silhouette_300x400.png" />
+    <EmbeddedResource Include="Resources\Ciconiiformes_Silhouette_300x400.png" />
+    <EmbeddedResource Include="Resources\Columbiformes_Silhouette_300x400.png" />
+    <EmbeddedResource Include="Resources\Eurypygiformes_Silhouette_300x400.png" />
+    <EmbeddedResource Include="Resources\Galliformes_Silhouette_300x400.png" />
+    <EmbeddedResource Include="Resources\Gaviiformes_Silhouette_300x400.png" />
+    <EmbeddedResource Include="Resources\Opisthocomiformes_Silhouette_300x400.png" />
+    <EmbeddedResource Include="Resources\Passeriformes_Silhouette_300x400.png" />
+    <EmbeddedResource Include="Resources\Procellariiformes_Silhouette_300x400.png" />
+    <EmbeddedResource Include="Resources\Rheiformes_Silhouette_300x400.png" />
+    <EmbeddedResource Include="Resources\Struthioniformes_Silhouette_300x400.png" />
+    <EmbeddedResource Include="Resources\Tinamiformes_Silhouette_300x400.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />  
+    <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />  
+    <PackageReference Include="Xamarin.Forms.Maps" Version="5.0.0.2012" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\BirdClassification\BirdClassification.csproj" />
+    <ProjectReference Include="..\..\Domain\Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -54,6 +85,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>strings.resx</DependentUpon>
     </Compile>
+    <Compile Update="Views\BirdsPage.xaml.cs">
+      <DependentUpon>BirdsPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -77,10 +111,16 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>strings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\BirdPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\BirdSearchPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\BirdSearch\ColorSelectionView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\BirdSearch\MapSelectionView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\BirdSearch\SilhouetteSelectionView.xaml">
@@ -90,6 +130,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\CustomControls\ExpandableView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\BirdsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

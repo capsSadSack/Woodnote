@@ -2,15 +2,13 @@
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
-
-using WoodnoteMobileUI.Models;
 using WoodnoteMobileUI.Views;
+using WoodnoteMobileUI.Models;
 
 namespace WoodnoteMobileUI.ViewModels
 {
-    public class ItemsViewModel : BaseViewModel
+    public class ItemsViewModel : BaseDataStoreViewModel<Item>
     {
         private Item _selectedItem;
 
@@ -30,7 +28,7 @@ namespace WoodnoteMobileUI.ViewModels
             AddItemCommand = new Command(OnAddItem);
         }
 
-        async Task ExecuteLoadItemsCommand()
+        private async Task ExecuteLoadItemsCommand()
         {
             IsBusy = true;
 
@@ -74,7 +72,7 @@ namespace WoodnoteMobileUI.ViewModels
             await Shell.Current.GoToAsync(nameof(NewItemPage));
         }
 
-        async void OnItemSelected(Item item)
+        private async void OnItemSelected(Item item)
         {
             if (item == null)
                 return;

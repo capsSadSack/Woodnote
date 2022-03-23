@@ -1,40 +1,41 @@
-﻿using System;
+﻿using Domain.Models;
+using System;
 using System.Diagnostics;
-using System.Threading.Tasks;
 using WoodnoteMobileUI.Models;
 using Xamarin.Forms;
 
 namespace WoodnoteMobileUI.ViewModels
 {
     [QueryProperty(nameof(ItemId), nameof(ItemId))]
-    public class ItemDetailViewModel : BaseViewModel
+    public class ItemDetailViewModel : BaseDataStoreViewModel<Item>
     {
-        private string itemId;
-        private string text;
-        private string description;
+        private string _itemId;
+        private string _text;
+        private string _description;
+
         public string Id { get; set; }
 
         public string Text
         {
-            get => text;
-            set => SetProperty(ref text, value);
+            get => _text;
+            set => SetProperty(ref _text, value);
         }
 
         public string Description
         {
-            get => description;
-            set => SetProperty(ref description, value);
+            get => _description;
+            set => SetProperty(ref _description, value);
         }
 
         public string ItemId
         {
             get
             {
-                return itemId;
+                return _itemId;
             }
             set
             {
-                itemId = value;
+                _itemId = value;
                 LoadItemId(value);
             }
         }

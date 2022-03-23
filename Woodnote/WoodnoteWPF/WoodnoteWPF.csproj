@@ -1,0 +1,160 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\Icon_Plus.png" />
+    <None Remove="Images\Otidiformes_Silhouette_300x400.png" />
+    <None Remove="Resources\Aepyornithiformes_Silhouette_300x400.png" />
+    <None Remove="Resources\Anseriformes_Silhouette_300x400.png" />
+    <None Remove="Resources\Apterygiformes_Silhouette_300x400.png" />
+    <None Remove="Resources\Casuariiformes_Silhouette_300x400.png" />
+    <None Remove="Resources\Ciconiiformes_Silhouette_300x400.png" />
+    <None Remove="Resources\Columbiformes_Silhouette_300x400.png" />
+    <None Remove="Resources\Cross_White.png" />
+    <None Remove="Resources\Eurypygiformes_Silhouette_300x400.png" />
+    <None Remove="Resources\Galliformes_Silhouette_300x400.png" />
+    <None Remove="Resources\Gaviiformes_Silhouette_300x400.png" />
+    <None Remove="Resources\MagnifyingGlass.png" />
+    <None Remove="Resources\Opisthocomiformes_Silhouette_300x400.png" />
+    <None Remove="Resources\Passeriformes_Silhouette_300x400.png" />
+    <None Remove="Resources\Procellariiformes_Silhouette_300x400.png" />
+    <None Remove="Resources\Rheiformes_Silhouette_300x400.png" />
+    <None Remove="Resources\Struthioniformes_Silhouette_300x400.png" />
+    <None Remove="Resources\Tinamiformes_Silhouette_300x400.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\Icon_Plus.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\Icon_MagnifyingGlass.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\Icon_CrossWhite.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\Otidiformes_Silhouette_300x400.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\Aepyornithiformes_Silhouette_300x400.png" />
+    <Resource Include="Images\Anseriformes_Silhouette_300x400.png" />
+    <Resource Include="Images\Apterygiformes_Silhouette_300x400.png" />
+    <Resource Include="Images\Casuariiformes_Silhouette_300x400.png" />
+    <Resource Include="Images\Ciconiiformes_Silhouette_300x400.png" />
+    <Resource Include="Images\Columbiformes_Silhouette_300x400.png" />
+    <Resource Include="Images\Eurypygiformes_Silhouette_300x400.png" />
+    <Resource Include="Images\Galliformes_Silhouette_300x400.png" />
+    <Resource Include="Images\Gaviiformes_Silhouette_300x400.png" />
+    <Resource Include="Images\Opisthocomiformes_Silhouette_300x400.png" />
+    <Resource Include="Images\Passeriformes_Silhouette_300x400.png" />
+    <Resource Include="Images\Procellariiformes_Silhouette_300x400.png" />
+    <Resource Include="Images\Rheiformes_Silhouette_300x400.png" />
+    <Resource Include="Images\Struthioniformes_Silhouette_300x400.png" />
+    <Resource Include="Images\Tinamiformes_Silhouette_300x400.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Caliburn.Micro" Version="4.0.173" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.31" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BirdClassification\BirdClassification.csproj" />
+    <ProjectReference Include="..\BirdImageAccess\BirdImageAccess.csproj" />
+    <ProjectReference Include="..\BirdInfoAccess\BirdInfoAccess.csproj" />
+    <ProjectReference Include="..\Domain\Domain.csproj" />
+    <ProjectReference Include="..\PolygonMapControlLibrary\PolygonMapControlLibrary.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\biologyClass.Designer.cs">
+      <DependentUpon>biologyClass.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="Properties\birds.neognathae.accipitriformes.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>birds.neognathae.accipitriformes.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Properties\birds.neognathae.passeriformes.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>birds.neognathae.passeriformes.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Properties\earthRegion.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>earthRegion.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Properties\uiStrings.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>uiStrings.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\biologyClass.resx">
+      <LastGenOutput>biologyClass.Designer.cs</LastGenOutput>
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Properties\birds.neognathae.accipitriformes.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>birds.neognathae.accipitriformes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Properties\birds.neognathae.passeriformes.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>birds.neognathae.passeriformes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Properties\earthRegion.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>earthRegion.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Properties\uiStrings.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>uiStrings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Properties\uiStrings.ru.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="DataSharing\" />
+    <Folder Include="Resources\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="appsettings.Development.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="appsettings.Production.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

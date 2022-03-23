@@ -3,14 +3,19 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WoodnoteMobileUI.Views.BirdSearch.SilhouetteView">
   <ContentView.Content>
-        <Frame OutlineColor="Black">
+        <Frame x:Name="silhouetteFrame"
+            OutlineColor="Black" >
             <StackLayout Orientation="Vertical">
-                <Image x:Name="image" HeightRequest="100"
+                <Image x:Name="image" HeightRequest="150"
                    Aspect="AspectFit"/>
 
                 <Label x:Name="label" FontSize="Micro"
-                   VerticalOptions="Center"
-                   HorizontalOptions="Center"/>
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="CenterAndExpand"/>
+
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnTapped"/>
+                </StackLayout.GestureRecognizers>
             </StackLayout>
         </Frame>
     </ContentView.Content>

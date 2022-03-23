@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="DatabaseAccess\DefaultData\**" />
+    <Compile Remove="SQLiteDatabaseAccess\DefaultData\Birds\**" />
+    <EmbeddedResource Remove="DatabaseAccess\DefaultData\**" />
+    <EmbeddedResource Remove="SQLiteDatabaseAccess\DefaultData\Birds\**" />
+    <None Remove="DatabaseAccess\DefaultData\**" />
+    <None Remove="SQLiteDatabaseAccess\DefaultData\Birds\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
+    <PackageReference Include="SQLite" Version="3.13.0" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DapperHelper\DapperHelper.csproj" />
+    <ProjectReference Include="..\Domain\Domain.csproj" />
+    <ProjectReference Include="..\Utils\Utils.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,150 @@
+﻿<UserControl x:Class="WoodnoteWPF.Views.BirdSearchView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro.Platform"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             xmlns:resources="clr-namespace:WoodnoteWPF.Properties" 
+             xmlns:local="clr-namespace:WoodnoteWPF.Converters" 
+             xmlns:views="clr-namespace:WoodnoteWPF.Views"
+             xmlns:map="clr-namespace:PolygonMapControlLibrary.Views;assembly=PolygonMapControlLibrary"
+             mc:Ignorable="d" Background="White"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <local:BoolToVisibilityConverter x:Key="BoolToVis" />
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        
+        <WrapPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="10"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="10"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="1" Grid.Column="1"
+                    Text="{x:Static resources:uiStrings.BirdColorsHeader}"/>
+
+                <ItemsControl x:Name="Colors" Grid.Row="2" Grid.Column="1">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Margin="5">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                    </Grid.RowDefinitions>
+
+                                    <ToggleButton x:Name="SelectColor" Grid.Row="0" Grid.Column="0"
+                                        Width="35" Height="35"
+                                        Background="{Binding Color}"
+                                        Style="{StaticResource ColorsToggleButtonStyle}"/>
+                                </Grid>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
+
+                <TextBlock Grid.Row="3" Grid.Column="1"
+                    Text="{x:Static resources:uiStrings.BirdSilhouettesHeader}"/>
+
+                <ScrollViewer Grid.Row="4" Grid.Column="1"
+                              HorizontalScrollBarVisibility="Visible"
+                              VerticalScrollBarVisibility="Hidden">
+                    <ItemsControl x:Name="Silhouettes">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Margin="5">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="auto"/>
+                                        </Grid.RowDefinitions>
+
+                                        <ToggleButton x:Name="SelectSihouette" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"
+                                            Width="120" Height="160" 
+                                            Style="{StaticResource SilhouettesToggleButtonStyle}" 
+                                            cal:Message.Attach="[Click] = [OnSilhouetteClicked($datacontext)]">
+                                            <Image Source="{Binding Path=ImagePath}"/>
+                                        </ToggleButton>
+
+                                        <TextBlock Grid.Row="2" Grid.Column="0"
+                                            Text="{Binding Path=Name}" 
+                                            FontSize="12" HorizontalAlignment="Center" />
+                                    </Grid>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                </ScrollViewer>
+
+                <TextBlock Grid.Row="5" Grid.Column="1"
+                    Text="{x:Static resources:uiStrings.BirdRegionHeader}"/>
+
+                <map:MapView Grid.Row="8" Grid.Column="1" />
+            </Grid>
+        </WrapPanel>
+
+        <Button x:Name="OnAddBirdClicked" Grid.Row="4"  Grid.Column="1"
+            HorizontalAlignment="Right"
+            Background="Transparent" BorderThickness="0">
+
+            <Image Source="pack://application:,,,/Images/Icon_Plus.png" 
+                Width="40" Height="40"/>
+        </Button>
+
+        <Button x:Name="OnSearchBirdsClicked" Grid.Row="4"  Grid.Column="3"
+            HorizontalAlignment="Right"
+            Background="Transparent" BorderThickness="0">
+
+            <Image Source="pack://application:,,,/Images/Icon_MagnifyingGlass.png" 
+                Width="40" Height="40"/>
+        </Button>
+    </Grid>
+</UserControl>

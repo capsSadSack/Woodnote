@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.woodnotemobileui">
-	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="28" />
-	<application android:label="WoodnoteMobileUI.Android" android:theme="@style/MainTheme"></application>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.capssadsacksoft.woodnotemobileui">
+	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="29" />
+	<application android:label="WoodnoteMobileUI.Android" android:theme="@style/MainTheme">
+    <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyAOo8EaTGH2VYjxJg4lxS2F5OzuXxG9Wcc" /> 
+  </application>
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 </manifest>

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace WoodnoteMobileUI.Models
+﻿namespace WoodnoteMobileUI.Models
 {
     public class Item
     {
