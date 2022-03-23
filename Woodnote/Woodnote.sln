@@ -31,7 +31,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OtherLibs", "OtherLibs", "{
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DapperHelper", "DapperHelper\DapperHelper.csproj", "{89158BFB-C9D9-4C96-B301-03A55AE616CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolygonMapControlLibrary", "PolygonMapControlLibrary\PolygonMapControlLibrary.csproj", "{A3C38F60-C617-44EF-929D-9033A3BEFC29}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PolygonMapControlLibrary", "PolygonMapControlLibrary\PolygonMapControlLibrary.csproj", "{A3C38F60-C617-44EF-929D-9033A3BEFC29}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

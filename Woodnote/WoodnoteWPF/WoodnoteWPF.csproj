@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\Icon_Plus.png" />
     <None Remove="Images\Otidiformes_Silhouette_300x400.png" />
     <None Remove="Resources\Aepyornithiformes_Silhouette_300x400.png" />
     <None Remove="Resources\Anseriformes_Silhouette_300x400.png" />
@@ -25,6 +26,10 @@
     <None Remove="Resources\Rheiformes_Silhouette_300x400.png" />
     <None Remove="Resources\Struthioniformes_Silhouette_300x400.png" />
     <None Remove="Resources\Tinamiformes_Silhouette_300x400.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\Icon_Plus.png" />
   </ItemGroup>
 
   <ItemGroup>

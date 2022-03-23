@@ -25,6 +25,7 @@ namespace Domain
             _birdImageAccess = birdImageAccess;
         }
 
+
         public async Task<BirdVM> GetItemAsync(string id)
         {
             var bird = await _birdAccess.GetBirdAsync(id);

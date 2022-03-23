@@ -18,6 +18,8 @@ namespace WoodnoteWPF.ViewModels
     public class BirdSearchResultViewModel : Conductor<object>, IPageViewModel,
         IHandle<OnSearchResultRequestedEvent>, IHandle<string>
     {
+        #region Propeties
+
         public string PageTitle { get; set; } = "Bird Search Result";
 
         private int _searchResultCount = 0;
@@ -34,10 +36,7 @@ namespace WoodnoteWPF.ViewModels
             }
         }
 
-
-        private readonly IEventAggregator _eventAggregator;
         private BindableCollection<BirdModel> _searchResult = new BindableCollection<BirdModel>();
-
         public BindableCollection<BirdModel> SearchResult
         {
             get
@@ -51,6 +50,10 @@ namespace WoodnoteWPF.ViewModels
                 NotifyOfPropertyChange(() => SearchResult);                
             }
         }
+
+        #endregion
+
+        private readonly IEventAggregator _eventAggregator;
 
 
         public BirdSearchResultViewModel(IEventAggregator eventAggregator)

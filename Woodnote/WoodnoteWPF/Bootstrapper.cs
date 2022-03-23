@@ -61,6 +61,7 @@ namespace WoodnoteWPF
             _container.PerRequest<ShellViewModel>();
             _container.PerRequest<BirdSearchResultViewModel>();
             _container.Singleton<BirdSearchViewModel>();
+            _container.PerRequest<AddBirdViewModel>();
             _container.Singleton<MapViewModel>();
             _container.PerRequest<TimCoreyShellViewModel>();
 

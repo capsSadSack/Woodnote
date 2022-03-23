@@ -61,7 +61,7 @@ namespace WoodnoteWPF.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Select bird color.
+        ///   Looks up a localized string similar to Select bird color(s).
         /// </summary>
         public static string BirdColorsHeader {
             get {
@@ -102,6 +102,51 @@ namespace WoodnoteWPF.Properties {
         public static string BirdSilhouettesHeader {
             get {
                 return ResourceManager.GetString("BirdSilhouettesHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string Cancel {
+            get {
+                return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Female Image Path.
+        /// </summary>
+        public static string FemaleImagePath {
+            get {
+                return ResourceManager.GetString("FemaleImagePath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Male Image Path.
+        /// </summary>
+        public static string MaleImagePath {
+            get {
+                return ResourceManager.GetString("MaleImagePath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OK.
+        /// </summary>
+        public static string Okay {
+            get {
+                return ResourceManager.GetString("Okay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Path....
+        /// </summary>
+        public static string PathButtonLabel {
+            get {
+                return ResourceManager.GetString("PathButtonLabel", resourceCulture);
             }
         }
         
